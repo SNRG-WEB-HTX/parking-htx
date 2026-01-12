@@ -1,0 +1,492 @@
+<!-- PARKING HTX - PARKER INFO - ELITE BUILD -->
+<!-- HAMBURGER: 56PX VERIFIED - MATCHES HOMEPAGE | PERFORMANCE OPTIMIZED -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Three easy ways to pay for parking at PARKING HTX: QR code scanning, text-to-park, or NFC tap payment. No apps required.">
+<title>Parker Information - PARKING HTX</title>
+
+<!-- DNS PREFETCH - PERFORMANCE -->
+<link rel="dns-prefetch" href="https://api.fontshare.com">
+<link rel="dns-prefetch" href="https://cdn.prod.website-files.com">
+<link rel="dns-prefetch" href="https://assets.calendly.com">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
+
+<!-- FONT PRELOAD -->
+<link rel="preload" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" as="style">
+
+<style>
+:root{--maroon:#C4463A;--maroon-light:#E89B92;--olive:#7A8F4E;--olive-light:#B8C997;--black:#0A0A0A;--charcoal:#1A1A1A;--mid-gray:#6B6B6B;--light-gray:#D1D1D1;--white:#FFF;--off-white:#FAFAFA;--bg:#FCFCFC;--gray:#F7F7F7;--tricolor-gradient:linear-gradient(135deg,var(--maroon) 0%,var(--olive) 100%);--ease-premium:cubic-bezier(.16,1,.3,1);--ease-float:cubic-bezier(.25,.46,.45,.94)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;height:100%}
+body{background:var(--white);font-family:Satoshi,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--charcoal);font-size:clamp(15.5px,1.55vw + .5px,18px);line-height:1.6;overflow-x:hidden;min-height:100%;-webkit-overflow-scrolling:touch}
+h1,h2,h3,h4,h5,h6,p{text-wrap:balance;word-break:normal;overflow-wrap:break-word;hyphens:manual;-webkit-hyphens:manual;-ms-hyphens:manual}
+h1{max-width:26ch;line-height:1.1}
+h2{max-width:36ch;line-height:1.35}
+h3{max-width:30ch;line-height:1.25}
+p{max-width:65ch;line-height:1.6}
+.no-break{white-space:nowrap !important;display:inline-block !important;word-break:keep-all !important;hyphens:none !important;-webkit-hyphens:none !important}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;top:-100px;left:0;background:var(--maroon);color:var(--white);padding:12px 24px;text-decoration:none;font-weight:600;z-index:10000;border-radius:0 0 8px 0;transition:top .3s var(--ease-premium)}
+.skip-link:focus{top:0}
+a:focus-visible,button:focus-visible,.btn-cta:focus-visible{outline:3px solid var(--maroon);outline-offset:3px}
+.hamburger:focus-visible{outline:3px solid var(--maroon);outline-offset:2px}
+.fade-rise{opacity:0;transform:translateY(80px) scale(.96);transition:all 1.2s var(--ease-premium)}
+.fade-rise.visible{opacity:1;transform:translateY(0) scale(1)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+.fade-rise{transition:none;opacity:1;transform:none}
+}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);padding:clamp(16px,1.6vw,20px) 5%;transition:padding .5s var(--ease-premium),background .5s var(--ease-premium),border-color .5s var(--ease-premium),box-shadow .5s var(--ease-premium);border-bottom:1px solid rgba(209,209,209,.35)}
+.header.scrolled{padding:clamp(12px,1.2vw,16px) 5%;background:rgba(255,255,255,.94);border-bottom-color:rgba(209,209,209,.45);box-shadow:0 1px 0 rgba(209,209,209,.25),0 8px 32px rgba(0,0,0,.05)}
+.header-inner{max-width:1600px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{width:clamp(88px,10vw,120px);height:clamp(88px,10vw,120px);transition:all .5s var(--ease-premium);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.logo:hover{transform:scale(1.04) translateY(-1px)}
+.logo img{width:100%;height:100%;object-fit:contain}
+.hamburger{width:56px;height:56px;background:transparent;border:1.5px solid rgba(209,209,209,.6);cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;transition:all .35s var(--ease-premium);border-radius:12px;flex-shrink:0;padding:12px}
+.hamburger:hover{border-color:var(--maroon);background:rgba(196,70,58,.03)}
+.hamburger span{width:100%;height:2.5px;background:var(--charcoal);border-radius:2px;transition:all .3s var(--ease-premium);display:block}
+.hamburger.active{background:var(--charcoal);border-color:var(--charcoal)}
+.hamburger.active span{background:var(--white)}
+.hamburger.active span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.active span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .4s var(--ease-premium);z-index:998;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.menu-overlay.active{opacity:1;visibility:visible}
+.menu{position:fixed;top:clamp(16px,1.6vw,20px);right:-100%;width:clamp(320px,88vw,400px);max-height:calc(100vh - 40px);background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border:1px solid rgba(209,209,209,.4);border-radius:16px;box-shadow:-4px 0 24px rgba(0,0,0,.08);transition:right .6s var(--ease-premium);z-index:999;display:flex;flex-direction:column;padding:clamp(24px,2.6vw,32px) clamp(20px,2.2vw,26px);overflow:hidden}
+.menu.active{right:clamp(16px,1.6vw,20px)}
+.menu-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:clamp(20px,2.2vw,28px);padding-bottom:clamp(12px,1.4vw,16px);border-bottom:1px solid rgba(209,209,209,.3)}
+.menu-logo{width:clamp(48px,5.5vw,58px);height:clamp(48px,5.5vw,58px);flex-shrink:0}
+.menu-logo img{width:100%;height:100%;object-fit:contain}
+.menu-close{width:36px;height:36px;border:none;border-radius:50%;background:var(--charcoal);color:var(--white);font-size:20px;font-weight:300;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .35s var(--ease-premium);flex-shrink:0}
+.menu-close:hover{transform:rotate(90deg) scale(1.08);background:var(--maroon)}
+.menu-items{display:flex;flex-direction:column;gap:clamp(6px,.7vw,8px);flex:1;overflow-y:auto;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border-radius:16px;padding:12px 12px 12px 8px;box-shadow:0 4px 24px rgba(0,0,0,.08),0 0 0 1px rgba(209,209,209,.2),inset 0 1px 0 rgba(255,255,255,.8)}
+.menu-items a{position:relative;display:flex;align-items:center;padding:14px 20px 14px 28px;font-size:clamp(13.5px,1.4vw,16px);font-weight:500;color:var(--charcoal);text-decoration:none;border-radius:10px;margin-bottom:4px;transition:all .35s var(--ease-premium);overflow:hidden;text-transform:uppercase;letter-spacing:.02em;opacity:0;transform:translateX(20px)}
+.menu.active .menu-items a{animation:menuSlide .4s var(--ease-premium) forwards}
+.menu.active .menu-items a:nth-child(1){animation-delay:.06s}
+.menu.active .menu-items a:nth-child(2){animation-delay:.1s}
+.menu.active .menu-items a:nth-child(3){animation-delay:.14s}
+.menu.active .menu-items a:nth-child(4){animation-delay:.18s}
+.menu.active .menu-items a:nth-child(5){animation-delay:.22s}
+.menu.active .menu-items a:nth-child(6){animation-delay:.26s}
+@keyframes menuSlide{to{opacity:1;transform:translateX(0)}
+}
+.menu-items a::before{content:'';position:absolute;left:12px;top:50%;transform:translateY(-50%);width:4px;height:4px;background:var(--mid-gray);border-radius:50%;transition:all .35s var(--ease-premium);opacity:.5}
+.menu-items a::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(196,70,58,.06) 0%,rgba(122,143,78,.06) 100%);opacity:0;transition:opacity .3s var(--ease-premium)}
+.menu-items a span{position:relative;z-index:1}
+.menu-items a:hover{color:var(--maroon);padding-left:32px;box-shadow:0 2px 8px rgba(196,70,58,.06),inset 0 0 0 1px rgba(196,70,58,.12)}
+.menu-items a:hover::before{width:4px;height:20px;border-radius:2px;background:var(--maroon);opacity:1}
+.menu-items a:hover::after{opacity:1}
+.menu-items a.active{background:linear-gradient(135deg,rgba(196,70,58,.08) 0%,rgba(122,143,78,.06) 100%);color:var(--maroon);font-weight:600;padding-left:32px;box-shadow:inset 0 0 0 1.5px rgba(196,70,58,.2),0 2px 8px rgba(196,70,58,.08)}
+.menu-items a.active::before{width:4px;height:28px;border-radius:2px;background:var(--tricolor-gradient);opacity:1}
+.menu-items a.active::after{opacity:.7}
+.page-hero{max-width:1600px;margin:0 auto;padding:clamp(180px,20vh,240px) 5% clamp(16px,1.8vw,24px);text-align:center}
+.page-title{font-size:clamp(48px,10vw,96px);font-weight:900;line-height:1.05;letter-spacing:-.04em;color:var(--black);margin-bottom:clamp(24px,2.8vw,36px);text-transform:uppercase;margin-left:auto;margin-right:auto;hyphens:none;-webkit-hyphens:none}
+.page-title .line{display:block}
+.title-word{display:inline-block;opacity:0;transform:translateY(50px);white-space:nowrap}
+.page-title .line.accent{position:relative;display:inline-block}
+.page-title .line.accent .title-word{background:var(--tricolor-gradient);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradient-shift 2.8s ease-in-out infinite;white-space:nowrap}
+.page-title .line.accent::after{content:'';position:absolute;left:0;bottom:-8px;width:0;height:3px;background:var(--maroon);box-shadow:0 0 12px var(--maroon),0 0 24px rgba(196,70,58,.6);transition:width 1.8s var(--ease-premium) 1.2s}
+.page-title .line.accent.show-underline::after{width:100%}
+@keyframes gradient-shift{0%,100%{background-position:0% 50%}
+50%{background-position:100% 50%}
+}
+.page-subtitle{font-size:clamp(11px,2.3vw,17px);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);line-height:1.5;margin:clamp(18px,2vw,26px) auto 0;text-align:center;width:100%;display:block;max-width:900px}
+.intro-section{max-width:1600px;margin:0 auto;padding:clamp(2px,.3vw,4px) 5%}
+.intro-text{font-size:clamp(15px,3.5vw,21px);line-height:1.65;color:var(--mid-gray);max-width:800px;font-weight:500;margin:0 auto;text-align:center}
+.hero-cta-section{max-width:1600px;margin:0 auto;padding:clamp(14px,1.6vw,20px) 5%;display:flex;justify-content:center}
+.btn-cta{position:relative;padding:clamp(16px,1.8vw,20px) clamp(32px,3.5vw,48px);font-size:clamp(13px,2.8vw,16px);font-weight:700;font-family:Satoshi,sans-serif;color:var(--white);background:rgba(196,70,58,.3);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:none;border-radius:12px;text-decoration:none;cursor:pointer;overflow:hidden;transition:all .4s var(--ease-premium);box-shadow:0 2px 8px rgba(196,70,58,.3),0 8px 32px rgba(196,70,58,.2);text-transform:uppercase;letter-spacing:.06em;display:inline-flex;align-items:center;justify-content:center}
+.btn-cta::before{content:'';position:absolute;inset:0;background:var(--maroon);z-index:1}
+.btn-cta::after{content:'';position:absolute;inset:3px;border-radius:9px;border:1px solid rgba(255,255,255,.85);z-index:2;pointer-events:none;transition:all .4s var(--ease-premium)}
+.btn-cta span{position:relative;z-index:3;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.btn-cta:hover{transform:translateY(-2px) scale(1.02);background:rgba(196,70,58,.35);box-shadow:0 4px 12px rgba(196,70,58,.4),0 12px 40px rgba(196,70,58,.3)}
+.btn-cta:hover::after{border-color:rgba(255,255,255,.95);inset:2.5px}
+.btn-cta:active{transform:translateY(0) scale(.98)}
+.section-separator{max-width:1600px;margin:0 auto;padding:0 5%}
+.section-separator hr{border:none;border-top:1px solid var(--light-gray);margin:clamp(14px,1.6vw,20px) 0}
+.cards-section{max-width:1600px;margin:0 auto;padding:clamp(8px,1vw,12px) 5% clamp(40px,4.5vw,56px)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,3.2vw,44px)}
+.flip-card{perspective:2000px;cursor:pointer;height:clamp(520px,58vh,620px);width:100%}
+.flip-card-inner{position:relative;width:100%;height:100%;transition:transform .6s ease-in-out;transform-style:preserve-3d}
+.flip-card.flipped .flip-card-inner{transform:rotateY(180deg)}
+.flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;overflow:hidden}
+.flip-card-front{background:var(--white);border:1.5px solid var(--light-gray);transition:all .4s var(--ease-premium);box-shadow:0 2px 8px rgba(0,0,0,.04);z-index:1}
+.flip-card:hover .flip-card-front{border-color:var(--maroon);box-shadow:0 16px 48px rgba(0,0,0,.12),0 0 0 1px var(--maroon-light)}
+.card-front-header{position:absolute;top:0;left:0;right:0;padding:clamp(16px,1.8vw,24px) clamp(18px,2vw,28px);background:linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.92) 70%,transparent 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;gap:clamp(8px,1vw,12px);border-bottom:1px solid rgba(209,209,209,.3)}
+.card-front-title{color:var(--black);font-size:clamp(17px,1.9vw,22px);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.2;flex:1;word-break:normal;hyphens:none;-webkit-hyphens:none;overflow-wrap:normal}
+.card-front-flip{display:flex;align-items:center;gap:clamp(5px,.6vw,8px);color:var(--maroon);font-size:clamp(10px,1.05vw,12px);font-weight:700;text-transform:uppercase;letter-spacing:.08em;flex-shrink:0;white-space:nowrap}
+.card-image{position:absolute;top:clamp(76px,9vh,96px);left:0;right:0;bottom:0;overflow:hidden;background:#FAFAFA;display:flex;align-items:center;justify-content:center}
+.card-image img{width:100%;height:100%;object-fit:contain;object-position:center}
+.flip-icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;animation:rotate-hint 3s infinite}
+@keyframes rotate-hint{0%,100%{transform:rotate(0deg)}
+50%{transform:rotate(180deg)}
+}
+.flip-icon svg{width:100%;height:100%;stroke:var(--maroon);stroke-width:2;fill:none}
+.flip-card-back{transform:rotateY(180deg);padding:clamp(24px,2.8vw,34px) clamp(22px,2.6vw,30px);display:flex;flex-direction:column;border:1.5px solid var(--light-gray);position:relative;overflow:hidden;height:100%;z-index:2}
+.flip-card:nth-child(1) .flip-card-back{background:linear-gradient(135deg,#FAFAFA 0%,#F5F5F5 100%)}
+.flip-card:nth-child(2) .flip-card-back{background:linear-gradient(135deg,#F8F8F8 0%,#F0F0F0 100%)}
+.flip-card:nth-child(3) .flip-card-back{background:linear-gradient(135deg,#FCFCFC 0%,#F3F3F3 100%)}
+.flip-card-back::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--tricolor-gradient)}
+.card-back-header{margin-bottom:clamp(16px,1.8vw,22px);padding-bottom:clamp(12px,1.5vw,18px);border-bottom:1px solid var(--light-gray)}
+.card-back-label{font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--maroon);margin-bottom:clamp(6px,.8vw,10px)}
+.card-back-title{font-size:clamp(26px,5.5vw,38px);font-weight:900;line-height:1.18;text-transform:uppercase;letter-spacing:-.02em;color:var(--black)}
+.card-back-content{flex:1;display:flex;flex-direction:column;gap:clamp(10px,1.2vw,14px);overflow-y:auto}
+.card-bullet{display:flex;gap:clamp(10px,1.2vw,14px);align-items:flex-start}
+.card-bullet-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--maroon);border-radius:6px;margin-top:2px}
+.card-bullet-icon svg{width:12px;height:12px;stroke:var(--white);stroke-width:2.5;fill:none}
+.card-bullet-text{flex:1;font-size:clamp(13px,2.8vw,16px);line-height:1.55;color:var(--charcoal)}
+.card-back-footer{margin-top:clamp(14px,1.7vw,20px);padding-top:clamp(14px,1.7vw,20px);border-top:1px solid var(--light-gray);text-align:center}
+.card-back-hint{font-size:clamp(11px,1.1vw,13px);color:var(--mid-gray);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.footer{max-width:1600px;margin:0 auto;padding:clamp(32px,3.5vw,48px) 5%;border-top:1px solid var(--light-gray);background:var(--off-white)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:clamp(20px,2.5vw,32px);flex-wrap:wrap}
+.footer-left{font-size:clamp(13.5px,1.4vw,16px);color:var(--mid-gray);font-weight:500}
+.footer-right{display:flex;gap:clamp(20px,2.5vw,32px);flex-wrap:wrap}
+.footer-right a{font-size:clamp(13.5px,1.4vw,16px);color:var(--mid-gray);text-decoration:none;font-weight:600;transition:all .3s var(--ease-premium);text-transform:uppercase;letter-spacing:.04em;position:relative}
+.footer-right a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--maroon);transition:width .3s var(--ease-premium)}
+.footer-right a:hover{color:var(--maroon)}
+.footer-right a:hover::after{width:100%}
+@media(max-width:1024px){.cards-grid{grid-template-columns:repeat(2,1fr)}
+.flip-card:nth-child(3){grid-column:1/-1;max-width:600px;margin:0 auto}
+}
+@media(max-width:768px){.page-hero{padding:clamp(140px,16vh,160px) 5% clamp(16px,1.8vw,24px)}
+.page-title{font-size:clamp(44px,10vw,64px);line-height:1.08}
+.intro-text{font-size:clamp(14px,3.8vw,18px);line-height:1.5}
+.btn-cta{width:90%;max-width:400px}
+.cards-grid{grid-template-columns:1fr}
+.flip-card:nth-child(3){max-width:100%}
+.footer-inner{flex-direction:column;text-align:center}
+.footer-right{justify-content:center}
+.logo{width:clamp(72px,12vw,88px);height:clamp(72px,12vw,88px)}
+}
+@media(max-width:480px){.page-hero{padding:clamp(120px,14vh,140px) 5% clamp(18px,2.2vw,26px)}
+.page-title{font-size:clamp(38px,9.5vw,52px);line-height:1.1}
+.page-subtitle{font-size:clamp(10px,2.2vw,14px);line-height:1.45}
+.intro-text{font-size:clamp(13.5px,3.6vw,16px);line-height:1.48}
+.cards-section{padding:clamp(20px,2.5vw,28px) 5% clamp(40px,4.5vw,56px)}
+.card-back-title{font-size:clamp(24px,5.8vw,32px)}
+.card-bullet-text{font-size:clamp(12.5px,2.9vw,14.5px)}
+}
+@media(max-width:375px){.page-hero{padding:clamp(110px,13vh,130px) 5% clamp(18px,2.2vw,26px)}
+.page-title{font-size:clamp(34px,9vw,42px);line-height:1.12}
+}
+@media(max-width:340px){.page-hero{padding:clamp(105px,12.5vh,125px) 5% clamp(18px,2.2vw,26px)}
+.page-title{font-size:clamp(30px,8.5vw,38px);line-height:1.15}
+}
+</style>
+
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- SCHEMA MARKUP -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"name":"Parker Information - PARKING HTX Payment Options",
+"description":"Three ways to pay for parking at PARKING HTX locations in Houston: QR code scanning, text-to-park, and NFC tap payment. No apps required.",
+"mainEntity":[{
+"@type":"Question",
+"name":"What payment methods does PARKING HTX accept?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"PARKING HTX offers three payment methods: QR code scanning with your phone camera, text-to-park via SMS, and NFC tap payment with Apple Pay, Google Pay, or contactless cards. No app downloads required."
+}
+}]
+}
+</script>
+</head>
+
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="header fade-rise" id="header">
+<div class="header-inner">
+<a href="/" class="logo" aria-label="PARKING HTX Home">
+<img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/691902cb912be2f2703fd784_email%20signature%20logo.png" alt="PARKING HTX" width="120" height="120">
+</a>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<nav class="menu" id="menu" aria-label="Main navigation">
+<div class="menu-header">
+<div class="menu-logo">
+<img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/691902cb912be2f2703fd784_email%20signature%20logo.png" alt="PARKING HTX" width="58" height="58">
+</div>
+<button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+</div>
+<div class="menu-items">
+<a href="/"><span>HOME</span></a>
+<a href="/htx-difference"><span><span class="no-break">HTX DIFFERENCE</span></span></a>
+<a href="/parker-info" class="active"><span><span class="no-break">PARKER INFO</span></span></a>
+<a href="/property-owners"><span><span class="no-break">PROPERTY OWNERS</span></span></a>
+<a href="/food-truck-family"><span><span class="no-break">FOOD TRUCK FAMILY</span></span></a>
+<a href="/careers"><span>CAREERS</span></a>
+</div>
+</nav>
+
+<main id="main">
+<section class="page-hero fade-rise">
+<h1 class="page-title">
+<span class="line"><span class="title-word">PARKER</span></span>
+<span class="line accent"><span class="title-word">INFORMATION</span></span>
+</h1>
+<p class="page-subtitle"><span class="no-break">THREE WAYS TO PAY</span> · <span class="no-break">ZERO APPS</span> · <span class="no-break">INSTANT CONFIRMATION</span></p>
+</section>
+
+<section class="intro-section fade-rise">
+<p class="intro-text">Choose the payment method that works best for you. All options provide instant confirmation and secure processing—no app downloads required.</p>
+</section>
+
+<div class="hero-cta-section fade-rise">
+<a href="mailto:parker-support@parkinghtx.com" class="btn-cta">
+<span>NEED <span class="no-break">PARKING HELP?</span></span>
+</a>
+</div>
+
+<div class="section-separator fade-rise"><hr></div>
+
+<section class="cards-section fade-rise">
+<div class="cards-grid">
+
+<!-- CARD 1: QR CODE SCANNING -->
+<article class="flip-card fade-rise" onclick="this.classList.toggle('flipped')" role="button" tabindex="0" aria-label="QR Code Scanning payment method - click to see details">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="card-front-header">
+<h3 class="card-front-title"><span class="no-break">QR Code</span> Scanning</h3>
+<div class="card-front-flip">
+<span>FLIP</span>
+<div class="flip-icon">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M1 4v6h6M23 20v-6h-6"/>
+<path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+</svg>
+</div>
+</div>
+</div>
+<div class="card-image">
+<img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/693c3d6c4dd5e7ba9bd75e3c_Father%20and%20baby%20at%20festival%20parking.png" alt="Father scanning QR code for parking payment" loading="lazy" width="400" height="400">
+</div>
+</div>
+<div class="flip-card-back">
+<div class="card-back-header">
+<div class="card-back-label"><span class="no-break">INSTANT PAYMENT</span></div>
+<h3 class="card-back-title"><span class="no-break">CAMERA SCAN</span></h3>
+</div>
+<div class="card-back-content">
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Point phone camera at QR code on signage—no app needed</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Secure payment page opens instantly in your browser</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Immediate SMS confirmation with receipt and parking duration</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Works with any smartphone—iPhone or Android</div>
+</div>
+</div>
+<div class="card-back-footer">
+<div class="card-back-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</article>
+
+<!-- CARD 2: TEXT-TO-PARK -->
+<article class="flip-card fade-rise" onclick="this.classList.toggle('flipped')" role="button" tabindex="0" aria-label="Text-to-Park payment method - click to see details">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="card-front-header">
+<h3 class="card-front-title"><span class="no-break">Text-to-Park</span></h3>
+<div class="card-front-flip">
+<span>FLIP</span>
+<div class="flip-icon">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M1 4v6h6M23 20v-6h-6"/>
+<path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+</svg>
+</div>
+</div>
+</div>
+<div class="card-image">
+<img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/693c3db053b757f8a42bcba2_mima%20.png" alt="Text message parking payment" loading="lazy" width="400" height="400">
+</div>
+</div>
+<div class="flip-card-back">
+<div class="card-back-header">
+<div class="card-back-label"><span class="no-break">SMS PAYMENT</span></div>
+<h3 class="card-back-title"><span class="no-break">TEXT & PAY</span></h3>
+</div>
+<div class="card-back-content">
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Text zone code to our parking number shown on signage</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Receive instant payment link via text message within seconds</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Complete payment securely and get immediate confirmation</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Works on any phone—even basic flip phones without internet</div>
+</div>
+</div>
+<div class="card-back-footer">
+<div class="card-back-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</article>
+
+<!-- CARD 3: NFC TAP PAYMENT -->
+<article class="flip-card fade-rise" onclick="this.classList.toggle('flipped')" role="button" tabindex="0" aria-label="NFC Tap Payment method - click to see details">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="card-front-header">
+<h3 class="card-front-title"><span class="no-break">NFC Tap</span> Payment</h3>
+<div class="card-front-flip">
+<span>FLIP</span>
+<div class="flip-icon">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M1 4v6h6M23 20v-6h-6"/>
+<path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+</svg>
+</div>
+</div>
+</div>
+<div class="card-image">
+<img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/693c3d7479733edbb180a9ca_ChatGPT%20Image%20Dec%2012%2C%202025%2C%2009_57_58%20AM.png" alt="Contactless tap payment terminal" loading="lazy" width="400" height="400">
+</div>
+</div>
+<div class="flip-card-back">
+<div class="card-back-header">
+<div class="card-back-label">CONTACTLESS</div>
+<h3 class="card-back-title"><span class="no-break">TAP & GO</span></h3>
+</div>
+<div class="card-back-content">
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Tap phone or contactless card at terminal for instant payment</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Apple Pay, Google Pay, and contactless credit cards accepted</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Transaction completes in under 2 seconds—fastest option</div>
+</div>
+<div class="card-bullet">
+<div class="card-bullet-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<div class="card-bullet-text">Receipt sent to email or SMS automatically after payment</div>
+</div>
+</div>
+<div class="card-back-footer">
+<div class="card-back-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</article>
+
+</div>
+</section>
+</main>
+
+<footer class="footer fade-rise">
+<div class="footer-inner">
+<div class="footer-left">© 2025 <span class="no-break">PARKING HTX</span></div>
+<div class="footer-right">
+<a href="mailto:parker-support@parkinghtx.com"><span class="no-break">PARKER SUPPORT</span></a>
+<a href="/privacy">PRIVACY</a>
+<a href="/terms">TERMS</a>
+</div>
+</div>
+</footer>
+
+<script>
+if('scrollRestoration'in history){history.scrollRestoration='manual'}
+window.scrollTo(0,0);
+document.addEventListener('DOMContentLoaded',function(){window.scrollTo(0,0)});
+window.addEventListener('load',function(){setTimeout(()=>window.scrollTo(0,0),0)});
+
+const fadeObserver=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&t.target.classList.add('visible')})},{threshold:.08});
+document.querySelectorAll('.fade-rise').forEach(el=>fadeObserver.observe(el));
+
+const hamburger=document.getElementById('hamburger'),menu=document.getElementById('menu'),menuOverlay=document.getElementById('menuOverlay'),menuClose=document.getElementById('menuClose');
+function toggleMenu(){if(hamburger&&menu&&menuOverlay){const isActive=menu.classList.contains('active');hamburger.classList.toggle('active');menu.classList.toggle('active');menuOverlay.classList.toggle('active');hamburger.setAttribute('aria-expanded',!isActive);document.body.style.overflow=menu.classList.contains('active')?'hidden':'auto'}}
+hamburger&&hamburger.addEventListener('click',e=>{e.preventDefault();toggleMenu()});
+menuOverlay&&menuOverlay.addEventListener('click',e=>{e.preventDefault();toggleMenu()});
+menuClose&&menuClose.addEventListener('click',e=>{e.preventDefault();toggleMenu()});
+
+const header=document.getElementById('header');
+let ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){window.requestAnimationFrame(()=>{50<window.pageYOffset?header.classList.add('scrolled'):header.classList.remove('scrolled');ticking=false});ticking=true}});
+
+setTimeout(()=>{
+const titleWords=document.querySelectorAll('.title-word');
+const accentLine=document.querySelector('.line.accent');
+titleWords.forEach((word,index)=>{
+gsap.to(word,{
+duration:1.25,
+opacity:1,
+y:0,
+ease:'power4.out',
+delay:.22*index
+});
+});
+if(accentLine){
+setTimeout(()=>accentLine.classList.add('show-underline'),700);
+}
+},100);
+
+console.log('%c🏙️ PARKING HTX','font-size:24px;font-weight:900;color:#C4463A');
+console.log('%cParker Info - Elite Build','font-size:14px;color:#7A8F4E');
+</script>
+</body>
+</html>
