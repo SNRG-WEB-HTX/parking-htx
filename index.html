@@ -295,11 +295,11 @@ body.spanish [lang="en"]{display:none}
 }
 
 .hero-logo{
-  max-width:clamp(480px,72vw,860px);
+  max-width:clamp(414px,65vw,780px);
   height:auto;
   display:block;
   margin:0;
-  filter:drop-shadow(0 16px 48px rgba(0,0,0,0.15));
+  filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2));
   opacity:0;
   transform:scale(0.3) translateY(-100px) translateZ(-500px);
   animation:logoTunnelEntrance 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
@@ -316,12 +316,12 @@ body.spanish [lang="en"]{display:none}
   50%{
     opacity:0.7;
     transform:scale(0.85) translateY(-20px) translateZ(-100px);
-    filter:drop-shadow(0 8px 24px rgba(0,0,0,0.1)) blur(2px) brightness(0.85);
+    filter:drop-shadow(0 8px 24px rgba(0,0,0,0.15)) blur(2px) brightness(0.85);
   }
   100%{
     opacity:1;
     transform:scale(1) translateY(0) translateZ(0);
-    filter:drop-shadow(0 16px 48px rgba(0,0,0,0.15)) blur(0) brightness(1);
+    filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2)) blur(0) brightness(1);
   }
 }
 
@@ -388,16 +388,16 @@ body.spanish [lang="en"]{display:none}
   position:relative;
   background:linear-gradient(
     135deg,
-    rgba(255,42,42,0.03) 0%,
-    rgba(196,70,58,0.05) 15%,
-    rgba(122,143,78,0.04) 35%,
-    rgba(255,255,255,0.02) 50%,
-    rgba(196,70,58,0.04) 65%,
-    rgba(122,143,78,0.05) 85%,
-    rgba(255,42,42,0.03) 100%
+    #ffffff 0%,
+    #f9fafb 15%,
+    #ffffff 30%,
+    #f7f8f9 50%,
+    #ffffff 70%,
+    #f9fafb 85%,
+    #ffffff 100%
   );
   background-size:400% 400%;
-  animation:videoGradientShift 18s ease infinite;
+  animation:pearlWaveShift 20s ease infinite;
   overflow:hidden;
 }
 
@@ -406,12 +406,12 @@ body.spanish [lang="en"]{display:none}
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(196,70,58,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 60%, rgba(122,143,78,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 50% 90%, rgba(255,42,42,0.06) 0%, transparent 40%);
-  animation:videoFloatPattern 25s ease-in-out infinite;
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.8) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(249,250,251,0.7) 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(247,248,249,0.8) 0%, transparent 45%);
+  animation:pearlFloatWave 28s ease-in-out infinite;
   pointer-events:none;
-  opacity:0.6;
+  opacity:0.9;
 }
 
 .video-section::after{
@@ -419,27 +419,30 @@ body.spanish [lang="en"]{display:none}
   position:absolute;
   inset:0;
   background-image:
-    repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(196,70,58,0.02) 8px, rgba(196,70,58,0.02) 16px),
-    repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(122,143,78,0.02) 8px, rgba(122,143,78,0.02) 16px);
-  animation:videoTextureSlide 30s linear infinite;
+    repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(0,0,0,0.008) 6px, rgba(0,0,0,0.008) 12px),
+    repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(0,0,0,0.008) 6px, rgba(0,0,0,0.008) 12px);
+  animation:pearlTextureWave 35s linear infinite;
   pointer-events:none;
-  opacity:0.3;
+  opacity:0.4;
 }
 
-@keyframes videoGradientShift{
+@keyframes pearlWaveShift{
   0%,100%{background-position:0% 50%}
+  25%{background-position:25% 60%}
   50%{background-position:100% 50%}
+  75%{background-position:75% 40%}
 }
 
-@keyframes videoFloatPattern{
-  0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.6}
-  33%{transform:translate(15px,-10px) rotate(3deg);opacity:0.8}
-  66%{transform:translate(-10px,15px) rotate(-3deg);opacity:0.7}
+@keyframes pearlFloatWave{
+  0%,100%{transform:translate(0,0) scale(1);opacity:0.9}
+  25%{transform:translate(20px,-15px) scale(1.05);opacity:1}
+  50%{transform:translate(-15px,20px) scale(0.98);opacity:0.85}
+  75%{transform:translate(15px,-10px) scale(1.02);opacity:0.95}
 }
 
-@keyframes videoTextureSlide{
-  0%{transform:translate(0,0)}
-  100%{transform:translate(24px,24px)}
+@keyframes pearlTextureWave{
+  0%{transform:translate(0,0) rotate(0deg)}
+  100%{transform:translate(18px,18px) rotate(0deg)}
 }
 
 .video-wrapper{
@@ -752,14 +755,43 @@ body.spanish [lang="en"]{display:none}
 
 .value-card-back{
   transform:rotateY(180deg);
-  padding:clamp(24px,2.8vw,34px) clamp(22px,2.6vw,30px);
+  padding:clamp(32px,4vw,48px) clamp(22px,2.6vw,30px);
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content:center;
+  align-items:center;
   border:2px solid var(--border);
   position:relative;
   overflow:hidden;
   height:100%;
+}
+
+.value-back-header{
+  margin-bottom:clamp(20px,2.4vw,28px);
+  padding-bottom:clamp(14px,1.8vw,20px);
+  border-bottom:1px solid var(--border);
+  width:100%;
+  text-align:center;
+}
+
+.value-back-label{
+  font-size:clamp(11px,1.1vw,13px);
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--maroon);
+  margin-bottom:clamp(8px,1vw,12px);
+  text-align:center;
+}
+
+.value-back-title{
+  font-size:clamp(26px,5.5vw,38px);
+  font-weight:900;
+  line-height:1.18;
+  text-transform:uppercase;
+  letter-spacing:-.02em;
+  color:var(--ink);
+  text-align:center;
 }
 
 .value-card:nth-child(1) .value-card-back{
@@ -784,40 +816,16 @@ body.spanish [lang="en"]{display:none}
   background:linear-gradient(135deg,var(--maroon) 0%,var(--maroon-light) 100%);
 }
 
-.value-back-header{
-  margin-bottom:clamp(16px,1.8vw,22px);
-  padding-bottom:clamp(12px,1.5vw,18px);
-  border-bottom:1px solid var(--border);
-}
-
-.value-back-label{
-  font-size:clamp(11px,1.1vw,13px);
-  font-weight:700;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--maroon);
-  margin-bottom:clamp(6px,.8vw,10px);
-}
-
-.value-back-title{
-  font-size:clamp(26px,5.5vw,38px);
-  font-weight:900;
-  line-height:1.18;
-  text-transform:uppercase;
-  letter-spacing:-.02em;
-  color:var(--ink);
-}
-
 .value-back-content{
-  flex:1;
+  flex:0 1 auto;
   display:flex;
   flex-direction:column;
   gap:clamp(10px,1.2vw,14px);
   overflow-y:auto;
-  margin-bottom:auto;
   -webkit-overflow-scrolling:touch;
   scrollbar-width:thin;
   scrollbar-color:var(--maroon) var(--pearl);
+  max-height:60%;
 }
 
 .value-back-content::-webkit-scrollbar{
@@ -1200,10 +1208,10 @@ body.spanish [lang="en"]{display:none}
   }
   
   .value-card-back{
-    padding:clamp(28px,6vw,36px) clamp(24px,5vw,32px);
+    padding:clamp(32px,7vw,48px) clamp(24px,5vw,32px);
     display:flex;
     flex-direction:column;
-    justify-content:flex-start;
+    justify-content:center;
     align-items:center;
     text-align:center;
   }
@@ -1228,7 +1236,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .value-back-content{
-    flex:1;
+    flex:0 1 auto;
     width:100%;
     overflow-y:auto;
     overflow-x:hidden;
@@ -1236,8 +1244,7 @@ body.spanish [lang="en"]{display:none}
     flex-direction:column;
     gap:clamp(14px,3vw,18px);
     padding:0 clamp(4px,1vw,8px);
-    margin-bottom:clamp(16px,3vw,20px);
-    max-height:calc(100% - 180px);
+    max-height:55%;
   }
   
   .value-bullet{
@@ -1270,7 +1277,7 @@ body.spanish [lang="en"]{display:none}
   
   .value-back-footer{
     width:100%;
-    margin-top:auto;
+    margin-top:clamp(20px,4vw,28px);
     padding-top:clamp(16px,3vw,20px);
     text-align:center;
   }
@@ -1671,10 +1678,10 @@ body.spanish [lang="en"]{display:none}
 </div>
 
 <footer class="footer">
-  <p class="footer-copyright" lang="en">© 2026 PARKING HTX — Elite Parking Management Houston, TX</p>
-  <p class="footer-copyright" lang="es">© 2026 PARKING HTX — Gestión Elite de Estacionamiento Houston, TX</p>
-  <p style="font-size:12px;color:var(--slate);margin-top:16px;line-height:1.4;font-weight:500;" lang="en">Built by <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
-  <p style="font-size:12px;color:var(--slate);margin-top:16px;line-height:1.4;font-weight:500;" lang="es">Creado por <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
+  <p class="footer-copyright" lang="en">© 2026 PARKING HTX</p>
+  <p class="footer-copyright" lang="es">© 2026 PARKING HTX</p>
+  <p style="font-size:12px;color:var(--slate);margin-top:12px;line-height:1.4;font-weight:500;" lang="en">Built by <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
+  <p style="font-size:12px;color:var(--slate);margin-top:12px;line-height:1.4;font-weight:500;" lang="es">Creado por <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
 </footer>
 
 <script>
