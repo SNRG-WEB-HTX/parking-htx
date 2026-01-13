@@ -1873,49 +1873,30 @@ console.log('%c⚡ PERFECT BUILD: SNRG Layout | EN/ES Bilingual | Maroon Accent'
 // Debug logging for mobile
 const isMobile=window.innerWidth<=768;
 console.log(`📱 Device: ${isMobile?'Mobile':'Desktop'} | Width: ${window.innerWidth}px`);
-
-// Log video section visibility
-setTimeout(()=>{
-  const videoSection=document.querySelector('.video-section');
-  const videoWrapper=document.querySelector('.video-wrapper');
-  const video=document.querySelector('video');
-  console.log('🎥 Video Section:', videoSection ? 'EXISTS' : 'MISSING');
-  console.log('🎥 Video Wrapper:', videoWrapper ? 'EXISTS' : 'MISSING');
-  console.log('🎥 Video Element:', video ? 'EXISTS' : 'MISSING');
-  if(videoSection){
-    const computed=window.getComputedStyle(videoSection);
-    console.log('🎥 Video Display:', computed.display);
-    console.log('🎥 Video Visibility:', computed.visibility);
-  }
-},500);
-
-// Log stats visibility
-setTimeout(()=>{
-  const statsGrid=document.querySelector('.stats-grid');
-  const stats=document.querySelectorAll('.stat');
-  console.log('📊 Stats Grid:', statsGrid ? 'EXISTS' : 'MISSING');
-  console.log('📊 Stats Count:', stats.length);
-  if(statsGrid){
-    const computed=window.getComputedStyle(statsGrid);
-    console.log('📊 Stats Display:', computed.display);
-    console.log('📊 Stats Flex Direction:', computed.flexDirection);
-  }const sub = document.querySelector(".hero-subsection");
-const cols = document.querySelectorAll(".subsection-column");
-
-},500);// Hero subsection entrance trigger
+// ================================
+// HERO SUBSECTION ENTRANCE
+// ================================
 window.addEventListener("load", () => {
+  const sub = document.querySelector(".hero-subsection");
+  const cols = document.querySelectorAll(".subsection-column");
+
+  console.log("🧩 Hero Subsection:", sub ? "FOUND" : "MISSING");
+  console.log("🧩 Subsection Columns:", cols.length);
+
   if(sub){
     setTimeout(() => {
       sub.classList.add("animate");
       cols.forEach((col, i) => {
         setTimeout(() => col.classList.add("animate"), 150 * i);
       });
-    }, 2100); // sync with logo animation
+    }, 2100); // sync with logo entrance
   }
+});
 
 </script>
 </body>
 </html>
+
 
 
 
