@@ -273,7 +273,7 @@ body.spanish [lang="en"]{display:none}
 }
 
 .hero-logo-container{
-  margin:0;
+  margin:-55px auto 0;
   position:relative;
   display:flex;
   align-items:center;
@@ -298,13 +298,18 @@ body.spanish [lang="en"]{display:none}
   max-width:clamp(414px,65vw,780px);
   height:auto;
   display:block;
-  margin:0;
+  margin:0 auto;
   filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2));
   opacity:0;
   transform:scale(0.3) translateY(-100px) translateZ(-500px);
   animation:logoTunnelEntrance 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
   background:transparent !important;
   isolation:isolate;
+}
+@media (min-width: 1025px){
+  .hero-logo{
+    max-width: 660px;
+  }
 }
 
 @keyframes logoTunnelEntrance{
@@ -1143,9 +1148,9 @@ body.spanish [lang="en"]{display:none}
   }
   
   .hero-logo{
-    max-width:min(92vw,520px);
+    max-width:min(88vw,400px);
     animation-duration:0.7s;
-    margin-bottom:0;
+    margin-bottom:16px;
   }
   
   .hero-cta-group{
@@ -1281,7 +1286,6 @@ body.spanish [lang="en"]{display:none}
     padding-top:clamp(16px,3vw,20px);
     text-align:center;
   }
-}
   
   .video-wrapper{
     max-width:min(88vw,380px);
@@ -1306,7 +1310,7 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
-  @media (max-width: 480px){
+@media (max-width: 480px){
   .hero-logo-container,
   .hero-stack,
   .hero{
@@ -1315,8 +1319,7 @@ body.spanish [lang="en"]{display:none}
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-}
-
+  
   .stat{
     min-width:clamp(100px,24vw,130px);
   }
@@ -1329,15 +1332,8 @@ body.spanish [lang="en"]{display:none}
     min-width:clamp(95px,23vw,120px);
   }
 }
-  @media (max-width: 768px){
-  .hero-logo{
-    width: 96vw !important;
-    max-width: 680px !important;
-    height: auto !important;
-  }
-}
 
-  /* ================================
+/* ================================
    DESKTOP: HIDE VIDEO SECTION
 ================================ */
 @media (min-width: 769px){
@@ -1354,6 +1350,7 @@ body.spanish [lang="en"]{display:none}
     display: block !important;
   }
 }
+
 /* ================================
    DESKTOP: REMOVE HERO TEXTURE
 ================================ */
@@ -1859,9 +1856,3 @@ setTimeout(()=>{
 
 </body>
 </html>
-
-
-
-
-
-
