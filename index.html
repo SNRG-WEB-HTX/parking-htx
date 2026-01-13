@@ -1338,8 +1338,25 @@ body.spanish [lang="en"]{display:none}
     min-width:clamp(95px,23vw,120px);
   }
 }
-</style>
+  /* ================================
+   DESKTOP: HIDE VIDEO SECTION
+================================ */
+@media (min-width: 769px){
+  .video-wrapper{
+    display: none !important;
+  }
+}
 
+/* ================================
+   MOBILE: FORCE VIDEO TO SHOW
+================================ */
+@media (max-width: 768px){
+  .video-wrapper{
+    display: block !important;
+  }
+}
+</style>
+  
 </head>
 
 <body>
@@ -1647,9 +1664,9 @@ body.spanish [lang="en"]{display:none}
     <h2 class="section-title" lang="es">Rendimiento Confiable</h2>
     <div class="stats-grid">
       <div class="stat">
-        <div class="stat-value">10K+</div>
-        <div class="stat-label" lang="en">Daily Transactions</div>
-        <div class="stat-label" lang="es">Transacciones Diarias</div>
+        <div class="stat-value">HTX</div>
+        <div class="stat-label" lang="en">Local Team</div>
+        <div class="stat-label" lang="es">El equipo local</div>
       </div>
       <div class="stat">
         <div class="stat-value">24/7</div>
@@ -1832,3 +1849,4 @@ setTimeout(()=>{
 
 </body>
 </html>
+
