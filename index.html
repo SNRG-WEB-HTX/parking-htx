@@ -1313,7 +1313,7 @@ body.spanish [lang="en"]{display:none}
 
 @media(max-width:375px){
   .hero-logo{
-    max-width:min(88vw,400px);
+    max-width:clamp(420px, 92vw, 560px);
   }
   
   .video-wrapper{
@@ -1323,12 +1323,12 @@ body.spanish [lang="en"]{display:none}
   .stat{
     min-width:clamp(100px,24vw,130px);
   }
-}
 
 @media(max-width:340px){
   .hero-logo{
-    max-width:min(86vw,360px);
+    max-width:clamp(400px, 94vw, 540px);
   }
+}
   
   .video-wrapper{
     max-width:min(84vw,320px);
@@ -1860,6 +1860,7 @@ setTimeout(()=>{
 
 </body>
 </html>
+
 
 
 
