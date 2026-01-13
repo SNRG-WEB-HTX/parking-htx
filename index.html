@@ -1355,6 +1355,16 @@ body.spanish [lang="en"]{display:none}
     display: block !important;
   }
 }
+/* ================================
+   DESKTOP: REMOVE HERO TEXTURE
+================================ */
+@media (min-width: 769px){
+  .hero .animated-bg::before,
+  .hero .animated-bg::after{
+    display: none !important;
+    opacity: 0 !important;
+  }
+}
 
 </style>
   
@@ -1850,5 +1860,6 @@ setTimeout(()=>{
 
 </body>
 </html>
+
 
 
