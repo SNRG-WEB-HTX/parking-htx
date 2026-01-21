@@ -447,12 +447,12 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:800px;
+    max-width:720px;
   }
 }
 @media (min-width: 1025px){
   .hero-logo{
-  max-width:clamp(520px,72vw,900px);
+  max-width:clamp(520px,60vw,760px);
   height:auto;
   display:block;
   margin:0 auto;
@@ -466,7 +466,7 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:800px;
+    max-width:720px;
   }
 }
 }
@@ -612,7 +612,7 @@ body.spanish [lang="en"]{display:none}
 .video-wrapper{
   position:relative;
   width:100%;
-  max-width:480px;
+  max-width:720px;
   aspect-ratio:3/4;
   display:block;
   visibility:visible;
@@ -759,7 +759,7 @@ body.spanish [lang="en"]{display:none}
 
 @media(max-width:768px){
   .video-section{
-    display:flex !important;
+    display:none !important;
     padding:clamp(40px,6vw,64px) 5% clamp(24px,4vw,40px);
     visibility:visible !important;
     opacity:1 !important;
@@ -1355,7 +1355,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .video-section{
-    display:flex !important;
+    display:none !important;
     padding:clamp(44px,5.5vw,72px) 5% clamp(28px,3.5vw,44px);
   }
   
@@ -1364,7 +1364,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .stats-grid{
-    display:flex !important;
+    display:none !important;
     flex-direction:row !important;
     flex-wrap:wrap;
     justify-content:center;
@@ -1421,7 +1421,7 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:800px;
+    max-width:720px;
   }
 }
   
@@ -1440,7 +1440,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .video-section{
-    display:flex !important;
+    display:none !important;
     padding:clamp(40px,6vw,64px) 5% clamp(24px,4vw,40px);
   }
   
@@ -1450,7 +1450,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .stats-grid{
-    display:flex !important;
+    display:none !important;
     flex-direction:row;
     gap:clamp(16px,2.5vw,20px);
     align-items:center;
@@ -1627,7 +1627,7 @@ body.spanish [lang="en"]{display:none}
 ================================ */
 @media (max-width: 768px){
   .video-section{
-    display: block !important;
+    display: none !important;
   }
 }
 
@@ -1783,38 +1783,480 @@ body.spanish [lang="en"]{display:none}
 
 
 /* ===================================================
-   MOBILE HERO: MATCH SNRG CTA + LOGO RELATIONSHIP
-   (DO NOT TOUCH LOGO SIZE OR HERO DIMENSIONS)
+   DESKTOP-ONLY: TRIM OUTER HERO WHITESPACE
+   - Keep logo and CTAs EXACTLY as-is
+   - Only reduce space ABOVE the logo and BELOW the CTAs
+=================================================== */
+@media (min-width:1025px){
+  .hero{
+    padding-top:44px !important;      /* was 88px */
+    padding-bottom:0 !important;      /* remove bottom padding */
+    min-height:calc(100svh - 44px) !important; /* trim excess bottom void created by header offset */
+    height:auto !important;
+  }
+}
+
+
+/* ===================================================
+   SPIN UNTIL BORDER ANIMATION FINISHES (BADGES / STATS)
+=================================================== */
+@keyframes spinUntilDone{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
+
+/* Apply to common badge/stat containers */
+.stat, .badge, .value-card, .cascade-card{
+  animation: spinUntilDone 1.2s linear 2;
+}
+
+
+/* ===================================================
+   BALANCE WHITE SPACE AROUND HTX / 24/7 / CPP ROW
+   - Make space above equal to space below
+=================================================== */
+.stats-grid{
+  margin: clamp(32px,4vw,48px) 0 !important; /* equal top & bottom */
+}
+.stats-card{
+  padding-top: clamp(40px,5vw,64px) !important;
+  padding-bottom: clamp(40px,5vw,64px) !important;
+}
+
+
+/* ===================================================
+   LOCK LAPTOP HERO VIEWPORT TO DESKTOP
+   - Applies to 769px–1279px (laptop range)
+   - Does NOT change logo or CTA sizing/spacing
+   - Only normalizes hero viewport behavior to match desktop
+=================================================== */
+@media (min-width:769px) and (max-width:1279px){
+  .hero{
+    min-height:calc(100svh - 44px) !important; /* same effective viewport trim as desktop */
+    height:auto !important;
+    padding-top:44px !important;              /* same as desktop trimmed header offset */
+    padding-bottom:0 !important;
+  }
+  /* Remove any breakpoint-specific vertical nudges so composition matches desktop */
+  .hero-stack{
+    transform: translateY(0) !important;
+  }
+}
+
+
+/* ===================================================
+   SNRG-STYLE HERO CENTER LOCK (LAPTOP + MOBILE)
+   - Perfect vertical & horizontal centering
+   - Logo and CTA stay grouped and snug
+   - Desktop unchanged
+=================================================== */
+
+/* Laptop + Tablet */
+@media (min-width:769px) and (max-width:1279px){
+  .hero{
+    min-height:100svh !important;
+    height:100svh !important;
+    padding:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .hero-stack{
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+    gap:0 !important;
+  }
+  .hero-logo-container{
+    margin:0 auto !important;
+  }
+  .hero-cta-group{
+    margin-top:clamp(12px,1.8vh,24px) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .hero{
+    min-height:100svh !important;
+    height:100svh !important;
+    padding:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .hero-stack{
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+    gap:16px !important;
+  }
+  .hero-logo{
+    margin:0 auto !important;
+  }
+  .hero-cta-group{
+    margin-top:12px !important;
+  }
+}
+
+
+/* ===================================================
+   LAPTOP-ONLY HERO SPACING TIGHTEN (50%)
+   - Range: 769px–1279px
+   - Reduce space: above logo, between logo & CTAs, and below CTAs
+   - Do NOT change sizes or any other breakpoints
+=================================================== */
+@media (min-width:769px) and (max-width:1279px){
+  /* Remove extra outer padding/void */
+  .hero{
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    min-height:100svh !important;  /* keep full viewport */
+    height:100svh !important;
+  }
+
+  /* Tighten stack vertical spacing */
+  .hero-stack{
+    gap:0 !important;              /* was adding vertical air */
+  }
+
+  /* Keep logo position, just remove excess margin if any */
+  .hero-logo-container{
+    margin-bottom:0 !important;
+  }
+
+  /* Cut space between logo and CTAs by ~50% */
+  .hero-cta-group{
+    margin-top:clamp(6px,0.9vh,12px) !important;  /* was ~12–24px */
+  }
+
+  /* Ensure no bottom push under CTAs */
+  .hero-wrap,
+  .hero-content{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+}
+
+
+/* ===================================================
+   LAPTOP HERO LOCK (ONLY 769px–1279px)
+   - Reduce logo by 10%
+   - Cut whitespace: above logo, between logo+CTAs, under CTAs (~50%)
+   - Keep everything else untouched
+=================================================== */
+@media (min-width:769px) and (max-width:1279px){
+
+  /* Lock viewport like desktop (snug centered composition) */
+  .hero{
+    min-height:100svh !important;
+    height:100svh !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  /* Remove the global -8vh drift that is breaking laptop */
+  .hero-stack{
+    transform:none !important;
+    gap:0 !important;
+  }
+
+  /* Logo: -10% on laptop only (prevents CTAs dropping below fold) */
+  .hero-logo{
+    max-width:min(70vw,650px) !important; /* ~10% smaller than prior laptop cap */
+    height:auto !important;
+    margin:0 auto !important;
+  }
+
+  /* Tighten spacing between logo and CTAs by ~50% */
+  .hero-cta-group{
+    margin-top:clamp(6px,0.9vh,12px) !important;
+  }
+
+  /* Remove any extra bottom push under CTAs */
+  .hero-wrap, .hero-content, .hero-logo-container{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+}
+
+
+/* ===================================================
+   SNRG PARITY: SURGICAL HERO SYSTEM (AUTHORITATIVE)
+=================================================== */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  padding-top: 88px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0;
+  transform: translateY(-8vh);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .hero-stack { transform: translateY(-4vh); }
+}
+
+.hero-logo {
+  max-width: clamp(520px, 72vw, 900px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.2));
+  opacity: 0;
+  transform: scale(0.3) translateY(-100px) translateZ(-500px);
+  animation: logoTunnelEntrance 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background: transparent !important;
+  isolation: isolate;
+}
+
+@media (min-width: 1025px) {
+  .hero-logo { max-width: 720px; }
+}
+
+.hero-logo-container {
+  margin: 0 auto 6px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: clamp(10px, 2vw, 14px);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.logo-mask{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  background:transparent !important;
+  isolation:isolate;
+}
+
+
+/* ===================================================
+   LAPTOP + MOBILE HERO COMPRESSION (DESKTOP UNTOUCHED)
+   Goal: Remove ~50% dead space
+   - Above logo
+   - Between logo and CTAs
+   - Below CTAs
+   Keep logo + buttons centered and visible.
+=================================================== */
+
+/* -------- Laptop (769px–1279px) -------- */
+@media (min-width: 769px) and (max-width: 1279px) {
+  /* Keep full viewport, but counteract header padding + rise to reduce top void */
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+  }
+
+  /* Reduce the optical rise slightly so content sits more centrally */
+  .hero-stack {
+    transform: translateY(-4vh) !important; /* was -8vh */
+    gap: 0 !important;
+  }
+
+  /* Tighten space under logo */
+  .hero-logo-container {
+    margin-bottom: 3px !important; /* was 6px */
+  }
+
+  /* Tighten space between logo and CTAs */
+  .hero-cta-group {
+    margin-top: 0 !important;
+  }
+
+  /* Remove any bottom push below CTAs */
+  .hero-wrap,
+  .hero-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* -------- Mobile (<=768px) -------- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+  }
+
+  /* Reduce the mobile rise to compress vertical space */
+  .hero-stack {
+    transform: translateY(-2vh) !important; /* was -4vh */
+    gap: 0 !important;
+  }
+
+  /* Tighten space under logo */
+  .hero-logo-container {
+    margin-bottom: 3px !important;
+  }
+
+  /* Keep CTAs snug to logo */
+  .hero-cta-group {
+    margin-top: 0 !important;
+  }
+
+  /* Remove any bottom push below CTAs */
+  .hero-wrap,
+  .hero-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+
+/* ===================================================
+   LAPTOP-ONLY: REDUCE LOGO BY 20% (LAYOUT UNCHANGED)
+   Range: 769px–1279px
+   - Keeps all spacing and centering exactly the same
+   - Only scales the logo itself
+=================================================== */
+@media (min-width: 769px) and (max-width: 1279px) {
+  .hero-logo {
+    transform: scale(0.8) translateY(-100px) translateZ(-500px) !important; /* preserve entrance transform but 20% smaller */
+    max-width: 576px !important; /* 80% of 720px cap for laptop */
+  }
+}
+
+
+/* ===================================================
+   LAPTOP HERO FINAL OPTICAL LOCK (769px–1279px)
+   - Perfect vertical centering in viewport
+   - Slightly smaller logo
+   - Desktop & Mobile untouched
+=================================================== */
+@media (min-width: 769px) and (max-width: 1279px) {
+  /* Keep hero full viewport but remove excess top bias */
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    padding-top: 64px !important; /* slightly less than desktop 88px */
+  }
+
+  /* Re-center stack optically */
+  .hero-stack {
+    transform: translateY(-2.5vh) !important; /* was -4vh */
+  }
+
+  /* Slightly smaller logo again */
+  .hero-logo {
+    max-width: 540px !important; /* ~25% smaller than 720px cap */
+    transform: scale(0.78) translateY(-100px) translateZ(-500px) !important;
+  }
+
+  /* Keep everything tight */
+  .hero-logo-container {
+    margin-bottom: 2px !important;
+  }
+
+  .hero-cta-group {
+    margin-top: 0 !important;
+  }
+
+  .hero-wrap,
+  .hero-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+
+/* ===================================================
+   MOBILE-ONLY HERO REFINEMENT (<=768px)
+   - Reduce hero height by 15%
+   - Reduce space above logo by ~35%
+   - Tighten space between logo and CTAs
+   - Make top space == bottom space (visual symmetry)
 =================================================== */
 @media (max-width: 768px) {
-  /* Keep the stack centered exactly like SNRG */
-  .hero-wrap,
-  .hero-content,
+  /* 1) Reduce hero section height by 15% */
+  .hero{
+    min-height: 85svh !important;
+    height: 85svh !important;
+  }
+
+  /* 2) Reduce top bias and re-center stack */
   .hero-stack{
-    align-items: center !important;
-    text-align: center !important;
+    transform: translateY(-1.2vh) !important; /* closer to center than previous mobile value */
+    gap: 0 !important;
   }
 
-  /* Do NOT move the logo */
+  /* 3) Tighten space under logo (and thus between logo and CTAs) */
   .hero-logo-container{
-    margin-bottom: 0 !important;
+    margin-bottom: 2px !important;
   }
 
-  /* SNRG-style CTA positioning under logo */
+  /* Keep CTAs snug */
+  .hero-cta-group{
+    margin-top: 0 !important;
+  }
+
+  /* 4) Enforce symmetric breathing room above and below the stack */
+  .hero{
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Remove any extra bottom push from wrappers */
+  .hero-wrap,
+  .hero-content{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+
+/* ===================================================
+   MOBILE-ONLY: PERFECT CTA CENTERING UNDER LOGO
+=================================================== */
+@media (max-width: 768px) {
   .hero-cta-group{
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: clamp(12px, 3vw, 16px) !important;
-    margin-top: clamp(12px, 1.8vh, 24px) !important; /* EXACT SNRG LOGIC */
+    text-align: center !important;
+    gap: clamp(10px, 2.5vw, 14px) !important;
   }
 
   .hero-cta-group .cta{
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+  }
+
+  /* Ensure the logo container and CTA group share the same centering axis */
+  .hero-logo-container,
+  .hero-cta-group{
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
@@ -2181,17 +2623,17 @@ body.spanish [lang="en"]{display:none}
     <div class="stats-grid">
       <div class="stat">
         <div class="stat-value">HTX</div>
-        <div class="stat-label" lang="en">Local Team</div>
+        <div class="stat-label" lang="en"></div>
         <div class="stat-label" lang="es">El equipo local</div>
       </div>
       <div class="stat">
         <div class="stat-value">24/7</div>
-        <div class="stat-label" lang="en">Operations Support</div>
+        <div class="stat-label" lang="en"></div>
         <div class="stat-label" lang="es">Soporte Operacional</div>
       </div>
       <div class="stat">
         <div class="stat-value">CPP</div>
-        <div class="stat-label" lang="en">Certified Leadership</div>
+        <div class="stat-label" lang="en"></div>
         <div class="stat-label" lang="es">Liderazgo Certificado</div>
       </div>
     </div>
