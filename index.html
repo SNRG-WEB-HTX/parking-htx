@@ -471,18 +471,6 @@ body.spanish [lang="en"]{display:none}
 }
 }
 
-/* HERO: mobile + small screens - prevent oversized logo */
-@media (max-width: 768px){
-  .hero-logo{
-    max-width: clamp(280px, 78vw, 420px) !important;
-  }
-}
-@media (max-width: 420px){
-  .hero-logo{
-    max-width: min(86vw, 360px) !important;
-  }
-}
-
 @keyframes logoTunnelEntrance{
   0%{
     opacity:0;
@@ -1227,7 +1215,7 @@ body.spanish [lang="en"]{display:none}
 .stat{
   text-align:center;
   padding:clamp(16px,2vw,24px);
-  min-width:clamp(140px,15vw,180px);
+  min-width:clamp(120px,14vw,170px);
   position:relative;
   transition:all 0.5s cubic-bezier(0.16,1,0.3,1);
   display:block;
@@ -1715,26 +1703,82 @@ body.spanish [lang="en"]{display:none}
 .hero-cta-group{
   margin-top: -88px !important; /* pull CTAs up closer to logo (desktop) */
 }
-
-/* Mobile: controlled spacing without negative margin */
 @media (max-width: 768px){
-  .hero-logo-container{ 
-    margin-bottom: 8px !important; 
-  }
-  .hero-cta-group{ 
-    margin-top: 0 !important; 
+  .hero-cta-group{
+    margin-top: -28px !important; /* mobile-safe lift */
   }
 }
 
-/* Short viewport (laptops, landscape phones): tighten stack */
-@media (max-height: 740px){
-  .hero-stack{ 
-    transform: translateY(-3vh) !important; 
+/* ===================================================
+   TECH MAROON UNDERLINE (SCROLL-TRIGGERED)
+   Precise specs from document
+=================================================== */
+.underline-target {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-target::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #C4463A; /* Tech Maroon */
+  transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.underline-target.underline-active::after {
+  width: 100%;
+}
+
+/* ===================================================
+   DEEP FADE-RISE ANIMATION (EVERY SECTION)
+   Precise specs from document
+=================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
-  .hero-logo-container{ 
-    margin-bottom: 6px !important; 
+  .underline-target::after {
+    width: 100% !important;
+    transition: none !important;
   }
 }
+
+/* --- TIGHTENED STATS LABELS (FORCE SINGLE LINE) --- */
+.stat-label{
+  white-space: nowrap;
+  letter-spacing: 0.04em; /* slightly tighter to avoid wraps */
+}
+
+/* --- TIGHTEN SECTION SPACING (SURGICAL) --- */
+.section-separator hr{
+  margin: clamp(16px, 2vw, 28px) 0; /* was larger */
+}
+
+.value-showcase{
+  padding: clamp(64px, 8vw, 96px) 5%; /* reduced from previous */
+}
+
+.stats-section{
+  padding: clamp(64px, 8vw, 96px) 5%; /* reduced from previous */
+}
+
 </style>
   
 </head>
@@ -1799,7 +1843,7 @@ body.spanish [lang="en"]{display:none}
   </div>
 </header>
 
-<section class="video-section">
+<section class="video-section reveal">
   <div class="cascade-cards-left">
     <article class="cascade-card">
       <div class="cascade-card-label" lang="en">FOR PROPERTY OWNERS</div>
@@ -1863,8 +1907,8 @@ body.spanish [lang="en"]{display:none}
   <hr aria-hidden="true">
 </div>
 
-<section class="value-showcase">
-  <h2 class="section-title" lang="en">Built to Outperform.</h2>
+<section class="value-showcase reveal">
+  <h2 class="section-title" lang="en"><span class="underline-target">Built to Outperform.</span></h2>
   <h2 class="section-title" lang="es">Diseñado para Superar.</h2>
   
   <p class="section-subtitle" lang="en">Where operational excellence meets local accountability—transforming underperforming assets into revenue-generating properties.</p>
@@ -1875,7 +1919,7 @@ body.spanish [lang="en"]{display:none}
       <div class="value-card-inner">
         <div class="value-card-front">
           <div class="value-card-front-header">
-            <h3 class="value-card-front-title" lang="en">Local Leadership</h3>
+            <h3 class="value-card-front-title" lang="en">Local<br>Leadership</h3>
             <h3 class="value-card-front-title" lang="es">Liderazgo Local</h3>
             <div class="value-card-front-flip">
               <span lang="en">FLIP</span>
@@ -1902,7 +1946,7 @@ body.spanish [lang="en"]{display:none}
           <div class="value-back-header">
             <div class="value-back-label" lang="en">What Separates Us</div>
             <div class="value-back-label" lang="es">Lo Que Nos Distingue</div>
-            <h3 class="value-back-title" lang="en">Local Leadership</h3>
+            <h3 class="value-back-title" lang="en">Local<br>Leadership</h3>
             <h3 class="value-back-title" lang="es">Liderazgo Local</h3>
           </div>
           <div class="value-back-content">
@@ -2093,7 +2137,7 @@ body.spanish [lang="en"]{display:none}
   <hr aria-hidden="true">
 </div>
 
-<section class="stats-section">
+<section class="stats-section reveal">
   <div class="stats-card">
     <h2 class="section-title" lang="en">Trusted Performance</h2>
     <h2 class="section-title" lang="es">Rendimiento Confiable</h2>
@@ -2304,6 +2348,45 @@ window.addEventListener("load", () => {
   }
 });
 
+
+// ================================
+// DEEP FADE-RISE OBSERVER
+// ================================
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+// Observe all reveal elements
+document.querySelectorAll('.reveal').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ================================
+// TECH MAROON UNDERLINE OBSERVER
+// ================================
+const underlineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('underline-active');
+      }, 200); // Small delay for effect
+      underlineObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5, rootMargin: '0px 0px -10% 0px' });
+
+// Observe all underline targets
+document.querySelectorAll('.underline-target').forEach(el => {
+  underlineObserver.observe(el);
+});
+
+console.log('%c✨ SURGICAL FIX APPLIED','font-size:16px;font-weight:900;color:#C4463A');
+console.log('%c📐 SNRG WEB Optical Centering | 🎨 Tech Maroon Underline | 🌊 Deep Fade-Rise','font-size:13px;font-weight:700;color:#4A4F5A');
 </script>
 </body>
 </html>
