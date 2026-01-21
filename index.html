@@ -2187,6 +2187,51 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
+
+/* ===================================================
+   MOBILE-ONLY HERO REFINEMENT (<=768px)
+   - Reduce hero height by 15%
+   - Reduce space above logo by ~35%
+   - Tighten space between logo and CTAs
+   - Make top space == bottom space (visual symmetry)
+=================================================== */
+@media (max-width: 768px) {
+  /* 1) Reduce hero section height by 15% */
+  .hero{
+    min-height: 85svh !important;
+    height: 85svh !important;
+  }
+
+  /* 2) Reduce top bias and re-center stack */
+  .hero-stack{
+    transform: translateY(-1.2vh) !important; /* closer to center than previous mobile value */
+    gap: 0 !important;
+  }
+
+  /* 3) Tighten space under logo (and thus between logo and CTAs) */
+  .hero-logo-container{
+    margin-bottom: 2px !important;
+  }
+
+  /* Keep CTAs snug */
+  .hero-cta-group{
+    margin-top: 0 !important;
+  }
+
+  /* 4) Enforce symmetric breathing room above and below the stack */
+  .hero{
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Remove any extra bottom push from wrappers */
+  .hero-wrap,
+  .hero-content{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
 </style>
   
 </head>
