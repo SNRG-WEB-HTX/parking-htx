@@ -2232,6 +2232,34 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
+
+/* ===================================================
+   MOBILE-ONLY: PERFECT CTA CENTERING UNDER LOGO
+=================================================== */
+@media (max-width: 768px) {
+  .hero-cta-group{
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: clamp(10px, 2.5vw, 14px) !important;
+  }
+
+  .hero-cta-group .cta{
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Ensure the logo container and CTA group share the same centering axis */
+  .hero-logo-container,
+  .hero-cta-group{
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
 </style>
   
 </head>
