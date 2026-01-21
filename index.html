@@ -1985,45 +1985,19 @@ body.spanish [lang="en"]{display:none}
 
 
 /* ===================================================
-   SNRG-PARITY SURGICAL HERO OVERRIDES (DO NOT EDIT ABOVE)
-   This block enforces exact behavior described by the user.
+   SNRG PARITY: SURGICAL HERO SYSTEM (AUTHORITATIVE)
 =================================================== */
-
-/* --- SURGICAL LOGO FIX --- */
-.hero-logo {
-  /* Dynamic sizing: Mobile (min 520px) to Desktop (max 900px) */
-  max-width: clamp(520px, 72vw, 900px); 
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.2));
-  opacity: 0;
-  /* Entrance Animation Logic */
-  transform: scale(0.3) translateY(-100px) translateZ(-500px);
-  animation: logoTunnelEntrance 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  background: transparent !important;
-  isolation: isolate;
-}
-
-/* Specific Laptop/Desktop Cap */
-@media (min-width: 1025px) {
-  .hero-logo {
-    max-width: clamp(520px, 60vw, 760px);
-  }
-}
-
-/* --- HERO DIMENSIONS & ALIGNMENT --- */
 .hero {
   min-height: 100vh;
-  min-height: 100svh; /* Modern mobile viewport support */
+  min-height: 100svh;
   height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  padding-top: 88px;
   position: relative;
   overflow: hidden;
-  padding: 0;
-  padding-top: 88px; /* Fixed offset for Lang-Bar */
 }
 
 .hero-stack {
@@ -2033,35 +2007,46 @@ body.spanish [lang="en"]{display:none}
   justify-content: center;
   width: 100%;
   gap: 0;
-  /* SNRG Precision Offset */
-  transform: translateY(-8vh); 
+  transform: translateY(-8vh);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (max-width: 768px) {
-  .hero-stack {
-    transform: translateY(-4vh); /* Reduced mobile offset */
-  }
+  .hero-stack { transform: translateY(-4vh); }
 }
 
-/* --- CTA ALIGNMENT --- */
+.hero-logo {
+  max-width: clamp(520px, 72vw, 900px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.2));
+  opacity: 0;
+  transform: scale(0.3) translateY(-100px) translateZ(-500px);
+  animation: logoTunnelEntrance 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background: transparent !important;
+  isolation: isolate;
+}
+
+@media (min-width: 1025px) {
+  .hero-logo { max-width: 720px; }
+}
+
+.hero-logo-container {
+  margin: 0 auto 6px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .hero-cta-group {
   display: flex;
   gap: clamp(10px, 2vw, 14px);
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 0; /* Resetting margins to allow the stack gap to control layout */
+  margin-top: 0;
 }
 
-.cta {
-  font-size: clamp(14px, 3.5vw, 16px);
-  padding: clamp(13px, 3.2vw, 17px) clamp(26px, 6.5vw, 42px);
-  border-radius: 12px;
-  font-weight: 700;
-  letter-spacing: 0.015em;
-  text-transform: none;
-}
-
-/* --- STRUCTURE SAFETY --- */
 .logo-mask{
   position: relative;
   display: flex;
@@ -2071,6 +2056,79 @@ body.spanish [lang="en"]{display:none}
   width: 100%;
   background:transparent !important;
   isolation:isolate;
+}
+
+
+/* ===================================================
+   LAPTOP + MOBILE HERO COMPRESSION (DESKTOP UNTOUCHED)
+   Goal: Remove ~50% dead space
+   - Above logo
+   - Between logo and CTAs
+   - Below CTAs
+   Keep logo + buttons centered and visible.
+=================================================== */
+
+/* -------- Laptop (769px–1279px) -------- */
+@media (min-width: 769px) and (max-width: 1279px) {
+  /* Keep full viewport, but counteract header padding + rise to reduce top void */
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+  }
+
+  /* Reduce the optical rise slightly so content sits more centrally */
+  .hero-stack {
+    transform: translateY(-4vh) !important; /* was -8vh */
+    gap: 0 !important;
+  }
+
+  /* Tighten space under logo */
+  .hero-logo-container {
+    margin-bottom: 3px !important; /* was 6px */
+  }
+
+  /* Tighten space between logo and CTAs */
+  .hero-cta-group {
+    margin-top: 0 !important;
+  }
+
+  /* Remove any bottom push below CTAs */
+  .hero-wrap,
+  .hero-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* -------- Mobile (<=768px) -------- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+  }
+
+  /* Reduce the mobile rise to compress vertical space */
+  .hero-stack {
+    transform: translateY(-2vh) !important; /* was -4vh */
+    gap: 0 !important;
+  }
+
+  /* Tighten space under logo */
+  .hero-logo-container {
+    margin-bottom: 3px !important;
+  }
+
+  /* Keep CTAs snug to logo */
+  .hero-cta-group {
+    margin-top: 0 !important;
+  }
+
+  /* Remove any bottom push below CTAs */
+  .hero-wrap,
+  .hero-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
 
 </style>
