@@ -178,10 +178,119 @@ body.spanish [lang="en"]{display:none}
   border-bottom:1px solid rgba(0,0,0,0.06);
   padding:clamp(14px,3.5vw,16px) clamp(18px,4.5vw,24px);
   display:flex;
-  justify-content:flex-end;
+  justify-content:space-between;
+  align-items:center;
   gap:clamp(10px,2.5vw,12px);
   z-index:9999;
   box-shadow:0 2px 12px rgba(0,0,0,0.04);
+}
+
+.lang-bar-left{
+  display:flex;
+  align-items:center;
+}
+
+.lang-bar-right{
+  display:flex;
+  align-items:center;
+  gap:clamp(10px,2.5vw,12px);
+}
+
+.hamburger{
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  min-width:48px;
+  min-height:48px;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.hamburger span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--ink);
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  border-radius:2px;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translateY(7px);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translateY(-7px);
+}
+
+.hamburger:hover span{
+  background:var(--maroon);
+}
+
+.hamburger:focus{
+  outline:2px solid var(--maroon);
+  outline-offset:2px;
+}
+
+.nav-overlay{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:100%;
+  max-width:400px;
+  height:100vh;
+  height:100svh;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(40px);
+  -webkit-backdrop-filter:blur(40px);
+  z-index:9998;
+  padding:clamp(80px,12vw,100px) clamp(32px,6vw,48px) clamp(32px,6vw,48px);
+  transition:right 0.4s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:-8px 0 32px rgba(0,0,0,0.08);
+  overflow-y:auto;
+}
+
+.nav-overlay.open{
+  right:0;
+}
+
+.nav-menu{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:clamp(8px,2vw,12px);
+}
+
+.nav-menu li a{
+  display:block;
+  padding:clamp(16px,3.5vw,20px) clamp(20px,4.5vw,24px);
+  color:var(--ink);
+  text-decoration:none;
+  font-size:clamp(17px,4vw,20px);
+  font-weight:600;
+  border-radius:12px;
+  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
+  letter-spacing:-0.02em;
+}
+
+.nav-menu li a:hover{
+  background:rgba(196,70,58,0.08);
+  color:var(--maroon);
+  transform:translateX(4px);
+}
+
+.nav-menu li a:focus{
+  outline:2px solid var(--maroon);
+  outline-offset:2px;
 }
 
 .lang-btn{
@@ -232,48 +341,76 @@ body.spanish [lang="en"]{display:none}
   overflow:hidden;
   contain:paint;
   padding:0;
+  padding-top:88px;
 }
 
-.hero-wrap{
-  text-align:center;
-  width:100%;
+/* Desktop-safe offset for fixed header (prevents logo/CTAs from sitting under .lang-bar) */
+@media (min-width: 769px){
+  .hero{
+  min-height:100vh;
+  min-height:100svh;
+  height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  contain:paint;
+  padding:0;
+  padding-top:88px;
+}
 }
 
+
+
+
+
+
+.hero-wrap,
+.hero-content,
 .hero-stack{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap: clamp(18px, 4vw, 28px);
   width:100%;
 }
+/* --- HERO OPTICAL CENTERING (SNRG WEB EXACT) --- */
+.hero-stack{
+  gap:0;
+  transform: translateY(-8vh);
+}
+
+@media (max-width:768px){
+  .hero-stack{
+    transform: translateY(-4vh);
+  }
+}
+
+.hero-stack{
+  gap:0;
+}
+
+
 
 .hero-cta-group{
   display:flex;
-  gap:clamp(28px,7vw,36px);
+  gap:clamp(10px,2vw,14px);
   justify-content:center;
   flex-wrap:wrap;
-  margin-top:clamp(32px,2vw,48px);
+  margin-top:0;
 }
 
-.hero-content{
-  opacity:0;
-  animation:heroContentEntrance 1.4s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
-  margin-top:0;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  width:100%;
-  gap:0;
-}
+
+
+
 
 @keyframes heroContentEntrance{
   to{opacity:1}
 }
 
 .hero-logo-container{
-  margin:-55px auto 0;
+  margin:0 auto 6px;
   position:relative;
   display:flex;
   align-items:center;
@@ -282,6 +419,7 @@ body.spanish [lang="en"]{display:none}
   background:transparent !important;
   isolation:isolate;
 }
+
 
 .logo-mask{
   position: relative;
@@ -295,7 +433,7 @@ body.spanish [lang="en"]{display:none}
 }
 
 .hero-logo{
-  max-width:clamp(414px,65vw,780px);
+  max-width:clamp(520px,72vw,900px);
   height:auto;
   display:block;
   margin:0 auto;
@@ -306,10 +444,31 @@ body.spanish [lang="en"]{display:none}
   background:transparent !important;
   isolation:isolate;
 }
+
+@media (min-width:1025px){
+  .hero-logo{
+    max-width:800px;
+  }
+}
 @media (min-width: 1025px){
   .hero-logo{
-    max-width: 660px;
+  max-width:clamp(520px,72vw,900px);
+  height:auto;
+  display:block;
+  margin:0 auto;
+  filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2));
+  opacity:0;
+  transform:scale(0.3) translateY(-100px) translateZ(-500px);
+  animation:logoTunnelEntrance 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  background:transparent !important;
+  isolation:isolate;
+}
+
+@media (min-width:1025px){
+  .hero-logo{
+    max-width:800px;
   }
+}
 }
 
 @keyframes logoTunnelEntrance{
@@ -508,6 +667,94 @@ body.spanish [lang="en"]{display:none}
   height:100%;
   object-fit:cover;
   display:block;
+}
+
+
+/* ================================
+   DESKTOP CASCADE CARDS AROUND VIDEO
+================================ */
+@media (min-width: 1024px){
+  .video-section{
+    display:grid !important;
+    grid-template-columns:minmax(280px,1fr) minmax(400px,480px) minmax(280px,1fr);
+    gap:clamp(32px,4vw,56px);
+    align-items:center;
+    max-width:1600px;
+    padding:clamp(64px,8vw,96px) 5%;
+  }
+  
+  .cascade-cards-left,
+  .cascade-cards-right{
+    display:flex;
+    flex-direction:column;
+    gap:clamp(24px,3vw,32px);
+  }
+  
+  .cascade-card{
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:2px solid rgba(0,0,0,0.06);
+    border-radius:20px;
+    padding:clamp(28px,3.5vw,36px);
+    box-shadow:0 8px 24px rgba(0,0,0,0.06);
+    transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  
+  .cascade-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 40px rgba(0,0,0,0.1);
+    border-color:rgba(196,70,58,0.2);
+  }
+  
+  .cascade-cards-left .cascade-card:first-child{
+    transform:translateY(-40px);
+  }
+  
+  .cascade-cards-left .cascade-card:last-child{
+    transform:translateY(40px);
+  }
+  
+  .cascade-cards-right .cascade-card:first-child{
+    transform:translateY(-40px);
+  }
+  
+  .cascade-cards-right .cascade-card:last-child{
+    transform:translateY(40px);
+  }
+  
+  .cascade-card-label{
+    font-size:clamp(11px,1.2vw,13px);
+    font-weight:700;
+    color:var(--maroon);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:clamp(8px,1vw,12px);
+  }
+  
+  .cascade-card-title{
+    font-size:clamp(20px,2.2vw,26px);
+    font-weight:800;
+    color:var(--ink);
+    line-height:1.25;
+    letter-spacing:-0.02em;
+    margin-bottom:clamp(12px,1.5vw,16px);
+  }
+  
+  .cascade-card-text{
+    font-size:clamp(14px,1.5vw,16px);
+    color:var(--slate);
+    line-height:1.6;
+    font-weight:500;
+  }
+}
+
+/* Hide cascade cards on mobile/tablet */
+@media (max-width: 1023px){
+  .cascade-cards-left,
+  .cascade-cards-right{
+    display:none;
+  }
 }
 
 @media(max-width:768px){
@@ -1129,37 +1376,61 @@ body.spanish [lang="en"]{display:none}
 
 @media(max-width:768px){
   .hero{
-    max-height:100svh;
-    min-height:100svh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:clamp(48px,12vw,80px) 0 16px;
-  }
+  min-height:100vh;
+  min-height:100svh;
+  height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  contain:paint;
+  padding:0;
+  padding-top:88px;
+}
   
-  .hero-stack{
-    margin-top:0 !important;
-    padding-top:0 !important;
-    gap:clamp(20px,5vw,28px);
-  }
+  
+
   
   .hero-logo-container{
-    margin-bottom:clamp(16px,4vw,24px);
-  }
+  margin:0 auto 6px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  background:transparent !important;
+  isolation:isolate;
+}
+
   
   .hero-logo{
-    max-width:min(88vw,400px);
-    animation-duration:0.7s;
-    margin-bottom:16px;
+  max-width:clamp(520px,72vw,900px);
+  height:auto;
+  display:block;
+  margin:0 auto;
+  filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2));
+  opacity:0;
+  transform:scale(0.3) translateY(-100px) translateZ(-500px);
+  animation:logoTunnelEntrance 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  background:transparent !important;
+  isolation:isolate;
+}
+
+@media (min-width:1025px){
+  .hero-logo{
+    max-width:800px;
   }
+}
   
   .hero-cta-group{
-    margin-top:clamp(24px,4vw,32px);
-    gap:clamp(18px,4.5vw,24px);
-    margin-bottom:0;
-    width:100%;
-    max-width:500px;
-  }
+  display:flex;
+  gap:clamp(10px,2vw,14px);
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:0;
+}
+
   
   .hero-cta-group .cta{
     min-width:140px;
@@ -1314,11 +1585,18 @@ body.spanish [lang="en"]{display:none}
   .hero-logo-container,
   .hero-stack,
   .hero{
-    max-width: none !important;
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+  min-height:100vh;
+  min-height:100svh;
+  height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  contain:paint;
+  padding:0;
+  padding-top:88px;
+}
   
   .stat{
     min-width:clamp(100px,24vw,130px);
@@ -1364,30 +1642,72 @@ body.spanish [lang="en"]{display:none}
 /* ================================
    HERO SUBSECTION (NATIONAL / LOCAL / 24-7)
 ================================ */
-.hero-subsection{
-  margin-top:clamp(36px,5vw,56px);
-  opacity:0;
-  transform:translateY(60px) scale(0.92);
+
+
+
+
+
+
+
+
+
+/* === HERO MASTER CENTERING FIX (surgical) === */
+
+
+
+
+
+
+.hero-logo-container{
+  margin:0 auto 6px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  background:transparent !important;
+  isolation:isolate;
 }
 
-.hero-subsection.animate{
-  opacity:1;
-  transform:translateY(0) scale(1);
-  transition:all 1.2s cubic-bezier(0.16,1,0.3,1);
+.hero-cta-group{
+  display:flex;
+  gap:clamp(10px,2vw,14px);
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:0;
 }
 
-.subsection-column{
-  text-align:center;
-  opacity:0;
-  transform:translateY(24px);
+/* kill any accidental positioning inside hero */
+.hero .hero-logo-container{
+  margin:0 auto 6px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  background:transparent !important;
+  isolation:isolate;
 }
 
-.subsection-column.animate{
-  opacity:1;
-  transform:translateY(0);
-  transition:all 0.8s cubic-bezier(0.16,1,0.3,1);
+.hero .hero-cta-group{
+  margin:0;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  background:transparent !important;
+  isolation:isolate;
 }
-
+/* === SURGICAL CTA LIFT (no other layout changes) === */
+.hero-cta-group{
+  margin-top: -28px !important; /* pull CTAs up closer to logo (desktop) */
+}
+@media (max-width: 768px){
+  .hero-cta-group{
+    margin-top: -18px !important; /* mobile-safe lift */
+  }
+}
 </style>
   
 </head>
@@ -1398,60 +1718,54 @@ body.spanish [lang="en"]{display:none}
 <h1 class="visually-hidden" lang="es">Gestión de Estacionamiento en Houston - Operaciones Profesionales de Garajes y Lotes</h1>
 
 <nav class="lang-bar" role="navigation" aria-label="Language selection">
-  <button class="lang-btn active" onclick="switchLang('en')" aria-label="Switch to English" aria-current="true">EN</button>
-  <button class="lang-btn" onclick="switchLang('es')" aria-label="Cambiar a español">ES</button>
+  <div class="lang-bar-left"></div>
+  <div class="lang-bar-right">
+    <button class="lang-btn active" onclick="switchLang('en')" aria-label="Switch to English" aria-current="true">EN</button>
+    <button class="lang-btn" onclick="switchLang('es')" aria-label="Cambiar a español">ES</button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="nav-overlay" id="navOverlay">
+  <ul class="nav-menu">
+    <li><a href="/" lang="en">Home</a><a href="/" lang="es">Inicio</a></li>
+    <li><a href="/property-owners" lang="en">Property Owners</a><a href="/property-owners" lang="es">Propietarios</a></li>
+    <li><a href="/parker-info" lang="en">Parker Info</a><a href="/parker-info" lang="es">Info Para Usuarios</a></li>
+    <li><a href="/htx-difference" lang="en">The HTX Difference</a><a href="/htx-difference" lang="es">La Diferencia HTX</a></li>
+    <li><a href="/food-truck-family" lang="en">Food Truck Family</a><a href="/food-truck-family" lang="es">Familia de Food Trucks</a></li>
+    <li><a href="/careers" lang="en">Careers</a><a href="/careers" lang="es">Carreras</a></li>
+    <li><a href="/contact" lang="en">Contact</a><a href="/contact" lang="es">Contacto</a></li>
+  </ul>
 </nav>
 
 <header class="hero" role="banner">
   <div class="animated-bg" aria-hidden="true"></div>
-  <div class="container">
-    <div class="hero-wrap">
-      <div class="hero-content">
-        <div class="hero-stack">
-          <div class="hero-logo-container">
-            <div class="logo-mask">
-              <img 
-                src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69658c42c1ad06f52664b864_parking%20htx%20logo%201.12.26%20(1).svg" 
-                class="hero-logo" 
-                alt="PARKING HTX - Houston Parking Management" 
-                loading="eager" 
-                fetchpriority="high" 
-                decoding="async" 
-                width="780" 
-                height="auto">
-            </div>
+  <div class="hero-wrap">
+    <div class="hero-content">
+      <div class="hero-stack">
+        <div class="hero-logo-container">
+          <div class="logo-mask">
+            <img 
+              src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69658c42c1ad06f52664b864_parking%20htx%20logo%201.12.26%20(1).svg" 
+              class="hero-logo" 
+              alt="PARKING HTX - Houston Parking Management" 
+              loading="eager" 
+              fetchpriority="high" 
+              decoding="async" 
+              width="780" 
+              height="auto">
           </div>
-          <div class="hero-subsection">
-    <div class="subsection-grid">
-
-      <div class="subsection-column">
-        <span class="column-word">NATIONAL</span>
-        <span class="column-word">PLAFORM</span>
-      </div>
-
-      <div class="subsection-divider"></div>
-
-      <div class="subsection-column">
-        <span class="column-word">LOCAL</span>
-        <span class="column-word">LEADERSHIP</span>
-      </div>
-
-      <div class="subsection-divider"></div>
-
-      <div class="subsection-column">
-        <span class="column-word">24/7</span>
-        <span class="column-word">OPERATIONS</span>
-      </div>
-
-    </div>
-  </div>
-          <div class="hero-cta-group">
-            <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">Partner With Us</a>
-            <a href="/parker-info" class="cta cta-secondary" lang="en">Find Parking</a>
-            
-            <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">Asóciese con Nosotros</a>
-            <a href="/parker-info" class="cta cta-secondary" lang="es">Encontrar Estacionamiento</a>
-          </div>
+        </div>
+        <div class="hero-cta-group">
+          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">Partner With Us</a>
+          <a href="/parker-info" class="cta cta-secondary" lang="en">Find Parking</a>
+          
+          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">Asóciese con Nosotros</a>
+          <a href="/parker-info" class="cta cta-secondary" lang="es">Encontrar Estacionamiento</a>
         </div>
       </div>
     </div>
@@ -1459,6 +1773,25 @@ body.spanish [lang="en"]{display:none}
 </header>
 
 <section class="video-section">
+  <div class="cascade-cards-left">
+    <article class="cascade-card">
+      <div class="cascade-card-label" lang="en">FOR PROPERTY OWNERS</div>
+      <div class="cascade-card-label" lang="es">PARA PROPIETARIOS</div>
+      <h3 class="cascade-card-title" lang="en">Revenue Optimization</h3>
+      <h3 class="cascade-card-title" lang="es">Optimización de Ingresos</h3>
+      <p class="cascade-card-text" lang="en">Maximize your parking asset value with data-driven strategies, dynamic pricing, and comprehensive property management</p>
+      <p class="cascade-card-text" lang="es">Maximice el valor de su activo de estacionamiento con estrategias basadas en datos, precios dinámicos y gestión integral de propiedades</p>
+    </article>
+    <article class="cascade-card">
+      <div class="cascade-card-label" lang="en">COMPREHENSIVE MANAGEMENT</div>
+      <div class="cascade-card-label" lang="es">GESTIÓN INTEGRAL</div>
+      <h3 class="cascade-card-title" lang="en">Surface Lot Management</h3>
+      <h3 class="cascade-card-title" lang="es">Gestión de Lotes de Superficie</h3>
+      <p class="cascade-card-text" lang="en">Expert management of open-air parking facilities with on-site staff, traffic flow optimization, and real-time occupancy monitoring</p>
+      <p class="cascade-card-text" lang="es">Gestión experta de instalaciones de estacionamiento al aire libre con personal en sitio, optimización del flujo de tráfico y monitoreo de ocupación en tiempo real</p>
+    </article>
+  </div>
+  
   <div class="video-wrapper">
     <div class="video-frame">
       <div class="video-frame-white">
@@ -1477,6 +1810,25 @@ body.spanish [lang="en"]{display:none}
         </div>
       </div>
     </div>
+  </div>
+  
+  <div class="cascade-cards-right">
+    <article class="cascade-card">
+      <div class="cascade-card-label" lang="en">FOR PARKERS</div>
+      <div class="cascade-card-label" lang="es">PARA USUARIOS</div>
+      <h3 class="cascade-card-title" lang="en">Seamless Experience</h3>
+      <h3 class="cascade-card-title" lang="es">Experiencia Sin Problemas</h3>
+      <p class="cascade-card-text" lang="en">Quick, contactless payment via QR code. No apps, no hassle—just scan, pay, and park with complete peace of mind</p>
+      <p class="cascade-card-text" lang="es">Pago rápido y sin contacto mediante código QR. Sin aplicaciones, sin complicaciones—solo escanee, pague y estacione con total tranquilidad</p>
+    </article>
+    <article class="cascade-card">
+      <div class="cascade-card-label" lang="en">ELITE SERVICE</div>
+      <div class="cascade-card-label" lang="es">SERVICIO ÉLITE</div>
+      <h3 class="cascade-card-title" lang="en">Houston Expertise</h3>
+      <h3 class="cascade-card-title" lang="es">Experiencia en Houston</h3>
+      <p class="cascade-card-text" lang="en">CPP-certified leadership managing Houston's diverse parking needs—from Medical Center to Downtown to NRG Stadium events</p>
+      <p class="cascade-card-text" lang="es">Liderazgo certificado CPP gestionando las diversas necesidades de estacionamiento de Houston—desde el Centro Médico hasta Downtown y eventos en el Estadio NRG</p>
+    </article>
   </div>
 </section>
 
@@ -1655,7 +2007,7 @@ body.spanish [lang="en"]{display:none}
           </div>
           <div class="value-image">
             <img 
-              src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69370d6160d34714c1c50e2e_ChatGPT%20Image%20Dec%208%2C%202025%2C%2011_28_42%20AM.webp" 
+              src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/6938b4b2d7e373a4d3a535f6_ChatGPT%20Image%20Dec%209%2C%202025%2C%2005_45_28%20PM.webp" 
               alt="On-site parking management team"
               loading="lazy"
               decoding="async"
@@ -1770,6 +2122,38 @@ window.addEventListener('load',()=>{
 
 document.addEventListener('DOMContentLoaded',()=>{
   window.scrollTo(0,0);
+});
+
+
+// Hamburger menu functionality
+const hamburger = document.getElementById('hamburger');
+const navOverlay = document.getElementById('navOverlay');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = navOverlay.classList.toggle('open');
+  hamburger.classList.toggle('active');
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+// Close menu when clicking outside
+navOverlay.addEventListener('click', (e) => {
+  if (e.target === navOverlay) {
+    navOverlay.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+});
+
+// Close menu on escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navOverlay.classList.contains('open')) {
+    navOverlay.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
 });
 
 function switchLang(lang){
