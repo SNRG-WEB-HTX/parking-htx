@@ -2131,6 +2131,62 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
+
+/* ===================================================
+   LAPTOP-ONLY: REDUCE LOGO BY 20% (LAYOUT UNCHANGED)
+   Range: 769px–1279px
+   - Keeps all spacing and centering exactly the same
+   - Only scales the logo itself
+=================================================== */
+@media (min-width: 769px) and (max-width: 1279px) {
+  .hero-logo {
+    transform: scale(0.8) translateY(-100px) translateZ(-500px) !important; /* preserve entrance transform but 20% smaller */
+    max-width: 576px !important; /* 80% of 720px cap for laptop */
+  }
+}
+
+
+/* ===================================================
+   LAPTOP HERO FINAL OPTICAL LOCK (769px–1279px)
+   - Perfect vertical centering in viewport
+   - Slightly smaller logo
+   - Desktop & Mobile untouched
+=================================================== */
+@media (min-width: 769px) and (max-width: 1279px) {
+  /* Keep hero full viewport but remove excess top bias */
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    padding-top: 64px !important; /* slightly less than desktop 88px */
+  }
+
+  /* Re-center stack optically */
+  .hero-stack {
+    transform: translateY(-2.5vh) !important; /* was -4vh */
+  }
+
+  /* Slightly smaller logo again */
+  .hero-logo {
+    max-width: 540px !important; /* ~25% smaller than 720px cap */
+    transform: scale(0.78) translateY(-100px) translateZ(-500px) !important;
+  }
+
+  /* Keep everything tight */
+  .hero-logo-container {
+    margin-bottom: 2px !important;
+  }
+
+  .hero-cta-group {
+    margin-top: 0 !important;
+  }
+
+  .hero-wrap,
+  .hero-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
 </style>
   
 </head>
