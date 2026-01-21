@@ -378,19 +378,17 @@ body.spanish [lang="en"]{display:none}
 /* --- HERO OPTICAL CENTERING (SNRG WEB EXACT) --- */
 .hero-stack{
   gap:0;
-  transform: translateY(-10vh);
+  transform: translateY(-8vh);
 }
 
 @media (max-width:768px){
   .hero-stack{
-    transform: translateY(-8vh);
+    transform: translateY(-4vh);
   }
 }
 
-@media (max-width:480px){
-  .hero-stack{
-    transform: translateY(-6vh);
-  }
+.hero-stack{
+  gap:0;
 }
 
 
@@ -412,7 +410,7 @@ body.spanish [lang="en"]{display:none}
 }
 
 .hero-logo-container{
-  margin:0 auto 2px;
+  margin:0 auto 6px;
   position:relative;
   display:flex;
   align-items:center;
@@ -471,6 +469,18 @@ body.spanish [lang="en"]{display:none}
     max-width:800px;
   }
 }
+}
+
+/* HERO: mobile + small screens - prevent oversized logo */
+@media (max-width: 768px){
+  .hero-logo{
+    max-width: clamp(280px, 78vw, 420px) !important;
+  }
+}
+@media (max-width: 420px){
+  .hero-logo{
+    max-width: min(86vw, 360px) !important;
+  }
 }
 
 @keyframes logoTunnelEntrance{
@@ -1395,7 +1405,7 @@ body.spanish [lang="en"]{display:none}
 
   
   .hero-logo-container{
-  margin:0 auto 2px;
+  margin:0 auto 6px;
   position:relative;
   display:flex;
   align-items:center;
@@ -1661,7 +1671,7 @@ body.spanish [lang="en"]{display:none}
 
 
 .hero-logo-container{
-  margin:0 auto 2px;
+  margin:0 auto 6px;
   position:relative;
   display:flex;
   align-items:center;
@@ -1681,7 +1691,7 @@ body.spanish [lang="en"]{display:none}
 
 /* kill any accidental positioning inside hero */
 .hero .hero-logo-container{
-  margin:0 auto 2px;
+  margin:0 auto 6px;
   position:relative;
   display:flex;
   align-items:center;
@@ -1705,9 +1715,24 @@ body.spanish [lang="en"]{display:none}
 .hero-cta-group{
   margin-top: -88px !important; /* pull CTAs up closer to logo (desktop) */
 }
+
+/* Mobile: controlled spacing without negative margin */
 @media (max-width: 768px){
-  .hero-cta-group{
-    margin-top: -28px !important; /* mobile-safe lift */
+  .hero-logo-container{ 
+    margin-bottom: 8px !important; 
+  }
+  .hero-cta-group{ 
+    margin-top: 0 !important; 
+  }
+}
+
+/* Short viewport (laptops, landscape phones): tighten stack */
+@media (max-height: 740px){
+  .hero-stack{ 
+    transform: translateY(-3vh) !important; 
+  }
+  .hero-logo-container{ 
+    margin-bottom: 6px !important; 
   }
 }
 </style>
