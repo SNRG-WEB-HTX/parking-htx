@@ -1205,17 +1205,19 @@ body.spanish [lang="en"]{display:none}
 .stats-grid{
   display:flex;
   justify-content:center;
-  gap:clamp(32px,4vw,56px);
-  flex-wrap:wrap;
+  gap:clamp(18px,3vw,28px);
+  flex-wrap:nowrap;
   margin-bottom:clamp(32px,4vw,48px);
   width:100%;
   visibility:visible;
 }
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
 
 .stat{
   text-align:center;
   padding:clamp(16px,2vw,24px);
-  min-width:clamp(120px,14vw,170px);
+  min-width:clamp(105px,13vw,145px);
   position:relative;
   transition:all 0.5s cubic-bezier(0.16,1,0.3,1);
   display:block;
@@ -1274,7 +1276,7 @@ body.spanish [lang="en"]{display:none}
 }
 
 .stat-label{
-  font-size:clamp(11px,2.3vw,14px);
+  font-size:clamp(10px,2vw,12px);
   color:var(--slate);
   font-weight:600;
   text-transform:uppercase;
@@ -1386,14 +1388,14 @@ body.spanish [lang="en"]{display:none}
   overflow:hidden;
   contain:paint;
   padding:0;
-  padding-top:88px;
+  padding-top:44px;
 }
   
   
 
   
   .hero-logo-container{
-  margin:0 auto 6px;
+  margin:0 auto 2px;
   position:relative;
   display:flex;
   align-items:center;
@@ -1405,7 +1407,7 @@ body.spanish [lang="en"]{display:none}
 
   
   .hero-logo{
-  max-width:clamp(520px,72vw,900px);
+  max-width:min(85vw,380px);
   height:auto;
   display:block;
   margin:0 auto;
@@ -1428,7 +1430,7 @@ body.spanish [lang="en"]{display:none}
   gap:clamp(10px,2vw,14px);
   justify-content:center;
   flex-wrap:wrap;
-  margin-top:0;
+  margin-top:4px;
 }
 
   
@@ -1450,15 +1452,15 @@ body.spanish [lang="en"]{display:none}
   .stats-grid{
     display:flex !important;
     flex-direction:row;
-    gap:clamp(24px,4vw,32px);
+    gap:clamp(16px,2.5vw,20px);
     align-items:center;
     justify-content:center;
-    flex-wrap:wrap;
+    flex-wrap:nowrap !important;
   }
   
   .stat{
     display:block !important;
-    min-width:clamp(120px,28vw,160px);
+    min-width:clamp(100px,22vw,130px);
   }
   
   .sticky-cta{
@@ -1721,7 +1723,7 @@ body.spanish [lang="en"]{display:none}
 .underline-target::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -6px;
   left: 0;
   width: 0;
   height: 3px;
@@ -1911,8 +1913,6 @@ body.spanish [lang="en"]{display:none}
   <h2 class="section-title" lang="en"><span class="underline-target">Built to Outperform.</span></h2>
   <h2 class="section-title" lang="es">Diseñado para Superar.</h2>
   
-  <p class="section-subtitle" lang="en">Where operational excellence meets local accountability—transforming underperforming assets into revenue-generating properties.</p>
-  <p class="section-subtitle" lang="es">Donde la excelencia operativa se encuentra con la responsabilidad local—transformando activos de bajo rendimiento en propiedades generadoras de ingresos.</p>
 
   <div class="value-grid">
     <article class="value-card" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Learn more about Local Leadership">
