@@ -447,12 +447,12 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:800px;
+    max-width:720px;
   }
 }
 @media (min-width: 1025px){
   .hero-logo{
-  max-width:clamp(520px,72vw,900px);
+  max-width:clamp(520px,60vw,760px);
   height:auto;
   display:block;
   margin:0 auto;
@@ -466,7 +466,7 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:800px;
+    max-width:720px;
   }
 }
 }
@@ -612,7 +612,7 @@ body.spanish [lang="en"]{display:none}
 .video-wrapper{
   position:relative;
   width:100%;
-  max-width:480px;
+  max-width:720px;
   aspect-ratio:3/4;
   display:block;
   visibility:visible;
@@ -759,7 +759,7 @@ body.spanish [lang="en"]{display:none}
 
 @media(max-width:768px){
   .video-section{
-    display:flex !important;
+    display:none !important;
     padding:clamp(40px,6vw,64px) 5% clamp(24px,4vw,40px);
     visibility:visible !important;
     opacity:1 !important;
@@ -1355,7 +1355,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .video-section{
-    display:flex !important;
+    display:none !important;
     padding:clamp(44px,5.5vw,72px) 5% clamp(28px,3.5vw,44px);
   }
   
@@ -1364,7 +1364,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .stats-grid{
-    display:flex !important;
+    display:none !important;
     flex-direction:row !important;
     flex-wrap:wrap;
     justify-content:center;
@@ -1421,7 +1421,7 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:800px;
+    max-width:720px;
   }
 }
   
@@ -1440,7 +1440,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .video-section{
-    display:flex !important;
+    display:none !important;
     padding:clamp(40px,6vw,64px) 5% clamp(24px,4vw,40px);
   }
   
@@ -1450,7 +1450,7 @@ body.spanish [lang="en"]{display:none}
   }
   
   .stats-grid{
-    display:flex !important;
+    display:none !important;
     flex-direction:row;
     gap:clamp(16px,2.5vw,20px);
     align-items:center;
@@ -1627,7 +1627,7 @@ body.spanish [lang="en"]{display:none}
 ================================ */
 @media (max-width: 768px){
   .video-section{
-    display: block !important;
+    display: none !important;
   }
 }
 
@@ -1779,6 +1779,48 @@ body.spanish [lang="en"]{display:none}
 
 .stats-section{
   padding: clamp(64px, 8vw, 96px) 5%; /* reduced from previous */
+}
+
+
+/* ===================================================
+   DESKTOP-ONLY: TRIM OUTER HERO WHITESPACE
+   - Keep logo and CTAs EXACTLY as-is
+   - Only reduce space ABOVE the logo and BELOW the CTAs
+=================================================== */
+@media (min-width:1025px){
+  .hero{
+    padding-top:44px !important;      /* was 88px */
+    padding-bottom:0 !important;      /* remove bottom padding */
+    min-height:calc(100svh - 44px) !important; /* trim excess bottom void created by header offset */
+    height:auto !important;
+  }
+}
+
+
+/* ===================================================
+   SPIN UNTIL BORDER ANIMATION FINISHES (BADGES / STATS)
+=================================================== */
+@keyframes spinUntilDone{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
+
+/* Apply to common badge/stat containers */
+.stat, .badge, .value-card, .cascade-card{
+  animation: spinUntilDone 1.2s linear 2;
+}
+
+
+/* ===================================================
+   BALANCE WHITE SPACE AROUND HTX / 24/7 / CPP ROW
+   - Make space above equal to space below
+=================================================== */
+.stats-grid{
+  margin: clamp(32px,4vw,48px) 0 !important; /* equal top & bottom */
+}
+.stats-card{
+  padding-top: clamp(40px,5vw,64px) !important;
+  padding-bottom: clamp(40px,5vw,64px) !important;
 }
 
 </style>
@@ -2144,18 +2186,18 @@ body.spanish [lang="en"]{display:none}
     <div class="stats-grid">
       <div class="stat">
         <div class="stat-value">HTX</div>
-        <div class="stat-label" lang="en">Local Team</div>
+        <div class="stat-label" lang="en"></div>
         <div class="stat-label" lang="es">El equipo local</div>
       </div>
       <div class="stat">
         <div class="stat-value">24/7</div>
-        <div class="stat-label" lang="en">OPERATIONS</div>
-        <div class="stat-label" lang="es">Operacional</div>
+        <div class="stat-label" lang="en"></div>
+        <div class="stat-label" lang="es">Soporte Operacional</div>
       </div>
       <div class="stat">
         <div class="stat-value">CPP</div>
-        <div class="stat-label" lang="en">Leadership</div>
-        <div class="stat-label" lang="es">Liderazgo</div>
+        <div class="stat-label" lang="en"></div>
+        <div class="stat-label" lang="es">Liderazgo Certificado</div>
       </div>
     </div>
     <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">Connect With PARKING HTX</a>
@@ -2390,7 +2432,6 @@ console.log('%c📐 SNRG WEB Optical Centering | 🎨 Tech Maroon Underline | �
 </script>
 </body>
 </html>
-
 
 
 
