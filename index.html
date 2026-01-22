@@ -2181,6 +2181,40 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
+
+/* === HARD LANGUAGE VISIBILITY LOCK (prevents EN+ES mixing) === */
+body:not(.spanish) [lang="es"]{ display:none !important; }
+body.spanish [lang="en"]{ display:none !important; }
+
+
+/* ===================================================
+   MOBILE HERO LOCK (PHONE ONLY - DESKTOP/LAPTOP UNCHANGED)
+   =================================================== */
+@media (max-width: 768px){
+  .hero{
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    min-height: 100svh !important;
+    height: 100svh !important;
+  }
+
+  .hero-stack{
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .hero-logo-container{
+    margin-bottom: 2px !important;
+  }
+
+  .hero-cta-group{
+    margin-top: 2px !important;
+    gap: 8px !important;
+  }
+}
+
 </style>
   
 </head>
@@ -2283,7 +2317,7 @@ body.spanish [lang="en"]{display:none}
       <div class="value-card-inner">
         <div class="value-card-front">
           <div class="value-card-front-header">
-            <h3 class="value-card-front-title" lang="en">Local<br>Leadership</h3>
+            <h3 class="value-card-front-title" lang="en">Local Leadership</h3>
             <h3 class="value-card-front-title" lang="es">Liderazgo Local</h3>
             <div class="value-card-front-flip">
               <span lang="en">FLIP</span>
@@ -2310,7 +2344,7 @@ body.spanish [lang="en"]{display:none}
           <div class="value-back-header">
             <div class="value-back-label" lang="en">What Separates Us</div>
             <div class="value-back-label" lang="es">Lo Que Nos Distingue</div>
-            <h3 class="value-back-title" lang="en">Local<br>Leadership</h3>
+            <h3 class="value-back-title" lang="en">Local Leadership</h3>
             <h3 class="value-back-title" lang="es">Liderazgo Local</h3>
           </div>
           <div class="value-back-content">
