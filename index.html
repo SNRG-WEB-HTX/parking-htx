@@ -2130,20 +2130,82 @@ body.spanish [lang="en"]{display:none}
     padding-bottom: 0 !important;
   }
 }
-
-
 /* ===================================================
-   LAPTOP-ONLY: REDUCE LOGO BY 20% (LAYOUT UNCHANGED)
+   LAPTOP-ONLY: REDUCE LOGO BY 25% & TIGHTEN CTAs
    Range: 769px–1279px
-   - Keeps all spacing and centering exactly the same
-   - Only scales the logo itself
+   - Logo reduced to 75% (25% reduction)
+   - CTAs pulled up TIGHT underneath
 =================================================== */
 @media (min-width: 769px) and (max-width: 1279px) {
+  /* Hero viewport */
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    padding-top: 64px !important;
+  }
+
+  /* Center stack optically */
+  .hero-stack {
+    transform: translateY(-2.5vh) !important;
+  }
+
+  /* Logo: 25% reduction from desktop 720px */
   .hero-logo {
-    transform: scale(0.8) translateY(-100px) translateZ(-500px) !important; /* preserve entrance transform but 20% smaller */
-    max-width: 576px !important; /* 80% of 720px cap for laptop */
+    max-width: 540px !important; /* 75% of 720px = 25% reduction */
+  }
+  
+  /* Pull CTAs up TIGHT under logo (like SNRG reference) */
+  .hero-logo-container {
+    margin-bottom: -20px !important;
+  }
+  
+  .hero-cta-group {
+    margin-top: 0 !important;
+  }
+
+  /* Clean bottom spacing */
+  .hero-wrap,
+  .hero-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
+
+## STEP 5: Remove Conflicting Rules
+
+Now we need to find and DELETE the conflicting laptop rules. Press Ctrl+F again.
+
+### Search #1: 
+Type: `LAPTOP HERO FINAL OPTICAL LOCK`
+
+If it finds it, delete that ENTIRE media query block (from the comment down to the closing `}`).
+
+### Search #2:
+Type: `SNRG-STYLE HERO CENTER LOCK`
+
+Look for the laptop section under this (it says `/* Laptop + Tablet */`). Delete ONLY the laptop media query (from `@media (min-width:769px)` down to its closing `}` - but KEEP the mobile one below it).
+
+### Search #3:
+Type: `LAPTOP + MOBILE HERO COMPRESSION`
+
+Under this comment, find the laptop section (`/* -------- Laptop (769px–1279px) -------- */`). Delete that entire media query block.
+
+### Search #4:
+Type: `LAPTOP-ONLY HERO SPACING TIGHTEN`
+
+Delete that entire media query block if you find it.
+
+### Search #5:
+Type: `LAPTOP HERO LOCK (ONLY 769px`
+
+Delete that entire media query block if you find it.
+
+## STEP 6: Commit
+
+Scroll to the bottom of the GitHub editor, add commit message:
+```
+Fix laptop logo size (18% reduction) and tighten CTA spacing
+
 
 
 /* ===================================================
@@ -2210,7 +2272,7 @@ body.spanish [lang="en"]{display:none}
 
   /* 3) Tighten space under logo (and thus between logo and CTAs) */
   .hero-logo-container{
-    margin-bottom: 2px !important;
+    margin-bottom: -18px !important;
   }
 
   /* Keep CTAs snug */
@@ -2869,6 +2931,7 @@ console.log('%c📐 SNRG WEB Optical Centering | 🎨 Tech Maroon Underline | �
 </script>
 </body>
 </html>
+
 
 
 
