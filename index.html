@@ -379,10 +379,7 @@ body.spanish [lang="en"]{display:none}
 @media (max-width:768px){
   .hero-stack{
     transform: translateY(-4vh);
-  
-  .hero-cta-group{ transform: translateY(-4px); /* tiny lift */ }
-}
-
+  }
 }
 
 .hero-stack{
@@ -2099,7 +2096,7 @@ body.spanish [lang="en"]{display:none}
 
   /* Keep everything tight */
   .hero-logo-container {
-    margin-bottom: 2px !important;
+    margin-bottom: 0px !important;
   }
 
   .hero-cta-group {
@@ -2220,11 +2217,12 @@ body.spanish [lang="en"]{ display:none !important; }
 
 
 /* ===================================================
-   LAPTOP HERO CTA MICRO LIFT (NO OTHER CHANGES)
-   =================================================== */
+   LAPTOP: MICRO TIGHTEN LOGO -> CTA GAP (NO LOGO MOVE)
+   Range: 769px–1279px
+=================================================== */
 @media (min-width: 769px) and (max-width: 1279px){
-  .hero-cta-group{
-    transform: translateY(-4px); /* tiny lift */
+  .hero-logo-container{
+    margin-bottom: 0px !important; /* pull CTAs closer WITHOUT moving logo */
   }
 }
 
