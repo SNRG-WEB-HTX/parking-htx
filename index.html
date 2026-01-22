@@ -2226,6 +2226,30 @@ body.spanish [lang="en"]{ display:none !important; }
   }
 }
 
+
+/* ===================================================
+   MOBILE HERO TIGHTEN (SNRG-STYLE) — MOBILE ONLY
+   - Slightly reduce top padding above logo
+   - Pull CTAs closer to logo with small negative margin
+   - No impact to tablet/laptop/desktop
+=================================================== */
+@media (max-width: 768px){
+  /* reduce space above logo just a bit */
+  .hero{
+    padding-top: 32px !important; /* was larger; trims top void */
+  }
+
+  /* tighten the gap under the logo */
+  .hero-logo-container{
+    margin-bottom: 0px !important;
+  }
+
+  /* pull CTAs upward slightly toward the logo */
+  .hero-cta-group{
+    margin-top: -4px !important; /* small, controlled lift */
+  }
+}
+
 </style>
   
 </head>
