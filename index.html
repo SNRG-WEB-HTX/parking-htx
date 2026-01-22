@@ -361,11 +361,6 @@ body.spanish [lang="en"]{display:none}
 }
 }
 
-
-
-
-
-
 .hero-wrap,
 .hero-content,
 .hero-stack{
@@ -391,8 +386,6 @@ body.spanish [lang="en"]{display:none}
   gap:0;
 }
 
-
-
 .hero-cta-group{
   display:flex;
   gap:clamp(10px,2vw,14px);
@@ -400,10 +393,6 @@ body.spanish [lang="en"]{display:none}
   flex-wrap:wrap;
   margin-top:0;
 }
-
-
-
-
 
 @keyframes heroContentEntrance{
   to{opacity:1}
@@ -419,7 +408,6 @@ body.spanish [lang="en"]{display:none}
   background:transparent !important;
   isolation:isolate;
 }
-
 
 .logo-mask{
   position: relative;
@@ -539,7 +527,6 @@ body.spanish [lang="en"]{display:none}
   transform:translateY(-2px);
 }
 
-.video-section{
   max-width:1600px;
   margin:0 auto;
   padding:clamp(48px,6vw,80px) 5% clamp(24px,3vw,40px);
@@ -565,7 +552,6 @@ body.spanish [lang="en"]{display:none}
   overflow:hidden;
 }
 
-.video-section::before{
   content:'';
   position:absolute;
   inset:0;
@@ -578,7 +564,6 @@ body.spanish [lang="en"]{display:none}
   opacity:0.9;
 }
 
-.video-section::after{
   content:'';
   position:absolute;
   inset:0;
@@ -609,7 +594,6 @@ body.spanish [lang="en"]{display:none}
   100%{transform:translate(18px,18px) rotate(0deg)}
 }
 
-.video-wrapper{
   position:relative;
   width:100%;
   max-width:720px;
@@ -619,7 +603,6 @@ body.spanish [lang="en"]{display:none}
   z-index:2;
 }
 
-.video-frame{
   width:100%;
   height:100%;
   position:relative;
@@ -631,11 +614,9 @@ body.spanish [lang="en"]{display:none}
   display:block;
 }
 
-.video-frame:hover{
   box-shadow:0 30px 80px rgba(196,70,58,0.25);
 }
 
-.video-frame-white{
   width:100%;
   height:100%;
   padding:5px;
@@ -644,7 +625,6 @@ body.spanish [lang="en"]{display:none}
   display:block;
 }
 
-.video-frame-olive{
   width:100%;
   height:100%;
   padding:4px;
@@ -653,7 +633,6 @@ body.spanish [lang="en"]{display:none}
   display:block;
 }
 
-.video-frame-inner{
   width:100%;
   height:100%;
   overflow:hidden;
@@ -662,19 +641,15 @@ body.spanish [lang="en"]{display:none}
   display:block;
 }
 
-.video-frame video{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
 }
 
-
 /* ================================
-   DESKTOP CASCADE CARDS AROUND VIDEO
 ================================ */
 @media (min-width: 1024px){
-  .video-section{
     display:grid !important;
     grid-template-columns:minmax(280px,1fr) minmax(400px,480px) minmax(280px,1fr);
     gap:clamp(32px,4vw,56px);
@@ -683,14 +658,11 @@ body.spanish [lang="en"]{display:none}
     padding:clamp(64px,8vw,96px) 5%;
   }
   
-  .cascade-cards-left,
-  .cascade-cards-right{
     display:flex;
     flex-direction:column;
     gap:clamp(24px,3vw,32px);
   }
   
-  .cascade-card{
     background:rgba(255,255,255,0.9);
     backdrop-filter:blur(16px);
     -webkit-backdrop-filter:blur(16px);
@@ -701,29 +673,23 @@ body.spanish [lang="en"]{display:none}
     transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
   }
   
-  .cascade-card:hover{
     transform:translateY(-4px);
     box-shadow:0 16px 40px rgba(0,0,0,0.1);
     border-color:rgba(196,70,58,0.2);
   }
   
-  .cascade-cards-left .cascade-card:first-child{
     transform:translateY(-40px);
   }
   
-  .cascade-cards-left .cascade-card:last-child{
     transform:translateY(40px);
   }
   
-  .cascade-cards-right .cascade-card:first-child{
     transform:translateY(-40px);
   }
   
-  .cascade-cards-right .cascade-card:last-child{
     transform:translateY(40px);
   }
   
-  .cascade-card-label{
     font-size:clamp(11px,1.2vw,13px);
     font-weight:700;
     color:var(--maroon);
@@ -732,7 +698,6 @@ body.spanish [lang="en"]{display:none}
     margin-bottom:clamp(8px,1vw,12px);
   }
   
-  .cascade-card-title{
     font-size:clamp(20px,2.2vw,26px);
     font-weight:800;
     color:var(--ink);
@@ -741,7 +706,6 @@ body.spanish [lang="en"]{display:none}
     margin-bottom:clamp(12px,1.5vw,16px);
   }
   
-  .cascade-card-text{
     font-size:clamp(14px,1.5vw,16px);
     color:var(--slate);
     line-height:1.6;
@@ -749,23 +713,18 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
-/* Hide cascade cards on mobile/tablet */
 @media (max-width: 1023px){
-  .cascade-cards-left,
-  .cascade-cards-right{
     display:none;
   }
 }
 
 @media(max-width:768px){
-  .video-section{
     display:none !important;
     padding:clamp(40px,6vw,64px) 5% clamp(24px,4vw,40px);
     visibility:visible !important;
     opacity:1 !important;
   }
   
-  .video-wrapper{
     max-width:min(90vw,420px);
     margin:0 auto;
     display:block !important;
@@ -1354,12 +1313,10 @@ body.spanish [lang="en"]{display:none}
     margin:0 auto;
   }
   
-  .video-section{
     display:none !important;
     padding:clamp(44px,5.5vw,72px) 5% clamp(28px,3.5vw,44px);
   }
   
-  .video-wrapper{
     max-width:min(85vw,460px);
   }
   
@@ -1439,12 +1396,10 @@ body.spanish [lang="en"]{display:none}
     padding:clamp(13px,3.2vw,16px) clamp(28px,7vw,40px);
   }
   
-  .video-section{
     display:none !important;
     padding:clamp(40px,6vw,64px) 5% clamp(24px,4vw,40px);
   }
   
-  .video-wrapper{
     max-width:min(90vw,420px);
     margin:0 auto;
   }
@@ -1560,11 +1515,9 @@ body.spanish [lang="en"]{display:none}
     text-align:center;
   }
   
-  .video-wrapper{
     max-width:min(88vw,380px);
   }
   
-  .video-section{
     padding:clamp(32px,5vw,48px) 5% clamp(20px,3vw,32px);
   }
   
@@ -1604,7 +1557,6 @@ body.spanish [lang="en"]{display:none}
     min-width:clamp(100px,24vw,130px);
   }
   
-  .video-wrapper{
     max-width:min(84vw,320px);
   }
   
@@ -1614,19 +1566,15 @@ body.spanish [lang="en"]{display:none}
 }
 
 /* ================================
-   DESKTOP: HIDE VIDEO SECTION
 ================================ */
 @media (min-width: 769px){
-  .video-section{
     display: none !important;
   }
 }
 
 /* ================================
-   MOBILE: FORCE VIDEO TO SHOW
 ================================ */
 @media (max-width: 768px){
-  .video-section{
     display: none !important;
   }
 }
@@ -1645,20 +1593,7 @@ body.spanish [lang="en"]{display:none}
    HERO SUBSECTION (NATIONAL / LOCAL / 24-7)
 ================================ */
 
-
-
-
-
-
-
-
-
 /* === HERO MASTER CENTERING FIX (surgical) === */
-
-
-
-
-
 
 .hero-logo-container{
   margin:0 auto 6px;
@@ -1781,7 +1716,6 @@ body.spanish [lang="en"]{display:none}
   padding: clamp(64px, 8vw, 96px) 5%; /* reduced from previous */
 }
 
-
 /* ===================================================
    DESKTOP-ONLY: TRIM OUTER HERO WHITESPACE
    - Keep logo and CTAs EXACTLY as-is
@@ -1796,7 +1730,6 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
-
 /* ===================================================
    SPIN UNTIL BORDER ANIMATION FINISHES (BADGES / STATS)
 =================================================== */
@@ -1806,10 +1739,8 @@ body.spanish [lang="en"]{display:none}
 }
 
 /* Apply to common badge/stat containers */
-.stat, .badge, .value-card, .cascade-card{
   animation: spinUntilDone 1.2s linear 2;
 }
-
 
 /* ===================================================
    BALANCE WHITE SPACE AROUND HTX / 24/7 / CPP ROW
@@ -1822,7 +1753,6 @@ body.spanish [lang="en"]{display:none}
   padding-top: clamp(40px,5vw,64px) !important;
   padding-bottom: clamp(40px,5vw,64px) !important;
 }
-
 
 /* ===================================================
    LOCK LAPTOP HERO VIEWPORT TO DESKTOP
@@ -1842,7 +1772,6 @@ body.spanish [lang="en"]{display:none}
     transform: translateY(0) !important;
   }
 }
-
 
 /* ===================================================
    SNRG-STYLE HERO CENTER LOCK (LAPTOP + MOBILE)
@@ -1899,7 +1828,6 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
-
 /* ===================================================
    LAPTOP-ONLY HERO SPACING TIGHTEN (50%)
    - Range: 769px–1279px
@@ -1937,7 +1865,6 @@ body.spanish [lang="en"]{display:none}
     padding-bottom:0 !important;
   }
 }
-
 
 /* ===================================================
    LAPTOP HERO LOCK (ONLY 769px–1279px)
@@ -1982,7 +1909,6 @@ body.spanish [lang="en"]{display:none}
     padding-bottom:0 !important;
   }
 }
-
 
 /* ===================================================
    SNRG PARITY: SURGICAL HERO SYSTEM (AUTHORITATIVE)
@@ -2058,7 +1984,6 @@ body.spanish [lang="en"]{display:none}
   isolation:isolate;
 }
 
-
 /* ===================================================
    LAPTOP + MOBILE HERO COMPRESSION (DESKTOP UNTOUCHED)
    Goal: Remove ~50% dead space
@@ -2130,83 +2055,19 @@ body.spanish [lang="en"]{display:none}
     padding-bottom: 0 !important;
   }
 }
+
 /* ===================================================
-   LAPTOP-ONLY: REDUCE LOGO BY 25% & TIGHTEN CTAs
+   LAPTOP-ONLY: REDUCE LOGO BY 20% (LAYOUT UNCHANGED)
    Range: 769px–1279px
-   - Logo reduced to 75% (25% reduction)
-   - CTAs pulled up TIGHT underneath
+   - Keeps all spacing and centering exactly the same
+   - Only scales the logo itself
 =================================================== */
 @media (min-width: 769px) and (max-width: 1279px) {
-  /* Hero viewport */
-  .hero {
-    min-height: 100svh !important;
-    height: 100svh !important;
-    padding-top: 64px !important;
-  }
-
-  /* Center stack optically */
-  .hero-stack {
-    transform: translateY(-2.5vh) !important;
-  }
-
-  /* Logo: 25% reduction from desktop 720px */
   .hero-logo {
-    max-width: 540px !important; /* 75% of 720px = 25% reduction */
-  }
-  
-  /* Pull CTAs up TIGHT under logo (like SNRG reference) */
-  .hero-logo-container {
-    margin-bottom: -20px !important;
-  }
-  
-  .hero-cta-group {
-    margin-top: 0 !important;
-  }
-
-  /* Clean bottom spacing */
-  .hero-wrap,
-  .hero-content {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    transform: scale(0.8) translateY(-100px) translateZ(-500px) !important; /* preserve entrance transform but 20% smaller */
+    max-width: 576px !important; /* 80% of 720px cap for laptop */
   }
 }
-
-## STEP 5: Remove Conflicting Rules
-
-Now we need to find and DELETE the conflicting laptop rules. Press Ctrl+F again.
-
-### Search #1: 
-Type: `LAPTOP HERO FINAL OPTICAL LOCK`
-
-If it finds it, delete that ENTIRE media query block (from the comment down to the closing `}`).
-
-### Search #2:
-Type: `SNRG-STYLE HERO CENTER LOCK`
-
-Look for the laptop section under this (it says `/* Laptop + Tablet */`). Delete ONLY the laptop media query (from `@media (min-width:769px)` down to its closing `}` - but KEEP the mobile one below it).
-
-### Search #3:
-Type: `LAPTOP + MOBILE HERO COMPRESSION`
-
-Under this comment, find the laptop section (`/* -------- Laptop (769px–1279px) -------- */`). Delete that entire media query block.
-
-### Search #4:
-Type: `LAPTOP-ONLY HERO SPACING TIGHTEN`
-
-Delete that entire media query block if you find it.
-
-### Search #5:
-Type: `LAPTOP HERO LOCK (ONLY 769px`
-
-Delete that entire media query block if you find it.
-
-## STEP 6: Commit
-
-Scroll to the bottom of the GitHub editor, add commit message:
-```
-Fix laptop logo size (18% reduction) and tighten CTA spacing
-
-
 
 /* ===================================================
    LAPTOP HERO FINAL OPTICAL LOCK (769px–1279px)
@@ -2249,7 +2110,6 @@ Fix laptop logo size (18% reduction) and tighten CTA spacing
   }
 }
 
-
 /* ===================================================
    MOBILE-ONLY HERO REFINEMENT (<=768px)
    - Reduce hero height by 15%
@@ -2272,7 +2132,7 @@ Fix laptop logo size (18% reduction) and tighten CTA spacing
 
   /* 3) Tighten space under logo (and thus between logo and CTAs) */
   .hero-logo-container{
-    margin-bottom: -18px !important;
+    margin-bottom: 2px !important;
   }
 
   /* Keep CTAs snug */
@@ -2293,7 +2153,6 @@ Fix laptop logo size (18% reduction) and tighten CTA spacing
     padding-bottom: 0 !important;
   }
 }
-
 
 /* ===================================================
    MOBILE-ONLY: PERFECT CTA CENTERING UNDER LOGO
@@ -2386,62 +2245,26 @@ Fix laptop logo size (18% reduction) and tighten CTA spacing
   </div>
 </header>
 
-<section class="video-section reveal">
-  <div class="cascade-cards-left">
-    <article class="cascade-card">
-      <div class="cascade-card-label" lang="en">FOR PROPERTY OWNERS</div>
-      <div class="cascade-card-label" lang="es">PARA PROPIETARIOS</div>
-      <h3 class="cascade-card-title" lang="en">Revenue Optimization</h3>
-      <h3 class="cascade-card-title" lang="es">Optimización de Ingresos</h3>
-      <p class="cascade-card-text" lang="en">Maximize your parking asset value with data-driven strategies, dynamic pricing, and comprehensive property management</p>
-      <p class="cascade-card-text" lang="es">Maximice el valor de su activo de estacionamiento con estrategias basadas en datos, precios dinámicos y gestión integral de propiedades</p>
+  
+      
     </article>
-    <article class="cascade-card">
-      <div class="cascade-card-label" lang="en">COMPREHENSIVE MANAGEMENT</div>
-      <div class="cascade-card-label" lang="es">GESTIÓN INTEGRAL</div>
-      <h3 class="cascade-card-title" lang="en">Surface Lot Management</h3>
-      <h3 class="cascade-card-title" lang="es">Gestión de Lotes de Superficie</h3>
-      <p class="cascade-card-text" lang="en">Expert management of open-air parking facilities with on-site staff, traffic flow optimization, and real-time occupancy monitoring</p>
-      <p class="cascade-card-text" lang="es">Gestión experta de instalaciones de estacionamiento al aire libre con personal en sitio, optimización del flujo de tráfico y monitoreo de ocupación en tiempo real</p>
+      
+      
     </article>
   </div>
   
-  <div class="video-wrapper">
-    <div class="video-frame">
-      <div class="video-frame-white">
-        <div class="video-frame-olive">
-          <div class="video-frame-inner">
-            <video 
-              autoplay 
-              muted 
-              loop 
-              playsinline 
-              preload="metadata"
-              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 640'%3E%3Crect fill='%23000' width='480' height='640'/%3E%3C/svg%3E">
-              <source src="https://res.cloudinary.com/dq7cpihqq/video/upload/q_auto:good,f_auto/v1763257115/Untitled_design_5_iz77aj.mp4" type="video/mp4">
-            </video>
+            
           </div>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="cascade-cards-right">
-    <article class="cascade-card">
-      <div class="cascade-card-label" lang="en">FOR PARKERS</div>
-      <div class="cascade-card-label" lang="es">PARA USUARIOS</div>
-      <h3 class="cascade-card-title" lang="en">Seamless Experience</h3>
-      <h3 class="cascade-card-title" lang="es">Experiencia Sin Problemas</h3>
-      <p class="cascade-card-text" lang="en">Quick, contactless payment via QR code. No apps, no hassle—just scan, pay, and park with complete peace of mind</p>
-      <p class="cascade-card-text" lang="es">Pago rápido y sin contacto mediante código QR. Sin aplicaciones, sin complicaciones—solo escanee, pague y estacione con total tranquilidad</p>
+  
+      
     </article>
-    <article class="cascade-card">
-      <div class="cascade-card-label" lang="en">ELITE SERVICE</div>
-      <div class="cascade-card-label" lang="es">SERVICIO ÉLITE</div>
-      <h3 class="cascade-card-title" lang="en">Houston Expertise</h3>
-      <h3 class="cascade-card-title" lang="es">Experiencia en Houston</h3>
-      <p class="cascade-card-text" lang="en">CPP-certified leadership managing Houston's diverse parking needs—from Medical Center to Downtown to NRG Stadium events</p>
-      <p class="cascade-card-text" lang="es">Liderazgo certificado CPP gestionando las diversas necesidades de estacionamiento de Houston—desde el Centro Médico hasta Downtown y eventos en el Estadio NRG</p>
+      
+      
     </article>
   </div>
 </section>
@@ -2736,7 +2559,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.scrollTo(0,0);
 });
 
-
 // Hamburger menu functionality
 const hamburger = document.getElementById('hamburger');
 const navOverlay = document.getElementById('navOverlay');
@@ -2889,7 +2711,6 @@ window.addEventListener("load", () => {
   }
 });
 
-
 // ================================
 // DEEP FADE-RISE OBSERVER
 // ================================
@@ -2931,13 +2752,4 @@ console.log('%c📐 SNRG WEB Optical Centering | 🎨 Tech Maroon Underline | �
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
