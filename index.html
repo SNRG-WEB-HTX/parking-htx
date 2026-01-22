@@ -379,7 +379,10 @@ body.spanish [lang="en"]{display:none}
 @media (max-width:768px){
   .hero-stack{
     transform: translateY(-4vh);
-  }
+  
+  .hero-cta-group{ transform: translateY(-4px); /* tiny lift */ }
+}
+
 }
 
 .hero-stack{
@@ -2212,6 +2215,16 @@ body.spanish [lang="en"]{ display:none !important; }
   .hero-cta-group{
     margin-top: 2px !important;
     gap: 8px !important;
+  }
+}
+
+
+/* ===================================================
+   LAPTOP HERO CTA MICRO LIFT (NO OTHER CHANGES)
+   =================================================== */
+@media (min-width: 769px) and (max-width: 1279px){
+  .hero-cta-group{
+    transform: translateY(-4px); /* tiny lift */
   }
 }
 
