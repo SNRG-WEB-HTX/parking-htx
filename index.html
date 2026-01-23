@@ -431,21 +431,6 @@ body.spanish [lang="en"]{display:none}
   transform: translateY(-6vh);
 }
 
-@media (max-width:768px){
-  .hero{
-    padding-top:24px !important;
-  }
-  .hero-stack{
-    transform: translateY(-2vh) !important;
-    gap:0;
-  }
-  .hero-logo-container{
-    margin:0 auto 0px !important;
-  }
-  .hero-cta-group{
-    margin-top:2px !important;
-  }
-}
 
 @media (min-width:1025px){
   .hero-stack{
@@ -1519,20 +1504,6 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
-@media(max-width:768px){
-  .hero{
-  min-height:100vh;
-  min-height:100svh;
-  height:100svh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  contain:paint;
-  padding:0;
-  padding-top:44px;
-}
   
   
 
@@ -1981,29 +1952,6 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
-/* Mobile */
-@media (max-width:768px){
-  .hero{
-    min-height:65.625vh !important;
-    height:65.625vh !important;
-    padding:88px 0 0 0 !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-  }
-  .hero-stack{
-    margin:0 !important;
-    padding:0 !important;
-    gap:0 !important;
-  }
-  .hero-logo{
-    margin:0 auto !important;
-  }
-  .hero-cta-group{
-    margin-top:0 !important;
-  }
-}
-
 /* ===================================================
    LAPTOP-ONLY HERO SPACING TIGHTEN (50%)
    - Range: 769px–1279px
@@ -2086,20 +2034,20 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
-/* === HARD LANGUAGE VISIBILITY LOCK (prevents EN+ES mixing) === */
-body:not(.spanish) [lang="es"]{ display:none !important; }
-body.spanish [lang="en"]{ display:none !important; }
-
-
 /* ===================================================
-   MOBILE HERO LOCK (PHONE ONLY - DESKTOP/LAPTOP UNCHANGED)
+   MOBILE HERO - CLEAN OPTICAL CENTER (≤768px)
+   - Same centering logic as laptop
+   - Logo + CTAs grouped and centered
+   - No transforms, no negative margins
    =================================================== */
 @media (max-width: 768px){
   .hero{
-    padding-top: 6px !important;
-    padding-bottom: 8px !important;
-    min-height: 100svh !important;
-    height: 100svh !important;
+    min-height: 100svh;
+    height: 100svh;
+    padding-top: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-stack{
@@ -2110,14 +2058,22 @@ body.spanish [lang="en"]{ display:none !important; }
   }
 
   .hero-logo-container{
-    margin-bottom: 2px !important;
+    margin-bottom: 6px !important;
   }
 
   .hero-cta-group{
-    margin-top: -24px !important;
-    gap: 8px !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-logo{
+    max-width: min(85vw, 380px);
+    margin: 0 auto;
   }
 }
+
+/* === HARD LANGUAGE VISIBILITY LOCK (prevents EN+ES mixing) === */
+body:not(.spanish) [lang="es"]{ display:none !important; }
+body.spanish [lang="en"]{ display:none !important; }
 
 
 /* === CARD TITLE ONE-LINE LOCK (FRONT + BACK) === */
