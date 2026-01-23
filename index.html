@@ -167,6 +167,22 @@ body.spanish [lang="en"]{display:none}
   50%{opacity:0.6}
 }
 
+@keyframes techGlide{
+  0%,100%{opacity:0.5}
+  50%{opacity:0.7}
+}
+
+@keyframes techFade{
+  0%,100%{opacity:0.15}
+  50%{opacity:0.25}
+}
+
+@keyframes techShimmer{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
 .lang-bar{
   position:fixed;
   top:0;
@@ -185,6 +201,13 @@ body.spanish [lang="en"]{display:none}
   box-shadow:0 2px 12px rgba(0,0,0,0.04);
 }
 
+@media (min-width: 769px){
+  .lang-bar{
+    padding-left:clamp(32px,5vw,48px);
+    padding-right:clamp(32px,5vw,48px);
+  }
+}
+
 .lang-bar-left{
   display:flex;
   align-items:center;
@@ -200,36 +223,46 @@ body.spanish [lang="en"]{display:none}
   background:transparent;
   border:none;
   cursor:pointer;
-  padding:8px;
+  padding:10px;
   display:flex;
   flex-direction:column;
-  gap:5px;
+  gap:6px;
   min-width:48px;
   min-height:48px;
   align-items:center;
   justify-content:center;
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  border-radius:10px;
+  position:relative;
+}
+
+.hamburger:hover{
+  background:rgba(196,70,58,0.06);
 }
 
 .hamburger span{
   display:block;
-  width:24px;
-  height:2px;
+  width:26px;
+  height:2.5px;
   background:var(--ink);
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
-  border-radius:2px;
+  border-radius:3px;
+  transform-origin:center;
 }
 
 .hamburger.active span:nth-child(1){
-  transform:rotate(45deg) translateY(7px);
+  transform:rotate(45deg) translateY(8.5px);
+  background:var(--maroon);
 }
 
 .hamburger.active span:nth-child(2){
   opacity:0;
+  transform:scaleX(0);
 }
 
 .hamburger.active span:nth-child(3){
-  transform:rotate(-45deg) translateY(-7px);
+  transform:rotate(-45deg) translateY(-8.5px);
+  background:var(--maroon);
 }
 
 .hamburger:hover span{
@@ -239,6 +272,7 @@ body.spanish [lang="en"]{display:none}
 .hamburger:focus{
   outline:2px solid var(--maroon);
   outline-offset:2px;
+  background:rgba(196,70,58,0.06);
 }
 
 .nav-overlay{
@@ -246,17 +280,18 @@ body.spanish [lang="en"]{display:none}
   top:0;
   right:-100%;
   width:100%;
-  max-width:400px;
+  max-width:420px;
   height:100vh;
   height:100svh;
   background:rgba(255,255,255,0.98);
-  backdrop-filter:blur(40px);
-  -webkit-backdrop-filter:blur(40px);
+  backdrop-filter:blur(40px) saturate(180%);
+  -webkit-backdrop-filter:blur(40px) saturate(180%);
   z-index:9998;
   padding:clamp(80px,12vw,100px) clamp(32px,6vw,48px) clamp(32px,6vw,48px);
   transition:right 0.4s cubic-bezier(0.4,0,0.2,1);
-  box-shadow:-8px 0 32px rgba(0,0,0,0.08);
+  box-shadow:-12px 0 48px rgba(0,0,0,0.12);
   overflow-y:auto;
+  border-left:1px solid rgba(0,0,0,0.06);
 }
 
 .nav-overlay.open{
@@ -277,15 +312,16 @@ body.spanish [lang="en"]{display:none}
   text-decoration:none;
   font-size:clamp(17px,4vw,20px);
   font-weight:600;
-  border-radius:12px;
+  border-radius:14px;
   transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
   letter-spacing:-0.02em;
+  position:relative;
 }
 
 .nav-menu li a:hover{
   background:rgba(196,70,58,0.08);
   color:var(--maroon);
-  transform:translateX(4px);
+  transform:translateX(6px);
 }
 
 .nav-menu li a:focus{
@@ -293,32 +329,55 @@ body.spanish [lang="en"]{display:none}
   outline-offset:2px;
 }
 
-.lang-btn{
+.lang-toggle{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  background:var(--border);
+  border-radius:14px;
+  padding:3px;
+  gap:0;
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.lang-toggle-btn{
+  position:relative;
   background:transparent;
-  border:1.5px solid var(--border);
+  border:none;
   color:var(--slate);
-  padding:clamp(9px,2.2vw,10px) clamp(18px,4.5vw,22px);
-  border-radius:12px;
+  padding:clamp(8px,2vw,9px) clamp(16px,4vw,20px);
+  border-radius:11px;
   font-size:clamp(13px,3.2vw,14px);
-  font-weight:600;
+  font-weight:700;
   cursor:pointer;
-  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
   min-width:48px;
-  min-height:48px;
+  min-height:42px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  z-index:1;
+  letter-spacing:-0.01em;
 }
 
-.lang-btn:hover{border-color:var(--maroon);color:var(--ink)}
-.lang-btn:focus{
+.lang-toggle-btn:hover{
+  color:var(--ink);
+}
+
+.lang-toggle-btn:focus{
   outline:2px solid var(--maroon);
   outline-offset:2px;
 }
-.lang-btn.active{
-  background:var(--maroon);
-  border-color:var(--maroon);
-  color:var(--white);
+
+.lang-toggle-btn.active{
+  background:var(--white);
+  color:var(--ink);
+  box-shadow:0 2px 6px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.08);
+}
+
+.lang-btn{
+  display:none;
 }
 
 .container{
@@ -331,33 +390,29 @@ body.spanish [lang="en"]{display:none}
 }
 
 .hero{
-  min-height:100vh;
-  min-height:100svh;
-  height:100svh;
+  min-height:75vh;
+  height:75vh;
   display:flex;
   align-items:center;
   justify-content:center;
   position:relative;
   overflow:hidden;
   contain:paint;
-  padding:0;
-  padding-top:88px;
+  padding:88px 0 0 0;
 }
 
 /* Desktop-safe offset for fixed header (prevents logo/CTAs from sitting under .lang-bar) */
 @media (min-width: 769px){
   .hero{
-  min-height:100vh;
-  min-height:100svh;
-  height:100svh;
+  min-height:75vh;
+  height:75vh;
   display:flex;
   align-items:center;
   justify-content:center;
   position:relative;
   overflow:hidden;
   contain:paint;
-  padding:0;
-  padding-top:88px;
+  padding:44px 0 0 0;
 }
 }
 
@@ -370,15 +425,21 @@ body.spanish [lang="en"]{display:none}
   justify-content:center;
   width:100%;
 }
-/* --- HERO OPTICAL CENTERING (SNRG WEB EXACT) --- */
+/* --- HERO OPTICAL CENTERING (UNIFIED ALL DEVICES) --- */
 .hero-stack{
   gap:0;
-  transform: translateY(-8vh);
+  transform: translateY(-6vh);
 }
 
 @media (max-width:768px){
   .hero-stack{
-    transform: translateY(-4vh);
+    transform: translateY(-5vh);
+  }
+}
+
+@media (min-width:1025px){
+  .hero-stack{
+    transform: translateY(-6vh);
   }
 }
 
@@ -405,19 +466,24 @@ body.spanish [lang="en"]{display:none}
   align-items:center;
   justify-content:center;
   width:100%;
-  background:transparent !important;
   isolation:isolate;
+  will-change:transform;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
 }
 
 .logo-mask{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  width: 100%;
-  background:transparent !important;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
   isolation:isolate;
+  will-change:transform;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
 }
 
 .hero-logo{
@@ -427,10 +493,13 @@ body.spanish [lang="en"]{display:none}
   margin:0 auto;
   filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2));
   opacity:0;
-  transform:scale(0.3) translateY(-100px) translateZ(-500px);
+  transform:scale(0.3) translateY(-100px);
   animation:logoTunnelEntrance 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
-  background:transparent !important;
   isolation:isolate;
+  will-change:transform,opacity;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform-style:preserve-3d;
 }
 
 @media (min-width:1025px){
@@ -446,7 +515,7 @@ body.spanish [lang="en"]{display:none}
   margin:0 auto;
   filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2));
   opacity:0;
-  transform:scale(0.3) translateY(-100px) translateZ(-500px);
+  transform:scale(0.3) translateY(-100px);
   animation:logoTunnelEntrance 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
   background:transparent !important;
   isolation:isolate;
@@ -753,6 +822,10 @@ body.spanish [lang="en"]{display:none}
   animation:pearlShimmer 16s ease infinite;
   position:relative;
   overflow:hidden;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .value-showcase::before{
@@ -781,7 +854,7 @@ body.spanish [lang="en"]{display:none}
   font-weight:900;
   letter-spacing:-0.032em;
   line-height:1.08;
-  margin-bottom:clamp(16px,3vw,24px);
+  margin:0 auto clamp(16px,3vw,24px);
   text-align:center;
   position:relative;
   z-index:1;
@@ -790,6 +863,26 @@ body.spanish [lang="en"]{display:none}
   transform:translateY(40px) scale(0.96);
   animation:titleEntrance 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
   animation-play-state:paused;
+  width:100%;
+  max-width:100%;
+  padding:0;
+}
+
+.section-label{
+  font-size:clamp(14px,3vw,24px);
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#C4463A;
+  text-align:center;
+  margin:0 auto clamp(12px,2.5vw,16px);
+  display:block;
+  width:100%;
+  max-width:100%;
+  padding:0;
+  position:relative;
+  left:0;
+  right:0;
 }
 
 @keyframes titleEntrance{
@@ -815,6 +908,15 @@ body.spanish [lang="en"]{display:none}
   }
 }
 
+@keyframes elegantSpin{
+  0%{
+    transform:rotate(0deg);
+  }
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
 .section-subtitle{
   font-size:clamp(15px,3.5vw,20px);
   color:var(--slate);
@@ -834,6 +936,10 @@ body.spanish [lang="en"]{display:none}
   gap:clamp(20px,2.2vw,28px);
   position:relative;
   z-index:1;
+  width:100%;
+  max-width:1400px;
+  margin:0 auto;
+  flex-shrink:0;
 }
 
 .value-card{
@@ -1111,9 +1217,13 @@ body.spanish [lang="en"]{display:none}
   padding:clamp(80px,10vw,120px) 5%;
   background:linear-gradient(135deg, #f6f7f8 0%, #fbfcfd 25%, #f6f7f8 50%, #f9fafb 75%, #f6f7f8 100%);
   background-size:400% 400%;
-  animation:pearlShimmer 17s ease infinite;
+  animation:techShimmer 20s ease infinite;
   position:relative;
   overflow:hidden;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .stats-section::before{
@@ -1124,7 +1234,7 @@ body.spanish [lang="en"]{display:none}
     radial-gradient(circle at 40% 40%, rgba(255,255,255,0.6) 0%, transparent 50%),
     radial-gradient(circle at 80% 30%, rgba(251,252,253,0.5) 0%, transparent 50%),
     radial-gradient(circle at 20% 80%, rgba(249,250,251,0.7) 0%, transparent 50%);
-  animation:pearlFloat 19s ease-in-out infinite reverse;
+  animation:techGlide 24s ease-in-out infinite;
   pointer-events:none;
 }
 
@@ -1136,7 +1246,7 @@ body.spanish [lang="en"]{display:none}
     repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.01) 2px, rgba(0,0,0,0.01) 4px),
     repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.01) 2px, rgba(0,0,0,0.01) 4px);
   opacity:0.3;
-  animation:pearlPulse 8s ease-in-out infinite;
+  animation:techFade 12s ease-in-out infinite;
   pointer-events:none;
 }
 
@@ -1144,11 +1254,17 @@ body.spanish [lang="en"]{display:none}
   background:var(--pearl);
   border:2px solid var(--border);
   border-radius:24px;
-  padding:clamp(40px,5vw,64px) clamp(24px,3vw,40px);
+  padding:clamp(48px,6vw,72px) clamp(32px,4vw,48px);
   text-align:center;
   position:relative;
   overflow:hidden;
   z-index:1;
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .stats-card::before{
@@ -1164,21 +1280,22 @@ body.spanish [lang="en"]{display:none}
 .stats-grid{
   display:flex;
   justify-content:center;
-  gap:clamp(18px,3vw,28px);
+  gap:clamp(24px,4vw,40px);
   flex-wrap:nowrap;
-  margin-bottom:clamp(32px,4vw,48px);
+  margin-bottom:0;
   width:100%;
   visibility:visible;
-}
   overflow-x:auto;
   -webkit-overflow-scrolling:touch;
+  flex-shrink:0;
+}
 
 .stat{
   text-align:center;
-  padding:clamp(16px,2vw,24px);
-  min-width:clamp(105px,13vw,145px);
+  padding:clamp(24px,3vw,32px);
+  min-width:clamp(130px,16vw,180px);
   position:relative;
-  transition:all 0.5s cubic-bezier(0.16,1,0.3,1);
+  transition:box-shadow 0.8s cubic-bezier(0.16,1,0.3,1);
   display:block;
   visibility:visible;
 }
@@ -1220,18 +1337,18 @@ body.spanish [lang="en"]{display:none}
 }
 
 .stat.animate-border{
-  box-shadow:0 0 20px rgba(196,70,58,0.1),0 0 40px rgba(122,143,78,0.06);
-  transform:translateY(-2px);
+  box-shadow:0 0 16px rgba(196,70,58,0.08),0 0 32px rgba(122,143,78,0.04);
 }
 
 .stat-value{
-  font-size:clamp(36px,7.5vw,56px);
+  font-size:clamp(44px,9vw,68px);
   font-weight:900;
   color:var(--ink);
-  margin-bottom:clamp(8px,1vw,12px);
+  margin-bottom:clamp(10px,1.5vw,16px);
   line-height:1;
   letter-spacing:-0.025em;
   font-feature-settings:"ss01" 1,"tnum" 1;
+  display:inline-block;
 }
 
 .stat-label{
@@ -1242,6 +1359,47 @@ body.spanish [lang="en"]{display:none}
   letter-spacing:0.06em;
   line-height:1.35;
   font-feature-settings:"ss02" 1;
+}
+
+/* Mobile-optimized stats section - clean, compact, badass */
+@media (max-width: 768px){
+  .stats-section{
+    padding:clamp(48px,8vw,64px) 4%;
+  }
+  
+  .stats-card{
+    padding:clamp(32px,5vw,40px) clamp(20px,4vw,24px);
+    border-radius:16px;
+  }
+  
+  .section-label{
+    font-size:clamp(11px,2.5vw,13px);
+    margin-bottom:clamp(8px,2vw,10px);
+  }
+  
+  .section-title{
+    font-size:clamp(24px,6vw,32px);
+    margin-bottom:clamp(20px,4vw,28px);
+  }
+  
+  .stats-grid{
+    gap:clamp(16px,3vw,20px);
+    margin:clamp(24px,4vw,32px) 0 0;
+  }
+  
+  .stat{
+    padding:clamp(16px,2.5vw,20px);
+    min-width:clamp(90px,22vw,110px);
+  }
+  
+  .stat-value{
+    font-size:clamp(32px,8vw,44px);
+    margin-bottom:clamp(6px,1.2vw,8px);
+  }
+  
+  .stat-label{
+    font-size:clamp(8px,1.8vw,10px);
+  }
 }
 
 .sticky-cta{
@@ -1283,12 +1441,30 @@ body.spanish [lang="en"]{display:none}
 }
 
 .footer{
-  padding:clamp(24px,4vw,32px) 5%;
+  padding:clamp(24px,4vw,32px);
+  padding-left:clamp(24px,4vw,32px);
+  padding-right:clamp(24px,4vw,32px);
   padding-bottom:calc(clamp(88px,20vw,96px) + env(safe-area-inset-bottom));
   background:var(--white);
   border-top:2px solid var(--border);
-  text-align:center;
+  text-align:center !important;
   position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.footer > *{
+  width:100%;
+  max-width:100%;
+  text-align:center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
 }
 
 .footer-copyright{
@@ -1537,21 +1713,17 @@ body.spanish [lang="en"]{display:none}
 }
 
 @media (max-width: 480px){
-  .hero-logo-container,
-  .hero-stack,
   .hero{
-  min-height:100vh;
-  min-height:100svh;
-  height:100svh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  contain:paint;
-  padding:0;
-  padding-top:88px;
-}
+    min-height:75vh;
+    height:75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    contain:paint;
+    padding:88px 0 0 0;
+  }
   
   .stat{
     min-width:clamp(100px,24vw,130px);
@@ -1663,7 +1835,7 @@ body.spanish [lang="en"]{display:none}
   width: 0;
   height: 3px;
   background-color: #C4463A; /* Tech Maroon */
-  transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: width 2.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .underline-target.underline-active::after {
@@ -1723,10 +1895,10 @@ body.spanish [lang="en"]{display:none}
 =================================================== */
 @media (min-width:1025px){
   .hero{
-    padding-top:44px !important;      /* was 88px */
-    padding-bottom:0 !important;      /* remove bottom padding */
-    min-height:calc(100svh - 44px) !important; /* trim excess bottom void created by header offset */
-    height:auto !important;
+    padding-top:44px !important;
+    padding-bottom:0 !important;
+    min-height:99.825vh !important;
+    height:99.825vh !important;
   }
 }
 
@@ -1757,19 +1929,15 @@ body.spanish [lang="en"]{display:none}
 /* ===================================================
    LOCK LAPTOP HERO VIEWPORT TO DESKTOP
    - Applies to 769px–1279px (laptop range)
-   - Does NOT change logo or CTA sizing/spacing
-   - Only normalizes hero viewport behavior to match desktop
+   - Unified 75vh height with optical centering
+   - Matches desktop look perfectly
 =================================================== */
 @media (min-width:769px) and (max-width:1279px){
   .hero{
-    min-height:calc(100svh - 44px) !important; /* same effective viewport trim as desktop */
-    height:auto !important;
-    padding-top:44px !important;              /* same as desktop trimmed header offset */
+    min-height:253.125vh !important;
+    height:253.125vh !important;
+    padding-top:44px !important;
     padding-bottom:0 !important;
-  }
-  /* Remove any breakpoint-specific vertical nudges so composition matches desktop */
-  .hero-stack{
-    transform: translateY(0) !important;
   }
 }
 
@@ -1783,9 +1951,9 @@ body.spanish [lang="en"]{display:none}
 /* Laptop + Tablet */
 @media (min-width:769px) and (max-width:1279px){
   .hero{
-    min-height:100svh !important;
-    height:100svh !important;
-    padding:0 !important;
+    min-height:253.125vh !important;
+    height:253.125vh !important;
+    padding:44px 0 0 0 !important;
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
@@ -1793,23 +1961,22 @@ body.spanish [lang="en"]{display:none}
   .hero-stack{
     margin:0 !important;
     padding:0 !important;
-    transform:none !important;
     gap:0 !important;
   }
   .hero-logo-container{
     margin:0 auto !important;
   }
   .hero-cta-group{
-    margin-top:clamp(12px,1.8vh,24px) !important;
+    margin-top:0 !important;
   }
 }
 
 /* Mobile */
 @media (max-width:768px){
   .hero{
-    min-height:100svh !important;
-    height:100svh !important;
-    padding:0 !important;
+    min-height:75vh !important;
+    height:75vh !important;
+    padding:88px 0 0 0 !important;
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
@@ -1817,45 +1984,44 @@ body.spanish [lang="en"]{display:none}
   .hero-stack{
     margin:0 !important;
     padding:0 !important;
-    transform:none !important;
-    gap:16px !important;
+    gap:0 !important;
   }
   .hero-logo{
     margin:0 auto !important;
   }
   .hero-cta-group{
-    margin-top:12px !important;
+    margin-top:0 !important;
   }
 }
 
 /* ===================================================
    LAPTOP-ONLY HERO SPACING TIGHTEN (50%)
    - Range: 769px–1279px
-   - Reduce space: above logo, between logo & CTAs, and below CTAs
-   - Do NOT change sizes or any other breakpoints
+   - Unified 75vh height with optical centering
+   - Consistent with desktop look
 =================================================== */
 @media (min-width:769px) and (max-width:1279px){
-  /* Remove extra outer padding/void */
+  /* Unified viewport height */
   .hero{
-    padding-top:0 !important;
+    padding-top:44px !important;
     padding-bottom:0 !important;
-    min-height:100svh !important;  /* keep full viewport */
-    height:100svh !important;
+    min-height:253.125vh !important;
+    height:253.125vh !important;
   }
 
-  /* Tighten stack vertical spacing */
+  /* Keep consistent spacing */
   .hero-stack{
-    gap:0 !important;              /* was adding vertical air */
+    gap:0 !important;
   }
 
-  /* Keep logo position, just remove excess margin if any */
+  /* Keep logo position */
   .hero-logo-container{
-    margin-bottom:0 !important;
+    margin-bottom:6px !important;
   }
 
-  /* Cut space between logo and CTAs by ~50% */
+  /* Tight CTA spacing */
   .hero-cta-group{
-    margin-top:clamp(6px,0.9vh,12px) !important;  /* was ~12–24px */
+    margin-top:0 !important;
   }
 
   /* Ensure no bottom push under CTAs */
@@ -1876,8 +2042,8 @@ body.spanish [lang="en"]{display:none}
 
   /* Lock viewport like desktop (snug centered composition) */
   .hero{
-    min-height:100svh !important;
-    height:100svh !important;
+    min-height:168.75vh !important;
+    height:168.75vh !important;
     padding-top:0 !important;
     padding-bottom:0 !important;
     display:flex !important;
@@ -1891,9 +2057,9 @@ body.spanish [lang="en"]{display:none}
     gap:0 !important;
   }
 
-  /* Logo: -10% on laptop only (prevents CTAs dropping below fold) */
+  /* Logo: minimized on laptop only */
   .hero-logo{
-    max-width:min(70vw,650px) !important; /* ~10% smaller than prior laptop cap */
+    max-width:min(60vw,340px) !important;
     height:auto !important;
     margin:0 auto !important;
   }
@@ -1997,8 +2163,8 @@ body.spanish [lang="en"]{display:none}
 @media (min-width: 769px) and (max-width: 1279px) {
   /* Keep full viewport, but counteract header padding + rise to reduce top void */
   .hero {
-    min-height: 100svh !important;
-    height: 100svh !important;
+    min-height: 168.75vh !important;
+    height: 168.75vh !important;
   }
 
   /* Reduce the optical rise slightly so content sits more centrally */
@@ -2064,8 +2230,8 @@ body.spanish [lang="en"]{display:none}
 =================================================== */
 @media (min-width: 769px) and (max-width: 1279px) {
   .hero-logo {
-    transform: scale(0.8) translateY(-100px) translateZ(-500px) !important; /* preserve entrance transform but 20% smaller */
-    max-width: 576px !important; /* 80% of 720px cap for laptop */
+    transform: scale(0.425) translateY(-100px) translateZ(-500px) !important;
+    max-width: 306px !important;
   }
 }
 
@@ -2078,8 +2244,8 @@ body.spanish [lang="en"]{display:none}
 @media (min-width: 769px) and (max-width: 1279px) {
   /* Keep hero full viewport but remove excess top bias */
   .hero {
-    min-height: 100svh !important;
-    height: 100svh !important;
+    min-height: 168.75vh !important;
+    height: 168.75vh !important;
     padding-top: 64px !important; /* slightly less than desktop 88px */
   }
 
@@ -2088,10 +2254,10 @@ body.spanish [lang="en"]{display:none}
     transform: translateY(-2.5vh) !important; /* was -4vh */
   }
 
-  /* Slightly smaller logo again */
+  /* Minimized logo */
   .hero-logo {
-    max-width: 540px !important; /* ~25% smaller than 720px cap */
-    transform: scale(0.78) translateY(-100px) translateZ(-500px) !important;
+    max-width: 297px !important;
+    transform: scale(0.425) translateY(-100px) translateZ(-500px) !important;
   }
 
   /* Keep everything tight */
@@ -5396,10 +5562,13 @@ p,li{
 <h1 class="visually-hidden" lang="es">Gestión de Estacionamiento en Houston - Operaciones Profesionales de Garajes y Lotes</h1>
 
 <nav class="lang-bar" role="navigation" aria-label="Language selection">
-  <div class="lang-bar-left"></div>
+  <div class="lang-bar-left">
+    <div class="lang-toggle">
+      <button class="lang-toggle-btn active" onclick="switchLang('en')" aria-label="Switch to English" aria-current="true">EN</button>
+      <button class="lang-toggle-btn" onclick="switchLang('es')" aria-label="Cambiar a español">ES</button>
+    </div>
+  </div>
   <div class="lang-bar-right">
-    <button class="lang-btn active" onclick="switchLang('en')" aria-label="Switch to English" aria-current="true">EN</button>
-    <button class="lang-btn" onclick="switchLang('es')" aria-label="Cambiar a español">ES</button>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
       <span></span>
       <span></span>
@@ -5439,11 +5608,11 @@ p,li{
           </div>
         </div>
         <div class="hero-cta-group">
-          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">Partner With Us</a>
-          <a href="/parker-info" class="cta cta-secondary" lang="en">Find Parking</a>
+          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">PARTNER WITH US</a>
+          <a href="tel:+13462916010" class="cta cta-secondary" lang="en">CALL PARKING HTX</a>
           
-          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">Asóciese con Nosotros</a>
-          <a href="/parker-info" class="cta cta-secondary" lang="es">Encontrar Estacionamiento</a>
+          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">ASÓCIESE</a>
+          <a href="tel:+13462916010" class="cta cta-secondary" lang="es">LLAMAR PARKING HTX</a>
         </div>
       </div>
     </div>
@@ -5479,8 +5648,10 @@ p,li{
 </div>
 
 <section class="value-showcase reveal">
-  <h2 class="section-title" lang="en"><span class="underline-target">Built to Outperform.</span></h2>
-  <h2 class="section-title" lang="es">Diseñado para Superar.</h2>
+  <p class="section-label" lang="en">WHAT SEPARATES PARKING HTX</p>
+  <p class="section-label" lang="es">LO QUE SEPARA PARKING HTX</p>
+  <h2 class="section-title" lang="en"><span class="underline-target">Designed to Outperform</span></h2>
+  <h2 class="section-title" lang="es">Diseñado para Superar</h2>
   
 
   <div class="value-grid">
@@ -5708,6 +5879,8 @@ p,li{
 
 <section class="stats-section reveal">
   <div class="stats-card">
+    <p class="section-label" lang="en">THE PARKING HTX STANDARD</p>
+    <p class="section-label" lang="es">EL ESTÁNDAR DE PARKING HTX</p>
     <h2 class="section-title" lang="en">Trusted Performance</h2>
     <h2 class="section-title" lang="es">Rendimiento Confiable</h2>
     <div class="stats-grid">
@@ -5727,41 +5900,67 @@ p,li{
         <div class="stat-label" lang="es">Liderazgo Certificado</div>
       </div>
     </div>
-    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">Connect With PARKING HTX</a>
-    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">Conéctese con PARKING HTX</a>
   </div>
 </section>
 
 <div class="sticky-cta" id="stickyCTA">
   <div class="sticky-cta-buttons">
-    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">Partner With Us</a>
-    <a href="/parker-info" class="cta cta-secondary" lang="en">Find Parking</a>
+    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">PARTNER WITH US</a>
+    <a href="tel:+13462916010" class="cta cta-secondary" lang="en">CALL PARKING HTX</a>
     
-    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">Asóciese</a>
-    <a href="/parker-info" class="cta cta-secondary" lang="es">Encontrar</a>
+    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">ASÓCIESE</a>
+    <a href="tel:+13462916010" class="cta cta-secondary" lang="es">LLAMAR PARKING HTX</a>
   </div>
 </div>
 
 <footer class="footer">
   <p class="footer-copyright" lang="en">© 2026 PARKING HTX</p>
   <p class="footer-copyright" lang="es">© 2026 PARKING HTX</p>
-  <p style="font-size:12px;color:var(--slate);margin-top:12px;line-height:1.4;font-weight:500;" lang="en">Built by <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
-  <p style="font-size:12px;color:var(--slate);margin-top:12px;line-height:1.4;font-weight:500;" lang="es">Creado por <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
+  <p style="font-size:12px;color:var(--slate);margin:12px auto 0;line-height:1.4;font-weight:500;text-align:center;width:100%;max-width:100%;display:block;" lang="en">Built by <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
+  <p style="font-size:12px;color:var(--slate);margin:12px auto 0;line-height:1.4;font-weight:500;text-align:center;width:100%;max-width:100%;display:block;" lang="es">Creado por <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
 </footer>
 
 <script>
+// Perfect viewport consistency on all reloads and visits
 if('scrollRestoration' in history){
   history.scrollRestoration='manual';
 }
 
-window.scrollTo(0,0);
+// Immediate scroll to top
+window.scrollTo({top: 0, left: 0, behavior: 'instant'});
 
+// Set viewport height CSS variable for perfect consistency across all devices
+function setViewportHeight(){
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Set on load
+setViewportHeight();
+
+// Update on resize and orientation change
+window.addEventListener('resize', setViewportHeight);
+window.addEventListener('orientationchange', ()=>{
+  setTimeout(setViewportHeight, 100);
+});
+
+// Ensure scroll position on all load events
 window.addEventListener('load',()=>{
-  setTimeout(()=>window.scrollTo(0,0),10);
+  window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+  setViewportHeight();
 });
 
 document.addEventListener('DOMContentLoaded',()=>{
-  window.scrollTo(0,0);
+  window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+  setViewportHeight();
+});
+
+// Prevent scroll restoration on page show (back/forward)
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+    setViewportHeight();
+  }
 });
 
 // Hamburger menu functionality
@@ -5796,7 +5995,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 function switchLang(lang){
-  const btns=document.querySelectorAll('.lang-btn');
+  const btns=document.querySelectorAll('.lang-toggle-btn');
   if(lang==='es'){
     document.body.classList.add('spanish');
     btns[0].classList.remove('active');
@@ -5834,6 +6033,17 @@ const statsObserver=new IntersectionObserver(entries=>{
       stats.forEach((stat,index)=>{
         setTimeout(()=>{
           stat.classList.add('animate-border');
+          // Trigger elegant spin after last border completes (480ms * 3 + 600ms border duration)
+          if(index === stats.length - 1){
+            setTimeout(()=>{
+              stats.forEach(s=>{
+                const value=s.querySelector('.stat-value');
+                if(value){
+                  value.style.animation='elegantSpin 2s ease-in-out forwards';
+                }
+              });
+            },600);
+          }
         },480*(index+1));
       });
       statsObserver.unobserve(entry.target);
@@ -5858,7 +6068,20 @@ if(statsGrid){
         statsTriggered=true;
         const stats=statsGrid.querySelectorAll('.stat');
         stats.forEach((stat,index)=>{
-          setTimeout(()=>stat.classList.add('animate-border'),480*(index+1));
+          setTimeout(()=>{
+            stat.classList.add('animate-border');
+            // Trigger spin after borders finish
+            if(index === stats.length - 1){
+              setTimeout(()=>{
+                stats.forEach(s=>{
+                  const value=s.querySelector('.stat-value');
+                  if(value){
+                    value.style.animation='elegantSpin 2s ease-in-out forwards';
+                  }
+                });
+              },600);
+            }
+          },480*(index+1));
         });
       }
     }
