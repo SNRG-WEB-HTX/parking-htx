@@ -439,7 +439,13 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-stack{
-    transform: translateY(-6vh);
+    transform: translateY(-4vh);
+  }
+  .hero-logo-container{
+    margin:0 auto 8px;
+  }
+  .hero-cta-group{
+    margin-top:4px;
   }
 }
 
@@ -504,12 +510,12 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:540px;
+    max-width:420px;
   }
 }
 @media (min-width: 1025px){
   .hero-logo{
-  max-width:clamp(390px,45vw,540px);
+  max-width:clamp(300px,35vw,420px);
   height:auto;
   display:block;
   margin:0 auto;
@@ -523,7 +529,7 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:540px;
+    max-width:420px;
   }
 }
 }
@@ -868,6 +874,12 @@ body.spanish [lang="en"]{display:none}
   padding:0;
 }
 
+@media (max-width:768px){
+  .section-title{
+    font-size:clamp(36px,8vw,48px);
+  }
+}
+
 .section-label{
   font-size:clamp(14px,3vw,24px);
   font-weight:700;
@@ -883,6 +895,12 @@ body.spanish [lang="en"]{display:none}
   position:relative;
   left:0;
   right:0;
+}
+
+@media (max-width:768px){
+  .section-label{
+    font-size:clamp(16px,4vw,20px);
+  }
 }
 
 @keyframes titleEntrance{
@@ -1012,6 +1030,12 @@ body.spanish [lang="en"]{display:none}
   min-width:0;
 }
 
+@media (max-width:768px){
+  .value-card-front-title{
+    text-align:left;
+  }
+}
+
 .value-card-front-flip{
   display:flex;
   align-items:center;
@@ -1081,6 +1105,14 @@ body.spanish [lang="en"]{display:none}
   position:relative;
   overflow:hidden;
   height:100%;
+}
+
+@media (max-width:768px){
+  .value-card-back{
+    padding:clamp(24px,3vw,32px) clamp(20px,2.4vw,28px);
+    justify-content:flex-start;
+    padding-top:clamp(28px,3.5vw,36px);
+  }
 }
 
 .value-back-header{
@@ -1440,6 +1472,15 @@ body.spanish [lang="en"]{display:none}
   min-width:140px;
 }
 
+@media (max-width:768px){
+  .sticky-cta{
+    z-index:9997;
+  }
+  body.footer-visible .sticky-cta{
+    display:none;
+  }
+}
+
 .footer{
   padding:clamp(24px,4vw,32px);
   padding-left:clamp(24px,4vw,32px);
@@ -1455,6 +1496,14 @@ body.spanish [lang="en"]{display:none}
   justify-content:center;
   width:100%;
   box-sizing:border-box;
+}
+
+@media (max-width:768px){
+  .footer{
+    padding-bottom:calc(clamp(32px,8vw,40px) + env(safe-area-inset-bottom));
+    z-index:9999;
+    position:relative;
+  }
 }
 
 .footer > *{
@@ -1554,7 +1603,7 @@ body.spanish [lang="en"]{display:none}
 
 @media (min-width:1025px){
   .hero-logo{
-    max-width:720px;
+    max-width:420px;
   }
 }
   
@@ -6011,16 +6060,30 @@ function switchLang(lang){
   }
 }
 
-// Sticky CTA
+// Sticky CTA with footer detection
 let scrollTimeout;
 window.addEventListener('scroll',()=>{
   clearTimeout(scrollTimeout);
   scrollTimeout=setTimeout(()=>{
     const sticky=document.getElementById('stickyCTA');
+    const footer=document.querySelector('.footer');
+    const isMobile=window.innerWidth<=768;
+    
     if(window.scrollY>600){
       sticky.classList.add('visible');
     }else{
       sticky.classList.remove('visible');
+    }
+    
+    // Hide sticky CTA on mobile when footer is in view
+    if(isMobile && footer){
+      const footerRect=footer.getBoundingClientRect();
+      const isFooterVisible=footerRect.top<window.innerHeight;
+      if(isFooterVisible){
+        document.body.classList.add('footer-visible');
+      }else{
+        document.body.classList.remove('footer-visible');
+      }
     }
   },50);
 },{passive:true});
