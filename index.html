@@ -1257,6 +1257,19 @@ body.spanish [lang="en"]{display:none}
   transition:transform .6s cubic-bezier(0.4,0,0.2,1);
 }
 
+/* BALANCE CARD IMAGES - Card 2 dominates, adjust scaling */
+.value-card:nth-child(1) .value-image img {
+  transform: scale(1.12) !important;
+}
+
+.value-card:nth-child(2) .value-image img {
+  transform: scale(0.88) !important;
+}
+
+.value-card:nth-child(3) .value-image img {
+  transform: scale(1.15) !important;
+}
+
 .value-card-back{
   transform:rotateY(180deg);
   padding:clamp(32px,4vw,48px) clamp(22px,2.6vw,30px);
@@ -2349,6 +2362,357 @@ h1,h2,h3{
 p,li{
   text-wrap: pretty;
   max-width: 75ch;
+}
+
+/* =============================================
+   SURGICAL FIXES - TASKS 1, 2, 4
+   DO NOT TOUCH OTHER SECTIONS
+   ============================================= */
+
+/* TASK 1: Remove underline from "Designed to Outperform" only */
+.value-showcase .section-title .underline-target::after {
+  display: none !important;
+}
+
+/* TASK 2: Rebuild stats section to match reference image */
+.stats-section .stats-card {
+  background: #FFFFFF !important;
+  border: 2px solid rgba(196, 70, 58, 0.15) !important;
+  border-radius: 24px !important;
+  padding: clamp(48px, 6vw, 72px) clamp(32px, 4vw, 48px) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.stats-section .stats-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: #C4463A !important;
+  border-radius: 24px 24px 0 0 !important;
+}
+
+.stats-section .section-label {
+  color: #C4463A !important;
+  font-size: clamp(11px, 1.2vw, 13px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  margin-bottom: clamp(12px, 1.5vw, 18px) !important;
+  text-align: center !important;
+}
+
+.stats-section .section-title {
+  font-size: clamp(38px, 5.5vw, 58px) !important;
+  font-weight: 900 !important;
+  color: #000000 !important;
+  margin-bottom: clamp(36px, 4.5vw, 52px) !important;
+  line-height: 1.08 !important;
+  text-align: center !important;
+  letter-spacing: -0.02em !important;
+}
+
+.stats-section .stats-grid {
+  display: flex !important;
+  justify-content: center !important;
+  gap: clamp(18px, 2.8vw, 28px) !important;
+  flex-wrap: nowrap !important;
+  max-width: 100% !important;
+}
+
+.stats-section .stat {
+  position: relative !important;
+  background: #FAFAFA !important;
+  border: 2px solid rgba(209, 209, 209, 0.5) !important;
+  border-radius: 14px !important;
+  padding: clamp(28px, 3.8vw, 44px) clamp(24px, 3.2vw, 36px) !important;
+  min-width: clamp(130px, 17vw, 190px) !important;
+  text-align: center !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
+  transition: box-shadow 0.3s ease !important;
+}
+
+/* Tech outline animation */
+.stats-section .stat::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -3px !important;
+  left: -3px !important;
+  right: -3px !important;
+  bottom: -3px !important;
+  background: linear-gradient(135deg, #C4463A 0%, #7A8F4E 50%, #C4463A 100%) !important;
+  border-radius: 16px !important;
+  opacity: 0 !important;
+  z-index: -1 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.stats-section .stat.animating::before {
+  opacity: 1 !important;
+  animation: techBorderDraw 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+@keyframes techBorderDraw {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  75% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes numberSpin {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotateX(360deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotateX(720deg);
+    opacity: 1;
+  }
+}
+
+.stats-section .stat-value {
+  font-size: clamp(52px, 9vw, 76px) !important;
+  font-weight: 900 !important;
+  color: #000000 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  font-feature-settings: "tnum" 1 !important;
+  display: inline-block !important;
+}
+
+.stats-section .stat-value.spinning {
+  animation: numberSpin 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.stats-section .stat-label {
+  display: none !important;
+}
+
+.stats-section .stat::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 80% !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #C4463A, transparent) !important;
+  opacity: 0 !important;
+}
+
+.stats-section .stat.animating::after {
+  animation: lineReveal 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+@keyframes lineReveal {
+  0%, 60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+/* TASK 4: Local Leadership line break rules */
+/* Front card - 2 lines on ALL laptop and phone (no 1-line on any device for front) */
+.value-card-front-title {
+  white-space: normal !important;
+  word-spacing: 100vw !important;
+}
+
+/* Back card - 2 lines on ALL devices */
+.value-back-title {
+  white-space: normal !important;
+  word-spacing: 100vw !important;
+}
+
+/* Mobile optimization for stats */
+@media (max-width: 768px) {
+  .stats-section .stats-grid {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .stats-section .stat {
+    flex: 0 1 calc(50% - 12px) !important;
+    min-width: 140px !important;
+  }
+  
+  .stats-section .stat:last-child {
+    flex: 0 1 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section .stats-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .stats-section .stat {
+    width: 100% !important;
+    max-width: 260px !important;
+  }
+}
+
+/* SURGICAL FIX: Reduce thick footer to modern tech size */
+.footer {
+  padding: clamp(20px, 3vw, 24px) !important;
+  padding-left: clamp(20px, 3vw, 24px) !important;
+  padding-right: clamp(20px, 3vw, 24px) !important;
+  padding-bottom: calc(clamp(64px, 12vh, 72px) + env(safe-area-inset-bottom)) !important;
+}
+
+.footer-copyright {
+  font-size: clamp(11px, 2.5vw, 13px) !important;
+  margin-bottom: 6px !important;
+}
+
+/* SURGICAL FIX: Lift "WHAT SEPARATES PARKING HTX / Designed to Outperform" off cards */
+.value-showcase {
+  margin-top: clamp(48px, 8vw, 72px) !important;
+}
+
+/* SURGICAL FIX: Raise "Designed to Outperform" closer to "WHAT SEPARATES PARKING HTX" */
+.value-showcase .section-title {
+  margin-bottom: clamp(24px, 3.5vw, 36px) !important;
+}
+
+/* SURGICAL FIX: Enhanced elegant wavy pearl hero background animation */
+.hero::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(255, 255, 255, 0.95) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(249, 250, 251, 0.8) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 75%, rgba(247, 248, 249, 0.85) 0%, transparent 58%),
+    radial-gradient(ellipse at 10% 80%, rgba(255, 255, 255, 0.7) 0%, transparent 45%) !important;
+  animation: heroWaveFloat 32s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: 0.7 !important;
+  will-change: transform, opacity !important;
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+}
+
+.hero::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(circle at 70% 50%, rgba(249, 250, 251, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(247, 248, 249, 0.7) 0%, transparent 45%) !important;
+  animation: heroWaveDrift 40s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: 0.6 !important;
+  will-change: transform, opacity !important;
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+}
+
+@keyframes heroWaveFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  20% {
+    transform: translate3d(8%, -6%, 0) scale(1.08) rotate(1deg);
+    opacity: 0.85;
+  }
+  40% {
+    transform: translate3d(-5%, 8%, 0) scale(0.95) rotate(-1deg);
+    opacity: 0.6;
+  }
+  60% {
+    transform: translate3d(6%, 5%, 0) scale(1.05) rotate(0.5deg);
+    opacity: 0.75;
+  }
+  80% {
+    transform: translate3d(-8%, -4%, 0) scale(0.98) rotate(-0.5deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes heroWaveDrift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate3d(-7%, 9%, 0) scale(1.06) rotate(-1deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(9%, -7%, 0) scale(0.96) rotate(1deg);
+    opacity: 0.55;
+  }
+  75% {
+    transform: translate3d(-6%, -8%, 0) scale(1.04) rotate(-0.5deg);
+    opacity: 0.7;
+  }
+}
+
+/* Ensure hero content stays above pearl animations */
+.hero-wrap,
+.hero-content,
+.hero-stack,
+.hero-logo-container,
+.logo-mask {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* PERFORMANCE FIX: Optimize hero section for smooth scrolling */
+.hero {
+  will-change: auto !important;
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+}
+
+/* Reduce reflows on scroll */
+* {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Optimize animations globally */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth !important;
+  }
+}
+
+/* GPU acceleration for sections */
+section {
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
 }
 
 </style>
@@ -5804,14 +6168,14 @@ p,li{
     <h2 class="section-title" lang="es">Rendimiento Confiable</h2>
     <div class="stats-grid">
       <div class="stat">
-        <div class="stat-value">HTX</div>
-        <div class="stat-label" lang="en"></div>
-        <div class="stat-label" lang="es">El equipo local</div>
-      </div>
-      <div class="stat">
         <div class="stat-value">24/7</div>
         <div class="stat-label" lang="en"></div>
         <div class="stat-label" lang="es">Soporte Operacional</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">HTX</div>
+        <div class="stat-label" lang="en"></div>
+        <div class="stat-label" lang="es">El equipo local</div>
       </div>
       <div class="stat">
         <div class="stat-value">CPP</div>
@@ -5951,33 +6315,60 @@ window.addEventListener('scroll',()=>{
   }
 },{passive:true});
 
-// Stats border animation observer - Mobile optimized
+// Stats animation with spinning numbers and tech border - LOCKS to 24/7 HTX CPP
 const statsObserver=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       const stats=entry.target.querySelectorAll('.stat');
+      
+      // CRITICAL: Define final lock values by position
+      const finalLockValues = ['24/7', 'HTX', 'CPP'];
+      
       stats.forEach((stat,index)=>{
         setTimeout(()=>{
-          stat.classList.add('animate-border');
-          // Trigger elegant spin after last border completes (480ms * 3 + 600ms border duration)
-          if(index === stats.length - 1){
+          // Add animating class for border animation
+          stat.classList.add('animating');
+          
+          // Start spinning the number
+          const value=stat.querySelector('.stat-value');
+          if(value){
+            // LOCK VALUE - stored before any changes
+            const lockedValue = finalLockValues[index];
+            value.classList.add('spinning');
+            
+            // Define cycling values for each stat
+            const cycleValues = {
+              '24/7': ['24/7', 'ALWAYS', '365', 'OPEN', '24HR', 'NON-STOP', 'READY', '24/7'],
+              'HTX': ['HTX', '713', 'H-TOWN', '832', '281', '77002', 'HOUSTON', 'BAYOU', 'SPACE', 'HTX'],
+              'CPP': ['CPP', 'CERT', 'PRO', 'EXPERT', 'ELITE', 'MASTER', 'CPP']
+            };
+            
+            const values = cycleValues[lockedValue] || ['24/7', 'HTX', 'CPP'];
+            let spinCount = 0;
+            
+            const spinInterval = setInterval(()=>{
+              if(spinCount < 40){ // Spin for 2 seconds (40 * 50ms)
+                const cycleIndex = spinCount % values.length;
+                value.textContent = values[cycleIndex];
+                spinCount++;
+              }
+            }, 50);
+            
+            // After 2 seconds, LOCK to final value
             setTimeout(()=>{
-              stats.forEach(s=>{
-                const value=s.querySelector('.stat-value');
-                if(value){
-                  value.style.animation='elegantSpin 2s ease-in-out forwards';
-                }
-              });
-            },600);
+              clearInterval(spinInterval);
+              value.textContent = lockedValue; // LOCKED: 24/7, HTX, or CPP
+              value.classList.remove('spinning');
+            }, 2000);
           }
-        },480*(index+1));
+        }, 200 * index); // Stagger by 200ms
       });
       statsObserver.unobserve(entry.target);
     }
   });
 },{
-  threshold:[0.1,0.2,0.3],
-  rootMargin:'0px 0px -50px 0px'
+  threshold:0.3,
+  rootMargin:'0px 0px -100px 0px'
 });
 
 const statsGrid=document.querySelector('.stats-grid');
@@ -5993,26 +6384,48 @@ if(statsGrid){
       if(isVisible){
         statsTriggered=true;
         const stats=statsGrid.querySelectorAll('.stat');
+        
+        // CRITICAL: Define final lock values by position
+        const finalLockValues = ['24/7', 'HTX', 'CPP'];
+        
         stats.forEach((stat,index)=>{
           setTimeout(()=>{
-            stat.classList.add('animate-border');
-            // Trigger spin after borders finish
-            if(index === stats.length - 1){
+            stat.classList.add('animating');
+            const value=stat.querySelector('.stat-value');
+            if(value){
+              // LOCK VALUE - stored before any changes
+              const lockedValue = finalLockValues[index];
+              value.classList.add('spinning');
+              
+              const cycleValues = {
+                '24/7': ['24/7', 'ALWAYS', '365', 'OPEN', '24HR', 'NON-STOP', 'READY', '24/7'],
+                'HTX': ['HTX', '713', 'H-TOWN', '832', '281', '77002', 'HOUSTON', 'BAYOU', 'SPACE', 'HTX'],
+                'CPP': ['CPP', 'CERT', 'PRO', 'EXPERT', 'ELITE', 'MASTER', 'CPP']
+              };
+              
+              const values = cycleValues[lockedValue] || ['24/7', 'HTX', 'CPP'];
+              let spinCount = 0;
+              
+              const spinInterval = setInterval(()=>{
+                if(spinCount < 40){
+                  const cycleIndex = spinCount % values.length;
+                  value.textContent = values[cycleIndex];
+                  spinCount++;
+                }
+              }, 50);
               setTimeout(()=>{
-                stats.forEach(s=>{
-                  const value=s.querySelector('.stat-value');
-                  if(value){
-                    value.style.animation='elegantSpin 2s ease-in-out forwards';
-                  }
-                });
-              },600);
+                clearInterval(spinInterval);
+                value.textContent = lockedValue; // LOCKED: 24/7, HTX, or CPP
+                value.classList.remove('spinning');
+              }, 2000);
             }
-          },480*(index+1));
+          }, 200 * index);
         });
       }
     }
   },{passive:true});
 }
+
 
 // Title entrance animation observer (SNRG-style)
 const titleObserver=new IntersectionObserver(entries=>{
