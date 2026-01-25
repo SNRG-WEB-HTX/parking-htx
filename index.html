@@ -624,17 +624,19 @@ body.spanish [lang="en"]{display:none}
 
 @media (max-width:768px){
   .hero{
+    min-height:71.25vh !important;
+    height:71.25vh !important;
     padding-top:24px !important;
   }
   .hero-stack{
     transform: translateY(-2vh) !important;
-    gap:0;
+    gap:8px !important;
   }
   .hero-logo-container{
     margin:0 auto 0px !important;
   }
   .hero-cta-group{
-    margin-top:2px !important;
+    margin-top:0px !important;
   }
 }
 
@@ -2533,14 +2535,20 @@ p,li{
   }
 }
 
-/* TASK 4: Local Leadership line break rules */
-/* Front card - 2 lines on ALL laptop and phone (no 1-line on any device for front) */
-.value-card-front-title {
-  white-space: normal !important;
-  word-spacing: 100vw !important;
+/* TASK 4: Value card title line break rules */
+/* Front card - MOBILE: single line, left-aligned */
+@media (max-width: 768px) {
+  .value-card-front-title {
+    white-space: nowrap !important;
+    word-spacing: normal !important;
+    text-align: left !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
 }
 
-/* Back card - 2 lines on ALL devices */
+/* Back card - 2 lines on ALL devices (no changes) */
 .value-back-title {
   white-space: normal !important;
   word-spacing: 100vw !important;
@@ -2589,6 +2597,19 @@ p,li{
 .footer-copyright {
   font-size: clamp(11px, 2.5vw, 13px) !important;
   margin-bottom: 6px !important;
+}
+
+/* MOBILE: Minimize footer and tighten text */
+@media (max-width: 768px) {
+  .footer {
+    padding: 16px !important;
+    padding-bottom: calc(60px + env(safe-area-inset-bottom)) !important;
+  }
+  
+  .footer-copyright {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+  }
 }
 
 /* SURGICAL FIX: Lift "WHAT SEPARATES PARKING HTX / Designed to Outperform" off cards */
@@ -6232,8 +6253,8 @@ section {
 <footer class="footer">
   <p class="footer-copyright" lang="en">© 2026 PARKING HTX</p>
   <p class="footer-copyright" lang="es">© 2026 PARKING HTX</p>
-  <p style="font-size:12px;color:var(--slate);margin:12px auto 0;line-height:1.4;font-weight:500;text-align:center;width:100%;max-width:100%;display:block;" lang="en">Built by <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
-  <p style="font-size:12px;color:var(--slate);margin:12px auto 0;line-height:1.4;font-weight:500;text-align:center;width:100%;max-width:100%;display:block;" lang="es">Creado por <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
+  <p style="font-size:11px;color:var(--slate);margin:2px auto 0;line-height:1.2;font-weight:500;text-align:center;width:100%;max-width:100%;display:block;" lang="en">Built by <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
+  <p style="font-size:11px;color:var(--slate);margin:2px auto 0;line-height:1.2;font-weight:500;text-align:center;width:100%;max-width:100%;display:block;" lang="es">Creado por <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:700;transition:opacity 0.2s;">SNRG WEB</a></p>
 </footer>
 
 <script>
