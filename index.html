@@ -3873,6 +3873,140 @@ footer,
   }
 }
 
+
+/* ===================================================
+   MOBILE ONLY: MIRROR SNRG HERO LAYOUT (PARKING BRAND)
+   - Keep Parking HTX logo/colors, copy SNRG mobile hero geometry
+   - Zero peek of section 2 (viewport-locked)
+   =================================================== */
+@media (max-width: 768px){
+
+  /* HERO: match SNRG = full, stable viewport */
+  .hero{
+    min-height: 100svh !important;
+    height: 100svh !important;
+    max-height: 100svh !important;
+    padding: 0 !important;
+    overflow: hidden !important;       /* absolutely no section-2 peek */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Normalize wrappers exactly like SNRG */
+  .hero-wrap{
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .hero-stack,
+  .hero-content{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    transform: none !important;        /* kill any legacy translateY */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Logo spacing like SNRG */
+  .hero-logo-container{
+    margin: 0 auto 0 !important;
+  }
+
+  /* Logo sizing: mirror SNRG mobile clamp feel (PARKING logo image kept) */
+  .hero-logo{
+    max-width: clamp(420px, 70vw, 720px) !important;
+    height: auto !important;
+  }
+
+  /* CTA group: mirror SNRG spacing */
+  .hero-cta-group{
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 18px !important; /* SNRG uses wide gap; this keeps it clean for parking */
+    margin-top: clamp(10px, 1.6vh, 18px) !important;
+  }
+
+  /* Remove any hero spacers/indicators that can create vertical drift */
+  .hero::after,
+  .hero-spacer,
+  .scroll-indicator,
+  .hero-bottom{
+    display: none !important;
+  }
+}
+
+/* Dynamic viewport unit fallback */
+@supports (height: 100dvh){
+  @media (max-width: 768px){
+    .hero{
+      min-height: 100dvh !important;
+      height: 100dvh !important;
+      max-height: 100dvh !important;
+    }
+  }
+}
+
+/* ===================================================
+   MOBILE ONLY: FLIP CARD BACK ALIGNMENT (REAL CHECK ITEMS)
+   - Keep titles + "click to flip back" centered
+   - Left-align ONLY the checked/bullet body lines
+   =================================================== */
+@media (max-width: 768px){
+  /* Keep header elements centered */
+  .value-card-back .value-back-label,
+  .value-card-back .value-back-title,
+  .value-card-back .value-card-front-flip,
+  .value-card-back .value-card-back-flip,
+  .value-card-back .flip-back,
+  .value-card-back .value-card-front-flip *,
+  .value-card-back .value-card-back-flip *{
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Center default body blocks */
+  .value-card-back,
+  .value-card-back .value-back-header{
+    text-align: center !important;
+  }
+
+  /* The REAL "checked items" in your file are .value-bullet rows */
+  .value-card-back .value-back-content{
+    text-align: left !important;   /* container left for bullet readability */
+    width: 100%;
+  }
+  .value-card-back .value-bullet{
+    justify-content: flex-start !important;
+  }
+  .value-card-back .value-bullet-text{
+    text-align: left !important;
+  }
+}
+
+/* ===================================================
+   MOBILE ONLY: SUBTLE GLOW ON 2ND SECTION CARDS (SYSTEM)
+   - "2nd section leading to photo cards"
+   =================================================== */
+@media (max-width: 768px){
+  #system .stack-item{
+    transition: box-shadow .28s ease, transform .28s ease, border-color .28s ease !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.06) !important;
+  }
+  #system .stack-item:hover,
+  #system .stack-item:active{
+    border-color: rgba(196,70,58,0.35) !important;
+    box-shadow: 0 0 0 2px rgba(196,70,58,0.18), 0 18px 44px rgba(196,70,58,0.12) !important;
+    transform: translateY(-2px) !important;
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
