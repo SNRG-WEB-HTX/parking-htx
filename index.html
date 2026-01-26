@@ -3569,6 +3569,30 @@ footer,
   }
 }
 
+
+/* ===================================================
+   MOBILE ONLY: MICRO-TUNE HERO SPACING
+   - Add a smidge of padding above logo
+   - Pull CTAs closer to logo
+   =================================================== */
+@media (max-width: 768px){
+  /* Small breathing room above the stack */
+  .hero{
+    padding-top: max(12px, env(safe-area-inset-top)) !important;
+  }
+
+  /* Logo container: slight bottom margin only */
+  .hero-logo-container{
+    margin-bottom: 2px !important; /* tighter */
+  }
+
+  /* CTA group: almost flush to logo */
+  .hero-cta-group{
+    margin-top: 2px !important;  /* pull closer */
+    gap: 8px !important;
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
