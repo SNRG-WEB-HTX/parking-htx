@@ -3128,6 +3128,97 @@ body::before{
   }
 }
 
+
+/* =====================================================
+   MOBILE HERO OPTICAL CENTERING (PHONE ONLY)
+   ===================================================== */
+@media (max-width: 768px){
+
+  /* Force hero to a stable viewport and center content block */
+  .hero{
+    min-height: 100svh !important;
+    height: 100svh !important;
+    max-height: 100svh !important;
+    display: flex !important;
+    align-items: center !important;      /* vertical center */
+    justify-content: center !important;  /* horizontal center */
+    padding-top: max(12px, env(safe-area-inset-top)) !important;
+    padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  }
+
+  /* Neutralize any wrappers that push content to bottom */
+  .hero-wrap,
+  .hero-content,
+  .hero-stack{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important; /* THIS kills bottom anchoring */
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  /* Optical lift: bias the stack upward a touch for better composition */
+  .hero-stack{
+    transform: translateY(-4vh) !important; /* raise whole hero group */
+    gap: 8px !important;
+  }
+
+  /* Tighten logo -> CTA relationship */
+  .hero-logo-container{
+    margin: 0 auto 4px !important;
+  }
+  .hero-cta-group{
+    margin-top: 6px !important;
+    gap: 10px !important;
+  }
+
+  /* Ensure no spacer elements are reserving space below */
+  .hero-spacer,
+  .hero-bottom,
+  .hero-footer,
+  .scroll-indicator,
+  .hero::after{
+    display: none !important;
+  }
+
+  /* =====================================================
+     HIDE "WHAT YOU GET" + FOLLOWING INFO ON MOBILE ONLY
+     ===================================================== */
+
+  /* Try common section ids/classes; hide the whole block safely */
+  #what-you-get,
+  .what-you-get,
+  .benefits,
+  .benefits-section,
+  .value-props,
+  .value-props-section,
+  .features-section,
+  .features,
+  .system-review-cta,
+  .request-system-review{
+    display: none !important;
+  }
+
+  /* Also hide any section that contains the exact headline text */
+  section:has(h2, h3){
+    /* no-op placeholder to keep selector group valid in browsers that support :has() */
+  }
+}
+
+/* Fallback dynamic viewport */
+@supports (height: 100dvh){
+  @media (max-width: 768px){
+    .hero{
+      min-height: 100dvh !important;
+      height: 100dvh !important;
+      max-height: 100dvh !important;
+    }
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
