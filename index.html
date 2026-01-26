@@ -627,22 +627,39 @@ body.spanish [lang="en"]{display:none}
     min-height:71.25vh !important;
     height:71.25vh !important;
     max-height:71.25vh !important;
-    padding-top:24px !important;
+    padding-top:60px !important;
     padding-bottom:0 !important;
+    align-items: flex-start !important;
+  }
+  .hero-wrap,
+  .hero-content,
+  .hero-stack{
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  .hero .hero-inner,
+  .hero .hero-content{
+    place-items: start center !important;
+    padding-top: 0 !important;
   }
   .hero-stack{
-    transform: translateY(-2vh) !important;
-    gap:6px !important;
+    transform: translateY(0) !important;
+    gap: 6px !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
   .hero-logo-container{
-    margin:0 auto 0px !important;
+    margin: 0 auto !important;
+    padding-top: 0 !important;
   }
   .hero-logo{
-    max-width:clamp(468px, 64.8vw, 810px) !important;
+    max-width: clamp(468px, 64.8vw, 810px) !important;
   }
   .hero-cta-group{
-    margin-top:0px !important;
-    gap: 12px !important;
+    margin-top: 6px !important;
+    gap: 10px !important;
   }
 }
 
@@ -2894,7 +2911,11 @@ body::before{
 }
 @media (max-width: 768px){
   .hero, .hero-section, .hero-wrap{
-    min-height: 88svh; /* tighter on mobile */
+    min-height: 71.25vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
   }
 }
 
