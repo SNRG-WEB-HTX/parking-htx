@@ -3508,6 +3508,67 @@ footer,
   }
 }
 
+
+/* ===================================================
+   MOBILE ONLY: PERFECT HERO CENTERING + LOCK VIEWPORT
+   =================================================== */
+@media (max-width: 768px){
+  /* Lock hero viewport so no second section peeks */
+  .hero{
+    min-height: 80svh !important;
+    height: 80svh !important;
+    max-height: 80svh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Ensure wrappers don't push content */
+  .hero-wrap,
+  .hero-content,
+  .hero-stack{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Nudge the whole group DOWN a bit to optically center */
+  .hero-stack{
+    transform: translateY(3.5vh) !important; /* lowers group slightly */
+  }
+
+  /* Keep logo and CTAs tight and centered */
+  .hero-logo-container{
+    margin-bottom: 6px !important;
+  }
+  .hero-cta-group{
+    margin-top: 6px !important;
+  }
+
+  /* Prevent any spacers from creating extra height */
+  .hero::after,
+  .hero-spacer,
+  .scroll-indicator,
+  .hero-bottom{
+    display: none !important;
+  }
+}
+
+/* Fallback for dynamic viewport units */
+@supports (height: 80dvh){
+  @media (max-width: 768px){
+    .hero{
+      min-height: 80dvh !important;
+      height: 80dvh !important;
+      max-height: 80dvh !important;
+    }
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
