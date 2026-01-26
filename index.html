@@ -3219,6 +3219,45 @@ body::before{
   }
 }
 
+
+/* ===================================================
+   MOBILE-ONLY SURGICAL OVERRIDES
+   - Do NOT touch hero or logo
+   - ONLY lift CTA group dramatically
+   - Hide "What You Get" section on mobile
+   =================================================== */
+@media (max-width: 768px){
+
+  /* === DRAMATIC CTA LIFT (MOBILE ONLY) ===
+     We do NOT touch the hero or logo.
+     We only pull the CTA group upward.
+  */
+  .hero-cta-group{
+    margin-top: -64px !important;  /* big lift */
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  /* In case a parent is pushing it down, neutralize only spacing */
+  .hero-cta-group{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* === HIDE "WHAT YOU GET" + FOLLOWING INFO ON MOBILE === */
+  .value-showcase,
+  #what-you-get,
+  .what-you-get,
+  .benefits,
+  .benefits-section,
+  .features,
+  .features-section,
+  .system-review-cta,
+  .request-system-review{
+    display: none !important;
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
@@ -6432,7 +6471,7 @@ body::before{
 <section id="system" class="section system-section" class="fade-rise">
   <div class="container system-wrap">
     <header class="system-header fade-rise">
-      <h2 class="section-title fade-rise">We Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
+      <h2 class="section-title fade-rise">Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
       <p class="system-sub">
         A clean, professionally managed parking operation that reduces headaches, increases revenue, and protects your property — while keeping the experience smooth and predictable for tenants and visitors.
       </p>
