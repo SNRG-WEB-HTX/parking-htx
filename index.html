@@ -3221,40 +3221,47 @@ body::before{
 
 
 /* ===================================================
-   MOBILE-ONLY SURGICAL OVERRIDES
-   - Do NOT touch hero or logo
-   - ONLY lift CTA group dramatically
-   - Hide "What You Get" section on mobile
+   MOBILE-ONLY SURGICAL PATCH (LIVE SAFE)
    =================================================== */
 @media (max-width: 768px){
 
-  /* === DRAMATIC CTA LIFT (MOBILE ONLY) ===
-     We do NOT touch the hero or logo.
-     We only pull the CTA group upward.
-  */
+  /* --- ONLY LIFT CTA BUTTONS (do not touch logo/hero) --- */
   .hero-cta-group{
-    margin-top: -64px !important;  /* big lift */
+    margin-top: -64px !important; /* dramatic lift */
     position: relative !important;
     z-index: 5 !important;
   }
 
-  /* In case a parent is pushing it down, neutralize only spacing */
-  .hero-cta-group{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+  /* --- HIDE "WHAT YOU GET" BLOCK ON MOBILE --- */
+  .value-showcase{
+    display: none !important;
   }
 
-  /* === HIDE "WHAT YOU GET" + FOLLOWING INFO ON MOBILE === */
+  /* --- FORCE CARD BACKGROUNDS TO PURE WHITE (KILL NEON/GRADIENTS) --- */
   .value-showcase,
-  #what-you-get,
-  .what-you-get,
-  .benefits,
-  .benefits-section,
-  .features,
-  .features-section,
-  .system-review-cta,
-  .request-system-review{
-    display: none !important;
+  .value-card,
+  .value-card-front,
+  .value-card-back,
+  .value-card-shell,
+  .value-card-frame,
+  .value-card-inner{
+    background: #FFFFFF !important;
+    background-image: none !important;
+  }
+
+  /* Remove colored borders/glows on mobile */
+  .value-card,
+  .value-card *{
+    box-shadow: none !important;
+    border-color: #E5E7EB !important;
+  }
+
+  /* --- TIGHTEN FOOTER SPACING (KEEP FONT SIZES) --- */
+  footer,
+  .footer,
+  .site-footer{
+    padding-top: 32px !important;
+    padding-bottom: 24px !important;
   }
 }
 
@@ -6471,7 +6478,7 @@ body::before{
 <section id="system" class="section system-section" class="fade-rise">
   <div class="container system-wrap">
     <header class="system-header fade-rise">
-      <h2 class="section-title fade-rise">Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
+      <h2 class="section-title fade-rise">We Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
       <p class="system-sub">
         A clean, professionally managed parking operation that reduces headaches, increases revenue, and protects your property — while keeping the experience smooth and predictable for tenants and visitors.
       </p>
