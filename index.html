@@ -3669,6 +3669,76 @@ footer,
   }
 }
 
+
+/* ===================================================
+   MOBILE ONLY: HERO PERFECTION OVERRIDES
+   =================================================== */
+@media (max-width: 768px){
+
+  /* 1) Hero size: increase to ~88% viewport */
+  .hero{
+    min-height: 88svh !important;
+    height: 88svh !important;
+    max-height: 88svh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: max(10px, env(safe-area-inset-top)) !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 2) Nuke any wrappers that push content down */
+  .hero-wrap,
+  .hero-content,
+  .hero-stack{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    transform: none !important; /* reset any prior transforms */
+  }
+
+  /* 3) Rebuild optical positioning */
+  /* Lower the logo slightly */
+  .hero-logo-container{
+    margin-top: 10px !important;   /* push logo DOWN */
+    margin-bottom: 2px !important;
+  }
+
+  /* Raise CTAs aggressively */
+  .hero-cta-group{
+    margin-top: -24px !important;  /* pull CTAs UP */
+    padding-top: 0 !important;
+    position: relative !important;
+    z-index: 5 !important;
+    gap: 8px !important;
+  }
+
+  /* 4) Kill any spacers / pseudo elements */
+  .hero::after,
+  .hero-spacer,
+  .scroll-indicator,
+  .hero-bottom{
+    display: none !important;
+  }
+}
+
+/* Dynamic viewport fallback */
+@supports (height: 88dvh){
+  @media (max-width: 768px){
+    .hero{
+      min-height: 88dvh !important;
+      height: 88dvh !important;
+      max-height: 88dvh !important;
+    }
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
