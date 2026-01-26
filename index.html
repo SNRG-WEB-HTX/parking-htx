@@ -699,9 +699,6 @@ body.spanish [lang="en"]{display:none}
   display:block;
   margin:0 auto;
   filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2));
-  opacity:0;
-  transform:scale(0.3) translateY(-100px);
-  animation:logoTunnelEntrance 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
   isolation:isolate;
   will-change:transform,opacity;
   backface-visibility:hidden;
@@ -718,24 +715,6 @@ body.spanish [lang="en"]{display:none}
 @media (min-width:1440px){
   .hero-logo{
     max-width:1152px !important;
-  }
-}
-
-@keyframes logoTunnelEntrance{
-  0%{
-    opacity:0;
-    transform:scale(0.3) translateY(-100px) translateZ(-500px);
-    filter:drop-shadow(0 0 0 rgba(0,0,0,0)) blur(12px) brightness(0.5);
-  }
-  50%{
-    opacity:0.7;
-    transform:scale(0.85) translateY(-20px) translateZ(-100px);
-    filter:drop-shadow(0 8px 24px rgba(0,0,0,0.15)) blur(2px) brightness(0.85);
-  }
-  100%{
-    opacity:1;
-    transform:scale(1) translateY(0) translateZ(0);
-    filter:drop-shadow(0 16px 48px rgba(0,0,0,0.2)) blur(0) brightness(1);
   }
 }
 
@@ -2528,6 +2507,87 @@ section {
     margin-bottom: 18px !important;
   }
 }
+
+/* === PARKING HTX LOGO SLICE ANIMATION === */
+/* Real logo NEVER moves or scales. Only slices animate. */
+
+.hero-logo{
+  opacity: 0 !important;          /* hidden until slices finish */
+  transform: none !important;     /* guarantee no movement */
+  animation: none !important;
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.2)) !important;
+}
+
+/* Container already exists; ensure relative positioning for slices */
+.hero-logo-container{
+  position: relative;
+  isolation: isolate;
+}
+
+/* 4 slices */
+.hero-logo-container::before,
+.hero-logo-container::after,
+.hero-logo-container .slice-a,
+.hero-logo-container .slice-b{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69658c42c1ad06f52664b864_parking%20htx%20logo%201.12.26%20(1).svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  will-change: transform, opacity;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.2));
+}
+
+/* Slice masks (quarters) */
+.hero-logo-container::before{ clip-path: inset(0 75% 0 0); }   /* left */
+.hero-logo-container::after { clip-path: inset(0 50% 0 25%); } /* mid-left */
+.hero-logo-container .slice-a{ clip-path: inset(0 25% 0 50%); }/* mid-right */
+.hero-logo-container .slice-b{ clip-path: inset(0 0 0 75%); }  /* right */
+
+/* Start positions */
+.hero-logo-container::before{ transform: translateX(-120%); opacity:0; }
+.hero-logo-container::after { transform: translateY(-120%); opacity:0; }
+.hero-logo-container .slice-a{ transform: translateY(120%);  opacity:0; }
+.hero-logo-container .slice-b{ transform: translateX(120%);  opacity:0; }
+
+/* Animate in - SLOWER for elegant entrance */
+.hero-logo-container.play::before{ animation: snrgSliceIn 1.6s cubic-bezier(0.16,1,0.3,1) 0.0s forwards; }
+.hero-logo-container.play::after { animation: snrgSliceIn 1.6s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
+.hero-logo-container.play .slice-a{ animation: snrgSliceIn 1.6s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; }
+.hero-logo-container.play .slice-b{ animation: snrgSliceIn 1.6s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; }
+
+@keyframes snrgSliceIn{
+  0%{ opacity:0; }
+  100%{ opacity:1; transform: translate(0,0); }
+}
+
+/* Fade slices out */
+.hero-logo-container.done::before,
+.hero-logo-container.done::after,
+.hero-logo-container.done .slice-a,
+.hero-logo-container.done .slice-b{
+  animation: snrgSliceOut 0.35s ease forwards;
+}
+
+@keyframes snrgSliceOut{ to{ opacity:0; } }
+
+/* Reveal the real logo — LOCKED POSITION, simple fade */
+.hero-logo-container.done .hero-logo{
+  opacity: 1 !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .hero-logo{ opacity:1 !important; animation:none !important; filter:none !important; }
+  .hero-logo-container::before,
+  .hero-logo-container::after,
+  .hero-logo-container .slice-a,
+  .hero-logo-container .slice-b{ display:none !important; }
+}
+
 </style>
   
 <script type="application/ld+json">
@@ -5690,7 +5750,7 @@ section {
   <div class="hero-wrap">
     <div class="hero-content">
       <div class="hero-stack">
-        <div class="hero-logo-container">
+        <div class="hero-logo-container"><div class="slice-a"></div><div class="slice-b"></div>
           <div class="logo-mask">
             <img 
               src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69658c42c1ad06f52664b864_parking%20htx%20logo%201.12.26%20(1).svg" 
@@ -6330,6 +6390,16 @@ document.querySelectorAll('.underline-target').forEach(el => {
 console.log('%c✨ SURGICAL FIX APPLIED','font-size:16px;font-weight:900;color:#C4463A');
 console.log('%c📐 SNRG WEB Optical Centering | 🎨 Tech Maroon Underline | 🌊 Deep Fade-Rise','font-size:13px;font-weight:700;color:#4A4F5A');
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const c = document.querySelector(".hero-logo-container");
+  if(!c) return;
+  c.classList.add("play");
+  setTimeout(()=>{ c.classList.add("done"); }, 2300);
+});
+</script>
+
 </body>
 </html>
 
