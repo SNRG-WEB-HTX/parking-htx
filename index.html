@@ -624,15 +624,18 @@ body.spanish [lang="en"]{display:none}
 
 @media (max-width:768px){
   .hero{
-    min-height:71.25vh !important;
-    height:71.25vh !important;
-    max-height:71.25vh !important;
+    min-height:75vh !important;
+    height:75vh !important;
+    max-height:75vh !important;
     padding-top:24px !important;
-    padding-bottom:0 !important;
+    padding-bottom:24px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
   }
   .hero-stack{
-    transform: translateY(-4vh) !important;
-    gap:4px !important;
+    transform: translateY(-3vh) !important;
+    gap:8px !important;
   }
   .hero-logo-container{
     margin:0 auto 0px !important;
@@ -641,7 +644,7 @@ body.spanish [lang="en"]{display:none}
     max-width:clamp(468px,64.8vw,810px) !important;
   }
   .hero-cta-group{
-    margin-top:4px !important;
+    margin-top:8px !important;
     gap: 10px !important;
   }
 }
@@ -1843,18 +1846,7 @@ body.spanish [lang="en"]{display:none}
 }
 
 .underline-target::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background-color: #C4463A; /* Tech Maroon */
-  transition: width 2.4s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.underline-target.underline-active::after {
-  width: 100%;
+  display: none !important;
 }
 
 /* ===================================================
@@ -2619,6 +2611,12 @@ section {
   overflow: hidden;
 }
 
+@media (max-width: 768px){
+  .system-section{
+    padding-top: clamp(64px, 8vw, 112px) !important;
+  }
+}
+
 /* ambient glow */
 .system-section::before{
   content:"";
@@ -2894,7 +2892,7 @@ body::before{
 }
 @media (max-width: 768px){
   .hero, .hero-section, .hero-wrap{
-    min-height: 71.25vh !important;
+    min-height: 75vh !important;
   }
 }
 
@@ -6278,7 +6276,7 @@ body::before{
 <section id="system" class="section system-section" class="fade-rise">
   <div class="container system-wrap">
     <header class="system-header fade-rise">
-      <h2 class="fade-rise"><span class="underline-target">We Turn Parking Into a Reliable, Revenue‑Positive Asset</span></h2>
+      <h2 class="section-title fade-rise">We Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
       <p class="system-sub">
         A clean, professionally managed parking operation that reduces headaches, increases revenue, and protects your property — while keeping the experience smooth and predictable for tenants and visitors.
       </p>
@@ -6494,8 +6492,8 @@ body::before{
         </div>
         <div class="value-card-back">
           <div class="value-back-header">
-            <div class="value-back-label" lang="en">Always On Site</div>
-            <div class="value-back-label" lang="es">Siempre En Sitio</div>
+            <div class="value-back-label" lang="en">24/7 Local Support</div>
+            <div class="value-back-label" lang="es">Soporte Local 24/7</div>
             <h3 class="value-back-title" lang="en">On-Site Excellence</h3>
             <h3 class="value-back-title" lang="es">Excelencia en Sitio</h3>
           </div>
