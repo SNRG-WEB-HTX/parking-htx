@@ -3382,6 +3382,82 @@ footer,
   }
 }
 
+
+/* === SYSTEM CARDS: FORCE TITLE CASE (ALL DEVICES) === */
+#system .stack-item h3{
+  text-transform: capitalize !important;
+  letter-spacing: 0.01em;
+}
+
+/* ===================================================
+   MOBILE ONLY: SPACING + APPLE 2030 CARD RESTYLE
+   =================================================== */
+@media (max-width: 768px){
+
+  /* --- Reduce space between hero and the next section --- */
+  .hero + section,
+  .hero + .section{
+    margin-top: 12px !important;   /* was much larger */
+    padding-top: 12px !important;
+  }
+
+  /* --- Keep hero viewport behavior intact; do not change hero sizing --- */
+  /* (We only tighten the gap AFTER hero) */
+
+  /* --- SYSTEM CARDS: REMOVE NUMBERS & RESTYLE --- */
+  #system .stack-index,
+  #system .card-index,
+  #system .index,
+  #system .step-number{
+    display: none !important; /* hide 01,02,03 */
+  }
+
+  /* Card container look: clean Apple 2030 */
+  #system .stack-item{
+    border-radius: 20px !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.06),
+      inset 0 1px 0 rgba(255,255,255,0.8) !important;
+    padding: 18px 18px 20px !important;
+  }
+
+  /* Title polish */
+  #system .stack-item h3{
+    font-size: 1.15rem !important;
+    margin-bottom: 6px !important;
+    text-align: left !important;
+    background: linear-gradient(180deg, #0b0b0b, #3a3a3a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+  }
+
+  /* Body text polish */
+  #system .stack-item p{
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    color: #1f2937 !important;
+    text-align: left !important;
+  }
+
+  /* Subtle separator line inside card */
+  #system .stack-item::after{
+    content: "";
+    display: block;
+    margin-top: 10px;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent);
+  }
+
+  /* Center the card stack nicely on mobile */
+  #system .system-stack{
+    gap: 14px !important;
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
