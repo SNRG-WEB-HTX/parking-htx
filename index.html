@@ -3336,6 +3336,52 @@ footer,
   margin-top: 6px !important;
 }
 
+
+/* ===================================================
+   MOBILE-ONLY: SYSTEM SECTION SIMPLIFICATION
+   - Hide headline + paragraph
+   - Hide "What You Get" box
+   - Center the 3 cards
+   =================================================== */
+@media (max-width: 768px){
+  /* Hide the top headline + paragraph */
+  #system .system-header{
+    display: none !important;
+  }
+
+  /* Hide the "What You Get" outcomes card */
+  #system .system-outcomes{
+    display: none !important;
+  }
+
+  /* Center the remaining stack of 3 cards */
+  #system .system-grid{
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  #system .system-stack{
+    margin: 0 auto !important;
+    align-items: center !important;
+  }
+
+  #system .stack-item{
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Ensure titles are Title Case (visual enforcement only) */
+  #system .stack-item h3{
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  /* Keep body text readable and centered */
+  #system .stack-item p{
+    text-align: center;
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
@@ -6561,7 +6607,7 @@ footer,
           <span class="stack-index">01</span>
           <div class="stack-body">
             <h3 class="fade-rise">Access Control & Enforcement</h3>
-            <p>Permits, LPR, guest validation, and a rules engine that defines who belongs and who doesn't. Policy-driven automation plus human enforcement. Zero ambiguity. Full audit trail.</p>
+            <p>Permits, LPR, guest validation, and policy-based enforcement. Clear rules. Full audit trail.</p>
           </div>
         </div>
 
