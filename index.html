@@ -3261,6 +3261,81 @@ body::before{
   }
 }
 
+
+/* ===================================================
+   MOBILE-ONLY HERO + CARDS TUNING (SAFE OVERRIDES)
+   =================================================== */
+@media (max-width: 768px){
+
+  /* --- HERO LOGO: 10% bigger and closer to header (do NOT move CTAs here) --- */
+  .hero-logo{
+    transform: scale(1.1) !important; /* +10% */
+  }
+  .hero-logo-container{
+    margin-top: -12px !important; /* nudge up toward header */
+    margin-bottom: 2px !important;
+  }
+
+  /* --- HIDE ONLY THE TEXT "WHAT YOU GET" CARD (KEEP PHOTO FLIP CARDS) ---
+     Target common text-panel wrappers without touching .value-card grid.
+     We hide panels that contain the headline "What You Get".
+  */
+  .value-showcase .value-text,
+  .value-showcase .value-panel,
+  .value-showcase .value-copy,
+  .value-showcase .text-card,
+  .value-showcase .benefits-text,
+  .value-showcase .what-you-get,
+  .value-showcase .value-info,
+  .value-showcase .value-content{
+    display: none !important;
+  }
+  /* Fallback: hide any direct card that is NOT a .value-card (the photo cards use .value-card) */
+  .value-showcase > :not(.value-grid):not(.value-grid *){
+    display: none !important;
+  }
+
+  /* --- CARD BACK TEXT: slightly larger, left-aligned, spaced list --- */
+  .value-card-back,
+  .value-card-back *{
+    text-align: left !important;
+  }
+  .value-card-back p,
+  .value-card-back li{
+    font-size: 1.05em !important; /* small bump */
+    line-height: 1.6 !important;
+  }
+  .value-card-back ul li{
+    margin-bottom: 8px !important; /* add breathing room between bullets */
+  }
+}
+
+/* ===================================================
+   FOOTER (ALL DEVICES): TIGHTEN VERTICAL SPACING
+   - Keep font sizes the same
+   =================================================== */
+footer,
+.footer,
+.site-footer{
+  padding-top: 28px !important;
+  padding-bottom: 20px !important;
+}
+.footer .container,
+.site-footer .container{
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* Bring "Built by SNRG WEB" closer to © line */
+.footer .credits,
+.site-footer .credits,
+.footer .footer-credits,
+.site-footer .footer-credits,
+.footer .built-by,
+.site-footer .built-by{
+  margin-top: 6px !important;
+}
+
 </style>
   
 <script type="application/ld+json">
