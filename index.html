@@ -7126,6 +7126,65 @@ footer,
 }
 </script>
 
+
+<!-- ================== SURGICAL OVERRIDES (AUTO-GENERATED) ================== -->
+<style>
+:root{
+  --olive:#7A8F4E;
+  --olive-glow-weak: rgba(122,143,78,0.18);
+  --olive-glow-strong: rgba(122,143,78,0.32);
+}
+
+/* --------- MOBILE HERO: LIFT LOGO + +10% SIZE, PULL CTAs FLUSH --------- */
+@media (max-width: 768px){
+  /* Lift the entire hero stack slightly */
+  .hero-stack{
+    transform: translateY(-6vh) !important;
+  }
+
+  /* Increase logo by ~10% and lift it */
+  .hero-logo{
+    transform: translateY(-12px) scale(1.10) !important;
+  }
+
+  /* Pull CTA group up so it sits flush to the logo */
+  .hero-cta-group{
+    margin-top: -8px !important; /* tight, near-flush */
+    padding-top: 0 !important;
+  }
+}
+
+/* --------- REPLACE ALL RED/MAROON CARD GLOW WITH SUBTLE OLIVE --------- */
+/* Front */
+.value-card:hover .value-card-front,
+.value-card.flipped .value-card-front,
+.value-card.is-active .value-card-front{
+  border-color: var(--olive) !important;
+  box-shadow:
+    0 0 0 2px var(--olive-glow-weak),
+    0 14px 40px var(--olive-glow-weak) !important;
+}
+
+/* Back */
+.value-card:hover .value-card-back,
+.value-card.flipped .value-card-back,
+.value-card.is-active .value-card-back{
+  border-color: var(--olive) !important;
+  box-shadow:
+    0 0 0 2px var(--olive-glow-weak),
+    0 14px 40px var(--olive-glow-weak) !important;
+}
+
+/* Remove any lingering red ambient on cards/sections by overriding to olive where applicable */
+.system-section::before{
+  background:
+    radial-gradient(40% 30% at 20% 20%, rgba(122,143,78,0.22), transparent 60%),
+    radial-gradient(35% 25% at 80% 30%, rgba(122,143,78,0.18), transparent 60%),
+    radial-gradient(30% 25% at 50% 80%, rgba(122,143,78,0.14), transparent 60%) !important;
+}
+</style>
+<!-- ================== /SURGICAL OVERRIDES ================== -->
+
 </head>
 
 <body>
