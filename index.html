@@ -3458,6 +3458,30 @@ footer,
   }
 }
 
+
+/* ===================================================
+   MOBILE ONLY: HERO HEIGHT -15% (KEEP CENTERING)
+   =================================================== */
+@media (max-width: 768px){
+  .hero{
+    min-height: 85svh !important;
+    height: 85svh !important;
+    max-height: 85svh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+@supports (height: 85dvh){
+  @media (max-width: 768px){
+    .hero{
+      min-height: 85dvh !important;
+      height: 85dvh !important;
+      max-height: 85dvh !important;
+    }
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
