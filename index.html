@@ -3063,6 +3063,71 @@ body::before{
   transform: translateZ(0.01px);
 }
 
+
+/* ================================
+   MOBILE HERO VIEWPORT GOLD FIX
+   - Applies ONLY to <=768px
+   - Locks hero to stable viewport
+   - Removes bottom white space
+   - Pulls CTAs closer to logo
+   ================================ */
+@media (max-width: 768px){
+  /* Use small-viewport units to avoid iOS URL bar jump */
+  .hero{
+    min-height: 100svh !important;
+    height: 100svh !important;
+    max-height: 100svh !important;
+    padding-top: max(16px, env(safe-area-inset-top)) !important;
+    padding-bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  /* Remove any vertical drift hacks on mobile */
+  .hero-stack{
+    transform: none !important;
+    gap: 6px !important;
+  }
+
+  /* Logo container: no extra margins */
+  .hero-logo-container{
+    margin: 0 auto 2px !important;
+  }
+
+  /* Pull CTAs closer to logo */
+  .hero-cta-group{
+    margin-top: 4px !important;
+    gap: 10px !important;
+  }
+
+  /* Ensure wrappers are not adding space */
+  .hero-wrap,
+  .hero-content{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Kill any leftover bottom push under CTAs */
+  .hero-wrap,
+  .hero-content,
+  .hero-stack{
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Fallback for browsers that support dynamic viewport units */
+@supports (height: 100dvh){
+  @media (max-width: 768px){
+    .hero{
+      min-height: 100dvh !important;
+      height: 100dvh !important;
+      max-height: 100dvh !important;
+    }
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
