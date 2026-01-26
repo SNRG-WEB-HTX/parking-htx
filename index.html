@@ -3788,6 +3788,91 @@ footer,
   padding-top: 0 !important;
 }
 
+
+/* ===================================================
+   MOBILE ONLY: SURGICAL HERO + CARD FIXES
+   =================================================== */
+@media (max-width: 768px){
+
+  /* --- HERO: LOCK VIEWPORT, NO PEEK OF SECTION 2 --- */
+  .hero{
+    min-height: 88svh !important;
+    height: 88svh !important;
+    max-height: 88svh !important;
+    overflow: hidden !important;     /* absolutely no bleed */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Normalize wrappers so nothing anchors to bottom */
+  .hero-wrap,
+  .hero-content,
+  .hero-stack{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* --- CTA LIFT: LOGO UNTOUCHED, BUTTONS PULLED UP --- */
+  .hero-cta-group{
+    margin-top: -22px !important;   /* pull CTAs up hard */
+    padding-top: 0 !important;
+    position: relative !important;
+    z-index: 5 !important;
+    gap: 8px !important;
+  }
+
+  /* Do NOT move logo */
+  .hero-logo-container{
+    margin-top: 0 !important;
+  }
+
+  /* Kill any spacers / pseudo elements */
+  .hero::after,
+  .hero-spacer,
+  .scroll-indicator,
+  .hero-bottom{
+    display: none !important;
+  }
+
+  /* ===================================================
+     CARD BACK: ALIGNMENT RULES
+     =================================================== */
+
+  /* Keep titles and CTA centered */
+  .value-card-back h1,
+  .value-card-back h2,
+  .value-card-back h3,
+  .value-card-back .flip-back,
+  .value-card-back .back-cta{
+    text-align: center !important;
+  }
+
+  /* Only checklist / bullet items are left aligned */
+  .value-card-back ul,
+  .value-card-back ol,
+  .value-card-back li{
+    text-align: left !important;
+  }
+}
+
+/* Dynamic viewport fallback */
+@supports (height: 88dvh){
+  @media (max-width: 768px){
+    .hero{
+      min-height: 88dvh !important;
+      height: 88dvh !important;
+      max-height: 88dvh !important;
+    }
+  }
+}
+
 </style>
   
 <script type="application/ld+json">
