@@ -7185,6 +7185,101 @@ footer,
 </style>
 <!-- ================== /SURGICAL OVERRIDES ================== -->
 
+
+<!-- ================== SURGICAL OVERRIDES v2 (AUTO-GENERATED) ================== -->
+<style>
+:root{
+  --maroon:#C4463A;
+  --olive:#7A8F4E;
+  --pearl:#F6F7F8;
+  --tri-maroon: rgba(196,70,58,0.35);
+  --tri-white: rgba(255,255,255,0.55);
+  --tri-olive: rgba(122,143,78,0.35);
+}
+
+/* ===================================================
+   1) ALL DEVICES: TRICOLOR SUBTLE GLOW FOR FLIP CARDS
+   - Maroon outer, white middle, olive inner
+   - Works on hover, active, and flipped
+   =================================================== */
+
+/* Base: keep borders neutral, add tri-color halo via box-shadow */
+.value-card-front,
+.value-card-back{
+  border-color: rgba(0,0,0,0.10) !important;
+}
+
+/* Active states */
+.value-card:hover .value-card-front,
+.value-card.flipped .value-card-front,
+.value-card.is-active .value-card-front,
+.value-card:hover .value-card-back,
+.value-card.flipped .value-card-back,
+.value-card.is-active .value-card-back{
+  border-color: transparent !important;
+  box-shadow:
+    0 0 0 1px var(--tri-olive),                 /* inner olive kiss */
+    0 0 0 3px var(--tri-white),                 /* middle white separation */
+    0 0 0 5px var(--tri-maroon),                /* outer maroon trim */
+    0 14px 40px rgba(0,0,0,0.12) !important;    /* soft depth */
+}
+
+/* ===================================================
+   2) MOBILE HERO: PERFECT CENTER + NO DEAD SPACE
+   - Logo and CTAs tight, centered as a single stack
+   =================================================== */
+@media (max-width: 768px){
+  /* Lock hero to center */
+  .hero{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding-top: 56px !important;   /* just enough for header */
+    padding-bottom: 0 !important;
+  }
+
+  .hero-wrap,
+  .hero-content,
+  .hero-stack{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+  }
+
+  /* Logo: +10% and lifted */
+  .hero-logo{
+    transform: translateY(-8px) scale(1.10) !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* CTA group: hug the logo */
+  .hero-cta-group{
+    margin-top: -4px !important;  /* near-flush */
+    gap: 10px !important;
+  }
+}
+
+/* ===================================================
+   3) REDUCE SPACE BEFORE PHOTO CARDS TITLE / SECTION
+   - Tighten top padding of value-showcase
+   =================================================== */
+.value-showcase{
+  padding-top: clamp(36px, 5vw, 56px) !important;  /* was much larger */
+}
+
+/* Also reduce margin above the section title if present */
+.value-showcase .section-title{
+  margin-top: 0 !important;
+}
+
+/* ================== /SURGICAL OVERRIDES v2 ================== */
+</style>
+<!-- ================== /SURGICAL OVERRIDES v2 ================== -->
+
 </head>
 
 <body>
