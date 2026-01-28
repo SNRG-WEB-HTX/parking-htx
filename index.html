@@ -184,17 +184,16 @@ body.spanish [lang="en"]{display:none}
 }
 
 /* ========================================
-   APPLE-TIER HEADER SYSTEM
-   Perfect spacing, glassmorphism, animations
+   DESKTOP HEADER - CLEAN & PROFESSIONAL
    ======================================== */
 
-.lang-bar{
+.header{
   position:fixed;
   top:0;
   left:0;
   right:0;
   z-index:9999;
-  background:rgba(255,255,255,0.88);
+  background:rgba(255,255,255,0.95);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid rgba(0,0,0,0.08);
@@ -203,20 +202,20 @@ body.spanish [lang="en"]{display:none}
   box-shadow:0 1px 0 0 rgba(255,255,255,0.5) inset;
 }
 
-.lang-bar.scrolled{
+.header.scrolled{
   padding:12px 5%;
-  background:rgba(255,255,255,0.94);
+  background:rgba(255,255,255,0.98);
   border-bottom-color:rgba(0,0,0,0.12);
   box-shadow:0 1px 0 0 rgba(255,255,255,0.6) inset,0 4px 16px rgba(0,0,0,0.08);
 }
 
-.lang-bar-inner{
+.header-inner{
   max-width:1600px;
   margin:0 auto;
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
   align-items:center;
-  gap:16px;
+  gap:24px;
 }
 
 /* ========================================
@@ -232,6 +231,7 @@ body.spanish [lang="en"]{display:none}
   gap:4px;
   box-shadow:0 2px 8px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.8);
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  justify-self:start;
 }
 
 .lang-btn{
@@ -270,204 +270,93 @@ body.spanish [lang="en"]{display:none}
 }
 
 /* ========================================
-   HAMBURGER - 56PX PERFECTION
+   CENTERED NAVIGATION
    ======================================== */
 
+.header-nav{
+  justify-self:center;
+}
 
-/* ========================================
-   MODERN APPLE-STYLE MENU SYSTEM
-   ======================================== */
-
-/* Hamburger Button - Minimal & Clean */
-.hamburger{
-  position:relative;
-  width:44px;
-  height:44px;
-  background:transparent;
-  border:none;
-  cursor:pointer;
+.header-nav-list{
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:0;
+  list-style:none;
+  margin:0;
   padding:0;
-  z-index:10001;
-}
-
-.hamburger span{
-  position:absolute;
-  width:24px;
-  height:2px;
-  background:var(--ink);
-  border-radius:2px;
-  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-
-.hamburger span:nth-child(1){
-  top:14px;
-}
-
-.hamburger span:nth-child(2){
-  top:21px;
-}
-
-.hamburger span:nth-child(3){
-  top:28px;
-}
-
-.hamburger.active span{
-  background:var(--ink);
-}
-
-.hamburger.active span:nth-child(1){
-  top:21px;
-  transform:rotate(45deg);
-}
-
-.hamburger.active span:nth-child(2){
-  opacity:0;
-  transform:scaleX(0);
-}
-
-.hamburger.active span:nth-child(3){
-  top:21px;
-  transform:rotate(-45deg);
-}
-
-/* Menu Overlay - Subtle Backdrop */
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.4);
-  opacity:0;
-  visibility:hidden;
-  transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
-  z-index:9998;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-
-.menu-overlay.active{
-  opacity:1;
-  visibility:visible;
-}
-
-/* Menu Container - Full Width Pull Down */
-.menu{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  width:100%;
-  background:rgba(255,255,255,0.98);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(0,0,0,0.08);
-  box-shadow:0 10px 40px rgba(0,0,0,0.1);
-  transform:translateY(-100%);
-  transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  max-height:100vh;
-  overflow:hidden;
-}
-
-.menu.active{
-  transform:translateY(0);
-}
-
-/* Menu Items Container */
-.menu-items{
-  display:flex;
-  flex-direction:column;
-  gap:0;
-  padding:80px 0 40px;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-}
-
-.menu-items::-webkit-scrollbar{
-  display:none;
-}
-
-/* Menu Links - Clean Apple Style */
-.menu-items a{
-  position:relative;
-  display:flex;
+  gap:8px;
   align-items:center;
-  justify-content:center;
-  padding:20px 40px;
-  font-size:17px;
+}
+
+.header-nav-link{
+  display:block;
+  padding:10px 16px;
+  font-size:15px;
   font-weight:500;
   color:var(--ink);
   text-decoration:none;
-  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
-  opacity:0;
-  transform:translateY(-20px);
+  border-radius:8px;
+  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
+  white-space:nowrap;
   letter-spacing:0.01em;
 }
 
-.menu.active .menu-items a{
-  animation:menuFadeIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
-}
-
-.menu.active .menu-items a:nth-child(1){animation-delay:0.05s}
-.menu.active .menu-items a:nth-child(2){animation-delay:0.1s}
-.menu.active .menu-items a:nth-child(3){animation-delay:0.15s}
-.menu.active .menu-items a:nth-child(4){animation-delay:0.2s}
-.menu.active .menu-items a:nth-child(5){animation-delay:0.25s}
-.menu.active .menu-items a:nth-child(6){animation-delay:0.3s}
-.menu.active .menu-items a:nth-child(7){animation-delay:0.35s}
-
-@keyframes menuFadeIn{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.menu-items a:hover{
+.header-nav-link:hover{
+  background:rgba(196,70,58,0.08);
   color:var(--maroon);
-  background:rgba(196,70,58,0.04);
 }
 
-.menu-items a.active{
+.header-nav-link.active{
   color:var(--maroon);
-  font-weight:600;
+  position:relative;
 }
 
-/* Tablet & Desktop Menu Styling */
-@media (min-width:769px){
-  .menu-items{
-    padding:100px 0 60px;
-  }
-  
-  .menu-items a{
-    font-size:20px;
-    padding:24px 60px;
-  }
-}
-
-/* Desktop Large Menu Styling */
-@media (min-width:1280px){
-  .menu-items{
-    padding:120px 0 80px;
-  }
-  
-  .menu-items a{
-    font-size:24px;
-    padding:28px 80px;
-  }
+.header-nav-link.active::after{
+  content:'';
+  position:absolute;
+  bottom:4px;
+  left:16px;
+  right:16px;
+  height:2px;
+  background:var(--maroon);
+  border-radius:2px;
 }
 
 /* ========================================
-   RESPONSIVE REFINEMENTS
+   CTA BUTTON
    ======================================== */
 
-@media (min-width:769px){
-  .lang-bar{
+.header-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 24px;
+  background:var(--maroon);
+  color:#FFFFFF;
+  text-decoration:none;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:0.01em;
+  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:0 2px 8px rgba(196,70,58,0.3);
+  justify-self:end;
+  white-space:nowrap;
+}
+
+.header-cta-btn:hover{
+  background:var(--maroon-hover);
+  box-shadow:0 4px 12px rgba(196,70,58,0.4);
+  transform:translateY(-1px);
+}
+
+.header-cta-btn:active{
+  transform:translateY(0);
+  box-shadow:0 2px 6px rgba(196,70,58,0.3);
+}
+
+/* ========================================
+   RESPONSIVE - HIDE HAMBURGER CODE
+   ======================================== */
+
     padding-left:max(5%,32px);
     padding-right:max(5%,32px);
   }
@@ -478,21 +367,8 @@ body.spanish [lang="en"]{display:none}
     padding:7px 14px;
     font-size:13px;
   }
-  
-  .hamburger{
-    width:52px;
-    height:52px;
-  }
-  
-  .menu{
-    width:calc(100vw - 24px);
-    top:12px;
-  }
-  
-  .menu.active{
-    right:12px;
-  }
 }
+
 .container{
   max-width:1320px;
   margin:0 auto;
@@ -514,7 +390,7 @@ body.spanish [lang="en"]{display:none}
   padding:88px 0 0 0;
 }
 
-/* Desktop-safe offset for fixed header (prevents logo/CTAs from sitting under .lang-bar) */
+/* Desktop-safe offset for fixed header */
 @media (min-width: 769px){
   .hero{
   min-height:75vh;
@@ -590,6 +466,13 @@ body.spanish [lang="en"]{display:none}
   margin-top:0;
 }
 
+/* Desktop only: Add padding under CTAs to lift logo and CTAs slightly */
+@media (min-width:1024px){
+  .hero-cta-group{
+    padding-bottom:30px;
+  }
+}
+
 @keyframes heroContentEntrance{
   to{opacity:1}
 }
@@ -654,13 +537,13 @@ body.spanish [lang="en"]{display:none}
   text-decoration:none;
   font-size:clamp(14px,3.5vw,16px);
   font-weight:700;
-  padding:clamp(11px,2.8vw,14px) clamp(22px,5.5vw,36px);
+  padding:clamp(9px,2.2vw,11px) clamp(18px,4.5vw,28px);
   border-radius:12px;
   transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
   cursor:pointer;
   border:2px solid transparent;
   white-space:nowrap;
-  min-height:44px;
+  min-height:40px;
   letter-spacing:0.015em;
   text-transform:none;
   font-feature-settings:"ss01" 1;
@@ -7055,33 +6938,34 @@ footer,
 <h1 class="visually-hidden" lang="en" class="fade-rise">Houston Parking Management - Professional Garage & Surface Lot Operations</h1>
 <h1 class="visually-hidden" lang="es" class="fade-rise">Gestión de Estacionamiento en Houston - Operaciones Profesionales de Garajes y Lotes</h1>
 
-<nav class="lang-bar" id="langBar" role="navigation" aria-label="Language selection">
-  <div class="lang-bar-inner">
+<header class="header" id="header" role="banner">
+  <div class="header-inner">
+    <!-- Language Toggle - Left Side -->
     <div class="lang-toggle">
       <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
       <button class="lang-btn" data-lang="es" aria-label="Cambiar a español">ES</button>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    
+    <!-- Centered Navigation -->
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <ul class="header-nav-list">
+        <li><a href="index.html" class="header-nav-link active"><span lang="en">Home</span><span lang="es">Inicio</span></a></li>
+        <li><a href="property-owners.html" class="header-nav-link"><span lang="en">Property Owners</span><span lang="es">Propietarios</span></a></li>
+        <li><a href="parker-info.html" class="header-nav-link"><span lang="en">Parker Info</span><span lang="es">Info</span></a></li>
+        <li><a href="htx-difference.html" class="header-nav-link"><span lang="en">HTX Difference</span><span lang="es">Diferencia HTX</span></a></li>
+        <li><a href="food-truck-family.html" class="header-nav-link"><span lang="en">Food Trucks</span><span lang="es">Food Trucks</span></a></li>
+        <li><a href="careers.html" class="header-nav-link"><span lang="en">Careers</span><span lang="es">Carreras</span></a></li>
+        <li><a href="contact.html" class="header-nav-link"><span lang="en">Contact</span><span lang="es">Contacto</span></a></li>
+      </ul>
+    </nav>
+    
+    <!-- CTA Button -->
+    <a href="tel:+13462916010" class="header-cta-btn">
+      <span lang="en">START HERE</span>
+      <span lang="es">COMIENCE AQUÍ</span>
+    </a>
   </div>
-</nav>
-
-<div class="menu-overlay" id="menuOverlay"></div>
-
-<nav class="menu" id="menu" role="navigation" aria-label="Main navigation">
-  <div class="menu-items">
-    <a href="index.html"><span lang="en">Home</span><span lang="es">Inicio</span></a>
-    <a href="property-owners.html"><span lang="en">Property Owners</span><span lang="es">Propietarios</span></a>
-    <a href="parker-info.html"><span lang="en">Parker Info</span><span lang="es">Info Para Usuarios</span></a>
-    <a href="htx-difference.html"><span lang="en">The HTX Difference</span><span lang="es">La Diferencia HTX</span></a>
-    <a href="food-truck-family.html"><span lang="en">Food Truck Family</span><span lang="es">Familia de Food Trucks</span></a>
-    <a href="careers.html"><span lang="en">Careers</span><span lang="es">Carreras</span></a>
-    <a href="contact.html"><span lang="en">Contact</span><span lang="es">Contacto</span></a>
-  </div>
-</nav>
+</header>
 
 <header class="hero" role="banner">
   <div class="animated-bg" aria-hidden="true"></div>
@@ -7102,11 +6986,11 @@ footer,
           </div>
         </div>
         <div class="hero-cta-group">
-          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">PARTNER WITH US</a>
-          <a href="tel:+13462916010" class="cta cta-secondary" lang="en">CALL PARKING HTX</a>
+          <a href="tel:+13462916010" class="cta cta-primary" lang="en">CALL HERE</a>
+          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-secondary" lang="en">BOOK MEETING</a>
           
-          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">ASÓCIESE</a>
-          <a href="tel:+13462916010" class="cta cta-secondary" lang="es">LLAMAR PARKING HTX</a>
+          <a href="tel:+13462916010" class="cta cta-primary" lang="es">LLAMAR AQUÍ</a>
+          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-secondary" lang="es">RESERVAR REUNIÓN</a>
         </div>
       </div>
     </div>
@@ -7139,9 +7023,13 @@ footer,
 <section id="system" class="section system-section" class="fade-rise">
   <div class="container system-wrap">
     <header class="system-header fade-rise">
-      <h2 class="section-title fade-rise">We Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
-      <p class="system-sub">
+      <h2 class="section-title fade-rise" lang="en">We Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
+      <h2 class="section-title fade-rise" lang="es">Convertimos el Estacionamiento en un Activo Confiable y Rentable</h2>
+      <p class="system-sub" lang="en">
         A clean, professionally managed parking operation that reduces headaches, increases revenue, and protects your property — while keeping the experience smooth and predictable for tenants and visitors.
+      </p>
+      <p class="system-sub" lang="es">
+        Una operación de estacionamiento limpia y profesionalmente administrada que reduce dolores de cabeza, aumenta ingresos y protege su propiedad — mientras mantiene la experiencia fluida y predecible para inquilinos y visitantes.
       </p>
     </header>
 
@@ -7150,8 +7038,10 @@ footer,
         <div class="stack-item fade-rise apple-card fade-rise">
           <span class="stack-index">01</span>
           <div class="stack-body">
-            <h3 class="fade-rise">Access Control & Enforcement</h3>
-            <p>Permits, LPR, guest validation, and policy-based enforcement. Clear rules. Full audit trail.</p>
+            <h3 class="fade-rise" lang="en">Access Control & Enforcement</h3>
+            <h3 class="fade-rise" lang="es">Control de Acceso y Cumplimiento</h3>
+            <p lang="en">Permits, LPR, guest validation, and policy-based enforcement. Clear rules. Full audit trail.</p>
+            <p lang="es">Permisos, LPR, validación de invitados y cumplimiento basado en políticas. Reglas claras. Registro de auditoría completo.</p>
           </div>
         </div>
 
@@ -7159,34 +7049,46 @@ footer,
         <div class="stack-item fade-rise apple-card fade-rise">
           <span class="stack-index">02</span>
           <div class="stack-body">
-            <h3 class="fade-rise">Revenue Layer</h3>
-            <p>Dynamic pricing, visitor capture, overflow and event monetization. Turn chaos into cash flow.</p>
+            <h3 class="fade-rise" lang="en">Revenue Layer</h3>
+            <h3 class="fade-rise" lang="es">Capa de Ingresos</h3>
+            <p lang="en">Dynamic pricing, visitor capture, overflow and event monetization. Turn chaos into cash flow.</p>
+            <p lang="es">Precios dinámicos, captura de visitantes, monetización de desbordamiento y eventos. Convierta el caos en flujo de efectivo.</p>
           </div>
         </div>
 
         <div class="stack-item fade-rise apple-card fade-rise">
           <span class="stack-index">03</span>
           <div class="stack-body">
-            <h3 class="fade-rise">Owner Control Layer</h3>
-            <p>Dashboard, reporting, policy control, and compliance visibility. One system. One operator.</p>
+            <h3 class="fade-rise" lang="en">Owner Control Layer</h3>
+            <h3 class="fade-rise" lang="es">Capa de Control del Propietario</h3>
+            <p lang="en">Dashboard, reporting, policy control, and compliance visibility. One system. One operator.</p>
+            <p lang="es">Panel de control, informes, control de políticas y visibilidad de cumplimiento. Un sistema. Un operador.</p>
           </div>
         </div>
       </div>
 
       <div class="system-outcomes fade-rise apple-card fade-rise">
-        <h4>What You Get</h4>
+        <h4 lang="en">What You Get</h4>
+        <h4 lang="es">Lo Que Obtiene</h4>
         <ul>
-          <li>Predictable, policy-based enforcement</li>
-          <li>Reduced liability and fewer tenant complaints</li>
-          <li>Captured lost revenue from visitors and abuse</li>
-          <li>Clean audit trails and operational clarity</li>
-          <li>No vendor chaos. One system, one invoice.</li>
+          <li lang="en">Predictable, policy-based enforcement</li>
+          <li lang="es">Cumplimiento predecible basado en políticas</li>
+          <li lang="en">Reduced liability and fewer tenant complaints</li>
+          <li lang="es">Responsabilidad reducida y menos quejas de inquilinos</li>
+          <li lang="en">Captured lost revenue from visitors and abuse</li>
+          <li lang="es">Ingresos perdidos capturados de visitantes y abuso</li>
+          <li lang="en">Clean audit trails and operational clarity</li>
+          <li lang="es">Registros de auditoría limpios y claridad operativa</li>
+          <li lang="en">No vendor chaos. One system, one invoice.</li>
+          <li lang="es">Sin caos de proveedores. Un sistema, una factura.</li>
         </ul>
 
-        <p class="system-quote">Most properties don’t have a parking problem. They have a management problem.</p>
+        <p class="system-quote" lang="en">Most properties don’t have a parking problem. They have a management problem.</p>
+        <p class="system-quote" lang="es">La mayoría de las propiedades no tienen un problema de estacionamiento. Tienen un problema de gestión.</p>
 
         <div class="system-cta">
-          <a href="#contact" class="btn primary">Request a Property System Review</a>
+          <a href="tel:+13462916010" class="btn primary" lang="en">CALL HERE</a>
+          <a href="tel:+13462916010" class="btn primary" lang="es">LLAMAR AQUÍ</a>
         </div>
       </div>
     </div>
@@ -7466,12 +7368,6 @@ window.addEventListener('pageshow', (event) => {
   }
 });
 
-// Hamburger menu functionality
-const hamburger=document.getElementById('hamburger'),menu=document.getElementById('menu'),menuOverlay=document.getElementById('menuOverlay');
-function toggleMenu(){hamburger&&menu&&menuOverlay&&(hamburger.classList.toggle('active'),menu.classList.toggle('active'),menuOverlay.classList.toggle('active'),document.body.style.overflow=menu.classList.contains('active')?'hidden':'auto')}
-hamburger&&hamburger.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggleMenu()});
-menuOverlay&&menuOverlay.addEventListener('click',e=>{e.preventDefault();toggleMenu()});
-
 // Language toggle functionality
 const langButtons=document.querySelectorAll('.lang-btn');
 const currentLang=localStorage.getItem('preferred-language')||'en';
@@ -7517,16 +7413,16 @@ if(footer && sticky){
   observer.observe(footer);
 }
 
-// Lang-bar scroll effect
-const langBar=document.querySelector('.lang-bar');
+// Header scroll effect
+const header=document.querySelector('.header');
 let ticking=false;
 window.addEventListener('scroll',()=>{
   if(!ticking){
     window.requestAnimationFrame(()=>{
       if(window.pageYOffset>50){
-        langBar.classList.add('scrolled');
+        header.classList.add('scrolled');
       }else{
-        langBar.classList.remove('scrolled');
+        header.classList.remove('scrolled');
       }
       ticking=false;
     });
