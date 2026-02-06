@@ -6915,7 +6915,7 @@ header.hero .logo-stage {
 
 header.hero img.hero-logo {
   display: block;
-  width: min(420px, 65vw);
+  width: min(630px, 85vw);
   height: auto;
   transform-origin: center center;
 }
@@ -6933,18 +6933,22 @@ header.hero .hero-cta-group {
 /* Tablet adjustments */
 @media (min-width: 768px) {
   header.hero {
-    padding: 32px 24px 56px;
+    padding: 32px 24px 64px;
   }
   
   header.hero img.hero-logo {
     width: min(720px, 70vw);
+  }
+  
+  header.hero .hero-cta-group {
+    margin-top: -24px;
   }
 }
 
 /* Desktop - match laptop proportions */
 @media (min-width: 1024px) {
   header.hero {
-    padding: 32px 32px 56px;
+    padding: 32px 32px 72px;
   }
   
   header.hero img.hero-logo {
@@ -6953,7 +6957,7 @@ header.hero .hero-cta-group {
   
   header.hero .hero-cta-group {
     gap: 14px;
-    margin-top: -22px;
+    margin-top: -28px;
   }
 }
 
