@@ -7217,6 +7217,93 @@ body.snrg-hero-ready header.hero .logo-stage::after {
     display: none;
   }
 }
+
+/* ===================================================
+   MOBILE HERO + HEADER: APPLE-ELITE TIGHT SPACING
+   (Mobile only — leaves tablet/desktop unchanged)
+   =================================================== */
+@media (max-width: 768px){
+  /* Header: tighter, cleaner, tech/minimal */
+  .header{
+    padding:10px 16px !important;
+  }
+  .header-inner{
+    gap:10px !important;
+    grid-template-columns:auto 1fr auto !important;
+  }
+  .lang-toggle{
+    border-radius:999px !important;
+    padding:3px !important;
+    gap:3px !important;
+  }
+  .lang-btn{
+    padding:6px 10px !important;
+    font-size:12px !important;
+    border-radius:999px !important;
+    line-height:1 !important;
+  }
+
+  /* Nav: compact + scrollable if needed (no wrapping mess) */
+  .header-nav{
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .header-nav::-webkit-scrollbar{display:none;}
+  .header-nav-list{
+    gap:10px !important;
+    flex-wrap:nowrap !important;
+    padding:0 2px !important;
+  }
+  .header-nav-link{
+    font-size:12px !important;
+    padding:6px 8px !important;
+    border-radius:10px !important;
+  }
+
+  .header-cta-btn{
+    padding:10px 12px !important;
+    font-size:12px !important;
+    border-radius:999px !important;
+    letter-spacing:0.02em !important;
+  }
+
+  /* Hero: tighten vertical rhythm */
+  header.hero{
+    padding-top:92px !important; /* clears fixed header without feeling tall */
+    padding-bottom:26px !important;
+    min-height:70vh !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .hero-stack{
+    transform:none !important;
+    gap:12px !important;
+  }
+  .hero-logo-container{
+    margin:0 auto 6px !important;
+  }
+  .hero-logo{
+    width:min(72vw, 280px) !important;
+    max-width:280px !important;
+    height:auto !important;
+  }
+  .hero-cta-group{
+    margin-top:0 !important;
+    gap:10px !important;
+  }
+
+  /* CTA buttons: Apple-tight, premium pill */
+  .cta{
+    font-size:13px !important;
+    padding:10px 16px !important;
+    min-height:40px !important;
+    border-radius:14px !important;
+    letter-spacing:0.01em !important;
+  }
+}
+
 </style>
 
 </head>
