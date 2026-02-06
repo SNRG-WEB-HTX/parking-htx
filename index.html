@@ -425,24 +425,24 @@ body.spanish [lang="en"]{display:none}
     min-height:75vh !important;
     height:75vh !important;
     max-height:75vh !important;
-    padding-top:8px !important;
-    padding-bottom:24px !important;
+    padding-top:calc(8px * 0.7) !important;
+    padding-bottom:calc(24px * 0.7) !important;
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
   }
   .hero-stack{
     transform: translateY(-1vh) !important;
-    gap:2px !important;
+    gap:calc(2px * 0.7) !important;
   }
   .hero-logo-container{
-    margin:0 auto 2px !important;
+    margin:0 auto calc(2px * 0.7) !important;
   }
   .hero-logo{
-    max-width:clamp(468px,64.8vw,810px) !important;
+    max-width:clamp(936px,129.6vw,1620px) !important; /* 2x bigger: doubled from 468px/64.8vw/810px */
   }
   .hero-cta-group{
-    margin-top:4px !important;
+    margin-top:calc(4px * 0.7) !important;
     gap: 10px !important;
   }
 }
