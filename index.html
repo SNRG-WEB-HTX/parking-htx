@@ -1,30 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en-US">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/691902cb912be2f2703fd784_email%20signature%20logo.png">
-<link rel="canonical" href="https://parkingtx.com/">
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link rel="dns-prefetch" href="https://api.fontshare.com">
-
-<title>PARKING HTX | Houston Parking Management | Garage & Surface Lot Operations</title>
-<meta name="description" content="Elite parking management for Houston property owners. CPP-certified leadership, 24/7 operations, revenue optimization. Managing surface lots, garages, valet services across Greater Houston.">
-<meta name="keywords" content="Houston parking management, parking lot management Houston, garage management Houston, valet services Houston, medical center parking, downtown Houston parking, gestión de estacionamiento Houston">
-<meta name="theme-color" content="#C4463A">
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://parkingtx.com/">
-<meta property="og:title" content="PARKING HTX | Houston Parking Management">
-<meta property="og:description" content="Elite parking management for Houston property owners. CPP-certified leadership, 24/7 operations.">
-
-<meta name="geo.region" content="US-TX">
-<meta name="geo.placename" content="Houston">
-<meta name="geo.position" content="29.7604;-95.3698">
-
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<link href="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/691902cb912be2f2703fd784_email%20signature%20logo.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://parkingtx.com/" rel="canonical"/>
+<link crossorigin="" href="https://api.fontshare.com" rel="preconnect"/>
+<link href="https://api.fontshare.com" rel="dns-prefetch"/>
+<title>PARKING HTX | Houston Parking Management | Garage &amp; Surface Lot Operations</title>
+<meta content="Elite parking management for Houston property owners. CPP-certified leadership, 24/7 operations, revenue optimization. Managing surface lots, garages, valet services across Greater Houston." name="description"/>
+<meta content="Houston parking management, parking lot management Houston, garage management Houston, valet services Houston, medical center parking, downtown Houston parking, gestión de estacionamiento Houston" name="keywords"/>
+<meta content="#C4463A" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="https://parkingtx.com/" property="og:url"/>
+<meta content="PARKING HTX | Houston Parking Management" property="og:title"/>
+<meta content="Elite parking management for Houston property owners. CPP-certified leadership, 24/7 operations." property="og:description"/>
+<meta content="US-TX" name="geo.region"/>
+<meta content="Houston" name="geo.placename"/>
+<meta content="29.7604;-95.3698" name="geo.position"/>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --pearl:#F6F7F8;
@@ -36,6 +31,8 @@
   --maroon-hover:#B03D32;
   --maroon-light:#E89B92;
   --border:#E5E7EB;
+  --gutter:clamp(18px, 5vw, 56px);
+  --maxw:1240px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -197,7 +194,7 @@ body.spanish [lang="en"]{display:none}
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid rgba(0,0,0,0.08);
-  padding:14px 5%;
+  padding: max(10px, env(safe-area-inset-top)) max(5%, 20px) 10px;
   transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
   box-shadow:0 1px 0 0 rgba(255,255,255,0.5) inset;
 }
@@ -781,7 +778,7 @@ body.spanish [lang="en"]{display:none}
 .section-separator{
   max-width:1600px;
   margin:0 auto;
-  padding:0 5%;
+  padding:0 var(--gutter);
 }
 
 .section-separator hr{
@@ -1274,7 +1271,7 @@ body.spanish [lang="en"]{display:none}
   overflow:hidden;
   z-index:1;
   width:100%;
-  max-width:1200px;
+  max-width:var(--maxw);
   margin:0 auto;
   display:flex;
   flex-direction:column;
@@ -3896,8 +3893,489 @@ footer,
 
 /* ═══ END ULTIMATE MOBILE OVERRIDE ═══ */
 
+
+
+
+/* ===========================
+   Elite header + hero refresh
+   =========================== */
+
+.elite-header{
+  position:sticky;
+  top:0;
+  z-index:10000;
+  background:rgba(246,247,248,0.72);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(15,17,21,0.08);
+}
+
+.elite-header-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding: max(10px, env(safe-area-inset-top)) max(5%, 20px) 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.elite-brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+.elite-logo{height:clamp(112px, 12vw, 180px); width:auto; display:block;}
+
+.elite-nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.elite-nav-link{
+  text-decoration:none;
+  color:var(--ink);
+  font-weight:500;
+  font-size:14px;
+  letter-spacing:-0.01em;
+  opacity:0.86;
+  transition:opacity .2s ease, transform .2s ease;
+}
+
+.elite-nav-link:hover{opacity:1; transform:translateY(-1px);}
+
+.elite-header-cta{display:flex; align-items:center; gap:10px;}
+
+.elite-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(15,17,21,0.10);
+  background:rgba(255,255,255,0.65);
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:-0.01em;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow:0 1px 0 rgba(255,255,255,0.6) inset;
+}
+
+.elite-pill:hover{transform:translateY(-1px); background:rgba(255,255,255,0.85);}
+
+.elite-pill-primary{
+  border-color:rgba(196,70,58,0.25);
+  background:linear-gradient(180deg, rgba(196,70,58,0.95), rgba(176,61,50,0.95));
+  color:var(--white);
+  box-shadow:0 14px 40px rgba(196,70,58,0.20);
+}
+
+.elite-pill-primary:hover{box-shadow:0 18px 55px rgba(196,70,58,0.26);}
+
+.elite-burger{
+  display:none;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(15,17,21,0.10);
+  background:rgba(255,255,255,0.65);
+  cursor:pointer;
+}
+
+.elite-burger span{
+  display:block;
+  width:18px;
+  height:2px;
+  background:var(--ink);
+  margin:6px auto;
+  border-radius:999px;
+  transition:transform .2s ease, opacity .2s ease;
+}
+
+.elite-mobile{
+  border-top:1px solid rgba(15,17,21,0.08);
+  background:rgba(246,247,248,0.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+}
+
+.elite-mobile-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:10px var(--gutter) 18px;
+  display:grid;
+  gap:8px;
+}
+
+.elite-mobile-link{
+  padding:12px 12px;
+  border-radius:14px;
+  text-decoration:none;
+  color:var(--ink);
+  background:rgba(255,255,255,0.55);
+  border:1px solid rgba(15,17,21,0.08);
+  font-weight:600;
+}
+
+.elite-mobile-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding-top:6px;
+}
+
+/* Elite hero */
+
+.elite-hero{
+  position:relative;
+  padding:64px 0 44px;
+  overflow:hidden;
+}
+
+.elite-hero-bg{position:absolute; inset:0; pointer-events:none;}
+.elite-mesh{
+  position:absolute; inset:-20%;
+  background:
+    radial-gradient(60% 60% at 22% 18%, rgba(0,122,255,0.12) 0%, transparent 58%),
+    radial-gradient(55% 55% at 86% 28%, rgba(15,17,21,0.10) 0%, transparent 62%),
+    radial-gradient(70% 70% at 52% 88%, rgba(255,255,255,0.55) 0%, transparent 60%);
+  filter:blur(18px);
+  transform:translateZ(0);
+  animation:eliteMeshDrift 18s ease-in-out infinite alternate;
+}
+
+.elite-noise{
+  position:absolute; inset:0;
+  opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+.elite-orb{
+  position:absolute;
+  width:min(520px, 70vw);
+  height:min(520px, 70vw);
+  border-radius:50%;
+  filter:blur(50px);
+  opacity:0.12;
+  background:radial-gradient(circle at 30% 30%, rgba(196,70,58,0.55), transparent 60%);
+  animation:eliteFloat 14s ease-in-out infinite;
+}
+.elite-orb-1{left:-10%; top:-10%;}
+.elite-orb-2{right:-18%; bottom:-20%; animation-duration:18s; opacity:0.10;}
+
+.elite-hero-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--gutter);
+  display:grid;
+  grid-template-columns:1.12fr 0.88fr;
+  gap:34px;
+  align-items:center;
+  position:relative;
+}
+
+.elite-eyebrow{
+  font-weight:700;
+  color:var(--slate);
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+.elite-headline{
+  margin-top:10px;
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-0.04em;
+  font-size:clamp(34px, 4.2vw, 58px);
+}
+
+.elite-subhead{
+  margin-top:14px;
+  color:var(--slate);
+  font-size:clamp(16px, 1.3vw, 18px);
+  max-width:56ch;
+}
+
+.elite-actions{
+  margin-top:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.elite-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:999px;
+  border:1px solid rgba(15,17,21,0.10);
+  background:rgba(255,255,255,0.72);
+  text-decoration:none;
+  color:var(--ink);
+  font-weight:700;
+  font-size:14px;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.elite-btn:hover{transform:translateY(-1px); background:rgba(255,255,255,0.90);}
+
+.elite-btn-primary{
+  background:linear-gradient(180deg, rgba(196,70,58,0.96), rgba(176,61,50,0.96));
+  border-color:rgba(196,70,58,0.25);
+  color:var(--white);
+  box-shadow:0 18px 60px rgba(196,70,58,0.22);
+}
+.elite-btn-primary:hover{box-shadow:0 22px 74px rgba(196,70,58,0.28);}
+
+.elite-trust{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:12px;
+  max-width:620px;
+}
+
+.elite-trust-item{
+  padding:14px 14px;
+  border-radius:18px;
+  border:1px solid rgba(15,17,21,0.08);
+  background:rgba(255,255,255,0.60);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.elite-kpi{
+  display:block;
+  font-weight:900;
+  letter-spacing:-0.03em;
+  font-size:16px;
+}
+.elite-kpi-label{
+  display:block;
+  margin-top:4px;
+  color:var(--slate);
+  font-weight:600;
+  font-size:12px;
+  line-height:1.2;
+}
+
+.elite-hero-visual{display:flex; justify-content:flex-end;}
+
+.elite-glass-card{
+  width:min(440px, 92vw);
+  border-radius:26px;
+  border:1px solid rgba(255,255,255,0.35);
+  background:linear-gradient(180deg, rgba(255,255,255,0.70), rgba(255,255,255,0.45));
+  box-shadow:0 30px 90px rgba(15,17,21,0.14);
+  overflow:hidden;
+  transform:translateZ(0);
+}
+
+.elite-card-top{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(15,17,21,0.08);
+}
+
+.elite-dot{
+  width:10px; height:10px; border-radius:50%;
+  background:rgba(15,17,21,0.16);
+}
+.elite-card-title{
+  margin-left:auto;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  font-size:13px;
+  color:rgba(15,17,21,0.70);
+}
+
+.elite-card-body{padding:16px 16px 18px;}
+
+.elite-metric{display:flex; align-items:baseline; justify-content:space-between;}
+.elite-metric-label{font-weight:700; color:var(--slate); font-size:12px; text-transform:uppercase; letter-spacing:0.06em;}
+.elite-metric-value{font-weight:900; font-size:28px; letter-spacing:-0.04em;}
+
+.elite-meter{
+  margin-top:10px;
+  height:10px;
+  border-radius:999px;
+  background:rgba(15,17,21,0.08);
+  overflow:hidden;
+}
+.elite-meter span{
+  display:block;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(196,70,58,0.92), rgba(176,61,50,0.92));
+  box-shadow:0 12px 30px rgba(196,70,58,0.20);
+  transform-origin:left center;
+  animation:eliteBarFill 1.6s cubic-bezier(0.2,0.8,0.2,1) both;
+}
+
+.elite-grid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:10px;
+}
+
+.elite-mini{
+  padding:12px 12px;
+  border-radius:18px;
+  border:1px solid rgba(15,17,21,0.08);
+  background:rgba(255,255,255,0.58);
+}
+
+.elite-mini-label{color:var(--slate); font-weight:700; font-size:12px;}
+.elite-mini-value{margin-top:4px; font-weight:900; letter-spacing:-0.03em; font-size:18px;}
+
+.elite-card-note{
+  margin-top:12px;
+  color:rgba(15,17,21,0.55);
+  font-size:12px;
+  font-weight:600;
+}
+
+@keyframes eliteMeshDrift{
+  0%{transform:translate3d(-1.5%, -1.0%, 0) scale(1.02)}
+  100%{transform:translate3d(1.5%, 1.0%, 0) scale(1.04)}
+}
+@keyframes eliteFloat{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-16px,0)}
+}
+@keyframes eliteBarFill{
+  from{transform:scaleX(0.2); filter:saturate(0.9)}
+  to{transform:scaleX(1); filter:saturate(1.2)}
+}
+
+/* Entrance + motion preferences */
+.elite-hero .elite-hero-copy,
+.elite-hero .elite-hero-visual{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.elite-hero.is-visible .elite-hero-copy,
+.elite-hero.is-visible .elite-hero-visual{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media (max-width: 980px){
+  .elite-hero-inner{grid-template-columns:1fr; gap:22px;}
+  .elite-hero-visual{justify-content:center;}
+  .elite-hero-copy{ text-align:center; align-items:center; }
+  .elite-actions{ justify-content:center; }
+  .elite-nav{display:none;}
+  .elite-burger{display:inline-flex; align-items:center; justify-content:center;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .elite-mesh,.elite-orb,.elite-meter span{animation:none !important;}
+  .elite-hero .elite-hero-copy,
+  .elite-hero .elite-hero-visual{transition:none !important; opacity:1 !important; transform:none !important;}
+}
+
+
+
+/* SYSTEM SECTION (moved below value flip cards): tighter + centered */
+#system{
+  padding:56px 0 46px !important;
+}
+#system .system-wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
+#system .system-header{
+  max-width:860px;
+  margin:0 auto 26px;
+  text-align:center;
+}
+#system .system-header .section-title{
+  margin-left:auto;
+  margin-right:auto;
+  text-wrap:balance;
+}
+#system .system-sub{
+  margin-left:auto;
+  margin-right:auto;
+  max-width:72ch;
+}
+#system .system-grid{
+  max-width:var(--maxw);
+  margin:0 auto;
+}
+
+/* ===== Apple-elite band (shared) ===== */
+.elite-band{
+  position:relative;
+  padding:clamp(56px,8vw,96px) 0;
+  overflow:hidden;
+  background:linear-gradient(135deg,#ffffff 0%, #f7f8f9 35%, #ffffff 70%, #f6f7f8 100%);
+}
+.elite-band::before{
+  content:'';
+  position:absolute; inset:-20%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,0,0,0.035) 0%, transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(0,0,0,0.030) 0%, transparent 60%),
+    radial-gradient(circle at 50% 85%, rgba(196,70,58,0.05) 0%, transparent 55%);
+  filter:blur(40px);
+  animation:eliteFloat 22s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes eliteFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(22px,-14px) scale(1.03)}
+}
+.elite-band-inner{
+  max-width:var(--maxw, 1200px);
+  margin:0 auto;
+  padding:0 max(5%, 20px);
+  position:relative;
+}
+.elite-band-kicker{
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--maroon);
+  font-weight:800;
+  margin-bottom:10px;
+}
+.elite-band-title{
+  font-size:clamp(28px,4.6vw,52px);
+  letter-spacing:-0.03em;
+  line-height:1.06;
+  font-weight:900;
+  color:var(--ink, var(--charcoal));
+  max-width:20ch;
+}
+.elite-band-sub{
+  margin-top:14px;
+  color:rgba(15,17,21,0.72);
+  font-size:clamp(15px,1.6vw,18px);
+  line-height:1.7;
+  max-width:62ch;
+}
+.elite-band-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+.elite-band-actions .elite-pill{background:rgba(255,255,255,0.75)}
+.elite-band-actions .elite-pill-primary{background:var(--maroon); color:#fff; border-color:rgba(196,70,58,0.35)}
+@media(max-width:768px){
+  .elite-band-inner{padding:0 max(6%, 18px)}
+  .elite-band-title{max-width:24ch}
+}
 </style>
-  
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -7014,10 +7492,7 @@ footer,
   ]
 }
 </script>
-
-
 <!-- SNRG WEB: Fresh logo entrance animation (replaces all prior hero/logo animation logic) -->
-
 <style id="hero-clean-rebuild">
 /* ========================================
    HERO SECTION - CLEAN BUILD
@@ -7305,402 +7780,422 @@ body.snrg-hero-ready header.hero .logo-stage::after {
 }
 
 </style>
-
 </head>
-
 <body>
 <!-- SEO Content -->
-<h1 class="visually-hidden" lang="en" class="fade-rise">Houston Parking Management - Professional Garage & Surface Lot Operations</h1>
-<h1 class="visually-hidden" lang="es" class="fade-rise">Gestión de Estacionamiento en Houston - Operaciones Profesionales de Garajes y Lotes</h1>
 
-<header class="header" id="header" role="banner">
-  <div class="header-inner">
-    <!-- Language Toggle - Left Side -->
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
-      <button class="lang-btn" data-lang="es" aria-label="Cambiar a español">ES</button>
-    </div>
-    
-    <!-- Centered Navigation -->
-    <nav class="header-nav" role="navigation" aria-label="Main navigation">
-      <ul class="header-nav-list">
-        <li><a href="index.html" class="header-nav-link active"><span lang="en">Home</span><span lang="es">Inicio</span></a></li>
-        <li><a href="property-owners.html" class="header-nav-link"><span lang="en">Property Owners</span><span lang="es">Propietarios</span></a></li>
-        <li><a href="parker-info.html" class="header-nav-link"><span lang="en">Parker Info</span><span lang="es">Info</span></a></li>
-        <li><a href="htx-difference.html" class="header-nav-link"><span lang="en">HTX Difference</span><span lang="es">Diferencia HTX</span></a></li>
-        <li><a href="food-truck-family.html" class="header-nav-link"><span lang="en">Food Trucks</span><span lang="es">Food Trucks</span></a></li>
-        <li><a href="careers.html" class="header-nav-link"><span lang="en">Careers</span><span lang="es">Carreras</span></a></li>
-        <li><a href="contact.html" class="header-nav-link"><span lang="en">Contact</span><span lang="es">Contacto</span></a></li>
-      </ul>
-    </nav>
-    
-    <!-- CTA Button -->
-    <a href="tel:+13462916010" class="header-cta-btn">
-      <span lang="en">START HERE</span>
-      <span lang="es">COMIENCE AQUÍ</span>
-    </a>
-  </div>
+
+<!-- Rebuilt header + hero (2026 refresh) -->
+<header class="elite-header" id="top" role="banner">
+<div class="elite-header-inner">
+<a aria-label="Parking HTX home" class="elite-brand" href="index.html">
+<img alt="Parking HTX" class="elite-logo" decoding="async" loading="eager" src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69658c42c1ad06f52664b864_parking%20htx%20logo%201.12.26%20(1).svg"/>
+</a>
+<nav aria-label="Primary" class="elite-nav">
+<a class="elite-nav-link" href="property-owners.html" lang="en">Property Owners</a>
+<a class="elite-nav-link" href="property-owners.html" lang="es">Propietarios</a>
+<a class="elite-nav-link" href="htx-difference.html" lang="en">HTX Difference</a>
+<a class="elite-nav-link" href="htx-difference.html" lang="es">Diferencia HTX</a>
+<a class="elite-nav-link" href="parker-info.html" lang="en">Parker Info</a>
+<a class="elite-nav-link" href="parker-info.html" lang="es">Info</a>
+<a class="elite-nav-link" href="contact.html" lang="en">Contact</a>
+<a class="elite-nav-link" href="contact.html" lang="es">Contacto</a>
+</nav>
+<div class="elite-header-cta">
+<a class="elite-pill" href="tel:+13462916010" lang="en">Call</a>
+<a class="elite-pill" href="tel:+13462916010" lang="es">Llamar</a>
+<a class="elite-pill elite-pill-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="en">Book a meeting</a>
+<a class="elite-pill elite-pill-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="es">Reservar reunión</a>
+<button aria-controls="elite-mobile" aria-expanded="false" aria-label="Open menu" class="elite-burger" type="button">
+<span></span><span></span>
+</button>
+</div>
+</div>
+<div class="elite-mobile" hidden="" id="elite-mobile">
+<div class="elite-mobile-inner">
+<a class="elite-mobile-link" href="property-owners.html" lang="en">Property Owners</a>
+<a class="elite-mobile-link" href="property-owners.html" lang="es">Propietarios</a>
+<a class="elite-mobile-link" href="htx-difference.html" lang="en">HTX Difference</a>
+<a class="elite-mobile-link" href="htx-difference.html" lang="es">Diferencia HTX</a>
+<a class="elite-mobile-link" href="parker-info.html" lang="en">Parker Info</a>
+<a class="elite-mobile-link" href="parker-info.html" lang="es">Info</a>
+<a class="elite-mobile-link" href="careers.html" lang="en">Careers</a>
+<a class="elite-mobile-link" href="careers.html" lang="es">Carreras</a>
+<a class="elite-mobile-link" href="contact.html" lang="en">Contact</a>
+<a class="elite-mobile-link" href="contact.html" lang="es">Contacto</a>
+<div class="elite-mobile-actions">
+<a class="elite-pill elite-pill-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="en">Book a meeting</a>
+<a class="elite-pill elite-pill-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="es">Reservar reunión</a>
+<a class="elite-pill" href="tel:+13462916010" lang="en">Call +1 3462916010</a>
+<a class="elite-pill" href="tel:+13462916010" lang="es">Llamar +1 3462916010</a>
+</div>
+</div>
+</div>
 </header>
-
-<header class="hero" role="banner">
-  <div class="animated-bg" aria-hidden="true"></div>
-  <div class="hero-wrap">
-    <div class="hero-content">
-      <div class="hero-stack">
-        <div class="hero-logo-container">
-          <div class="logo-stage">
-            <img 
-              src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69658c42c1ad06f52664b864_parking%20htx%20logo%201.12.26%20(1).svg" 
-              class="hero-logo logo-entrance" 
-              alt="PARKING HTX - Houston Parking Management" 
-              loading="eager" 
-              fetchpriority="high" 
-              decoding="async" 
-              width="780" 
-              height="auto">
-            <span class="logo-shine" aria-hidden="true"></span>
-          </div>
-        </div>
-        <div class="hero-cta-group">
-          <a href="tel:+13462916010" class="cta cta-primary" lang="en">CALL NOW</a>
-          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-secondary" lang="en">BOOK MEETING</a>
-          
-          <a href="tel:+13462916010" class="cta cta-primary" lang="es">LLAMAR AHORA</a>
-          <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-secondary" lang="es">RESERVAR REUNIÓN</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-  
-      
-    </article>
-      
-      
-    </article>
-  </div>
-  
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-      
-    </article>
-      
-      
-    </article>
-  </div>
+<section aria-label="Parking HTX overview" class="elite-hero">
+<div aria-hidden="true" class="elite-hero-bg">
+<div class="elite-mesh"></div>
+<div class="elite-noise"></div>
+<div class="elite-orb elite-orb-1"></div>
+<div class="elite-orb elite-orb-2"></div>
+</div>
+<div class="elite-hero-inner">
+<div class="elite-hero-copy">
+<p class="elite-eyebrow" lang="en">For commercial parking lot &amp; garage owners</p>
+<p class="elite-eyebrow" lang="es">Para propietarios de estacionamientos y garajes comerciales</p>
+<h2 class="elite-headline" lang="en">World‑class parking operations that protect your asset and raise NOI.</h2>
+<h2 class="elite-headline" lang="es">Operaciones de estacionamiento de clase mundial que protegen su activo y aumentan el NOI.</h2>
+<p class="elite-subhead" lang="en">
+        We run clean, compliant, revenue‑positive parking—so your property stays full, protected, and easy to manage.
+      </p>
+<p class="elite-subhead" lang="es">
+        Operamos estacionamiento limpio, conforme y rentable—para que su propiedad se mantenga llena, protegida y fácil de administrar.
+      </p>
+<div class="elite-actions">
+<a class="elite-btn elite-btn-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="en">Book an intro</a>
+<a class="elite-btn elite-btn-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="es">Reservar introducción</a>
+<a class="elite-btn" href="htx-difference.html" lang="en">See the HTX difference</a>
+<a class="elite-btn" href="htx-difference.html" lang="es">Ver la diferencia HTX</a>
+</div>
+<div class="elite-trust">
+<div class="elite-trust-item">
+<span class="elite-kpi">24/7</span>
+<span class="elite-kpi-label" lang="en">Operations &amp; enforcement</span>
+<span class="elite-kpi-label" lang="es">Operación y control</span>
+</div>
+<div class="elite-trust-item">
+<span class="elite-kpi">Real‑time</span>
+<span class="elite-kpi-label" lang="en">Reporting for owners</span>
+<span class="elite-kpi-label" lang="es">Reportes para dueños</span>
+</div>
+<div class="elite-trust-item">
+<span class="elite-kpi">Local</span>
+<span class="elite-kpi-label" lang="en">Houston‑built team</span>
+<span class="elite-kpi-label" lang="es">Equipo de Houston</span>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="elite-hero-visual">
+<div class="elite-glass-card elite-tilt" data-tilt="">
+<div class="elite-card-top">
+<div class="elite-dot"></div><div class="elite-dot"></div><div class="elite-dot"></div>
+<div class="elite-card-title">Owner Dashboard</div>
+</div>
+<div class="elite-card-body">
+<div class="elite-metric">
+<div class="elite-metric-label">Occupancy</div>
+<div class="elite-metric-value"><span class="elite-counter" data-to="92">0</span>%</div>
+</div>
+<div class="elite-meter">
+<span style="width:92%"></span>
+</div>
+<div class="elite-grid">
+<div class="elite-mini">
+<div class="elite-mini-label">Revenue lift</div>
+<div class="elite-mini-value">+<span class="elite-counter" data-to="18">0</span>%</div>
+</div>
+<div class="elite-mini">
+<div class="elite-mini-label">Chargebacks</div>
+<div class="elite-mini-value"><span class="elite-counter" data-to="3">0</span>%</div>
+</div>
+<div class="elite-mini">
+<div class="elite-mini-label">Violations handled</div>
+<div class="elite-mini-value"><span class="elite-counter" data-to="100">0</span>+</div>
+</div>
+<div class="elite-mini">
+<div class="elite-mini-label">Audit ready</div>
+<div class="elite-mini-value">Yes</div>
+</div>
+</div>
+<div class="elite-card-note">Numbers are illustrative. Your reporting is property‑specific.</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="system" class="section system-section" class="fade-rise">
-  <div class="container system-wrap">
-    <header class="system-header fade-rise">
-      <h2 class="section-title fade-rise" lang="en">We Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
-      <h2 class="section-title fade-rise" lang="es">Convertimos el Estacionamiento en un Activo Confiable y Rentable</h2>
-      <p class="system-sub" lang="en">
+<div class="section-separator">
+<hr aria-hidden="true"/>
+</div>
+<section class="value-showcase">
+<p class="section-label" lang="en">WHAT SEPARATES PARKING HTX</p>
+<p class="section-label" lang="es">LO QUE SEPARA PARKING HTX</p>
+<h2 class="section-title" lang="en"><span class="underline-target">Designed to Outperform</span></h2>
+<h2 class="section-title" lang="es">Diseñado para Superar</h2>
+<div class="value-grid">
+<article aria-label="Learn more about Local Leadership" class="value-card" role="button" tabindex="0">
+<div class="value-card-inner">
+<div class="value-card-front">
+<div class="value-card-front-header">
+<h3 class="value-card-front-title" lang="en">Local Leadership</h3>
+<h3 class="value-card-front-title" lang="es">Liderazgo Local</h3>
+<div class="value-card-front-flip">
+<span lang="en">FLIP</span>
+<span lang="es">VOLTEAR</span>
+<div aria-hidden="true" class="flip-icon">
+<svg viewbox="0 0 24 24">
+<path d="M1 4v6h6M23 20v-6h-6"></path>
+<path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="value-image"><img alt="Value image 1" loading="lazy" src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/693b241f95610539366b4d43_Image%20Dec%2011%2C%202025%2C%2002_05_09%20PM.webp"/></div>
+</div>
+<div class="value-card-back">
+<div class="value-back-header">
+<div class="value-back-label" lang="en">We Live Here</div>
+<div class="value-back-label" lang="es">Vivimos Aquí</div>
+<h3 class="value-back-title" lang="en">Local Leadership</h3>
+<h3 class="value-back-title" lang="es">Liderazgo Local</h3>
+</div>
+<div class="value-back-content">
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Houston headquarters with on-site decision-making—no distant corporate approval chains</p>
+<p class="value-bullet-text" lang="es">Sede en Houston con toma de decisiones en sitio—sin cadenas de aprobación corporativa distantes</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">CPP-certified founder with proven experience managing the city's highest-volume properties</p>
+<p class="value-bullet-text" lang="es">Fundador certificado CPP con experiencia comprobada gestionando las propiedades de mayor volumen de la ciudad</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Direct accountability to property owners—your calls answered by decision-makers</p>
+<p class="value-bullet-text" lang="es">Responsabilidad directa con los propietarios—sus llamadas respondidas por los tomadores de decisiones</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Deep market knowledge—we understand EaDo, Midtown, Galleria, Medical Center dynamics</p>
+<p class="value-bullet-text" lang="es">Conocimiento profundo del mercado—entendemos las dinámicas de EaDo, Midtown, Galleria, Medical Center</p>
+</div>
+</div>
+<div class="value-back-footer">
+<p class="value-back-hint" lang="en">Click to flip back</p>
+<p class="value-back-hint" lang="es">Clic para regresar</p>
+</div>
+</div>
+</div>
+</article>
+<article aria-label="Learn more about Operations Mastery" class="value-card" role="button" tabindex="0">
+<div class="value-card-inner">
+<div class="value-card-front">
+<div class="value-card-front-header">
+<h3 class="value-card-front-title" lang="en">Operations Mastery</h3>
+<h3 class="value-card-front-title" lang="es">Maestría Operacional</h3>
+<div class="value-card-front-flip">
+<span lang="en">FLIP</span>
+<span lang="es">VOLTEAR</span>
+<div aria-hidden="true" class="flip-icon">
+<svg viewbox="0 0 24 24">
+<path d="M1 4v6h6M23 20v-6h-6"></path>
+<path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="value-image"><img alt="Value image 2" loading="lazy" src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69370d605157daa6dc110d89_ChatGPT%20Image%20Dec%208%2C%202025%2C%2011_22_55%20AM.webp"/></div>
+</div>
+<div class="value-card-back">
+<div class="value-back-header">
+<div class="value-back-label" lang="en">Built To Perform</div>
+<div class="value-back-label" lang="es">Construido Para Rendir</div>
+<h3 class="value-back-title" lang="en">Operations Mastery</h3>
+<h3 class="value-back-title" lang="es">Maestría Operacional</h3>
+</div>
+<div class="value-back-content">
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Proven expertise managing Class A garages, commercial lots, hospital campuses, and events</p>
+<p class="value-bullet-text" lang="es">Experiencia comprobada gestionando garajes Clase A, lotes comerciales, campus hospitalarios y eventos</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">High-volume experience—10,000+ daily transactions at peak properties citywide</p>
+<p class="value-bullet-text" lang="es">Experiencia de alto volumen—10,000+ transacciones diarias en propiedades pico en toda la ciudad</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Professional training protocols—team certified in customer service excellence</p>
+<p class="value-bullet-text" lang="es">Protocolos de capacitación profesional—equipo certificado en excelencia de servicio al cliente</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">24/7 monitoring with real-time alerts for occupancy, equipment, and revenue</p>
+<p class="value-bullet-text" lang="es">Monitoreo 24/7 con alertas en tiempo real para ocupación, equipos e ingresos</p>
+</div>
+</div>
+<div class="value-back-footer">
+<p class="value-back-hint" lang="en">Click to flip back</p>
+<p class="value-back-hint" lang="es">Clic para regresar</p>
+</div>
+</div>
+</div>
+</article>
+<article aria-label="Learn more about On-Site Excellence" class="value-card" role="button" tabindex="0">
+<div class="value-card-inner">
+<div class="value-card-front">
+<div class="value-card-front-header">
+<h3 class="value-card-front-title" lang="en">On-Site Excellence</h3>
+<h3 class="value-card-front-title" lang="es">Excelencia en Sitio</h3>
+<div class="value-card-front-flip">
+<span lang="en">FLIP</span>
+<span lang="es">VOLTEAR</span>
+<div aria-hidden="true" class="flip-icon">
+<svg viewbox="0 0 24 24">
+<path d="M1 4v6h6M23 20v-6h-6"></path>
+<path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="value-image"><img alt="Value image 3" loading="lazy" src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/6938b4b2d7e373a4d3a535f6_ChatGPT%20Image%20Dec%209%2C%202025%2C%2005_45_28%20PM.webp"/></div>
+</div>
+<div class="value-card-back">
+<div class="value-back-header">
+<div class="value-back-label" lang="en">24/7 Local Support</div>
+<div class="value-back-label" lang="es">Soporte Local 24/7</div>
+<h3 class="value-back-title" lang="en">On-Site Excellence</h3>
+<h3 class="value-back-title" lang="es">Excelencia en Sitio</h3>
+</div>
+<div class="value-back-content">
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Houston-based team deployed on-site daily managing traffic flow and occupancy</p>
+<p class="value-bullet-text" lang="es">Equipo basado en Houston desplegado diariamente en sitio gestionando el flujo de tráfico y ocupación</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Field personnel directing parkers during peak hours—optimizing space utilization</p>
+<p class="value-bullet-text" lang="es">Personal de campo dirigiendo a los usuarios durante horas pico—optimizando la utilización del espacio</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">White-glove service standards—team trained to provide superior experiences</p>
+<p class="value-bullet-text" lang="es">Estándares de servicio de primera—equipo capacitado para proporcionar experiencias superiores</p>
+</div>
+<div class="value-bullet">
+<div aria-hidden="true" class="value-bullet-icon">
+<svg viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<p class="value-bullet-text" lang="en">Proactive maintenance coordination—addressing issues immediately, not reactively</p>
+<p class="value-bullet-text" lang="es">Coordinación de mantenimiento proactivo—abordando problemas inmediatamente, no reactivamente</p>
+</div>
+</div>
+<div class="value-back-footer">
+<p class="value-back-hint" lang="en">Click to flip back</p>
+<p class="value-back-hint" lang="es">Clic para regresar</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section><section class="fade-rise" id="system">
+<div class="container system-wrap">
+<header class="system-header fade-rise">
+<h2 class="section-title fade-rise" lang="en">We Turn Parking Into a Reliable, Revenue‑Positive Asset</h2>
+<h2 class="section-title fade-rise" lang="es">Convertimos el Estacionamiento en un Activo Confiable y Rentable</h2>
+<p class="system-sub" lang="en">
         A clean, professionally managed parking operation that reduces headaches, increases revenue, and protects your property — while keeping the experience smooth and predictable for tenants and visitors.
       </p>
-      <p class="system-sub" lang="es">
+<p class="system-sub" lang="es">
         Una operación de estacionamiento limpia y profesionalmente administrada que reduce dolores de cabeza, aumenta ingresos y protege su propiedad — mientras mantiene la experiencia fluida y predecible para inquilinos y visitantes.
       </p>
-    </header>
-
-    <div class="system-grid">
-      <div class="system-stack">
-        <div class="stack-item fade-rise apple-card fade-rise">
-          <span class="stack-index">01</span>
-          <div class="stack-body">
-            <h3 class="fade-rise" lang="en">Access Control & Enforcement</h3>
-            <h3 class="fade-rise" lang="es">Control de Acceso y Cumplimiento</h3>
-            <p lang="en">Permits, LPR, guest validation, and policy-based enforcement. Clear rules. Full audit trail.</p>
-            <p lang="es">Permisos, LPR, validación de invitados y cumplimiento basado en políticas. Reglas claras. Registro de auditoría completo.</p>
-          </div>
-        </div>
-
-
-        <div class="stack-item fade-rise apple-card fade-rise">
-          <span class="stack-index">02</span>
-          <div class="stack-body">
-            <h3 class="fade-rise" lang="en">Revenue Layer</h3>
-            <h3 class="fade-rise" lang="es">Capa de Ingresos</h3>
-            <p lang="en">Dynamic pricing, visitor capture, overflow and event monetization. Turn chaos into cash flow.</p>
-            <p lang="es">Precios dinámicos, captura de visitantes, monetización de desbordamiento y eventos. Convierta el caos en flujo de efectivo.</p>
-          </div>
-        </div>
-
-        <div class="stack-item fade-rise apple-card fade-rise">
-          <span class="stack-index">03</span>
-          <div class="stack-body">
-            <h3 class="fade-rise" lang="en">Owner Control Layer</h3>
-            <h3 class="fade-rise" lang="es">Capa de Control del Propietario</h3>
-            <p lang="en">Dashboard, reporting, policy control, and compliance visibility. One system. One operator.</p>
-            <p lang="es">Panel de control, informes, control de políticas y visibilidad de cumplimiento. Un sistema. Un operador.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="system-outcomes fade-rise apple-card fade-rise">
-        <h4 lang="en">What You Get</h4>
-        <h4 lang="es">Lo Que Obtiene</h4>
-        <ul>
-          <li lang="en">Predictable, policy-based enforcement</li>
-          <li lang="es">Cumplimiento predecible basado en políticas</li>
-          <li lang="en">Reduced liability and fewer tenant complaints</li>
-          <li lang="es">Responsabilidad reducida y menos quejas de inquilinos</li>
-          <li lang="en">Captured lost revenue from visitors and abuse</li>
-          <li lang="es">Ingresos perdidos capturados de visitantes y abuso</li>
-          <li lang="en">Clean audit trails and operational clarity</li>
-          <li lang="es">Registros de auditoría limpios y claridad operativa</li>
-          <li lang="en">No vendor chaos. One system, one invoice.</li>
-          <li lang="es">Sin caos de proveedores. Un sistema, una factura.</li>
-        </ul>
-
-        <p class="system-quote" lang="en">Most properties don’t have a parking problem. They have a management problem.</p>
-        <p class="system-quote" lang="es">La mayoría de las propiedades no tienen un problema de estacionamiento. Tienen un problema de gestión.</p>
-
-        <div class="system-cta">
-          <a href="tel:+13462916010" class="btn primary" lang="en">CALL NOW</a>
-          <a href="tel:+13462916010" class="btn primary" lang="es">LLAMAR AHORA</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<div class="section-separator">
-  <hr aria-hidden="true">
+</header>
+<div class="system-grid">
+<div class="system-stack">
+<div class="stack-item fade-rise apple-card fade-rise">
+<span class="stack-index">01</span>
+<div class="stack-body">
+<h3 class="fade-rise" lang="en">Access Control &amp; Enforcement</h3>
+<h3 class="fade-rise" lang="es">Control de Acceso y Cumplimiento</h3>
+<p lang="en">Permits, LPR, guest validation, and policy-based enforcement. Clear rules. Full audit trail.</p>
+<p lang="es">Permisos, LPR, validación de invitados y cumplimiento basado en políticas. Reglas claras. Registro de auditoría completo.</p>
 </div>
-
-<section class="value-showcase">
-  <p class="section-label" lang="en">WHAT SEPARATES PARKING HTX</p>
-  <p class="section-label" lang="es">LO QUE SEPARA PARKING HTX</p>
-  <h2 class="section-title" lang="en"><span class="underline-target">Designed to Outperform</span></h2>
-  <h2 class="section-title" lang="es">Diseñado para Superar</h2>
-  
-
-  <div class="value-grid">
-    <article class="value-card" tabindex="0" role="button" aria-label="Learn more about Local Leadership">
-      <div class="value-card-inner">
-        <div class="value-card-front">
-          <div class="value-card-front-header">
-            <h3 class="value-card-front-title" lang="en">Local Leadership</h3>
-            <h3 class="value-card-front-title" lang="es">Liderazgo Local</h3>
-            <div class="value-card-front-flip">
-              <span lang="en">FLIP</span>
-              <span lang="es">VOLTEAR</span>
-              <div class="flip-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M1 4v6h6M23 20v-6h-6"/>
-                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="value-image"><img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/693b241f95610539366b4d43_Image%20Dec%2011%2C%202025%2C%2002_05_09%20PM.webp" alt="Value image 1" loading="lazy"></div>
-        </div>
-        <div class="value-card-back">
-          <div class="value-back-header">
-            <div class="value-back-label" lang="en">We Live Here</div>
-            <div class="value-back-label" lang="es">Vivimos Aquí</div>
-            <h3 class="value-back-title" lang="en">Local Leadership</h3>
-            <h3 class="value-back-title" lang="es">Liderazgo Local</h3>
-          </div>
-          <div class="value-back-content">
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Houston headquarters with on-site decision-making—no distant corporate approval chains</p>
-              <p class="value-bullet-text" lang="es">Sede en Houston con toma de decisiones en sitio—sin cadenas de aprobación corporativa distantes</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">CPP-certified founder with proven experience managing the city's highest-volume properties</p>
-              <p class="value-bullet-text" lang="es">Fundador certificado CPP con experiencia comprobada gestionando las propiedades de mayor volumen de la ciudad</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Direct accountability to property owners—your calls answered by decision-makers</p>
-              <p class="value-bullet-text" lang="es">Responsabilidad directa con los propietarios—sus llamadas respondidas por los tomadores de decisiones</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Deep market knowledge—we understand EaDo, Midtown, Galleria, Medical Center dynamics</p>
-              <p class="value-bullet-text" lang="es">Conocimiento profundo del mercado—entendemos las dinámicas de EaDo, Midtown, Galleria, Medical Center</p>
-            </div>
-          </div>
-          <div class="value-back-footer">
-            <p class="value-back-hint" lang="en">Click to flip back</p>
-            <p class="value-back-hint" lang="es">Clic para regresar</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="value-card" tabindex="0" role="button" aria-label="Learn more about Operations Mastery">
-      <div class="value-card-inner">
-        <div class="value-card-front">
-          <div class="value-card-front-header">
-            <h3 class="value-card-front-title" lang="en">Operations Mastery</h3>
-            <h3 class="value-card-front-title" lang="es">Maestría Operacional</h3>
-            <div class="value-card-front-flip">
-              <span lang="en">FLIP</span>
-              <span lang="es">VOLTEAR</span>
-              <div class="flip-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M1 4v6h6M23 20v-6h-6"/>
-                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="value-image"><img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/69370d605157daa6dc110d89_ChatGPT%20Image%20Dec%208%2C%202025%2C%2011_22_55%20AM.webp" alt="Value image 2" loading="lazy"></div>
-        </div>
-        <div class="value-card-back">
-          <div class="value-back-header">
-            <div class="value-back-label" lang="en">Built To Perform</div>
-            <div class="value-back-label" lang="es">Construido Para Rendir</div>
-            <h3 class="value-back-title" lang="en">Operations Mastery</h3>
-            <h3 class="value-back-title" lang="es">Maestría Operacional</h3>
-          </div>
-          <div class="value-back-content">
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Proven expertise managing Class A garages, commercial lots, hospital campuses, and events</p>
-              <p class="value-bullet-text" lang="es">Experiencia comprobada gestionando garajes Clase A, lotes comerciales, campus hospitalarios y eventos</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">High-volume experience—10,000+ daily transactions at peak properties citywide</p>
-              <p class="value-bullet-text" lang="es">Experiencia de alto volumen—10,000+ transacciones diarias en propiedades pico en toda la ciudad</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Professional training protocols—team certified in customer service excellence</p>
-              <p class="value-bullet-text" lang="es">Protocolos de capacitación profesional—equipo certificado en excelencia de servicio al cliente</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">24/7 monitoring with real-time alerts for occupancy, equipment, and revenue</p>
-              <p class="value-bullet-text" lang="es">Monitoreo 24/7 con alertas en tiempo real para ocupación, equipos e ingresos</p>
-            </div>
-          </div>
-          <div class="value-back-footer">
-            <p class="value-back-hint" lang="en">Click to flip back</p>
-            <p class="value-back-hint" lang="es">Clic para regresar</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="value-card" tabindex="0" role="button" aria-label="Learn more about On-Site Excellence">
-      <div class="value-card-inner">
-        <div class="value-card-front">
-          <div class="value-card-front-header">
-            <h3 class="value-card-front-title" lang="en">On-Site Excellence</h3>
-            <h3 class="value-card-front-title" lang="es">Excelencia en Sitio</h3>
-            <div class="value-card-front-flip">
-              <span lang="en">FLIP</span>
-              <span lang="es">VOLTEAR</span>
-              <div class="flip-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M1 4v6h6M23 20v-6h-6"/>
-                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="value-image"><img src="https://cdn.prod.website-files.com/6917643d4101c8400094cbb0/6938b4b2d7e373a4d3a535f6_ChatGPT%20Image%20Dec%209%2C%202025%2C%2005_45_28%20PM.webp" alt="Value image 3" loading="lazy"></div>
-        </div>
-        <div class="value-card-back">
-          <div class="value-back-header">
-            <div class="value-back-label" lang="en">24/7 Local Support</div>
-            <div class="value-back-label" lang="es">Soporte Local 24/7</div>
-            <h3 class="value-back-title" lang="en">On-Site Excellence</h3>
-            <h3 class="value-back-title" lang="es">Excelencia en Sitio</h3>
-          </div>
-          <div class="value-back-content">
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Houston-based team deployed on-site daily managing traffic flow and occupancy</p>
-              <p class="value-bullet-text" lang="es">Equipo basado en Houston desplegado diariamente en sitio gestionando el flujo de tráfico y ocupación</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Field personnel directing parkers during peak hours—optimizing space utilization</p>
-              <p class="value-bullet-text" lang="es">Personal de campo dirigiendo a los usuarios durante horas pico—optimizando la utilización del espacio</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">White-glove service standards—team trained to provide superior experiences</p>
-              <p class="value-bullet-text" lang="es">Estándares de servicio de primera—equipo capacitado para proporcionar experiencias superiores</p>
-            </div>
-            <div class="value-bullet">
-              <div class="value-bullet-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="value-bullet-text" lang="en">Proactive maintenance coordination—addressing issues immediately, not reactively</p>
-              <p class="value-bullet-text" lang="es">Coordinación de mantenimiento proactivo—abordando problemas inmediatamente, no reactivamente</p>
-            </div>
-          </div>
-          <div class="value-back-footer">
-            <p class="value-back-hint" lang="en">Click to flip back</p>
-            <p class="value-back-hint" lang="es">Clic para regresar</p>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<div class="section-separator">
-  <hr aria-hidden="true">
 </div>
-
-
-
+<div class="stack-item fade-rise apple-card fade-rise">
+<span class="stack-index">02</span>
+<div class="stack-body">
+<h3 class="fade-rise" lang="en">Revenue Layer</h3>
+<h3 class="fade-rise" lang="es">Capa de Ingresos</h3>
+<p lang="en">Dynamic pricing, visitor capture, overflow and event monetization. Turn chaos into cash flow.</p>
+<p lang="es">Precios dinámicos, captura de visitantes, monetización de desbordamiento y eventos. Convierta el caos en flujo de efectivo.</p>
+</div>
+</div>
+<div class="stack-item fade-rise apple-card fade-rise">
+<span class="stack-index">03</span>
+<div class="stack-body">
+<h3 class="fade-rise" lang="en">Owner Control Layer</h3>
+<h3 class="fade-rise" lang="es">Capa de Control del Propietario</h3>
+<p lang="en">Dashboard, reporting, policy control, and compliance visibility. One system. One operator.</p>
+<p lang="es">Panel de control, informes, control de políticas y visibilidad de cumplimiento. Un sistema. Un operador.</p>
+</div>
+</div>
+</div>
+<div class="system-outcomes fade-rise apple-card fade-rise">
+<h4 lang="en">What You Get</h4>
+<h4 lang="es">Lo Que Obtiene</h4>
+<ul>
+<li lang="en">Predictable, policy-based enforcement</li>
+<li lang="es">Cumplimiento predecible basado en políticas</li>
+<li lang="en">Reduced liability and fewer tenant complaints</li>
+<li lang="es">Responsabilidad reducida y menos quejas de inquilinos</li>
+<li lang="en">Captured lost revenue from visitors and abuse</li>
+<li lang="es">Ingresos perdidos capturados de visitantes y abuso</li>
+<li lang="en">Clean audit trails and operational clarity</li>
+<li lang="es">Registros de auditoría limpios y claridad operativa</li>
+<li lang="en">No vendor chaos. One system, one invoice.</li>
+<li lang="es">Sin caos de proveedores. Un sistema, una factura.</li>
+</ul>
+<p class="system-quote" lang="en">Most properties don’t have a parking problem. They have a management problem.</p>
+<p class="system-quote" lang="es">La mayoría de las propiedades no tienen un problema de estacionamiento. Tienen un problema de gestión.</p>
+<div class="system-cta">
+<a class="btn primary" href="tel:+13462916010" lang="en">CALL NOW</a>
+<a class="btn primary" href="tel:+13462916010" lang="es">LLAMAR AHORA</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-separator">
+<hr aria-hidden="true"/>
+</div>
 <div class="sticky-cta" id="stickyCTA">
-  <div class="sticky-cta-buttons">
-    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="en">BOOK MEETING</a>
-    <a href="tel:+13462916010" class="cta cta-secondary" lang="en">CALL NOW</a>
-    
-    <a href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" class="cta cta-primary" lang="es">RESERVAR REUNIÓN</a>
-    <a href="tel:+13462916010" class="cta cta-secondary" lang="es">LLAMAR AHORA</a>
-  </div>
+<div class="sticky-cta-buttons">
+<a class="cta cta-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="en">BOOK MEETING</a>
+<a class="cta cta-secondary" href="tel:+13462916010" lang="en">CALL NOW</a>
+<a class="cta cta-primary" href="https://calendly.com/bobby-parking-htx/introduction-parking-htx" lang="es">RESERVAR REUNIÓN</a>
+<a class="cta cta-secondary" href="tel:+13462916010" lang="es">LLAMAR AHORA</a>
 </div>
-
+</div>
 <footer class="footer">
-  <p class="footer-copyright" lang="en">© 2026 PARKING HTX</p>
-  <p class="footer-copyright" lang="es">© 2026 PARKING HTX</p>
-  <p style="font-size:clamp(16px,3vw,22px);color:var(--slate);margin:0 auto;line-height:1.4;font-weight:600;text-align:center;width:100%;max-width:100%;display:block;" lang="en">Built by <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:800;transition:opacity 0.2s;">SNRG WEB</a></p>
-  <p style="font-size:clamp(16px,3vw,22px);color:var(--slate);margin:0 auto;line-height:1.4;font-weight:600;text-align:center;width:100%;max-width:100%;display:block;" lang="es">Creado por <a href="https://snrgweb.com" target="_blank" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:800;transition:opacity 0.2s;">SNRG WEB</a></p>
+<p class="footer-copyright" lang="en">© 2026 PARKING HTX</p>
+<p class="footer-copyright" lang="es">© 2026 PARKING HTX</p>
+<p lang="en" style="font-size:clamp(16px,3vw,22px);color:var(--slate);margin:0 auto;line-height:1.4;font-weight:600;text-align:center;width:100%;max-width:100%;display:block;">Built by <a href="https://snrgweb.com" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:800;transition:opacity 0.2s;" target="_blank">SNRG WEB</a></p>
+<p lang="es" style="font-size:clamp(16px,3vw,22px);color:var(--slate);margin:0 auto;line-height:1.4;font-weight:600;text-align:center;width:100%;max-width:100%;display:block;">Creado por <a href="https://snrgweb.com" rel="noopener" style="color:var(--maroon);text-decoration:none;font-weight:800;transition:opacity 0.2s;" target="_blank">SNRG WEB</a></p>
 </footer>
-
 <script>
 // Perfect viewport consistency on all reloads and visits
 if('scrollRestoration' in history){
@@ -8008,7 +8503,6 @@ document.querySelectorAll('.underline-target').forEach(el => {
 console.log('%c✨ SURGICAL FIX APPLIED','font-size:16px;font-weight:900;color:#C4463A');
 console.log('%c📐 SNRG WEB Optical Centering | 🎨 Tech Maroon Underline | 🌊 Deep Fade-Rise','font-size:13px;font-weight:700;color:#4A4F5A');
 </script>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // Card flip and active glow
@@ -8039,9 +8533,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 });
 </script>
-
-
-
 <script id="snrg-fresh-logo-entrance-js">
 (function(){
   const readyClass = 'is-logo-ready';
@@ -8084,7 +8575,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 </script>
-
 <script id="snrg-hero-entrance-init">
 (() => {
   const ready = () => document.body.classList.add('snrg-hero-ready');
@@ -8109,9 +8599,97 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 </script>
+<script>
+(function(){
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Mobile menu
+  const burger = document.querySelector('.elite-burger');
+  const mobile = document.getElementById('elite-mobile');
+  if (burger && mobile){
+    burger.addEventListener('click', () => {
+      const open = !mobile.hasAttribute('hidden');
+      if (open){
+        mobile.setAttribute('hidden','');
+        burger.setAttribute('aria-expanded','false');
+        burger.classList.remove('is-open');
+      } else {
+        mobile.removeAttribute('hidden');
+        burger.setAttribute('aria-expanded','true');
+        burger.classList.add('is-open');
+      }
+    });
+  }
+
+  // Hero entrance
+  const hero = document.querySelector('.elite-hero');
+  if (hero && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting){
+          hero.classList.add('is-visible');
+          io.disconnect();
+        }
+      });
+    }, {threshold: 0.2});
+    io.observe(hero);
+  } else if (hero){
+    hero.classList.add('is-visible');
+  }
+
+  if (prefersReduced) return;
+
+  // Subtle tilt on the dashboard card
+  const tiltEl = document.querySelector('[data-tilt]');
+  if (tiltEl){
+    const max = 7; // degrees
+    const onMove = (ev) => {
+      const r = tiltEl.getBoundingClientRect();
+      const x = (ev.clientX - r.left) / r.width;
+      const y = (ev.clientY - r.top) / r.height;
+      const rx = (0.5 - y) * max;
+      const ry = (x - 0.5) * max;
+      tiltEl.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+    };
+    const onLeave = () => {
+      tiltEl.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    };
+    tiltEl.addEventListener('pointermove', onMove);
+    tiltEl.addEventListener('pointerleave', onLeave);
+  }
+
+  // Count-up metrics (visual only)
+  const counters = Array.from(document.querySelectorAll('.elite-counter'));
+  const runCounters = () => {
+    counters.forEach(el=>{
+      const to = Number(el.getAttribute('data-to') || 0);
+      const start = performance.now();
+      const dur = 900 + Math.random()*400;
+      const from = 0;
+      const step = (t) => {
+        const p = Math.min(1, (t-start)/dur);
+        const eased = 1 - Math.pow(1-p, 3);
+        const val = Math.round(from + (to-from)*eased);
+        el.textContent = String(val);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  };
+  if (hero && 'IntersectionObserver' in window){
+    const io2 = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting){
+          runCounters();
+          io2.disconnect();
+        }
+      });
+    }, {threshold: 0.35});
+    io2.observe(hero);
+  } else {
+    runCounters();
+  }
+})();
+</script>
 </body>
 </html>
-
-
-
