@@ -3117,7 +3117,6 @@ a[href^="tel:"].contact-cta-btn{
   .hero-stat-label{font-size:7px !important;}
 }
 </style>
-
 <style id="final-email-phone-footer-polish">
 /* Let's Talk email destination polish */
 a[href^="mailto:info@parking-htx.com"]{
@@ -3164,6 +3163,34 @@ a[href^="mailto:info@parking-htx.com"]{
   background:#e10600 !important;
   border-color:#e10600 !important;
   color:#fff !important;
+}
+</style>
+
+<style id="mobile-hero-whitespace-50-cut-final">
+/* MOBILE ONLY: reduce top/bottom hero whitespace by 50% while preserving current viewport/content logic */
+@media(max-width:768px){
+  .hero{
+    min-height:calc(100svh - 76px) !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+  .hero-inner{
+    min-height:calc(100svh - 76px) !important;
+    padding-top:14px !important;
+    padding-bottom:8px !important;
+  }
+}
+@media(max-width:480px){
+  .hero-inner{
+    padding-top:11px !important;
+    padding-bottom:6px !important;
+  }
+}
+@media(max-width:370px){
+  .hero-inner{
+    padding-top:9px !important;
+    padding-bottom:5px !important;
+  }
 }
 </style>
 </head>
