@@ -3461,6 +3461,115 @@ a[href^="mailto:info@parking-htx.com"]{
 }
 </style>
 
+
+
+<style id="snrg-mobile-hero-true-tight-final-v3">
+/* FINAL MOBILE ROOT FIX:
+   The excess white space came from earlier mobile locks forcing .hero and .hero-inner
+   to min-height: calc(100svh - 76px). That kept a full-screen mobile hero and centered
+   the content inside it, creating the giant empty top and bottom areas shown in Safari.
+   This final lock makes MOBILE ONLY content-height driven, like the desktop/laptop rhythm,
+   while keeping the hero centered, clean, and tight. */
+@media (max-width: 768px){
+  .hero{
+    min-height:auto !important;
+    height:auto !important;
+    display:block !important;
+    align-items:initial !important;
+    justify-content:initial !important;
+  }
+  .hero-inner{
+    min-height:0 !important;
+    height:auto !important;
+    width:100% !important;
+    max-width:760px !important;
+    margin:0 auto !important;
+    padding:44px 20px 34px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+  .hero-label{
+    margin:0 0 12px !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+  .hero h1{
+    margin:0 0 12px !important;
+    text-align:center !important;
+  }
+  .hero-sub{
+    margin:0 0 18px !important;
+    max-width:660px !important;
+    text-align:center !important;
+  }
+  .hero-divider{
+    margin:0 0 16px !important;
+  }
+  .hero-actions{
+    margin:0 !important;
+    justify-content:center !important;
+    align-items:center !important;
+  }
+  .hero-stats{
+    width:100% !important;
+    margin-top:24px !important;
+    padding-top:18px !important;
+  }
+}
+@media (max-width: 430px){
+  .hero-inner{
+    padding:38px 18px 28px !important;
+  }
+  .hero-label{margin-bottom:10px !important;}
+  .hero h1{margin-bottom:10px !important;}
+  .hero-sub{margin-bottom:14px !important;}
+  .hero-divider{margin-bottom:12px !important;}
+  .hero-stats{margin-top:20px !important;padding-top:16px !important;}
+}
+@media (max-width: 380px){
+  .hero-inner{
+    padding:32px 15px 24px !important;
+  }
+  .hero-label{margin-bottom:8px !important;}
+  .hero h1{margin-bottom:8px !important;}
+  .hero-sub{margin-bottom:12px !important;}
+  .hero-divider{margin-bottom:10px !important;}
+  .hero-stats{margin-top:16px !important;padding-top:14px !important;}
+}
+
+/* FINAL FOOTER PHONE ICON LOCK: match email icon in the footer social row exactly. */
+.footer .footer-social a[href^="tel:"],
+.footer .footer-social a[aria-label*="Call"]{
+  background:rgba(255,255,255,.07) !important;
+  border:1px solid rgba(255,255,255,.06) !important;
+  color:rgba(255,255,255,.8) !important;
+  box-shadow:none !important;
+}
+.footer .footer-social a[href^="tel:"] svg,
+.footer .footer-social a[href^="tel:"] svg *,
+.footer .footer-social a[aria-label*="Call"] svg,
+.footer .footer-social a[aria-label*="Call"] svg *{
+  stroke:rgba(255,255,255,.8) !important;
+  color:rgba(255,255,255,.8) !important;
+  fill:none !important;
+}
+.footer .footer-social a[href^="tel:"]:hover,
+.footer .footer-social a[aria-label*="Call"]:hover{
+  background:#C23132 !important;
+  border-color:#C23132 !important;
+}
+.footer .footer-social a[href^="tel:"]:hover svg,
+.footer .footer-social a[href^="tel:"]:hover svg *,
+.footer .footer-social a[aria-label*="Call"]:hover svg,
+.footer .footer-social a[aria-label*="Call"]:hover svg *{
+  stroke:#fff !important;
+  color:#fff !important;
+}
+</style>
+
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
