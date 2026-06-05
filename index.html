@@ -2975,7 +2975,6 @@ a[href^="tel:"].contact-cta-btn{
   color:#fff !important;
 }
 </style>
-
 <style id="final-hero-viewport-v2">
 /* DESKTOP ONLY: slightly reduce hero vertical dead space while preserving premium spacing */
 @media (min-width:1051px){
@@ -3118,6 +3117,55 @@ a[href^="tel:"].contact-cta-btn{
   .hero-stat-label{font-size:7px !important;}
 }
 </style>
+
+<style id="final-email-phone-footer-polish">
+/* Let's Talk email destination polish */
+a[href^="mailto:info@parking-htx.com"]{
+  cursor:pointer !important;
+}
+
+/* FAQ footer phone number/icon: no bold red treatment */
+.footer a[href^="tel:"],
+.footer a[href^="tel:"] *,
+.footer .footer-contact-compact a[href^="tel:"],
+.footer .footer-contact-compact a[href^="tel:"] *{
+  color:rgba(255,255,255,.48) !important;
+  background:transparent !important;
+  font-weight:500 !important;
+  box-shadow:none !important;
+  border-color:transparent !important;
+}
+.footer a[href^="tel:"] svg,
+.footer a[href^="tel:"] svg *,
+.footer .footer-social a[href^="tel:"],
+.footer .footer-social a[href^="tel:"] svg,
+.footer .footer-social a[href^="tel:"] svg *{
+  stroke:rgba(255,255,255,.48) !important;
+  color:rgba(255,255,255,.48) !important;
+  background:transparent !important;
+  fill:none !important;
+  box-shadow:none !important;
+  border-color:rgba(255,255,255,.06) !important;
+}
+.footer a[href^="tel:"]:hover,
+.footer a[href^="tel:"]:hover *,
+.footer .footer-contact-compact a[href^="tel:"]:hover{
+  color:rgba(255,255,255,.82) !important;
+  stroke:rgba(255,255,255,.82) !important;
+  background:transparent !important;
+}
+
+/* Preserve red only for actual CTA buttons, not footer phone links/icons */
+.nav-cta,
+.mobile-cta-btn,
+.btn-primary,
+.contact-cta-btn,
+.cta-band a:not([href^="tel:"]){
+  background:#e10600 !important;
+  border-color:#e10600 !important;
+  color:#fff !important;
+}
+</style>
 </head>
 <body>
 <!-- ===== MOBILE MENU OVERLAY ===== -->
@@ -3153,7 +3201,7 @@ a[href^="tel:"].contact-cta-btn{
         parking-htx.com
       </a>
 </div>
-<a class="mobile-cta-btn menu-link" href="#contact">
+<a class="mobile-cta-btn menu-link" href="mailto:info@parking-htx.com?subject=Parking%20Partnership%20Inquiry%20%E2%80%94%20PARKING%20HTX&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20a%20parking%20partnership%20for%20my%20property.%0A%0AProperty%20name%3A%0AProperty%20address%3A%0AApproximate%20number%20of%20parking%20spaces%3A%0ACurrent%20parking%20challenges%20or%20goals%3A%0ABest%20phone%20number%20to%20reach%20me%3A%0ABest%20time%20to%20contact%20me%3A%0A%0APlease%20contact%20me%20when%20available.%0A%0AThank%20you%2C">
       Let's Talk
       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 </a>
@@ -3171,7 +3219,7 @@ a[href^="tel:"].contact-cta-btn{
 <a href="faq.html">FAQ</a>
 <a href="#properties">Properties</a>
 </div>
-<a class="nav-cta" href="#contact">
+<a class="nav-cta" href="mailto:info@parking-htx.com?subject=Parking%20Partnership%20Inquiry%20%E2%80%94%20PARKING%20HTX&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20a%20parking%20partnership%20for%20my%20property.%0A%0AProperty%20name%3A%0AProperty%20address%3A%0AApproximate%20number%20of%20parking%20spaces%3A%0ACurrent%20parking%20challenges%20or%20goals%3A%0ABest%20phone%20number%20to%20reach%20me%3A%0ABest%20time%20to%20contact%20me%3A%0A%0APlease%20contact%20me%20when%20available.%0A%0AThank%20you%2C">
       Let's Talk
       <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 </a>
@@ -3189,7 +3237,7 @@ a[href^="tel:"].contact-cta-btn{
 <h1>We make parking<br/>an asset — <em>for you.</em></h1>
 <p class="hero-sub">We help property owners monetize and regulate their parking with zero cost, real-time data, and a better experience for everyone.</p>
 <div class="hero-actions">
-<a class="btn-primary" href="#contact">
+<a class="btn-primary" href="mailto:info@parking-htx.com?subject=Parking%20Partnership%20Inquiry%20%E2%80%94%20PARKING%20HTX&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20a%20parking%20partnership%20for%20my%20property.%0A%0AProperty%20name%3A%0AProperty%20address%3A%0AApproximate%20number%20of%20parking%20spaces%3A%0ACurrent%20parking%20challenges%20or%20goals%3A%0ABest%20phone%20number%20to%20reach%20me%3A%0ABest%20time%20to%20contact%20me%3A%0A%0APlease%20contact%20me%20when%20available.%0A%0AThank%20you%2C">
         Let's Talk
         <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 </a>
@@ -3494,7 +3542,7 @@ a[href^="tel:"].contact-cta-btn{
 <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="15"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
               Call Us Now
             </a>
-<a class="contact-cta-btn cta-secondary" href="mailto:info@parking-htx.com?subject=Partnership%20Inquiry%20%E2%80%94%20PARKING%20HTX&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%E2%80%99m%20interested%20in%20learning%20more%20about%20a%20parking%20partnership%20for%20my%20property.%0A%0AProperty%20name%2Faddress%3A%0AApproximate%20number%20of%20parking%20spaces%3A%0ACurrent%20parking%20challenges%20or%20goals%3A%0A%0APlease%20contact%20me%20when%20available.%0A%0AThank%20you%2C">
+<a class="contact-cta-btn cta-secondary" href="mailto:info@parking-htx.com?subject=Parking%20Partnership%20Inquiry%20%E2%80%94%20PARKING%20HTX&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20a%20parking%20partnership%20for%20my%20property.%0A%0AProperty%20name%3A%0AProperty%20address%3A%0AApproximate%20number%20of%20parking%20spaces%3A%0ACurrent%20parking%20challenges%20or%20goals%3A%0ABest%20phone%20number%20to%20reach%20me%3A%0ABest%20time%20to%20contact%20me%3A%0A%0APlease%20contact%20me%20when%20available.%0A%0AThank%20you%2C">
 <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               Send an Email
             </a>
