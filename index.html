@@ -3193,6 +3193,139 @@ a[href^="mailto:info@parking-htx.com"]{
   }
 }
 </style>
+
+<style id="snrg-final-request-lock-20260605">
+/* FINAL REQUEST LOCK — remove red gradients, preserve red buttons, tighten mobile hero whitespace by 50%, improve text sizing, enlarge footer logo */
+.hero::before,
+.hero:before{
+  background:linear-gradient(180deg,#fff 0%, var(--pearl) 100%) !important;
+}
+.dashboard-section::before,
+.contact-cta-card::before,
+.cta-band::before,
+.cta-band:before,
+.flip-face::before,
+.flip-back::before,
+.process-section::before{
+  background:none !important;
+  opacity:0 !important;
+}
+.process-section{
+  background:var(--pearl) !important;
+}
+.flip-card,
+.flip-face,
+.flip-back,
+.contact-cta-card,
+.cta-band{
+  background-image:none !important;
+}
+.hero-sub,
+.section-sub,
+.dashboard-desc,
+.contact-desc,
+.contact-cta-sub,
+.zero-card p,
+.process-step p,
+.prop-card p,
+.faq-item p,
+.dash-feat span{
+  font-size:clamp(15.5px,1.15vw,18px) !important;
+  line-height:1.62 !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  text-wrap:pretty !important;
+}
+.btn-primary,
+.btn-secondary,
+.nav-cta,
+.mobile-cta-btn,
+.contact-cta-btn,
+.zero-card h3,
+.process-step h3,
+.prop-card h3,
+.faq-item summary,
+.partner-badge,
+.dash-feat strong{
+  font-size:clamp(14px,1vw,16px) !important;
+  line-height:1.24 !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  text-wrap:balance !important;
+}
+.btn-primary,
+.btn-secondary,
+.nav-cta,
+.mobile-cta-btn,
+.contact-cta-btn{
+  white-space:nowrap !important;
+}
+.footer-logo img,
+.footer .footer-logo img{
+  height:72px !important;
+}
+@media(max-width:768px){
+  .hero{
+    min-height:calc(100svh - 76px) !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+  .hero-inner{
+    min-height:calc(100svh - 76px) !important;
+    padding-top:14px !important;
+    padding-bottom:8px !important;
+    justify-content:center !important;
+  }
+  .hero-label{margin-bottom:8px !important;}
+  .hero h1{margin-bottom:9px !important;}
+  .hero-sub{
+    font-size:14.5px !important;
+    line-height:1.42 !important;
+    margin-bottom:12px !important;
+    max-width:94vw !important;
+  }
+  .hero-actions{gap:8px !important;flex-wrap:nowrap !important;}
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary{
+    height:42px !important;
+    padding:0 12px !important;
+    font-size:11.6px !important;
+    white-space:nowrap !important;
+  }
+  .hero-stats{
+    margin-top:12px !important;
+    padding-top:10px !important;
+  }
+  .zero-card p,
+  .process-step p,
+  .prop-card p,
+  .faq-item p,
+  .contact-desc,
+  .contact-cta-sub,
+  .section-sub{
+    font-size:15px !important;
+    line-height:1.56 !important;
+  }
+  .zero-card h3,
+  .process-step h3,
+  .prop-card h3,
+  .faq-item summary,
+  .contact-cta-btn{
+    font-size:15px !important;
+  }
+  .footer-logo img,
+  .footer .footer-logo img{
+    height:72px !important;
+  }
+}
+@media(max-width:390px){
+  .hero-inner{padding-top:11px !important;padding-bottom:6px !important;}
+  .hero-sub{font-size:13.4px !important;line-height:1.36 !important;}
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary{height:39px !important;padding:0 8px !important;font-size:10.4px !important;}
+}
+</style>
+
 </head>
 <body>
 <!-- ===== MOBILE MENU OVERLAY ===== -->
