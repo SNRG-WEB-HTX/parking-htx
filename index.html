@@ -3570,6 +3570,129 @@ a[href^="mailto:info@parking-htx.com"]{
 }
 </style>
 
+
+
+<style id="snrg-page-end-mobile-viewport-stats-final-lock">
+/* FINAL ROOT LOCK — no white tail after footer, no sideways bleed, mobile hero stays tight. */
+html{
+  width:100% !important;
+  max-width:100% !important;
+  min-height:100% !important;
+  overflow-x:hidden !important;
+  background:#0f0f0f !important;
+}
+body{
+  width:100% !important;
+  max-width:100% !important;
+  min-height:100svh !important;
+  margin:0 !important;
+  overflow-x:hidden !important;
+  background:#0f0f0f !important;
+}
+body::after{content:none !important;display:none !important;}
+.nav,.hero,.zero-cost,.process-section,.dashboard-section,.property-section,.contact-section,.faq-section{width:100% !important;max-width:100% !important;overflow-x:clip !important;}
+.footer{width:100% !important;max-width:100% !important;margin:0 !important;padding-bottom:0 !important;background:#0f0f0f !important;overflow:hidden !important;}
+.footer .wrap{margin-bottom:0 !important;padding-bottom:0 !important;}
+.footer-bottom-bar{margin-bottom:0 !important;}
+
+/* Every visible page section keeps its intended background so the body can safely stay black under the footer. */
+.nav{background:#fff !important;}
+.hero{background:var(--pearl) !important;}
+.zero-cost,.property-section,.faq-section{background:#fff !important;}
+.process-section,.contact-section{background:var(--pearl) !important;}
+.dashboard-section,.footer{background:#0f0f0f !important;}
+
+@media (max-width:768px){
+  html,body{overscroll-behavior-x:none !important;}
+  .hero{
+    min-height:auto !important;
+    height:auto !important;
+    display:block !important;
+    overflow:hidden !important;
+  }
+  .hero-inner{
+    min-height:0 !important;
+    height:auto !important;
+    max-width:760px !important;
+    margin:0 auto !important;
+    padding-top:clamp(28px,4.8svh,42px) !important;
+    padding-bottom:clamp(24px,4.1svh,34px) !important;
+    padding-left:18px !important;
+    padding-right:18px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+  .hero-label{margin-bottom:clamp(8px,1.6svh,12px) !important;}
+  .hero h1{margin-bottom:clamp(8px,1.7svh,12px) !important;}
+  .hero-sub{margin-bottom:clamp(13px,2.3svh,18px) !important;}
+  .hero-divider{margin-bottom:clamp(10px,1.9svh,14px) !important;}
+  .hero-actions{margin:0 !important;}
+
+  .hero-stats{
+    width:100% !important;
+    max-width:720px !important;
+    margin:clamp(20px,3.6svh,28px) auto 0 !important;
+    padding-top:clamp(16px,2.8svh,20px) !important;
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:0 !important;
+    align-items:start !important;
+    border-top:1px solid var(--line) !important;
+    overflow:visible !important;
+  }
+  .hero-stats > div{
+    min-width:0 !important;
+    padding:0 6px !important;
+    text-align:center !important;
+    position:relative !important;
+  }
+  .hero-stats > div + div::before{
+    content:'' !important;
+    position:absolute !important;
+    left:0 !important;
+    top:4px !important;
+    bottom:5px !important;
+    width:1px !important;
+    background:rgba(17,19,20,.11) !important;
+  }
+  .hero-stat-num{
+    font-size:clamp(31px,7.35vw,39px) !important;
+    line-height:.9 !important;
+    letter-spacing:-.04em !important;
+    white-space:nowrap !important;
+    margin:0 auto 7px !important;
+  }
+  .hero-stat-label{
+    font-size:clamp(9.4px,2.25vw,11.2px) !important;
+    line-height:1.12 !important;
+    letter-spacing:.018em !important;
+    font-weight:800 !important;
+    text-align:center !important;
+    text-wrap:balance !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+    hyphens:none !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+  }
+}
+@media (max-width:430px){
+  .hero-inner{padding-top:30px !important;padding-bottom:24px !important;padding-left:16px !important;padding-right:16px !important;}
+  .hero-stats{margin-top:20px !important;padding-top:15px !important;}
+  .hero-stats > div{padding:0 4px !important;}
+  .hero-stat-num{font-size:clamp(30px,7.15vw,35px) !important;margin-bottom:6px !important;}
+  .hero-stat-label{font-size:clamp(8.8px,2.12vw,10.2px) !important;letter-spacing:.01em !important;}
+}
+@media (max-width:380px){
+  .hero-inner{padding-top:24px !important;padding-bottom:20px !important;padding-left:14px !important;padding-right:14px !important;}
+  .hero-stats{margin-top:16px !important;padding-top:13px !important;}
+  .hero-stats > div{padding:0 3px !important;}
+  .hero-stat-num{font-size:clamp(27px,7vw,32px) !important;}
+  .hero-stat-label{font-size:8.4px !important;letter-spacing:0 !important;}
+}
+</style>
+
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
