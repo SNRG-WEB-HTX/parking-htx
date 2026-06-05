@@ -77,6 +77,214 @@
   .footer-bottom-left,.footer-bottom-right{text-align:center!important;flex:none!important}
 }
 </style>
+
+<style>
+/* ===== FINAL FAQ FOOTER MATCH — INDEX FOOTER EXACT VISUAL LOCK ===== */
+.footer,
+body .footer{
+  background:#0f0f0f !important;
+  border-top:none !important;
+  padding:0 !important;
+  color:rgba(255,255,255,.72) !important;
+  width:100% !important;
+}
+.footer .wrap,
+body .footer .wrap{
+  max-width:1240px !important;
+  margin:0 auto !important;
+  padding-left:52px !important;
+  padding-right:52px !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+  display:block !important;
+  text-align:left !important;
+}
+.footer-top{
+  display:grid !important;
+  grid-template-columns:280px 1fr !important;
+  gap:60px !important;
+  padding:56px 0 48px !important;
+  align-items:start !important;
+}
+.footer-brand{
+  text-align:left !important;
+}
+.footer-logo{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  line-height:0 !important;
+  margin:0 0 18px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.footer-logo img,
+.footer .footer-logo img,
+.footer img{
+  height:62px !important;
+  width:auto !important;
+  max-width:none !important;
+  display:block !important;
+  object-fit:contain !important;
+  filter:none !important;
+  opacity:1 !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.footer-tagline{
+  display:block !important;
+  font-size:14px !important;
+  line-height:1.65 !important;
+  color:rgba(255,255,255,.42) !important;
+  margin:0 0 22px !important;
+  font-weight:400 !important;
+  max-width:260px !important;
+}
+.footer-social{
+  display:flex !important;
+  gap:10px !important;
+  justify-content:flex-start !important;
+}
+.footer-social a{
+  width:38px !important;
+  height:38px !important;
+  border-radius:10px !important;
+  background:rgba(255,255,255,.07) !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  border:1px solid rgba(255,255,255,.06) !important;
+}
+.footer-social svg{
+  width:16px !important;
+  height:16px !important;
+  stroke:rgba(255,255,255,.8) !important;
+}
+.footer-nav{
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:36px !important;
+}
+.footer-nav-title{
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+  color:#C23132 !important;
+  margin:0 0 16px !important;
+}
+.footer-nav-col a{
+  display:block !important;
+  font-size:13.5px !important;
+  color:rgba(255,255,255,.48) !important;
+  font-weight:500 !important;
+  padding:4px 0 !important;
+  margin:0 !important;
+  line-height:1.5 !important;
+}
+.footer-divider{
+  display:block !important;
+  height:1px !important;
+  background:rgba(255,255,255,.07) !important;
+  margin:0 !important;
+}
+.footer-bottom-bar{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  padding:18px 0 !important;
+  gap:16px !important;
+}
+.footer-bottom-left,
+.footer-bottom-right{
+  font-size:12px !important;
+  color:rgba(255,255,255,.3) !important;
+  font-weight:500 !important;
+  flex:1 !important;
+}
+.footer-bottom-center{
+  flex:1 !important;
+  text-align:center !important;
+}
+.footer-bottom-center a{
+  font-size:11px !important;
+  font-weight:900 !important;
+  letter-spacing:.14em !important;
+  text-transform:uppercase !important;
+  color:rgba(255,255,255,.28) !important;
+}
+.footer-bottom-center a span{
+  color:#C23132 !important;
+}
+.footer-bottom-right{
+  text-align:right !important;
+}
+
+@media(max-width:1050px){
+  .footer .wrap,
+  body .footer .wrap{
+    padding-left:32px !important;
+    padding-right:32px !important;
+  }
+}
+@media(max-width:768px){
+  .footer .wrap,
+  body .footer .wrap{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+  .footer-top{
+    grid-template-columns:1fr !important;
+    gap:34px !important;
+    padding:40px 0 30px !important;
+  }
+  .footer-brand{
+    text-align:center !important;
+  }
+  .footer-logo{
+    justify-content:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    margin-bottom:18px !important;
+  }
+  .footer-logo img,
+  .footer .footer-logo img,
+  .footer img{
+    height:62px !important;
+    width:auto !important;
+    filter:none !important;
+    opacity:1 !important;
+    background:transparent !important;
+  }
+  .footer-tagline{
+    display:none !important;
+  }
+  .footer-social{
+    justify-content:center !important;
+  }
+  .footer-nav{
+    display:none !important;
+  }
+  .footer-bottom-bar{
+    flex-direction:column !important;
+    text-align:center !important;
+    gap:6px !important;
+    padding:16px 0 !important;
+  }
+  .footer-bottom-left,
+  .footer-bottom-center,
+  .footer-bottom-right{
+    flex:none !important;
+    width:100% !important;
+    text-align:center !important;
+  }
+}
+</style>
 </head>
 <body><div aria-hidden="true" class="mobile-menu" id="mobileMenu">
 <div class="mobile-menu-top">
@@ -232,7 +440,6 @@ from day one.
 </div>
 </div>
 </footer>
-
 <script>
 (function(){
   const menu = document.getElementById('mobileMenu');
