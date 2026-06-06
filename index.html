@@ -4141,6 +4141,82 @@ body > *{max-width:100% !important;}
 }
 </style>
 
+<style id="parking-htx-cinematic-hero-title">
+/* keep mobile spacing trim */
+@media (max-width:860px){
+.hero{min-height:calc((100svh - 76px) * .82)!important;}
+.hero-inner{
+min-height:calc((100svh - 76px) * .82)!important;
+padding:26px 20px!important;
+}
+}
+
+/* CINEMATIC TITLE REVEAL */
+.hero h1{
+opacity:0;
+transform:translateY(48px) scale(.94);
+filter:blur(18px);
+will-change:transform,opacity,filter;
+}
+
+.hero.hero-loaded h1{
+animation:heroCinematicReveal 1.9s cubic-bezier(.19,1,.22,1) forwards;
+}
+
+@keyframes heroCinematicReveal{
+0%{
+opacity:0;
+transform:translateY(48px) scale(.94);
+filter:blur(18px);
+}
+35%{
+opacity:.35;
+}
+70%{
+opacity:1;
+transform:translateY(-2px) scale(1.01);
+filter:blur(0);
+}
+100%{
+opacity:1;
+transform:translateY(0) scale(1);
+filter:blur(0);
+}
+}
+
+.hero-label,
+.hero-sub,
+.hero-actions,
+.hero-stats{
+opacity:0;
+transform:translateY(18px);
+}
+
+.hero.hero-loaded .hero-label{
+animation:fadeLift .9s ease forwards .15s;
+}
+.hero.hero-loaded .hero-sub{
+animation:fadeLift .9s ease forwards .65s;
+}
+.hero.hero-loaded .hero-actions{
+animation:fadeLift .9s ease forwards .95s;
+}
+.hero.hero-loaded .hero-stats{
+animation:fadeLift .9s ease forwards 1.15s;
+}
+
+@keyframes fadeLift{
+from{
+opacity:0;
+transform:translateY(18px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
@@ -4709,5 +4785,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 })();
 
 </script>
+
+<script id="parking-htx-cinematic-hero-script">
+document.addEventListener('DOMContentLoaded',function(){
+const hero=document.querySelector('.hero');
+if(hero){
+requestAnimationFrame(()=>{
+setTimeout(()=>{
+hero.classList.add('hero-loaded');
+},150);
+});
+}
+});
+</script>
+
 </body>
 </html>
