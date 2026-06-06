@@ -3970,6 +3970,101 @@ body > *{max-width:100% !important;}
 .footer *:last-child{margin-bottom:0 !important;}
 </style>
 
+
+<style id="final-mobile-hero-footer-fix">
+/* =====================================================
+   FINAL OVERRIDE — mobile hero 35% reduction + footer logo whitespace fix
+   This block is last in cascade and wins all prior !important rules
+   via specificity + position
+   ===================================================== */
+
+/* --- HERO: mobile only — 35% padding reduction, perfect center --- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    display: block !important;
+    align-items: initial !important;
+    justify-content: initial !important;
+  }
+  .hero-inner {
+    min-height: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    /* Original was clamp(12px,2.1svh,18px) — 35% reduction */
+    padding: clamp(8px,1.36svh,12px) 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+}
+@media (max-width: 480px) {
+  .hero-inner {
+    padding: clamp(6px,1.05svh,9px) 14px !important;
+  }
+}
+@media (max-width: 380px) {
+  .hero-inner {
+    padding: clamp(5px,.9svh,8px) 12px !important;
+  }
+}
+
+/* --- FOOTER LOGO: strip all whitespace / padding around the logo image --- */
+/* Mobile + desktop */
+.footer-logo,
+.footer-logo a,
+.footer-logo span,
+.footer-logo picture {
+  padding: 0 !important;
+  margin-bottom: 16px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  line-height: 0 !important;
+}
+.footer-logo img,
+.footer .footer-logo img {
+  display: block !important;
+  height: 58px !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  object-fit: contain !important;
+  /* Key: remove any intrinsic whitespace inside the PNG frame */
+  image-rendering: auto !important;
+}
+@media (max-width: 768px) {
+  .footer-logo,
+  .footer-logo a {
+    justify-content: center !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .footer-logo img,
+  .footer .footer-logo img {
+    height: 54px !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+</style>
+
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
