@@ -5956,5 +5956,25 @@ hero.classList.add('hero-loaded');
   });
 })();
 </script>
+<script id="parking-htx-final-motion-mobile-lock-js">
+(function(){
+  function ready(){ document.body.classList.add('motion-ready'); }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', ready);
+  } else {
+    requestAnimationFrame(ready);
+  }
+
+  function centerFirstRail(selector){
+    document.querySelectorAll(selector).forEach(function(rail){
+      if(rail.dataset.lockedRailReady) return;
+      rail.dataset.lockedRailReady = 'true';
+      requestAnimationFrame(function(){ rail.scrollLeft = 0; });
+    });
+  }
+  centerFirstRail('.process-flip-grid');
+  centerFirstRail('.hiw-flip-grid');
+})();
+</script>
 </body>
 </html>
