@@ -5562,7 +5562,6 @@ transform:translateY(0);
   }
 }
 </style>
-
 <style id="parking-htx-smart-badge-and-mobile-flip-final">
 /* ===== SMART WHITE CTA BADGE ABOVE FOOTER ===== */
 .smart-partnership-badge-section{
@@ -5764,6 +5763,301 @@ transform:translateY(0);
   }
 }
 </style>
+
+<style id="parking-htx-final-motion-mobile-lock-v2">
+/* ===== IMMENSE FADE RISE — ALL PAGES ===== */
+.fade-up,
+.section-micro,
+.section-headline,
+.section-sub,
+.hero-label,
+.hero h1,
+.hero-sub,
+.hero-actions,
+.hero-stats,
+.hiw-hero .section-micro,
+.hiw-hero h1,
+.hiw-hero p,
+.hiw-hero-actions,
+.process-flip-grid,
+.hiw-flip-grid,
+.every-lot-stage,
+.smart-partnership-badge,
+.faq-list,
+.faq-grid,
+.contact-inner{
+  will-change:transform,opacity !important;
+}
+body:not(.motion-ready) .fade-up,
+body:not(.motion-ready) .section-micro,
+body:not(.motion-ready) .section-headline,
+body:not(.motion-ready) .section-sub,
+body:not(.motion-ready) .hero-label,
+body:not(.motion-ready) .hero h1,
+body:not(.motion-ready) .hero-sub,
+body:not(.motion-ready) .hero-actions,
+body:not(.motion-ready) .hero-stats,
+body:not(.motion-ready) .hiw-hero .section-micro,
+body:not(.motion-ready) .hiw-hero h1,
+body:not(.motion-ready) .hiw-hero p,
+body:not(.motion-ready) .hiw-hero-actions{
+  opacity:0 !important;
+  transform:translateY(34px) scale(.985) !important;
+}
+body.motion-ready .fade-up,
+body.motion-ready .section-micro,
+body.motion-ready .section-headline,
+body.motion-ready .section-sub,
+body.motion-ready .hero-label,
+body.motion-ready .hero h1,
+body.motion-ready .hero-sub,
+body.motion-ready .hero-actions,
+body.motion-ready .hero-stats,
+body.motion-ready .hiw-hero .section-micro,
+body.motion-ready .hiw-hero h1,
+body.motion-ready .hiw-hero p,
+body.motion-ready .hiw-hero-actions{
+  opacity:1 !important;
+  transform:translateY(0) scale(1) !important;
+  transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1) !important;
+}
+body.motion-ready .hero-label,
+body.motion-ready .hiw-hero .section-micro{transition-delay:.08s !important;}
+body.motion-ready .hero h1,
+body.motion-ready .hiw-hero h1{transition-delay:.18s !important;}
+body.motion-ready .hero-sub,
+body.motion-ready .hiw-hero p{transition-delay:.30s !important;}
+body.motion-ready .hero-actions,
+body.motion-ready .hiw-hero-actions{transition-delay:.42s !important;}
+body.motion-ready .hero-stats{transition-delay:.54s !important;}
+
+/* ===== HOW IT WORKS HERO: MATCH INDEX VIEWPORT / ENTRANCE LOGIC ===== */
+.hiw-hero{
+  min-height:calc(100svh - 76px) !important;
+  height:calc(100svh - 76px) !important;
+  background:var(--pearl) !important;
+  border-bottom:1px solid var(--line) !important;
+  position:relative !important;
+  overflow:hidden !important;
+}
+.hiw-hero::before{
+  content:'' !important;
+  position:absolute !important;
+  inset:0 !important;
+  background-image:
+    linear-gradient(rgba(0,0,0,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.025) 1px, transparent 1px) !important;
+  background-size:48px 48px !important;
+  opacity:.5 !important;
+  pointer-events:none !important;
+}
+.hiw-hero-inner{
+  min-height:calc(100svh - 76px) !important;
+  height:calc(100svh - 76px) !important;
+  max-width:1180px !important;
+  margin:0 auto !important;
+  padding:clamp(30px,5vh,58px) 24px clamp(28px,4.5vh,54px) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+}
+.hiw-hero .section-micro{
+  margin-bottom:clamp(14px,2vh,24px) !important;
+}
+.hiw-hero h1{
+  max-width:980px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  margin-bottom:clamp(16px,2.4vh,28px) !important;
+}
+.hiw-hero p{
+  max-width:720px !important;
+  margin-bottom:clamp(20px,3vh,34px) !important;
+}
+.hiw-hero-actions{
+  justify-content:center !important;
+}
+
+/* ===== EVERY LOT MOBILE IMAGE: BIGGER BUT PERFECTLY CONTAINED ===== */
+@media(max-width:768px){
+  .every-lot-wrap{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+  .every-lot-stage{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    border-radius:22px !important;
+    overflow:hidden !important;
+  }
+  .every-lot-zoom-trigger{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-width:100% !important;
+    border-radius:22px !important;
+    overflow:hidden !important;
+  }
+  .every-lot-image{
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    transform:none !important;
+  }
+}
+@media(max-width:480px){
+  .every-lot-wrap{
+    padding-left:12px !important;
+    padding-right:12px !important;
+  }
+  .every-lot-stage,
+  .every-lot-zoom-trigger{
+    border-radius:18px !important;
+  }
+}
+
+/* ===== MOBILE FLIP CARDS: LOCKED PROFESSIONAL SLIDE RAIL ===== */
+@media(max-width:768px){
+  .process-flip-grid,
+  .hiw-flip-grid{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    align-items:stretch !important;
+    gap:14px !important;
+    width:100vw !important;
+    max-width:none !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:0 !important;
+    padding:4px 18px 24px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory !important;
+    scroll-padding-left:18px !important;
+    -webkit-overflow-scrolling:touch !important;
+    overscroll-behavior-x:contain !important;
+    scrollbar-width:none !important;
+    touch-action:pan-x !important;
+  }
+  .process-flip-grid::-webkit-scrollbar,
+  .hiw-flip-grid::-webkit-scrollbar{
+    display:none !important;
+  }
+  .process-flip-grid .flip-card,
+  .hiw-flip-grid .hiw-flip-card{
+    flex:0 0 calc(100vw - 52px) !important;
+    width:calc(100vw - 52px) !important;
+    max-width:372px !important;
+    min-width:calc(100vw - 52px) !important;
+    scroll-snap-align:center !important;
+    scroll-snap-stop:always !important;
+    margin:0 !important;
+  }
+  .process-flip-grid .flip-card-inner,
+  .hiw-flip-grid .hiw-flip-inner{
+    min-height:396px !important;
+  }
+  .process-flip-grid .flip-face,
+  .hiw-flip-grid .hiw-flip-face{
+    border-radius:20px !important;
+    transform-origin:center center !important;
+  }
+}
+@media(max-width:420px){
+  .process-flip-grid,
+  .hiw-flip-grid{
+    gap:12px !important;
+    padding-left:14px !important;
+    padding-right:14px !important;
+    scroll-padding-left:14px !important;
+  }
+  .process-flip-grid .flip-card,
+  .hiw-flip-grid .hiw-flip-card{
+    flex-basis:calc(100vw - 40px) !important;
+    width:calc(100vw - 40px) !important;
+    min-width:calc(100vw - 40px) !important;
+    max-width:360px !important;
+  }
+  .process-flip-grid .flip-card-inner,
+  .hiw-flip-grid .hiw-flip-inner{
+    min-height:420px !important;
+  }
+}
+
+/* ===== SUBTLE SLIDE HINTS ===== */
+@media(max-width:768px){
+  .process-section .wrap,
+  .hiw-flip-section .wrap{
+    position:relative !important;
+  }
+  .process-section .wrap::after,
+  .hiw-flip-section .wrap::after{
+    content:'Swipe cards' !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:max-content !important;
+    margin:12px auto 0 !important;
+    padding:8px 13px !important;
+    border-radius:999px !important;
+    background:#111314 !important;
+    color:#fff !important;
+    font-size:10px !important;
+    font-weight:900 !important;
+    letter-spacing:.14em !important;
+    text-transform:uppercase !important;
+    box-shadow:0 12px 30px rgba(0,0,0,.12) !important;
+  }
+}
+
+/* Mobile how hero should never reveal next section on load */
+@media(max-width:768px){
+  .hiw-hero,
+  .hiw-hero-inner{
+    min-height:calc(100svh - 76px) !important;
+    height:calc(100svh - 76px) !important;
+  }
+  .hiw-hero-inner{
+    padding:18px 20px 16px !important;
+  }
+  .hiw-hero h1{
+    font-size:clamp(38px,10.6vw,58px) !important;
+    line-height:.98 !important;
+  }
+  .hiw-hero p{
+    font-size:14.5px !important;
+    line-height:1.52 !important;
+    max-width:650px !important;
+  }
+  .hiw-hero-actions{
+    gap:9px !important;
+  }
+  .hiw-hero-actions .btn-primary,
+  .hiw-hero-actions .btn-secondary{
+    height:44px !important;
+    padding:0 15px !important;
+    font-size:12px !important;
+    width:auto !important;
+    max-width:none !important;
+    white-space:nowrap !important;
+  }
+}
+@media(max-width:380px){
+  .hiw-hero h1{
+    font-size:35px !important;
+  }
+  .hiw-hero p{
+    font-size:13.6px !important;
+  }
+}
+</style>
 </head>
 <body id="top"><nav class="nav" id="mainNav">
 <div class="wrap">
@@ -5952,7 +6246,6 @@ transform:translateY(0);
 </div>
 </div>
 </section>
-
 </main>
 <footer class="footer">
 <div class="wrap">
@@ -6197,6 +6490,27 @@ hero.classList.add('hero-loaded');
       }
     });
   });
+})();
+</script>
+
+<script id="parking-htx-final-motion-mobile-lock-js">
+(function(){
+  function ready(){ document.body.classList.add('motion-ready'); }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', ready);
+  } else {
+    requestAnimationFrame(ready);
+  }
+
+  function centerFirstRail(selector){
+    document.querySelectorAll(selector).forEach(function(rail){
+      if(rail.dataset.lockedRailReady) return;
+      rail.dataset.lockedRailReady = 'true';
+      requestAnimationFrame(function(){ rail.scrollLeft = 0; });
+    });
+  }
+  centerFirstRail('.process-flip-grid');
+  centerFirstRail('.hiw-flip-grid');
 })();
 </script>
 </body>
