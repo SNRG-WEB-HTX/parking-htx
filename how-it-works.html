@@ -5232,7 +5232,6 @@ transform:translateY(0);
   }
 }
 </style>
-
 <style id="parking-htx-how-it-works-page-final">
 .hiw-hero{
   position:relative;
@@ -5563,6 +5562,208 @@ transform:translateY(0);
   }
 }
 </style>
+
+<style id="parking-htx-smart-badge-and-mobile-flip-final">
+/* ===== SMART WHITE CTA BADGE ABOVE FOOTER ===== */
+.smart-partnership-badge-section{
+  background:#ffffff !important;
+  padding:clamp(44px,5vw,68px) 0 !important;
+  border-bottom:1px solid var(--line) !important;
+}
+.smart-partnership-badge{
+  width:100% !important;
+  border:1.5px solid rgba(17,19,20,.10) !important;
+  border-radius:28px !important;
+  background:#ffffff !important;
+  color:#111314 !important;
+  padding:clamp(28px,4vw,46px) !important;
+  display:grid !important;
+  grid-template-columns:1fr auto !important;
+  align-items:center !important;
+  gap:28px !important;
+  box-shadow:0 24px 74px rgba(0,0,0,.07) !important;
+  position:relative !important;
+  overflow:hidden !important;
+}
+.smart-partnership-badge::before{
+  content:'' !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:5px !important;
+  background:#e10600 !important;
+}
+.smart-badge-copy{
+  position:relative !important;
+  z-index:1 !important;
+}
+.smart-badge-kicker{
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.2em !important;
+  text-transform:uppercase !important;
+  color:#e10600 !important;
+  margin-bottom:12px !important;
+}
+.smart-partnership-badge h2{
+  font-family:'Playfair Display',serif !important;
+  font-size:clamp(30px,3.4vw,48px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.045em !important;
+  color:#111314 !important;
+  margin:0 0 10px !important;
+}
+.smart-partnership-badge p{
+  max-width:680px !important;
+  color:#5a5f68 !important;
+  font-size:clamp(15px,1.2vw,17px) !important;
+  line-height:1.62 !important;
+  margin:0 !important;
+}
+.smart-badge-actions{
+  position:relative !important;
+  z-index:1 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:12px !important;
+  flex-wrap:wrap !important;
+}
+.smart-badge-primary,
+.smart-badge-secondary{
+  height:52px !important;
+  padding:0 24px !important;
+  border-radius:999px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  font-size:14px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+  transition:transform .22s var(--ease), background .22s, border-color .22s, color .22s, box-shadow .22s !important;
+}
+.smart-badge-primary{
+  background:#e10600 !important;
+  color:#ffffff !important;
+  box-shadow:0 12px 32px rgba(225,6,0,.20) !important;
+}
+.smart-badge-primary:hover{
+  background:#b80500 !important;
+  transform:translateY(-2px) !important;
+  box-shadow:0 16px 42px rgba(225,6,0,.26) !important;
+}
+.smart-badge-primary svg{
+  width:17px !important;
+  height:17px !important;
+  stroke:currentColor !important;
+  stroke-width:2.2 !important;
+  fill:none !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+.smart-badge-secondary{
+  color:#111314 !important;
+  border:1.5px solid rgba(17,19,20,.14) !important;
+  background:#ffffff !important;
+}
+.smart-badge-secondary:hover{
+  border-color:#111314 !important;
+  background:#fafaf8 !important;
+  transform:translateY(-2px) !important;
+}
+
+/* ===== MOBILE FLIP CARDS: APPLE x NINTENDO HORIZONTAL SLIDE ===== */
+@media(max-width:768px){
+  .process-flip-grid,
+  .hiw-flip-grid{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    gap:16px !important;
+    max-width:none !important;
+    width:100vw !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:0 !important;
+    padding:4px 20px 22px !important;
+    overflow-x:auto !important;
+    overflow-y:visible !important;
+    scroll-snap-type:x mandatory !important;
+    -webkit-overflow-scrolling:touch !important;
+    scrollbar-width:none !important;
+    perspective:none !important;
+  }
+  .process-flip-grid::-webkit-scrollbar,
+  .hiw-flip-grid::-webkit-scrollbar{
+    display:none !important;
+  }
+  .process-flip-grid .flip-card,
+  .hiw-flip-grid .hiw-flip-card{
+    flex:0 0 84vw !important;
+    width:84vw !important;
+    max-width:360px !important;
+    min-width:0 !important;
+    scroll-snap-align:center !important;
+    scroll-snap-stop:always !important;
+  }
+  .process-flip-grid .flip-card:first-child,
+  .hiw-flip-grid .hiw-flip-card:first-child{
+    margin-left:0 !important;
+  }
+  .process-flip-grid .flip-card-inner,
+  .hiw-flip-grid .hiw-flip-inner{
+    min-height:390px !important;
+  }
+  .process-section .section-sub,
+  .hiw-flip-section .section-sub{
+    margin-bottom:34px !important;
+  }
+  .smart-partnership-badge-section{
+    padding:36px 0 46px !important;
+  }
+  .smart-partnership-badge{
+    grid-template-columns:1fr !important;
+    gap:22px !important;
+    padding:28px 24px !important;
+    border-radius:22px !important;
+    text-align:center !important;
+  }
+  .smart-partnership-badge::before{
+    width:auto !important;
+    height:4px !important;
+    right:0 !important;
+    bottom:auto !important;
+  }
+  .smart-badge-copy{
+    text-align:center !important;
+  }
+  .smart-partnership-badge p{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  .smart-badge-actions{
+    justify-content:center !important;
+    width:100% !important;
+  }
+  .smart-badge-primary,
+  .smart-badge-secondary{
+    width:100% !important;
+    max-width:330px !important;
+  }
+}
+@media(max-width:420px){
+  .process-flip-grid .flip-card,
+  .hiw-flip-grid .hiw-flip-card{
+    flex-basis:86vw !important;
+    width:86vw !important;
+  }
+  .process-flip-grid .flip-card-inner,
+  .hiw-flip-grid .hiw-flip-inner{
+    min-height:420px !important;
+  }
+}
+</style>
 </head>
 <body id="top"><nav class="nav" id="mainNav">
 <div class="wrap">
@@ -5733,6 +5934,25 @@ transform:translateY(0);
 </div>
 </div>
 </section>
+<section aria-label="Next Step" class="smart-partnership-badge-section">
+<div class="wrap">
+<div class="smart-partnership-badge">
+<div class="smart-badge-copy">
+<div class="smart-badge-kicker">Next Step</div>
+<h2>Ready to see how this works on your property?</h2>
+<p>Tell us what you own or manage. PARKING HTX will evaluate the opportunity, explain the setup, and show what a zero-cost partnership could look like.</p>
+</div>
+<div class="smart-badge-actions">
+<a class="smart-badge-primary" href="mailto:info@parking-htx.com?subject=Parking%20HTX%20Partnership%20Inquiry&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%27m%20interested%20in%20learning%20how%20your%20zero-cost%20parking%20management%20partnership%20could%20work%20for%20my%20property.%0A%0AProperty%20Name%3A%0AProperty%20Address%3A%0AProperty%20Type%3A%0AEstimated%20Parking%20Spaces%3A%0ABest%20Phone%20Number%3A%0A%0AThank%20you.">
+          Send an Email
+          <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+</a>
+<a class="smart-badge-secondary" href="index.html">Back to Home</a>
+</div>
+</div>
+</div>
+</section>
+
 </main>
 <footer class="footer">
 <div class="wrap">
@@ -5758,7 +5978,7 @@ transform:translateY(0);
 <nav class="footer-nav">
 <div class="footer-nav-col">
 <div class="footer-nav-title">Services</div>
-<a href="#zero-cost">How It Works</a>
+<a href="how-it-works.html">How It Works</a>
 <a href="#process">Implementation</a>
 <a href="#properties">Property Evaluation</a>
 <a href="faq.html">FAQ</a>
