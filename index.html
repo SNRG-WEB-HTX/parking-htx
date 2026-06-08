@@ -4831,7 +4831,6 @@ transform:translateY(0);
   }
 }
 </style>
-
 <style id="parking-htx-every-lot-lightbox-no-red-gradient-final">
 /* ===== REMOVE ALL RED GRADIENTS FROM FLIP CARDS / RELATED SECTIONS ===== */
 .process-section,
@@ -5103,6 +5102,134 @@ transform:translateY(0);
   }
   .every-lot-image{
     object-position:center 60% !important;
+  }
+}
+</style>
+
+<style id="parking-htx-mobile-every-lot-perfect-fix">
+/* ===== MOBILE ONLY: EVERY LOT IMAGE + ZOOM FIX ===== */
+@media(max-width:768px){
+  .property-section .every-lot-sub{
+    margin-bottom:26px !important;
+  }
+
+  .every-lot-stage{
+    width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    border-radius:22px !important;
+    border:1px solid rgba(17,19,20,.08) !important;
+    overflow:hidden !important;
+    box-shadow:0 18px 54px rgba(0,0,0,.07) !important;
+    background:#fff !important;
+  }
+
+  .every-lot-zoom-trigger{
+    height:auto !important;
+    min-height:0 !important;
+    border-radius:22px !important;
+    background:#fff !important;
+    overflow:hidden !important;
+    cursor:zoom-in !important;
+  }
+
+  .every-lot-image{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    transform:none !important;
+  }
+
+  .every-lot-zoom-trigger:hover .every-lot-image{
+    transform:none !important;
+    filter:none !important;
+  }
+
+  .every-lot-zoom-badge{
+    left:auto !important;
+    right:14px !important;
+    bottom:14px !important;
+    transform:none !important;
+    height:40px !important;
+    padding:0 13px !important;
+    border-radius:999px !important;
+    background:rgba(13,13,13,.88) !important;
+    color:#fff !important;
+    font-size:9.5px !important;
+    letter-spacing:.11em !important;
+    box-shadow:0 12px 34px rgba(0,0,0,.22) !important;
+  }
+
+  .every-lot-zoom-badge span{
+    display:inline !important;
+  }
+
+  .every-lot-zoom-badge svg{
+    width:16px !important;
+    height:16px !important;
+  }
+
+  /* Full-view zoom modal starts with the COMPLETE image visible on mobile */
+  .every-lot-lightbox{
+    padding:68px 12px 16px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+  }
+
+  .every-lot-lightbox-frame{
+    width:calc(100vw - 24px) !important;
+    max-width:calc(100vw - 24px) !important;
+    height:auto !important;
+    max-height:calc(100vh - 92px) !important;
+    overflow:auto !important;
+    border-radius:18px !important;
+    background:#fff !important;
+    -webkit-overflow-scrolling:touch !important;
+    touch-action:pan-x pan-y pinch-zoom !important;
+  }
+
+  .every-lot-lightbox-frame img{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+
+  .every-lot-lightbox-close{
+    top:14px !important;
+    right:14px !important;
+    width:44px !important;
+    height:44px !important;
+  }
+}
+
+@media(max-width:480px){
+  .every-lot-stage{
+    border-radius:18px !important;
+  }
+
+  .every-lot-zoom-trigger{
+    border-radius:18px !important;
+  }
+
+  .every-lot-zoom-badge{
+    right:12px !important;
+    bottom:12px !important;
+    height:38px !important;
+    padding:0 12px !important;
+  }
+
+  .every-lot-lightbox-frame{
+    width:calc(100vw - 20px) !important;
+    max-width:calc(100vw - 20px) !important;
+    max-height:calc(100vh - 90px) !important;
   }
 }
 </style>
@@ -5608,7 +5735,6 @@ hero.classList.add('hero-loaded');
   next.addEventListener('click', function(){ viewport.scrollBy({left:amount(), behavior:'smooth'}); });
 })();
 </script>
-
 <div aria-hidden="true" aria-label="Expanded Every Lot Every Size image" class="every-lot-lightbox" role="dialog">
 <button aria-label="Close expanded image" class="every-lot-lightbox-close" type="button">
 <svg viewbox="0 0 24 24"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg>
@@ -5617,7 +5743,6 @@ hero.classList.add('hero-loaded');
 <img alt="Expanded PARKING HTX every lot every size visual showing property types and parking management benefits." src="every-lot.png"/>
 </div>
 </div>
-
 <script id="parking-htx-every-lot-lightbox-js">
 (function(){
   const trigger = document.querySelector('.every-lot-zoom-trigger');
