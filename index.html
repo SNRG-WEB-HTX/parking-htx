@@ -5434,6 +5434,100 @@ transform:translateY(0);
   }
 }
 </style>
+
+<style id="parking-htx-index-mobile-flip-slide-lock-v3">
+/* ===== MOBILE FLIP CARDS: LOCKED PROFESSIONAL SLIDE RAIL ===== */
+@media(max-width:768px){
+  .process-section .wrap{
+    position:relative !important;
+  }
+  .process-flip-grid{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    align-items:stretch !important;
+    gap:14px !important;
+    width:100vw !important;
+    max-width:none !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:0 !important;
+    padding:4px 18px 24px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory !important;
+    scroll-padding-left:18px !important;
+    scroll-behavior:smooth !important;
+    -webkit-overflow-scrolling:touch !important;
+    overscroll-behavior-x:contain !important;
+    scrollbar-width:none !important;
+    touch-action:pan-x !important;
+    perspective:none !important;
+  }
+  .process-flip-grid::-webkit-scrollbar{
+    display:none !important;
+  }
+  .process-flip-grid .flip-card{
+    flex:0 0 calc(100vw - 52px) !important;
+    width:calc(100vw - 52px) !important;
+    max-width:372px !important;
+    min-width:calc(100vw - 52px) !important;
+    scroll-snap-align:center !important;
+    scroll-snap-stop:always !important;
+    margin:0 !important;
+    transform:none !important;
+  }
+  .process-flip-grid .flip-card-inner{
+    min-height:396px !important;
+    transform-style:preserve-3d !important;
+  }
+  .process-flip-grid .flip-face{
+    border-radius:20px !important;
+    transform-origin:center center !important;
+  }
+  .process-flip-grid .flip-card:hover .flip-card-inner{
+    transform:none !important;
+  }
+  .process-flip-grid .flip-card.is-flipped:hover .flip-card-inner,
+  .process-flip-grid .flip-card.is-flipped .flip-card-inner{
+    transform:rotateY(180deg) !important;
+  }
+  .process-section .wrap::after{
+    content:'Swipe cards' !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:max-content !important;
+    margin:12px auto 0 !important;
+    padding:8px 13px !important;
+    border-radius:999px !important;
+    background:#111314 !important;
+    color:#fff !important;
+    font-size:10px !important;
+    font-weight:900 !important;
+    letter-spacing:.14em !important;
+    text-transform:uppercase !important;
+    box-shadow:0 12px 30px rgba(0,0,0,.12) !important;
+  }
+}
+@media(max-width:420px){
+  .process-flip-grid{
+    gap:12px !important;
+    padding-left:14px !important;
+    padding-right:14px !important;
+    scroll-padding-left:14px !important;
+  }
+  .process-flip-grid .flip-card{
+    flex-basis:calc(100vw - 40px) !important;
+    width:calc(100vw - 40px) !important;
+    min-width:calc(100vw - 40px) !important;
+    max-width:360px !important;
+  }
+  .process-flip-grid .flip-card-inner{
+    min-height:420px !important;
+  }
+}
+</style>
+
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
@@ -5956,6 +6050,7 @@ hero.classList.add('hero-loaded');
   });
 })();
 </script>
+
 <script id="parking-htx-final-motion-mobile-lock-js">
 (function(){
   function ready(){ document.body.classList.add('motion-ready'); }
@@ -5965,15 +6060,15 @@ hero.classList.add('hero-loaded');
     requestAnimationFrame(ready);
   }
 
-  function centerFirstRail(selector){
+  function lockRail(selector){
     document.querySelectorAll(selector).forEach(function(rail){
       if(rail.dataset.lockedRailReady) return;
       rail.dataset.lockedRailReady = 'true';
       requestAnimationFrame(function(){ rail.scrollLeft = 0; });
+      rail.addEventListener('touchmove', function(){}, {passive:true});
     });
   }
-  centerFirstRail('.process-flip-grid');
-  centerFirstRail('.hiw-flip-grid');
+  lockRail('.process-flip-grid');
 })();
 </script>
 </body>
