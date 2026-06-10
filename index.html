@@ -2250,28 +2250,23 @@ img { max-width: 100%; display: block; }
   transition: none;
 }
 .hero-stat-num.stat-spin-blur {
-  animation: statSpin .34s cubic-bezier(.22,1,.36,1);
-  filter: blur(1.35px);
-  opacity: .72;
-  transform-origin: center center;
-  will-change: transform, opacity, filter;
+  animation: statSpin .08s linear;
+  filter: blur(1px);
+  opacity: .7;
+  transform: scaleY(.88);
 }
 .hero-stat-num.stat-spin-land {
-  animation: statLand .9s cubic-bezier(.16,1,.3,1) forwards;
+  animation: statLand .38s cubic-bezier(.22,1,.36,1) forwards;
   filter: none;
-  transform-origin: center center;
-  will-change: transform, opacity, filter;
 }
 @keyframes statSpin {
-  0%   { transform: perspective(700px) rotateY(-62deg) translateX(-11px) scale(.92); opacity: .35; filter: blur(2px); }
-  45%  { transform: perspective(700px) rotateY(44deg) translateX(8px) scale(1.04); opacity: .82; filter: blur(1px); }
-  100% { transform: perspective(700px) rotateY(0deg) translateX(0) scale(1); opacity: .78; filter: blur(1.15px); }
+  0%   { transform: scaleY(.7) translateY(-2px); opacity: .5; }
+  100% { transform: scaleY(1)  translateY(0);    opacity: .7; }
 }
 @keyframes statLand {
-  0%   { transform: perspective(700px) rotateY(54deg) translateX(12px) translateY(5px) scale(.94); opacity: 0; filter: blur(2.2px); }
-  42%  { transform: perspective(700px) rotateY(-12deg) translateX(-3px) translateY(-2px) scale(1.06); opacity: 1; filter: blur(.35px); }
-  74%  { transform: perspective(700px) rotateY(5deg) translateX(1px) translateY(0) scale(.995); opacity: 1; filter: none; }
-  100% { transform: perspective(700px) rotateY(0deg) translateX(0) translateY(0) scale(1); opacity: 1; filter: none; }
+  0%   { transform: scaleY(.78) translateY(6px); opacity: 0;   filter: blur(2px); }
+  60%  { transform: scaleY(1.06) translateY(-1px); opacity: 1; filter: none; }
+  100% { transform: scaleY(1)   translateY(0);    opacity: 1;  filter: none; }
 }
 
 /* === MOBILE NAV LEFT LOGO RED ACCENT ON HAMBURGER === */
@@ -2286,16 +2281,6 @@ img { max-width: 100%; display: block; }
   }
   .hamburger span {
     background: #111314 !important;
-  }
-}
-
-
-/* ============================================================
-   FINAL HERO COPY + MOBILE VIEWPORT TIGHTEN
-   ============================================================ */
-@media (max-width: 768px){
-  .hero-inner{
-    padding-bottom:clamp(10px,2svh,18px) !important;
   }
 }
 
@@ -5572,440 +5557,129 @@ transform:translateY(0);
 </style>
 
 
-<style id="parking-htx-mobile-hero-spacing-and-metric-motion-final">
-/* ============================================================
-   FINAL MOBILE HERO ROOT-CAUSE FIX
-   The bottom dead space was caused by multiple later mobile
-   hero min-height locks forcing the hero taller than its content.
-   This override removes the forced mobile hero height and trims
-   the post-stat padding without touching desktop/tablet structure.
-   ============================================================ */
-@media (max-width: 860px){
-  .hero{
-    min-height: auto !important;
-    height: auto !important;
-    display: block !important;
-    align-items: initial !important;
+<style id="parking-htx-index-hero-final-supreme">
+/* =====================================================
+   INDEX — HERO SPACING SUPREME FINAL OVERRIDE
+   Mobile only: trim excess space below hero section.
+   Laptop (769-1050px): add small cushion under CTAs.
+   ===================================================== */
+
+/* MOBILE: reduce bottom spacing below hero section */
+@media (max-width: 768px) {
+  .hero {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
-    overflow: hidden !important;
   }
-  .hero-inner{
-    min-height: auto !important;
-    height: auto !important;
-    max-width: 100% !important;
-    padding-top: clamp(50px, 7.2svh, 70px) !important;
-    padding-right: 20px !important;
-    padding-left: 20px !important;
-    padding-bottom: clamp(12px, 1.8svh, 20px) !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    text-align: center !important;
+  .hero-inner {
+    padding-bottom: 16px !important;
   }
-  .hero-label{
-    margin-top: 0 !important;
-    margin-bottom: clamp(18px, 3svh, 24px) !important;
-  }
-  .hero h1{
-    margin-top: 0 !important;
-    margin-bottom: clamp(18px, 2.8svh, 24px) !important;
-  }
-  .hero-sub{
-    margin-bottom: clamp(24px, 3.8svh, 34px) !important;
-  }
-  .hero-actions{
-    margin-bottom: 0 !important;
-  }
-  .hero-stats{
-    width: 100% !important;
-    max-width: 760px !important;
-    margin-top: clamp(30px, 4.7svh, 40px) !important;
-    padding-top: clamp(20px, 3.1svh, 28px) !important;
+  .hero-stats {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 0 !important;
-    align-items: start !important;
-  }
-  .hero-stats > div{
-    min-width: 0 !important;
-    width: 100% !important;
-    padding: 0 5px !important;
   }
 }
 
-@media (max-width: 480px){
-  .hero-inner{
-    padding-top: clamp(46px, 6.8svh, 62px) !important;
-    padding-bottom: clamp(10px, 1.4svh, 16px) !important;
-  }
-  .hero-label{
-    margin-bottom: clamp(16px, 2.6svh, 22px) !important;
-  }
-  .hero h1{
-    font-size: clamp(35px, 10.6vw, 49px) !important;
-    line-height: .98 !important;
-    margin-bottom: clamp(16px, 2.4svh, 22px) !important;
-  }
-  .hero-sub{
-    font-size: 15.5px !important;
-    line-height: 1.58 !important;
-    margin-bottom: clamp(22px, 3.2svh, 30px) !important;
-  }
-  .hero-stats{
-    margin-top: clamp(26px, 4svh, 34px) !important;
-    padding-top: clamp(18px, 2.6svh, 24px) !important;
+@media (max-width: 480px) {
+  .hero-inner {
+    padding-bottom: 14px !important;
   }
 }
 
-@media (max-width: 390px){
-  .hero-inner{
-    padding-top: 40px !important;
-    padding-bottom: 9px !important;
-  }
-  .hero-label{ margin-bottom: 14px !important; }
-  .hero h1{ margin-bottom: 14px !important; }
-  .hero-sub{ margin-bottom: 19px !important; }
-  .hero-stats{
-    margin-top: 21px !important;
-    padding-top: 16px !important;
+/* LAPTOP: a touch more breathing room under the CTA buttons */
+@media (min-width: 769px) and (max-width: 1050px) {
+  .hero-actions {
+    margin-bottom: 18px !important;
   }
 }
+</style>
 
-/* ============================================================
-   FINAL METRIC MOTION — NO OLD TICKER / NO TEXT SWAPPING
-   Modern one-shot signature reveal: card rises, number turns in
-   with a premium 3D snap, label locks cleanly underneath.
-   ============================================================ */
-.hero-stat-item{
+<style id="parking-htx-nav-premium-upgrade">
+/* =====================================================
+   NAV PREMIUM UPGRADE — WORLD CLASS POLISH
+   ===================================================== */
+
+/* 1. Glass/blur scroll state */
+.nav.scrolled {
+  background: rgba(255,255,255,.86) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  box-shadow: 0 8px 34px rgba(0,0,0,.075) !important;
+}
+
+/* 2. Premium Apple-style CTA */
+.nav-cta {
+  border-radius: 999px !important;
+  height: 44px !important;
+  padding: 0 24px !important;
+  box-shadow: 0 6px 18px rgba(225,6,0,.18) !important;
+  transition: background .18s, transform .18s, box-shadow .18s !important;
+}
+.nav-cta:hover {
+  transform: translateY(-1px) scale(1.015) !important;
+  box-shadow: 0 10px 30px rgba(225,6,0,.26) !important;
+}
+
+/* 3. Modernized nav link hover: soft red dot */
+.nav-links a {
   position: relative !important;
-  perspective: 1000px !important;
-  transform-style: preserve-3d !important;
-  opacity: 0;
-  transform: translateY(18px) scale(.965);
-  filter: blur(10px);
-  will-change: transform, opacity, filter;
 }
-.hero-stat-num{
-  display: inline-block !important;
-  min-width: 0 !important;
-  transform-origin: 50% 82% !important;
-  will-change: transform, opacity, filter;
+.nav-links a::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -4px !important;
+  transform: translateX(-50%) !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background: var(--red, #e10600) !important;
+  opacity: 0 !important;
+  transition: opacity .2s !important;
+  top: auto !important;
+  right: auto !important;
 }
-.hero-stat-label{
-  will-change: transform, opacity, letter-spacing;
-}
-body.metrics-ready .hero-stat-item{
-  animation: parkingMetricCardReveal 1.18s cubic-bezier(.16,1,.3,1) forwards;
-}
-body.metrics-ready .hero-stat-num{
-  animation: parkingMetricNumberTurn 1.38s cubic-bezier(.16,1,.3,1) both;
-}
-body.metrics-ready .hero-stat-label{
-  animation: parkingMetricLabelLock .9s cubic-bezier(.22,1,.36,1) both;
-}
-body.metrics-ready .hero-stat-item:nth-child(1),
-body.metrics-ready .hero-stat-item:nth-child(1) .hero-stat-num,
-body.metrics-ready .hero-stat-item:nth-child(1) .hero-stat-label{ animation-delay: .00s; }
-body.metrics-ready .hero-stat-item:nth-child(2),
-body.metrics-ready .hero-stat-item:nth-child(2) .hero-stat-num,
-body.metrics-ready .hero-stat-item:nth-child(2) .hero-stat-label{ animation-delay: .16s; }
-body.metrics-ready .hero-stat-item:nth-child(3),
-body.metrics-ready .hero-stat-item:nth-child(3) .hero-stat-num,
-body.metrics-ready .hero-stat-item:nth-child(3) .hero-stat-label{ animation-delay: .32s; }
-body.metrics-ready .hero-stat-item:nth-child(4),
-body.metrics-ready .hero-stat-item:nth-child(4) .hero-stat-num,
-body.metrics-ready .hero-stat-item:nth-child(4) .hero-stat-label{ animation-delay: .48s; }
-
-@keyframes parkingMetricCardReveal{
-  0%{ opacity:0; transform:translateY(18px) scale(.965); filter:blur(10px); }
-  52%{ opacity:1; transform:translateY(-3px) scale(1.018); filter:blur(0); }
-  100%{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
-}
-@keyframes parkingMetricNumberTurn{
-  0%{ opacity:0; transform:perspective(1000px) rotateX(72deg) rotateZ(-2deg) translateY(15px) scale(.88); filter:blur(8px); }
-  38%{ opacity:1; transform:perspective(1000px) rotateX(-16deg) rotateZ(.8deg) translateY(-4px) scale(1.08); filter:blur(.35px); }
-  68%{ opacity:1; transform:perspective(1000px) rotateX(6deg) rotateZ(0deg) translateY(1px) scale(.992); filter:blur(0); }
-  100%{ opacity:1; transform:perspective(1000px) rotateX(0deg) rotateZ(0deg) translateY(0) scale(1); filter:blur(0); }
-}
-@keyframes parkingMetricLabelLock{
-  0%{ opacity:0; transform:translateY(7px); letter-spacing:.11em; }
-  100%{ opacity:1; transform:translateY(0); }
-}
-
-/* Kill any legacy spin classes if cached or injected by an older script. */
-.hero-stat-num.stat-spin-blur,
-.hero-stat-num.stat-spin-land{
-  animation: none !important;
-  transform: none !important;
-  filter: none !important;
+.nav-links a:hover::after,
+.nav-links a.active::after {
   opacity: 1 !important;
+  width: 4px !important;
+}
+.nav-links a:hover {
+  color: var(--red, #e10600) !important;
+}
+.nav-links a.active {
+  color: var(--red, #e10600) !important;
+  font-weight: 700 !important;
 }
 
-@media (prefers-reduced-motion: reduce){
-  .hero-stat-item,
-  .hero-stat-num,
-  .hero-stat-label{
-    opacity:1 !important;
-    transform:none !important;
-    filter:none !important;
-    animation:none !important;
-  }
+/* 5. Locked logo height */
+.nav-logo img {
+  height: 58px !important;
+  width: auto !important;
 }
-</style>
-<script id="parking-htx-final-metric-motion-js">
-(function(){
-  function resetMetricText(){
-    var values = {
-      'hval-0': '$0',
-      'hval-1': '15+',
-      'hval-2': '24/7',
-      'hval-3': 'HTX'
-    };
-    Object.keys(values).forEach(function(id){
-      var el = document.getElementById(id);
-      if(!el) return;
-      el.classList.remove('stat-spin-blur','stat-spin-land');
-      el.textContent = values[id];
-    });
-  }
-  function launchMetrics(){
-    resetMetricText();
-    window.setTimeout(function(){
-      resetMetricText();
-      document.body.classList.add('metrics-ready');
-    }, 1000);
-  }
-  if(document.readyState === 'complete'){
-    launchMetrics();
-  } else {
-    window.addEventListener('load', launchMetrics, { once:true });
-  }
-})();
-</script>
-
-
-<style id="parking-htx-absolute-mobile-viewport-master-lock">
-/* ============================================================
-   PARKING HTX — ABSOLUTE MOBILE HERO VIEWPORT MASTER LOCK
-   Root fix: older mobile blocks used 100svh/auto-height in conflict, which
-   allowed the next section to peek into the first viewport. This final block
-   uses the real visible viewport set by JS and hard-locks the hero to exactly
-   the area below the sticky header on mobile.
-   ============================================================ */
-@media (max-width: 860px){
-  :root{
-    --parking-htx-nav-h:76px;
-    --parking-htx-real-vh:100dvh;
-  }
-
-  html,
-  body{
-    width:100% !important;
-    max-width:100% !important;
-    overflow-x:hidden !important;
-  }
-
-  .nav{
-    height:var(--parking-htx-nav-h) !important;
-    min-height:var(--parking-htx-nav-h) !important;
-    max-height:var(--parking-htx-nav-h) !important;
-    flex:0 0 var(--parking-htx-nav-h) !important;
-  }
-
-  .hero{
-    width:100% !important;
-    min-height:calc(var(--parking-htx-real-vh, 100dvh) - var(--parking-htx-nav-h)) !important;
-    height:calc(var(--parking-htx-real-vh, 100dvh) - var(--parking-htx-nav-h)) !important;
-    max-height:calc(var(--parking-htx-real-vh, 100dvh) - var(--parking-htx-nav-h)) !important;
-    display:flex !important;
-    align-items:stretch !important;
-    justify-content:center !important;
-    padding:0 !important;
-    margin:0 !important;
-    overflow:hidden !important;
-    position:relative !important;
-  }
-
-  .hero-inner{
-    width:100% !important;
-    max-width:760px !important;
-    min-height:0 !important;
-    height:100% !important;
-    max-height:100% !important;
-    margin:0 auto !important;
-    box-sizing:border-box !important;
-    padding-top:clamp(18px, 3.15dvh, 34px) !important;
-    padding-right:20px !important;
-    padding-bottom:clamp(12px, 1.65dvh, 20px) !important;
-    padding-left:20px !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:center !important;
-    text-align:center !important;
-    overflow:hidden !important;
-  }
-
-  .hero-label{
-    margin:0 0 clamp(11px, 1.65dvh, 18px) !important;
-    padding:0 !important;
-    font-size:clamp(10.5px, 2.7vw, 13.5px) !important;
-    line-height:1.16 !important;
-    letter-spacing:clamp(.115em, .88vw, .17em) !important;
-    white-space:nowrap !important;
-  }
-
-  .hero h1{
-    width:100% !important;
-    max-width:720px !important;
-    margin:0 auto clamp(12px, 1.75dvh, 20px) !important;
-    font-size:clamp(39px, 11.55vw, 64px) !important;
-    line-height:.96 !important;
-    letter-spacing:-.052em !important;
-  }
-
-  .hero-sub{
-    width:100% !important;
-    max-width:650px !important;
-    margin:0 auto clamp(18px, 2.55dvh, 28px) !important;
-    font-size:clamp(15.5px, 4.05vw, 20px) !important;
-    line-height:1.45 !important;
-    text-wrap:balance !important;
-  }
-
-  .hero-actions{
-    width:100% !important;
-    max-width:590px !important;
-    margin:0 auto !important;
-    display:grid !important;
-    grid-template-columns:1fr 1fr !important;
-    gap:clamp(9px, 2.5vw, 14px) !important;
-    align-items:center !important;
-    justify-content:center !important;
-    flex:0 0 auto !important;
-  }
-
-  .hero-actions .btn-primary,
-  .hero-actions .btn-secondary{
-    width:100% !important;
-    min-width:0 !important;
-    height:clamp(48px, 6.85dvh, 56px) !important;
-    padding-left:clamp(10px, 4.5vw, 24px) !important;
-    padding-right:clamp(10px, 4.5vw, 24px) !important;
-    font-size:clamp(15px, 4.05vw, 19px) !important;
-    line-height:1 !important;
-    white-space:nowrap !important;
-  }
-
-  .hero-stats{
-    width:100% !important;
-    max-width:720px !important;
-    margin:clamp(19px, 2.9dvh, 32px) auto 0 !important;
-    padding-top:clamp(13px, 2.05dvh, 23px) !important;
-    padding-bottom:0 !important;
-    margin-bottom:0 !important;
-    border-top:1px solid var(--line) !important;
-    display:grid !important;
-    grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
-    gap:0 !important;
-    align-items:start !important;
-    flex:0 0 auto !important;
-  }
-
-  .hero-stats > div{
-    min-width:0 !important;
-    width:100% !important;
-    padding:0 4px !important;
-    position:relative !important;
-  }
-
-  .hero-stats > div + div::before{
-    content:'' !important;
-    position:absolute !important;
-    left:0 !important;
-    top:2px !important;
-    bottom:2px !important;
-    width:1px !important;
-    background:rgba(17,19,20,.12) !important;
-  }
-
-  .hero-stat-num{
-    font-size:clamp(29px, 8.6vw, 43px) !important;
-    line-height:.86 !important;
-    margin:0 auto 6px !important;
-    white-space:nowrap !important;
-  }
-
-  .hero-stat-label{
-    font-size:clamp(8.8px, 2.32vw, 11.5px) !important;
-    line-height:1.05 !important;
-    letter-spacing:0 !important;
-    font-weight:900 !important;
-    margin:0 auto !important;
+@media (max-width: 768px) {
+  .nav-logo img {
+    height: 54px !important;
   }
 }
 
-@media (max-width:480px){
-  .hero-inner{
-    padding-top:clamp(15px, 2.65dvh, 28px) !important;
-    padding-right:18px !important;
-    padding-bottom:clamp(10px, 1.25dvh, 16px) !important;
-    padding-left:18px !important;
-  }
-  .hero-label{
-    margin-bottom:clamp(9px, 1.32dvh, 14px) !important;
-    font-size:clamp(10px, 2.65vw, 12px) !important;
-    letter-spacing:clamp(.095em, .7vw, .14em) !important;
-  }
-  .hero h1{
-    font-size:clamp(35px, 10.5vw, 50px) !important;
-    margin-bottom:clamp(10px, 1.45dvh, 15px) !important;
-  }
-  .hero-sub{
-    font-size:clamp(14.3px, 3.82vw, 16.2px) !important;
-    line-height:1.42 !important;
-    margin-bottom:clamp(14px, 2.0dvh, 21px) !important;
-  }
-  .hero-actions .btn-primary,
-  .hero-actions .btn-secondary{
-    height:clamp(45px, 6.25dvh, 52px) !important;
-    font-size:clamp(14px, 3.75vw, 16px) !important;
-    padding-left:clamp(9px, 3.8vw, 18px) !important;
-    padding-right:clamp(9px, 3.8vw, 18px) !important;
-  }
-  .hero-stats{
-    margin-top:clamp(15px, 2.25dvh, 24px) !important;
-    padding-top:clamp(10px, 1.6dvh, 17px) !important;
-  }
-  .hero-stat-num{
-    font-size:clamp(26px, 8vw, 36px) !important;
-    margin-bottom:5px !important;
-  }
-  .hero-stat-label{
-    font-size:clamp(7.8px, 2.12vw, 9.7px) !important;
-    line-height:1.02 !important;
-  }
+/* 6. Polished hamburger */
+.hamburger span {
+  width: 24px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  transition: transform .22s cubic-bezier(.22,1,.36,1), opacity .18s !important;
 }
 
-@media (max-width:380px), (max-height:700px) and (max-width:520px){
-  .hero-inner{
-    padding-top:10px !important;
-    padding-bottom:8px !important;
-  }
-  .hero-label{margin-bottom:7px !important;font-size:9.6px !important;}
-  .hero h1{font-size:clamp(31px, 9.8vw, 40px) !important;margin-bottom:8px !important;}
-  .hero-sub{font-size:13.6px !important;line-height:1.34 !important;margin-bottom:10px !important;}
-  .hero-actions{gap:8px !important;}
-  .hero-actions .btn-primary,
-  .hero-actions .btn-secondary{height:43px !important;font-size:13.4px !important;}
-  .hero-stats{margin-top:10px !important;padding-top:9px !important;}
-  .hero-stat-num{font-size:24px !important;margin-bottom:4px !important;}
-  .hero-stat-label{font-size:7.25px !important;line-height:1 !important;}
+/* 7. Mobile menu: red radial glow + white close icon */
+.mobile-menu {
+  background: radial-gradient(ellipse at 50% 0%, rgba(225,6,0,.08) 0%, transparent 65%), #0d0d0d !important;
+}
+.menu-close svg line,
+.mobile-menu-top .menu-close svg line,
+#menuClose svg line {
+  stroke: #ffffff !important;
 }
 </style>
-
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
@@ -6074,8 +5748,8 @@ body.metrics-ready .hero-stat-item:nth-child(4) .hero-stat-label{ animation-dela
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-label">Partnership. Performance. Protection.</div>
-<h1>Parking Built for Houston.</h1>
-<p class="hero-sub">We help property owners protect access, improve the parking experience, and unlock the full value of their parking assets.</p>
+<h1>We make parking<br/>an asset — <em>for you.</em></h1>
+<p class="hero-sub">We help property owners monetize and regulate their parking with zero cost, real-time data, and a better experience for everyone.</p>
 <div class="hero-actions">
 <a class="btn-primary" href="mailto:info@parking-htx.com?subject=Parking%20HTX%20Partnership%20Inquiry&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%27m%20interested%20in%20learning%20how%20your%20zero-cost%20parking%20management%20partnership%20could%20work%20for%20my%20property.%0A%0AProperty%20Name%3A%0AProperty%20Address%3A%0AProperty%20Type%3A%0AEstimated%20Parking%20Spaces%3A%0ABest%20Phone%20Number%3A%0A%0AThank%20you.">
         Let's Talk
@@ -6419,6 +6093,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// ===== HERO STAT TICKER — ONE-SHOT SPIN, NO RESTART =====
+(function() {
+  // Each stat spins through intermediate values then lands on final
+  // Runs ONCE on page load. Never restarts.
+  var sequence = [
+    { id: 'hval-0', spins: ['88+', '47', '$0'],  final: '$0',  startDelay: 600  },
+    { id: 'hval-1', spins: ['8',   '20+', '15+'], final: '15+', startDelay: 1050 },
+    { id: 'hval-2', spins: ['12H', '24H', '24/7'],final: '24/7',startDelay: 1500 },
+    { id: 'hval-3', spins: ['HOU', 'TX',  'HTX'], final: 'HTX', startDelay: 1950 }
+  ];
+
+  var spinDuration = 80;  // ms between each spin frame
+  var settlePause  = 120; // extra pause before landing on final
+
+  function spinEl(el, frames, final) {
+    var i = 0;
+    function next() {
+      if (i < frames.length) {
+        el.textContent = frames[i];
+        el.classList.remove('stat-spin-land');
+        el.classList.add('stat-spin-blur');
+        i++;
+        setTimeout(next, spinDuration);
+      } else {
+        // Land on final
+        setTimeout(function() {
+          el.classList.remove('stat-spin-blur');
+          el.classList.add('stat-spin-land');
+          el.textContent = final;
+        }, settlePause);
+      }
+    }
+    next();
+  }
+
+  sequence.forEach(function(s) {
+    var el = document.getElementById(s.id);
+    if (!el) return;
+    setTimeout(function() {
+      spinEl(el, s.spins, s.final);
+    }, s.startDelay);
+  });
+})();
 
 </script>
 <script id="parking-htx-cinematic-hero-script">
@@ -6507,26 +6224,32 @@ hero.classList.add('hero-loaded');
 })();
 </script>
 
-<script id="parking-htx-real-mobile-viewport-js">
+<script id="parking-htx-nav-active-scroll">
 (function(){
-  function lockMobileHeroViewport(){
-    var root = document.documentElement;
-    var nav = document.querySelector('.nav');
-    var navHeight = nav ? Math.round(nav.getBoundingClientRect().height) : 76;
-    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
-    if(navHeight < 60) navHeight = 76;
-    root.style.setProperty('--parking-htx-nav-h', navHeight + 'px');
-    root.style.setProperty('--parking-htx-real-vh', vh + 'px');
+  // Active nav: Index page — highlight Home/first nav link
+  var links = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
+  links.forEach(function(a){
+    var href = a.getAttribute('href') || '';
+    // On index, Home link or #top
+    if(href === '#top' || href === 'index.html#top' || href === 'index.html' || href === './'){
+      a.classList.add('active');
+    }
+  });
+
+  // Scroll state for glass nav
+  var nav = document.getElementById('mainNav');
+  if(nav){
+    function checkScroll(){
+      if(window.scrollY > 12){
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', checkScroll, {passive:true});
+    checkScroll();
   }
-  lockMobileHeroViewport();
-  window.addEventListener('load', lockMobileHeroViewport, {passive:true});
-  window.addEventListener('resize', lockMobileHeroViewport, {passive:true});
-  window.addEventListener('orientationchange', function(){
-    setTimeout(lockMobileHeroViewport, 60);
-    setTimeout(lockMobileHeroViewport, 320);
-  }, {passive:true});
 })();
 </script>
-
 </body>
 </html>
