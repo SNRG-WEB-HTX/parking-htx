@@ -2250,23 +2250,28 @@ img { max-width: 100%; display: block; }
   transition: none;
 }
 .hero-stat-num.stat-spin-blur {
-  animation: statSpin .08s linear;
-  filter: blur(1px);
-  opacity: .7;
-  transform: scaleY(.88);
+  animation: statSpin .34s cubic-bezier(.22,1,.36,1);
+  filter: blur(1.35px);
+  opacity: .72;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
 }
 .hero-stat-num.stat-spin-land {
-  animation: statLand .38s cubic-bezier(.22,1,.36,1) forwards;
+  animation: statLand .9s cubic-bezier(.16,1,.3,1) forwards;
   filter: none;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
 }
 @keyframes statSpin {
-  0%   { transform: scaleY(.7) translateY(-2px); opacity: .5; }
-  100% { transform: scaleY(1)  translateY(0);    opacity: .7; }
+  0%   { transform: perspective(700px) rotateY(-62deg) translateX(-11px) scale(.92); opacity: .35; filter: blur(2px); }
+  45%  { transform: perspective(700px) rotateY(44deg) translateX(8px) scale(1.04); opacity: .82; filter: blur(1px); }
+  100% { transform: perspective(700px) rotateY(0deg) translateX(0) scale(1); opacity: .78; filter: blur(1.15px); }
 }
 @keyframes statLand {
-  0%   { transform: scaleY(.78) translateY(6px); opacity: 0;   filter: blur(2px); }
-  60%  { transform: scaleY(1.06) translateY(-1px); opacity: 1; filter: none; }
-  100% { transform: scaleY(1)   translateY(0);    opacity: 1;  filter: none; }
+  0%   { transform: perspective(700px) rotateY(54deg) translateX(12px) translateY(5px) scale(.94); opacity: 0; filter: blur(2.2px); }
+  42%  { transform: perspective(700px) rotateY(-12deg) translateX(-3px) translateY(-2px) scale(1.06); opacity: 1; filter: blur(.35px); }
+  74%  { transform: perspective(700px) rotateY(5deg) translateX(1px) translateY(0) scale(.995); opacity: 1; filter: none; }
+  100% { transform: perspective(700px) rotateY(0deg) translateX(0) translateY(0) scale(1); opacity: 1; filter: none; }
 }
 
 /* === MOBILE NAV LEFT LOGO RED ACCENT ON HAMBURGER === */
@@ -2281,6 +2286,16 @@ img { max-width: 100%; display: block; }
   }
   .hamburger span {
     background: #111314 !important;
+  }
+}
+
+
+/* ============================================================
+   FINAL HERO COPY + MOBILE VIEWPORT TIGHTEN
+   ============================================================ */
+@media (max-width: 768px){
+  .hero-inner{
+    padding-bottom:clamp(10px,2svh,18px) !important;
   }
 }
 
@@ -5624,8 +5639,8 @@ transform:translateY(0);
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-label">Partnership. Performance. Protection.</div>
-<h1>We make parking<br/>an asset — <em>for you.</em></h1>
-<p class="hero-sub">We help property owners monetize and regulate their parking with zero cost, real-time data, and a better experience for everyone.</p>
+<h1>Parking Built for Houston.</h1>
+<p class="hero-sub">We help property owners protect access, improve the parking experience, and unlock the full value of their parking assets.</p>
 <div class="hero-actions">
 <a class="btn-primary" href="mailto:info@parking-htx.com?subject=Parking%20HTX%20Partnership%20Inquiry&amp;body=Hello%20PARKING%20HTX%2C%0A%0AI%27m%20interested%20in%20learning%20how%20your%20zero-cost%20parking%20management%20partnership%20could%20work%20for%20my%20property.%0A%0AProperty%20Name%3A%0AProperty%20Address%3A%0AProperty%20Type%3A%0AEstimated%20Parking%20Spaces%3A%0ABest%20Phone%20Number%3A%0A%0AThank%20you.">
         Let's Talk
@@ -5969,19 +5984,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== HERO STAT TICKER — ONE-SHOT SPIN, NO RESTART =====
+// ===== HERO STAT TICKER — ONE-SHOT SLOW CINEMATIC SPIN, NO RESTART =====
 (function() {
-  // Each stat spins through intermediate values then lands on final
-  // Runs ONCE on page load. Never restarts.
+  // Starts 1 second after page load, then each stat turns slower and lands harder.
   var sequence = [
-    { id: 'hval-0', spins: ['88+', '47', '$0'],  final: '$0',  startDelay: 600  },
-    { id: 'hval-1', spins: ['8',   '20+', '15+'], final: '15+', startDelay: 1050 },
-    { id: 'hval-2', spins: ['12H', '24H', '24/7'],final: '24/7',startDelay: 1500 },
-    { id: 'hval-3', spins: ['HOU', 'TX',  'HTX'], final: 'HTX', startDelay: 1950 }
+    { id: 'hval-0', spins: ['88+', '47', '$0'],  final: '$0',  startDelay: 1000 },
+    { id: 'hval-1', spins: ['8',   '20+', '15+'], final: '15+', startDelay: 1750 },
+    { id: 'hval-2', spins: ['12H', '24H', '24/7'],final: '24/7',startDelay: 2500 },
+    { id: 'hval-3', spins: ['HOU', 'TX',  'HTX'], final: 'HTX', startDelay: 3250 }
   ];
 
-  var spinDuration = 80;  // ms between each spin frame
-  var settlePause  = 120; // extra pause before landing on final
+  var spinDuration = 300;  // slower frame turn for a more dramatic left/right spin
+  var settlePause  = 260;  // stronger pause before landing on final
 
   function spinEl(el, frames, final) {
     var i = 0;
@@ -5989,13 +6003,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       if (i < frames.length) {
         el.textContent = frames[i];
         el.classList.remove('stat-spin-land');
+        void el.offsetWidth;
         el.classList.add('stat-spin-blur');
         i++;
         setTimeout(next, spinDuration);
       } else {
-        // Land on final
         setTimeout(function() {
           el.classList.remove('stat-spin-blur');
+          void el.offsetWidth;
           el.classList.add('stat-spin-land');
           el.textContent = final;
         }, settlePause);
@@ -6004,13 +6019,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     next();
   }
 
-  sequence.forEach(function(s) {
-    var el = document.getElementById(s.id);
-    if (!el) return;
-    setTimeout(function() {
-      spinEl(el, s.spins, s.final);
-    }, s.startDelay);
-  });
+  function runHeroStats() {
+    sequence.forEach(function(s) {
+      var el = document.getElementById(s.id);
+      if (!el) return;
+      setTimeout(function() {
+        spinEl(el, s.spins, s.final);
+      }, s.startDelay);
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(runHeroStats, 1000);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(runHeroStats, 1000);
+    }, { once: true });
+  }
 })();
 
 </script>
