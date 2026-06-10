@@ -5571,6 +5571,220 @@ transform:translateY(0);
 
 </style>
 
+
+<style id="parking-htx-mobile-hero-spacing-and-metric-motion-final">
+/* ============================================================
+   FINAL MOBILE HERO ROOT-CAUSE FIX
+   The bottom dead space was caused by multiple later mobile
+   hero min-height locks forcing the hero taller than its content.
+   This override removes the forced mobile hero height and trims
+   the post-stat padding without touching desktop/tablet structure.
+   ============================================================ */
+@media (max-width: 860px){
+  .hero{
+    min-height: auto !important;
+    height: auto !important;
+    display: block !important;
+    align-items: initial !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    overflow: hidden !important;
+  }
+  .hero-inner{
+    min-height: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    padding-top: clamp(50px, 7.2svh, 70px) !important;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    padding-bottom: clamp(12px, 1.8svh, 20px) !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .hero-label{
+    margin-top: 0 !important;
+    margin-bottom: clamp(18px, 3svh, 24px) !important;
+  }
+  .hero h1{
+    margin-top: 0 !important;
+    margin-bottom: clamp(18px, 2.8svh, 24px) !important;
+  }
+  .hero-sub{
+    margin-bottom: clamp(24px, 3.8svh, 34px) !important;
+  }
+  .hero-actions{
+    margin-bottom: 0 !important;
+  }
+  .hero-stats{
+    width: 100% !important;
+    max-width: 760px !important;
+    margin-top: clamp(30px, 4.7svh, 40px) !important;
+    padding-top: clamp(20px, 3.1svh, 28px) !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    align-items: start !important;
+  }
+  .hero-stats > div{
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 0 5px !important;
+  }
+}
+
+@media (max-width: 480px){
+  .hero-inner{
+    padding-top: clamp(46px, 6.8svh, 62px) !important;
+    padding-bottom: clamp(10px, 1.4svh, 16px) !important;
+  }
+  .hero-label{
+    margin-bottom: clamp(16px, 2.6svh, 22px) !important;
+  }
+  .hero h1{
+    font-size: clamp(35px, 10.6vw, 49px) !important;
+    line-height: .98 !important;
+    margin-bottom: clamp(16px, 2.4svh, 22px) !important;
+  }
+  .hero-sub{
+    font-size: 15.5px !important;
+    line-height: 1.58 !important;
+    margin-bottom: clamp(22px, 3.2svh, 30px) !important;
+  }
+  .hero-stats{
+    margin-top: clamp(26px, 4svh, 34px) !important;
+    padding-top: clamp(18px, 2.6svh, 24px) !important;
+  }
+}
+
+@media (max-width: 390px){
+  .hero-inner{
+    padding-top: 40px !important;
+    padding-bottom: 9px !important;
+  }
+  .hero-label{ margin-bottom: 14px !important; }
+  .hero h1{ margin-bottom: 14px !important; }
+  .hero-sub{ margin-bottom: 19px !important; }
+  .hero-stats{
+    margin-top: 21px !important;
+    padding-top: 16px !important;
+  }
+}
+
+/* ============================================================
+   FINAL METRIC MOTION — NO OLD TICKER / NO TEXT SWAPPING
+   Modern one-shot signature reveal: card rises, number turns in
+   with a premium 3D snap, label locks cleanly underneath.
+   ============================================================ */
+.hero-stat-item{
+  position: relative !important;
+  perspective: 1000px !important;
+  transform-style: preserve-3d !important;
+  opacity: 0;
+  transform: translateY(18px) scale(.965);
+  filter: blur(10px);
+  will-change: transform, opacity, filter;
+}
+.hero-stat-num{
+  display: inline-block !important;
+  min-width: 0 !important;
+  transform-origin: 50% 82% !important;
+  will-change: transform, opacity, filter;
+}
+.hero-stat-label{
+  will-change: transform, opacity, letter-spacing;
+}
+body.metrics-ready .hero-stat-item{
+  animation: parkingMetricCardReveal 1.18s cubic-bezier(.16,1,.3,1) forwards;
+}
+body.metrics-ready .hero-stat-num{
+  animation: parkingMetricNumberTurn 1.38s cubic-bezier(.16,1,.3,1) both;
+}
+body.metrics-ready .hero-stat-label{
+  animation: parkingMetricLabelLock .9s cubic-bezier(.22,1,.36,1) both;
+}
+body.metrics-ready .hero-stat-item:nth-child(1),
+body.metrics-ready .hero-stat-item:nth-child(1) .hero-stat-num,
+body.metrics-ready .hero-stat-item:nth-child(1) .hero-stat-label{ animation-delay: .00s; }
+body.metrics-ready .hero-stat-item:nth-child(2),
+body.metrics-ready .hero-stat-item:nth-child(2) .hero-stat-num,
+body.metrics-ready .hero-stat-item:nth-child(2) .hero-stat-label{ animation-delay: .16s; }
+body.metrics-ready .hero-stat-item:nth-child(3),
+body.metrics-ready .hero-stat-item:nth-child(3) .hero-stat-num,
+body.metrics-ready .hero-stat-item:nth-child(3) .hero-stat-label{ animation-delay: .32s; }
+body.metrics-ready .hero-stat-item:nth-child(4),
+body.metrics-ready .hero-stat-item:nth-child(4) .hero-stat-num,
+body.metrics-ready .hero-stat-item:nth-child(4) .hero-stat-label{ animation-delay: .48s; }
+
+@keyframes parkingMetricCardReveal{
+  0%{ opacity:0; transform:translateY(18px) scale(.965); filter:blur(10px); }
+  52%{ opacity:1; transform:translateY(-3px) scale(1.018); filter:blur(0); }
+  100%{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
+}
+@keyframes parkingMetricNumberTurn{
+  0%{ opacity:0; transform:perspective(1000px) rotateX(72deg) rotateZ(-2deg) translateY(15px) scale(.88); filter:blur(8px); }
+  38%{ opacity:1; transform:perspective(1000px) rotateX(-16deg) rotateZ(.8deg) translateY(-4px) scale(1.08); filter:blur(.35px); }
+  68%{ opacity:1; transform:perspective(1000px) rotateX(6deg) rotateZ(0deg) translateY(1px) scale(.992); filter:blur(0); }
+  100%{ opacity:1; transform:perspective(1000px) rotateX(0deg) rotateZ(0deg) translateY(0) scale(1); filter:blur(0); }
+}
+@keyframes parkingMetricLabelLock{
+  0%{ opacity:0; transform:translateY(7px); letter-spacing:.11em; }
+  100%{ opacity:1; transform:translateY(0); }
+}
+
+/* Kill any legacy spin classes if cached or injected by an older script. */
+.hero-stat-num.stat-spin-blur,
+.hero-stat-num.stat-spin-land{
+  animation: none !important;
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-stat-item,
+  .hero-stat-num,
+  .hero-stat-label{
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+    animation:none !important;
+  }
+}
+</style>
+<script id="parking-htx-final-metric-motion-js">
+(function(){
+  function resetMetricText(){
+    var values = {
+      'hval-0': '$0',
+      'hval-1': '15+',
+      'hval-2': '24/7',
+      'hval-3': 'HTX'
+    };
+    Object.keys(values).forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      el.classList.remove('stat-spin-blur','stat-spin-land');
+      el.textContent = values[id];
+    });
+  }
+  function launchMetrics(){
+    resetMetricText();
+    window.setTimeout(function(){
+      resetMetricText();
+      document.body.classList.add('metrics-ready');
+    }, 1000);
+  }
+  if(document.readyState === 'complete'){
+    launchMetrics();
+  } else {
+    window.addEventListener('load', launchMetrics, { once:true });
+  }
+})();
+</script>
+
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
@@ -5984,59 +6198,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== HERO STAT TICKER — ONE-SHOT SLOW CINEMATIC SPIN, NO RESTART =====
-(function() {
-  // Starts 1 second after page load, then each stat turns slower and lands harder.
-  var sequence = [
-    { id: 'hval-0', spins: ['88+', '47', '$0'],  final: '$0',  startDelay: 1000 },
-    { id: 'hval-1', spins: ['8',   '20+', '15+'], final: '15+', startDelay: 1750 },
-    { id: 'hval-2', spins: ['12H', '24H', '24/7'],final: '24/7',startDelay: 2500 },
-    { id: 'hval-3', spins: ['HOU', 'TX',  'HTX'], final: 'HTX', startDelay: 3250 }
-  ];
-
-  var spinDuration = 300;  // slower frame turn for a more dramatic left/right spin
-  var settlePause  = 260;  // stronger pause before landing on final
-
-  function spinEl(el, frames, final) {
-    var i = 0;
-    function next() {
-      if (i < frames.length) {
-        el.textContent = frames[i];
-        el.classList.remove('stat-spin-land');
-        void el.offsetWidth;
-        el.classList.add('stat-spin-blur');
-        i++;
-        setTimeout(next, spinDuration);
-      } else {
-        setTimeout(function() {
-          el.classList.remove('stat-spin-blur');
-          void el.offsetWidth;
-          el.classList.add('stat-spin-land');
-          el.textContent = final;
-        }, settlePause);
-      }
-    }
-    next();
-  }
-
-  function runHeroStats() {
-    sequence.forEach(function(s) {
-      var el = document.getElementById(s.id);
-      if (!el) return;
-      setTimeout(function() {
-        spinEl(el, s.spins, s.final);
-      }, s.startDelay);
-    });
-  }
-
-  if (document.readyState === 'complete') {
-    setTimeout(runHeroStats, 1000);
-  } else {
-    window.addEventListener('load', function() {
-      setTimeout(runHeroStats, 1000);
-    }, { once: true });
-  }
-})();
 
 </script>
 <script id="parking-htx-cinematic-hero-script">
