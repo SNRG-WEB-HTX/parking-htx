@@ -5785,6 +5785,228 @@ body.metrics-ready .hero-stat-item:nth-child(4) .hero-stat-label{ animation-dela
 })();
 </script>
 
+
+<style id="parking-htx-mobile-viewport-master-lock">
+/* ============================================================
+   PARKING HTX — MOBILE HERO VIEWPORT MASTER LOCK
+   Root-cause correction:
+   Prior mobile overrides set the hero to auto height, letting the
+   next section appear inside the first mobile viewport. This final
+   lock makes the hero occupy exactly the screen area below the
+   sticky header and compresses only vertical rhythm on mobile.
+   ============================================================ */
+@media (max-width: 860px){
+  html,
+  body{
+    overflow-x:hidden !important;
+  }
+
+  .hero{
+    min-height:calc(100svh - 76px) !important;
+    height:calc(100svh - 76px) !important;
+    max-height:calc(100svh - 76px) !important;
+    display:flex !important;
+    align-items:stretch !important;
+    justify-content:center !important;
+    padding:0 !important;
+    margin:0 !important;
+    overflow:hidden !important;
+  }
+
+  .hero-inner{
+    min-height:0 !important;
+    height:100% !important;
+    max-height:100% !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding-top:clamp(26px, 4.4svh, 46px) !important;
+    padding-right:20px !important;
+    padding-left:20px !important;
+    padding-bottom:clamp(8px, 1.15svh, 14px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    align-items:center !important;
+    text-align:center !important;
+  }
+
+  .hero-label{
+    margin-top:0 !important;
+    margin-bottom:clamp(14px, 2.25svh, 22px) !important;
+    line-height:1.35 !important;
+  }
+
+  .hero h1{
+    margin-top:0 !important;
+    margin-bottom:clamp(14px, 2.1svh, 22px) !important;
+    line-height:.98 !important;
+  }
+
+  .hero-sub{
+    margin-top:0 !important;
+    margin-bottom:clamp(20px, 3.1svh, 30px) !important;
+    line-height:1.56 !important;
+  }
+
+  .hero-actions{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    gap:clamp(10px, 2.2vw, 14px) !important;
+    flex:0 0 auto !important;
+  }
+
+  .btn-primary,
+  .btn-secondary{
+    height:clamp(50px, 7svh, 56px) !important;
+  }
+
+  .hero-stats{
+    width:100% !important;
+    max-width:760px !important;
+    display:grid !important;
+    grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+    gap:0 !important;
+    flex:0 0 auto !important;
+    margin-top:clamp(22px, 3.4svh, 34px) !important;
+    padding-top:clamp(15px, 2.25svh, 24px) !important;
+    padding-bottom:0 !important;
+    margin-bottom:0 !important;
+    align-items:start !important;
+  }
+
+  .hero-stats > div,
+  .hero-stat-item{
+    min-width:0 !important;
+    width:100% !important;
+    padding:0 4px !important;
+  }
+
+  .hero-stat-num{
+    line-height:.92 !important;
+  }
+
+  .hero-stat-label{
+    margin-top:4px !important;
+    line-height:1.05 !important;
+  }
+}
+
+@media (max-width: 520px){
+  .hero-inner{
+    padding-top:clamp(22px, 3.6svh, 38px) !important;
+    padding-bottom:clamp(6px, .9svh, 11px) !important;
+  }
+
+  .hero-label{
+    font-size:clamp(9px, 2.75vw, 10.5px) !important;
+    letter-spacing:.18em !important;
+    margin-bottom:clamp(12px, 1.85svh, 18px) !important;
+    white-space:normal !important;
+  }
+
+  .hero h1{
+    font-size:clamp(33px, 10.1vw, 48px) !important;
+    line-height:.98 !important;
+    margin-bottom:clamp(12px, 1.85svh, 18px) !important;
+  }
+
+  .hero-sub{
+    font-size:clamp(14.4px, 4.15vw, 15.8px) !important;
+    line-height:1.52 !important;
+    max-width:360px !important;
+    margin-bottom:clamp(18px, 2.75svh, 26px) !important;
+  }
+
+  .hero-actions{
+    gap:10px !important;
+    flex-wrap:nowrap !important;
+  }
+
+  .btn-primary,
+  .btn-secondary{
+    width:auto !important;
+    min-width:0 !important;
+    height:clamp(48px, 6.7svh, 54px) !important;
+    padding-left:clamp(18px, 5vw, 27px) !important;
+    padding-right:clamp(18px, 5vw, 27px) !important;
+    font-size:clamp(14px, 3.8vw, 15px) !important;
+  }
+
+  .hero-stats{
+    margin-top:clamp(20px, 3svh, 30px) !important;
+    padding-top:clamp(13px, 2svh, 20px) !important;
+  }
+
+  .hero-stat-num{
+    font-size:clamp(28px, 9vw, 42px) !important;
+  }
+
+  .hero-stat-label{
+    font-size:clamp(9px, 2.75vw, 12px) !important;
+    letter-spacing:.015em !important;
+  }
+}
+
+@media (max-width: 390px){
+  .hero-inner{
+    padding-top:18px !important;
+    padding-bottom:6px !important;
+  }
+
+  .hero-label{
+    margin-bottom:10px !important;
+    font-size:9px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(31px, 9.8vw, 39px) !important;
+    margin-bottom:10px !important;
+  }
+
+  .hero-sub{
+    font-size:14px !important;
+    line-height:1.45 !important;
+    margin-bottom:15px !important;
+  }
+
+  .btn-primary,
+  .btn-secondary{
+    height:46px !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
+    font-size:13.5px !important;
+  }
+
+  .hero-stats{
+    margin-top:15px !important;
+    padding-top:12px !important;
+  }
+
+  .hero-stat-num{
+    font-size:clamp(25px, 8vw, 34px) !important;
+  }
+
+  .hero-stat-label{
+    font-size:8.5px !important;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 520px){
+  .hero-inner{
+    justify-content:center !important;
+    padding-top:14px !important;
+    padding-bottom:5px !important;
+  }
+
+  .hero-label{ margin-bottom:9px !important; }
+  .hero h1{ margin-bottom:9px !important; }
+  .hero-sub{ margin-bottom:13px !important; line-height:1.42 !important; }
+  .hero-stats{ margin-top:13px !important; padding-top:10px !important; }
+  .btn-primary,
+  .btn-secondary{ height:44px !important; }
+}
+</style>
+
 </head>
 <body id="top">
 <!-- ===== MOBILE MENU OVERLAY ===== -->
